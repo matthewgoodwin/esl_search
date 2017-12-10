@@ -1,22 +1,12 @@
 Rails.application.routes.draw do
-  get 'appointments/index'
-
-  get 'appointments/new'
-
-  get 'appointments/create'
-
-  get 'appointments/edit'
-
-  get 'appointments/update'
-
-  get 'appointments/destroy'
-
   devise_for :users
+  resources :consultations, shallow: true do
+    resources :appointments
+  end # end of shallow nest.. shallow nest allows only nesting for required resouces
   root to: 'pages#home'
   get 'about', to: 'pages#about'
   get 'contact', to: 'pages#contact'
   get 'dashboard', to: 'pages#dashboard'
   get 'search', to: 'pages#search'
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
