@@ -1,5 +1,6 @@
 class ConsultationsController < ApplicationController
   def index
+    @consultations = Consultation.all
   end
 
   def show
