@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-  before_action :find_order, only: [:show, :edit, :update, :destroy]
+  before_action :find_appointment, only: [:show, :edit, :update, :destroy]
   before_action :find_consultation, only: [:create]
   before_action :appointment_params, only: [:create]
   def index
@@ -9,10 +9,15 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new
   end
 
+  def show
+  end
+
   def create
     @appointment = Appointment.new(appointment_params)
     @appointment.consultation_id = @consultation.id
     @appointment.user = current_user
+    @appointment.save
+    redirect_to appointment_path(@appointment)
   end
 
   def edit
@@ -23,11 +28,12 @@ class AppointmentsController < ApplicationController
   end
 
   def destroy
+    @appointment.destroy
   end
 
   private
-  def find_order
-    @order = Order.find(params[:id])
+  def find_appointment
+    @appointment = Appointment.find(params[:id])
   end
   def find_consultation
     @consultation = Consultation.find(params[:consultation_id])
