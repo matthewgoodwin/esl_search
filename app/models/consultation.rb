@@ -1,5 +1,5 @@
 class Consultation < ApplicationRecord
   belongs_to :user
   has_many :appointments, dependent: :destroy
-  validates :type, :focus, presence: true
+  validates :consulttype, :focus, presence: true
 end

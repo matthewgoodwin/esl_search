@@ -1,0 +1,9 @@
+<div class="container">
+  <%= simple_form_for([consultation, appointment]) do |f| %>
+    <%= f.input :pupname, label: false, placeholder: "name" %>
+    <%= f.input :location, label: false, placeholder: "prefered location" %>
+    <%= f.input :start, label: "start date" %>
+    <%= f.input :end, label: "end date" %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

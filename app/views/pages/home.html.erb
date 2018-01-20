@@ -1,4 +1,6 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
-
-<%= link_to "sign-in", new_user_session_path %>
+<p><%= link_to "user home page", dashboard_path %></p>
+<p><%= link_to "sign-in", new_user_session_path %></p>
+<p><%= link_to "sign out", destroy_user_session_path, method: :delete %></p>
+<p><%= link_to "consultations", consultations_path %></p>

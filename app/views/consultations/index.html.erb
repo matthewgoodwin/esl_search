@@ -1,2 +1,9 @@
 <h1>Consultations#index</h1>
 <p>Find me in app/views/consultations/index.html.erb</p>
+<div>
+<% @consultations.each do |consult| %>
+  <%= link_to consult.user.fname, consultation_path(consult) %>
+  <%= consult[:consulttype] %>
+  <%= consult[:consultrate] %>
+<% end %>
+</div>

@@ -1,2 +1,11 @@
 <h1>Consultations#show</h1>
 <p>Find me in app/views/consultations/show.html.erb</p>
+<p>instructor - <%= @consultation.user.fname %></p>
+<p>type - <%= @consultation.consulttype %></p>
+<p>focus - <%= @consultation.focus %></p>
+<p>rate - <%= @consultation.consultrate %></p>
+
+<div>
+  <%= render "appointments/appointment_form", consultation: @consultation, appointment: @appointment %>
+</div>
+
