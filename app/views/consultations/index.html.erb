@@ -1,9 +1,14 @@
 <h1>Consultations#index</h1>
 <p>Find me in app/views/consultations/index.html.erb</p>
+<p><%= link_to "homepage", root_path %></p>
 <div>
-<% @consultations.each do |consult| %>
-  <%= link_to consult.user.fname, consultation_path(consult) %>
-  <%= consult[:consulttype] %>
-  <%= consult[:consultrate] %>
-<% end %>
+  <% @consultations.each do |consult| %>
+  <div>
+    <%= consult.user.fname %>
+    <%= link_to consult[:consulttype], consultation_path(consult) %>
+    <!-- consult[:consultfee] -->
+    <%= number_to_currency(consult[:consultfee], :unit => "₩") %>
+  <!-- :unit is built into the number_to_currency-->
+  <% end %>
+  </div>
 </div>

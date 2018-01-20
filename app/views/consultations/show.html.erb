@@ -1,11 +1,16 @@
 <h1>Consultations#show</h1>
-<p>Find me in app/views/consultations/show.html.erb</p>
-<p>instructor - <%= @consultation.user.fname %></p>
-<p>type - <%= @consultation.consulttype %></p>
-<p>focus - <%= @consultation.focus %></p>
-<p>rate - <%= @consultation.consultrate %></p>
-
+<div class="container">
+  <p>Find me in app/views/consultations/show.html.erb</p>
+  <p><%= link_to "homepage", root_path %></p>
+  <p>instructor - <%= @consultation.user.fname %></p>
+  <p>type - <%= @consultation.consulttype %></p>
+  <p>focus - <%= @consultation.focus %></p>
+  <!-- <p>@consultation.consultfee </p>-->
+  <p>rate/hour- <%= number_to_currency(@consultation.consultfee, :unit => "₩") %></p>
+  <!-- :unit is built into the number_to_currency-->
+</div><!--end of container-->
 <div>
   <%= render "appointments/appointment_form", consultation: @consultation, appointment: @appointment %>
 </div>
+
 

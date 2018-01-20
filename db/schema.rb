@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180107063222) do
+ActiveRecord::Schema.define(version: 20180120120620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,16 +32,17 @@ ActiveRecord::Schema.define(version: 20180107063222) do
     t.integer  "user_id"
     t.string   "type"
     t.string   "focus"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "availableday"
     t.string   "consultdur"
     t.string   "consultperiod"
     t.string   "consultfreq"
-    t.decimal  "consultrate",   precision: 5, scale: 2
+    t.decimal  "consultrate",   precision: 5,  scale: 2
     t.string   "consultdesc"
     t.string   "matincluded"
     t.string   "consulttype"
+    t.decimal  "consultfee",    precision: 19, scale: 2
     t.index ["user_id"], name: "index_consultations_on_user_id", using: :btree
   end
 

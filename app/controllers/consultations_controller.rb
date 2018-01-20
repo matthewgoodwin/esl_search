@@ -36,6 +36,6 @@ class ConsultationsController < ApplicationController
     @consultation = Consultation.find(params[:id])
   end
   def consultation_params
-    params.require(:consultation).permit(:focus, :consulttype, :consultrate)
+    params.require(:consultation).permit(:focus, :consulttype, :consultfee)
   end
 end
