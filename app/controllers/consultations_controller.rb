@@ -7,8 +7,6 @@ class ConsultationsController < ApplicationController
 
   def show
     @appointment = Appointment.new
-
-
   end
 
   def new
@@ -30,6 +28,7 @@ class ConsultationsController < ApplicationController
   end
 
   def destroy
+    @consultation.destroy
   end
   private
   def find_consultation
