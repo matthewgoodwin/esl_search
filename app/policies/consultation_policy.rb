@@ -26,11 +26,11 @@ class ConsultationPolicy < ApplicationPolicy
       owner?
     end
 
-    def update
+    def update?
       owner?
     end
 
-    def destroy
+    def destroy?
       owner?
     end
 

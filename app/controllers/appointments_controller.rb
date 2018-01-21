@@ -17,7 +17,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
     @appointment.consultation_id = @consultation.id
     @appointment.user = current_user
-    authorize @appointment
+    authorize @appointment # authorize before saving
     @appointment.save
     redirect_to appointment_path(@appointment)
   end
