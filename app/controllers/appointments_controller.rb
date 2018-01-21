@@ -7,6 +7,7 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
+    authorize @appointment
   end
 
   def show
@@ -16,6 +17,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
     @appointment.consultation_id = @consultation.id
     @appointment.user = current_user
+    authorize @appointment
     @appointment.save
     redirect_to appointment_path(@appointment)
   end
@@ -34,6 +36,7 @@ class AppointmentsController < ApplicationController
   private
   def find_appointment
     @appointment = Appointment.find(params[:id])
+    authorize @appointment
   end
   def find_consultation
     @consultation = Consultation.find(params[:consultation_id])
