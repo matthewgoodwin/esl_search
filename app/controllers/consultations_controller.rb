@@ -33,6 +33,7 @@ class ConsultationsController < ApplicationController
   def destroy
     @consultation.destroy
   end
+
   private
   def find_consultation
     @consultation = Consultation.find(params[:id])

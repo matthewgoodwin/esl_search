@@ -9,8 +9,8 @@
   <p>rate/hour- <%= number_to_currency(@consultation.consultfee, :unit => "₩") %></p>
   <!-- :unit is built into the number_to_currency-->
 </div><!--end of container-->
-<div>
+<div class="appointment-show-form-div">
   <%= render "appointments/appointment_form", consultation: @consultation, appointment: @appointment %>
-</div>
+</div><!--appointment-show-form-div-->
 
 

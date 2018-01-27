@@ -2,14 +2,17 @@
 <p>Find me in app/views/consultations/index.html.erb</p>
 <h6><%= link_to "homepage", root_path %></h6>
 <h6 class=""><%= link_to "dashboard", dashboard_path %></h6>
-<div>
+<div class="index-consultations-div">
   <% @consultations.each do |consult| %>
-  <div>
-    <%= link_to consult.user.fname, about_path %>
-    <%= link_to consult[:consulttype], consultation_path(consult) %>
-    <!-- consult[:consultfee] -->
-    <%= number_to_currency(consult[:consultfee], :unit => "₩") %>
-  <!-- :unit is built into the number_to_currency-->
-  <% end %>
-  </div>
-</div>
+    <div class="index-consult-div">
+      <%= link_to consult.user.fname, about_path %>
+      <%= link_to consult[:consulttype], consultation_path(consult) %>
+      <!-- consult[:consultfee] -->
+      <%= number_to_currency(consult[:consultfee], :unit => "₩") %>
+      <!-- :unit is built into the number_to_currency-->
+      <% if policy(consult).destroy? %><!--only owner can see delete button-->
+        <%= link_to "drop", consultation_path(consult), method: :delete %>
+      <% end %><!-- end of if statment-->
+    </div><!--index-consult-div-->
+  <% end %><!--end of @consultations.each do-->
+</div><!-- end of index-consultations-div-->

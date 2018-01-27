@@ -1,12 +1,12 @@
 <h1>appointment#show</h1>
 <h6><%= link_to "homepage", root_path %></h6>
 <h6><%= link_to "dashboard", dashboard_path %></h6>
-<div class="appointment-show">
+<div class="appointment-show-div">
   <h6>client: <%= @appointment.pupname %></h6>
   <h6>instructor: <%= @appointment.user.fname %> </h6>
   <h6>contact: <%= @appointment.user.email %></h6>
   <h6>locations: <%= @appointment.location %></h6>
   <h6>start date: <%= @appointment.start %></h6>
   <h6>end date: <%= @appointment.end %></h6>
-</div>
+</div><!--end appointment-show-div-->
 

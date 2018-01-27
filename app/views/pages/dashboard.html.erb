@@ -5,3 +5,11 @@
 <h6 class=""><%= link_to "new consult", new_consultation_path %></h6>
 <h6 class=""><%= link_to "about me", about_path %></h6>
 <h6 class=""><%= link_to "all consultations", consultations_path %></h6>
+<h1 class="my-consultations">MyConsultations#View</h1>
+<% current_user.consultations.each do |c| %>
+  <div class="dashboard-user-consults-div">
+  <%= c.consulttype %>
+  <%= c.focus %>
+  <%= number_to_currency(c.consultfee, unit: "₩") %>
+  </div> <!-- end of dashboard-user-consults-div -->
+<% end %> <!-- end of current_user.consultations.each do-->
