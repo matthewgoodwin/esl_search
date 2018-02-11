@@ -10,6 +10,7 @@
 @import "font-awesome";
 
 // Your CSS partials
-@import "layouts/index";
+@import "layouts/index"; // go to 'layouts/index.scss'
 @import "components/index";
-@import "pages/index";
+@import "pages/index"; // go to 'pages/index.scss'
+

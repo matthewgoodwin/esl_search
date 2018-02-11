@@ -1,30 +1,39 @@
-<h1>Pages#dashboard</h1>
-<h6 class=""><%= current_user.fname %></h6>
-<h6 class=""><%= current_user.email %></h6>
-
-<h6 class=""><%= link_to "new consult", new_consultation_path %></h6>
-<h6 class=""><%= link_to "about me", about_path %></h6>
-<h6 class=""><%= link_to "all consultations", consultations_path %></h6>
-<h2 class="my-consultations-header">MyConsultations</h2>
-<h4>consultations</h4>
-<div class="consultations-div">
-  <% current_user.consultations.each do |c| %>
-    <div class="dashboard-user-consults-div">
-    <%= c.consulttype %>
-    <%= c.focus %>
-    <%= number_to_currency(c.consultfee, unit: "₩") %>
-    </div> <!-- end of dashboard-user-consults-div -->
-  <% end %> <!-- end of current_user.consultations.each do-->
-</div><!--end of consult-div-->
-<h2 class="my-appointments-header">MyAppointments</h2>
-<h4>appointments</h4>
-<div class="appointments-div">
-  <% current_user.appointments.each do |a| %>
-    <div class="dashboard-user-appointments-div">
-     <p> <%= a.start.strftime('%m/%d/%Y at %I:%M%p') %>
-      to
-      <%= a.end.strftime('%m/%d/%Y at %I:%M%p') %>
-      </p>
-    </div><!-- end of dashboard-user-appnt-->
-  <% end %><!-- end of current_user.appointments.each do -->
-</div>
+<div class="grid">
+  <h1>Pages#dashboard</h1>
+  <div class="dashboard-userinfo-div">
+    <h6 class=""><%= current_user.fname %></h6>
+    <h6 class=""><%= current_user.email %></h6>
+  </div><!--end of dashboard-userinfo-div-->
+  <div class="dashboard-link-div">
+    <h6 class=""><%= link_to "new consult", new_consultation_path %></h6>
+    <h6 class=""><%= link_to "about me", about_path %></h6>
+    <h6 class=""><%= link_to "all consultations", consultations_path %></h6>
+  </div><!--end of dashbooard-link-div-->
+  <div class="dashboard-consultation-div">
+    <h3 class="my-consultations-header">MyConsultations</h3>
+    <h5>consultations</h5>
+    <div class="consultations-div">
+      <% current_user.consultations.each do |c| %>
+        <div class="dashboard-user-consults-div">
+        <%= c.consulttype %>
+        <%= c.focus %>
+        <%= number_to_currency(c.consultfee, unit: "₩") %>
+        </div> <!-- end of dashboard-user-consults-div -->
+      <% end %> <!-- end of current_user.consultations.each do-->
+    </div><!--end of consult-div-->
+  </div><!--end of dashboard-consultation-div-->
+  <div class="dashboard-appointment-div">
+    <h3 class="my-appointments-header">MyAppointments</h3>
+    <h5>appointments</h5>
+      <div class="appointments-div">
+        <% current_user.appointments.each do |a| %>
+          <div class="dashboard-user-appointments-div">
+           <p> <%= a.start.strftime('%m/%d/%Y at %I:%M%p') %>
+            to
+            <%= a.end.strftime('%m/%d/%Y at %I:%M%p') %>
+            </p>
+          </div><!-- end of dashboard-user-appnt-->
+        <% end %><!-- end of current_user.appointments.each do -->
+      </div><!--end of appointments-div-->
+  </div><!--end of dashboard-appointment-div-->
+</div><!--end of grid div-->

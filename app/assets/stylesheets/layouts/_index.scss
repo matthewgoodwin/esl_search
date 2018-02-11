@@ -3,3 +3,5 @@
 // @import "dashboard";
 // @import "profile";
 // @import "map";
+@import "dashboard"; // references 'layout/dashboard.scss' -> application.scss
+@import "profile"; // refereces 'layout/dashboard.scss' -> application.scss
