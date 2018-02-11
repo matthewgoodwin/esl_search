@@ -1,5 +1,5 @@
 <h1>Consultations#show</h1>
-<div class="container">
+<div class="">
   <p>Find me in app/views/consultations/show.html.erb</p>
   <p><%= link_to "homepage", root_path %></p>
   <p>instructor - <%= @consultation.user.fname %></p>
@@ -10,7 +10,7 @@
   <!-- :unit is built into the number_to_currency-->
 </div><!--end of container-->
 <div class="appointment-show-form-div">
-  <%= render "appointments/appointment_form", consultation: @consultation, appointment: @appointment %>
+  <%= render "appointments/new_appointment_form", consultation: @consultation, appointment: @appointment %>
 </div><!--appointment-show-form-div-->
 
 

@@ -32,6 +32,7 @@ class ConsultationsController < ApplicationController
 
   def destroy
     @consultation.destroy
+    redirect_to dashboard_path
   end
 
   private

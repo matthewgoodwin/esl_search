@@ -1,13 +1,5 @@
 <!--this should be in a partial-->
 <h1>Consultations#new</h1>
 <p>Find me in app/views/consultations/new.html.erb</p>
-<div class="consultaiton-form-div">
-  <%= simple_form_for @consultation do |f| %>
-    <%= f.input :consulttype, label: false, placeholder: "type" %>
-    <%= f.input :focus, label: false, collection: ["reading", "writing", "speaking", "grammar"], prompt: "area of focus" %>
-    <%= f.input :consultfee, label: false, placeholder: "consultation fee" %>
-    <div class="consultation-button-div flex flex-center">
-      <%= f.button :submit, "create lounge", class: "btn btn-primary no-decor btn-grad-light light-shadow" %>
-    </div><!-- end of consultation-button-div -->
-  <% end %><!--end of form-->
+  <%= render 'consultations/new_consultation_form' %>
 </div><!--end of consultaiton-form-div-->

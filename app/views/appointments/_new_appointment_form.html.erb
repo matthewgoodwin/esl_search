@@ -1,9 +1,10 @@
-<div class="container">
+<div class="">
+  <h6>_new_appointment_form.html.erb</h6>
   <%= simple_form_for([consultation, appointment]) do |f| %>
     <%= f.input :pupname, label: false, placeholder: "name" %>
     <%= f.input :location, label: false, placeholder: "prefered location" %>
     <%= f.input :start, label: "start date" %>
     <%= f.input :end, label: "end date" %>
-    <%= f.button :submit %>
+    <%= f.button :submit, class:"btn btn-primary" %>
   <% end %>
 </div>

@@ -11,7 +11,10 @@
     <style>*{border: 1px solid red !important;}</style>
   </head>
 
-  <body class="container">
+  <body>
+    <%= render 'shared/navbar' %>
+    <div class="container">
     <%= yield %>
+    </div>
   </body>
 </html>
