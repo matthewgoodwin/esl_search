@@ -5,11 +5,34 @@
 // }
 
 .grid {
-  grid-template: [row-start] repeat(2, 1fr) [row-end] / [col-start] repeat(5, 1fr) [col-end]; // rows/cols
+  grid-template: [row-start] repeat(2, 1fr) [row-end] / [col-start] 2% repeat(6, 1fr) 2% [col-end]; // rows/cols
+  grid-template-areas:
+  ". user user user link . . ."
+  ". consult consult consult appoint appoint appoint ."
+  ;
 
   /* same as below:
   display: grid;
   grid-template-columns: [start-col] 1fr [second-col] 1fr [third-col] 1fr [third-col] 1fr [fouth-col] 1fr [end-col]; //corner to corner
   grid-template-rows: [start-row] 1fr [second-row] 1fr [end-row]; //top to bottom
   */
+}
+
+.dashboard-user-info-div{
+  grid-area: user;
+}
+
+.dashboard-link-div{
+grid-area: link;
+}
+
+.dashboard-consultation-div{
+grid-area: consult;
+}
+
+.dashboard-appointment-div{
+grid-area: appoint;
+}
+
+.dashboard-reviews-div{
 }
