@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :consultations, shallow: true do
+    resources :reviews
     resources :appointments
   end # end of shallow nest.. shallow nest allows only nesting for required resouces
   root to: 'pages#home'

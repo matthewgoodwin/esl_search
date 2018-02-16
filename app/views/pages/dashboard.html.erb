@@ -3,12 +3,25 @@
   <div class="dashboard-user-info-div">
     <h6 class=""><%= current_user.fname %></h6>
     <h6 class=""><%= current_user.email %></h6>
-  </div><!--end of dashboard-userinfo-div-->
-  <div class="dashboard-link-div">
-    <h6 class=""><%= link_to "new consult", new_consultation_path %></h6>
-    <h6 class=""><%= link_to "about me", about_path %></h6>
-    <h6 class=""><%= link_to "all consultations", consultations_path %></h6>
-  </div><!--end of dashbooard-link-div-->
+    <div class="dashboard-user-link-div">
+      <ul class="dashboard-user-link-list">
+        <li><%= link_to "new consult", new_consultation_path %></li>
+        <li><%= link_to "about me", about_path %></li>
+        <li><%= link_to "all consultations", consultations_path %></li>
+      </ul><!--end of dashboard-user-link-list -->
+    </div><!--end of dashbooard-user-link-div-->
+  </div><!--end of dashboard-user-info-div-->
+  <div class="dashboard-appointment-div">
+    <h3 class="my-appointments-header">MyAppointments</h3>
+    <h5>appointments</h5>
+      <div class="appointments-div">
+        <% current_user.appointments.each do |a| %>
+          <div class="dashboard-user-appointments-div">
+            <p> <%= a.start.strftime('%m/%d/%Y at %I:%M%p')%> </p>
+          </div><!-- end of dashboard-user-appnt-->
+        <% end %><!-- end of current_user.appointments.each do -->
+      </div><!--end of appointments-div-->
+  </div><!--end of dashboard-appointment-div-->
   <div class="dashboard-consultation-div">
     <h3 class="my-consultations-header">MyConsultations</h3>
     <h5>consultations</h5>
@@ -22,18 +35,7 @@
       <% end %> <!-- end of current_user.consultations.each do-->
     </div><!--end of consult-div-->
   </div><!--end of dashboard-consultation-div-->
-  <div class="dashboard-appointment-div">
-    <h3 class="my-appointments-header">MyAppointments</h3>
-    <h5>appointments</h5>
-      <div class="appointments-div">
-        <% current_user.appointments.each do |a| %>
-          <div class="dashboard-user-appointments-div">
-           <p> <%= a.start.strftime('%m/%d/%Y at %I:%M%p') %>
-            to
-            <%= a.end.strftime('%m/%d/%Y at %I:%M%p') %>
-            </p>
-          </div><!-- end of dashboard-user-appnt-->
-        <% end %><!-- end of current_user.appointments.each do -->
-      </div><!--end of appointments-div-->
-  </div><!--end of dashboard-appointment-div-->
+  <div class="dashboard-consult-reviews-div">
+    <h3>RecentReviews</h3>
+  </div><!--end dashboard-consult-reviews-div-->
 </div><!--end of grid div-->
