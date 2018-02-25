@@ -5,12 +5,14 @@ class PagesController < ApplicationController
   end
 
   def about
+    # raise
   end
 
   def contact
   end
 
   def dashboard
+    # raise
   end
 
   def search

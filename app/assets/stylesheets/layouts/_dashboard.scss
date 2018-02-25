@@ -5,10 +5,17 @@
 // }
 
 .grid {
-  grid-template: [row-start] repeat(2, 1fr) [row-end] / [col-start] 2% repeat(8, 1fr) 2% [col-end]; // rows/cols
+  grid-template: [row-start] repeat(8, 1fr) [row-end] / [col-start] 2% repeat(8, 1fr) 2% [col-end]; // rows/cols
+  grid-gap: 5px 5px; //row columns
   grid-template-areas:
-  ". user user user user user user appoint appoint ."
-  ". consult consult consult review review review review review ."
+  ". panel user user user messages messages appoint appoint ."
+  ". panel user user user messages messages appoint appoint ."
+  ". panel user user user messages messages appoint appoint ."
+  ". panel user user user messages messages appoint appoint ."
+  ". panel consult consult review review review review client ."
+  ". panel consult consult review review review review client ."
+  ". panel consult consult review review review review client ."
+  ". panel consult consult review review review review client ."
   ;
 
   /* same as below:
@@ -22,8 +29,12 @@
   grid-area: user;
 }
 
-.dashboard-user-link-div{
-// grid-area: link;
+.dashboard-user-panel-link-div{
+  grid-area: panel;
+}
+
+.dashboard-messages-div{
+  grid-area: messages;
 }
 
 .dashboard-consultation-div{
@@ -36,4 +47,8 @@
 
 .dashboard-consult-reviews-div{
   grid-area: review;
+}
+
+.dashboard-client-div{
+  grid-area: client;
 }

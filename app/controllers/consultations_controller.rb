@@ -8,6 +8,8 @@ class ConsultationsController < ApplicationController
 
   def show
     @appointment = Appointment.new
+    @message = Message.new
+    @review = Review.new
     # authorize @appointment
   end
 
