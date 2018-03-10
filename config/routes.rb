@@ -1,25 +1,25 @@
 Rails.application.routes.draw do
-  get 'review/show'
+  # get 'review/show'
 
-  get 'review/new'
+  # get 'review/new'
 
-  get 'review/create'
+  # get 'review/create'
 
-  get 'review/edit'
+  # get 'review/edit'
 
-  get 'review/destroy'
+  # get 'review/destroy'
 
-  get 'messages/show'
+  # get 'messages/show'
 
-  get 'messages/new'
+  # get 'messages/new'
 
-  get 'messages/create'
+  # get 'messages/create'
 
-  get 'messages/edit'
+  # get 'messages/edit'
 
-  get 'messages/update'
+  # get 'messages/update'
 
-  get 'messages/destroy'
+  # get 'messages/destroy'
 
   devise_for :users
   resources :consultations, shallow: true do

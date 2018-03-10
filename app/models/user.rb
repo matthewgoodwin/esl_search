@@ -5,6 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
          has_many :consultations, dependent: :destroy
          has_many :appointments, dependent: :destroy
+         has_many :reviews, dependent: :destroy
+         has_many :messages, dependent: :destroy
+         has_many :referrals, dependent: :destroy
+
          validates :fname, :lname, :email, :city, :address, presence: true
          validates :fname, uniqueness: {scope: :email, message: "already a memeber? please log in!"}
 end

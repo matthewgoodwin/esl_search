@@ -17,6 +17,8 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
     @appointment.consultation_id = @consultation.id
     @appointment.user = current_user
+    @appointment.invoice_number = Appointment.invoice_number #calls the appointment model
+    # @appointment.reservation = Random.new_seed
     authorize @appointment # authorize before saving
     @appointment.save
     redirect_to appointment_path(@appointment)
@@ -42,6 +44,6 @@ class AppointmentsController < ApplicationController
     @consultation = Consultation.find(params[:consultation_id])
   end
   def appointment_params
-    params.require(:appointment).permit(:start, :end, :location, :pupname)
+    params.require(:appointment).permit(:start, :end, :location, :pupil)
   end
 end

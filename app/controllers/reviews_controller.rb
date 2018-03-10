@@ -1,8 +1,12 @@
-class ReviewController < ApplicationController
+class ReviewsController < ApplicationController
   before_action :find_review, only: [:show, :edit, :update, :destroy]
   before_action :find_consultation, only: [:new, :create, :update, :destroy]
   before_action :review_params, only: [:new, :create]
+  def index
+
+  end
   def show
+
   end
 
   def new
@@ -11,7 +15,7 @@ class ReviewController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.user = current_user
+    @review.user_id = current_user
     @review.consultation = @consultation
     authorize @review
     @review.save
@@ -22,10 +26,11 @@ class ReviewController < ApplicationController
   end
 
   def update
-  if @review.update(review_params)
+    if @review.update(review_params)
     redirect_to consultation_path(@consultation)
-  else
+    else
     render :edit
+    end
   end
 
   def destroy
@@ -43,6 +48,7 @@ class ReviewController < ApplicationController
     authorize @consultation
   end
   def review_params
-    params.require(:review).premit(:comment, :star)
+    params.require(:review).permit(:comment, :star)
+    # add appointment reservation number above
   end
 end
