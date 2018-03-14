@@ -1,4 +1,4 @@
-<div class="grid">
+<div class="content-grid dash-area">
   <!-- <h1>Pages#dashboard</h1> -->
   <div class="dashboard-user-panel-link-div">
     <div class="user-dashboard-profile-image-div">
@@ -24,7 +24,7 @@
       <div class="appointments-div">
         <% current_user.appointments.each do |a| %>
           <div class="dashboard-user-appointments-div">
-            <p><%= image_tag "user-icon.png", class: "user-dashboard-icon-image-sm" %> - <%= a.start.strftime('%m/%d/%Y at %I:%M%p')%> </p>
+            <p><%= image_tag "user-icon.png", class: "user-dashboard-icon-image-sm" %> <%= a.start.strftime('%m/%d/%Y at %I:%M%p')%> </p>
           </div><!-- end of dashboard-user-appnt-->
         <% end %><!-- end of current_user.appointments.each do -->
       </div><!--end of appointments-div-->
@@ -46,9 +46,11 @@
     <h3>RecentReviews</h3>
   </div><!--end dashboard-consult-reviews-div-->
   <div class="dashboard-client-div">
-    <h3 class="dashboard-client-header">Clients</h3>
+    <h3 class="dashboard-client-header">Contacts</h3>
+      <% @consultations.each do |c|%>
+        <%= c.created_at %>
+      <% end %>
     <ul class="dashboard-client-list">
-      <li><%= image_tag "user-icon.png", class: "user-dashboard-icon-image-sm" %></li>
       <li><%= image_tag "user-icon.png", class: "user-dashboard-icon-image-sm" %></li>
       <li><%= image_tag "user-icon.png", class: "user-dashboard-icon-image-sm" %></li>
     </ul>

@@ -1,19 +1,26 @@
-<h1>Consultations#show</h1>
-<div class="">
-  <p>Find me in app/views/consultations/show.html.erb</p>
-  <p><%= link_to "homepage", root_path %></p>
-  <p>instructor - <%= @consultation.user.fname %></p>
-  <p>type - <%= @consultation.consulttype %></p>
-  <p>focus - <%= @consultation.focus %></p>
-  <!-- <p>@consultation.consultfee </p>-->
-  <p>rate/hour- <%= number_to_currency(@consultation.consultfee, :unit => "₩") %></p>
-  <!-- :unit is built into the number_to_currency-->
-</div><!--end of container-->
-<div class="appointment-show-form-div">
-  <%= render "appointments/new_appointment_form", consultation: @consultation, appointment: @appointment %>
-</div><!--appointment-show-form-div-->
+<div class="content-grid consultation-area">
+  <!-- <h1>Consultations#show</h1> -->
+  <!-- <div class=""> -->
+    <div class="consultation-show-details">
+      <p>Find me in app/views/consultations/show.html.erb</p>
+      <p><%= link_to "homepage", root_path %></p>
+      <p>instructor - <%= @consultation.user.fname %></p>
+      <p>type - <%= @consultation.consulttype %></p>
+      <p>focus - <%= @consultation.focus %></p>
+      <!-- <p>@consultation.consultfee </p>-->
+      <p>rate/hour- <%= number_to_currency(@consultation.consultfee, :unit => "₩") %></p>
+      <!-- :unit is built into the number_to_currency-->
+    </div><!--end of container-->
+    <div class="consultation-show-review">
+      <h2>reviews</h2>
+    </div>
+    <div class="appointment-show-form-div">
+      <%= render "appointments/new_appointment_form", consultation: @consultation, appointment: @appointment %>
+    </div><!--appointment-show-form-div-->
 
 
-<div class="consultation-review-form-div">
-  <%= render "review/new_review_form", consultation: @consultation, review: @review %>
+    <div class="consultation-review-form-div">
+      <%= render "review/new_review_form", consultation: @consultation, review: @review %>
+    </div>
+  <!-- </div> -->
 </div>

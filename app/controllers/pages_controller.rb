@@ -12,6 +12,8 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+
+    @consultations = current_user.consultations
     # raise
   end
 

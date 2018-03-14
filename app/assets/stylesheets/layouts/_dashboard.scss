@@ -3,9 +3,9 @@
 //   grid-template-columns: [start-col] 1fr [second-col] 1fr [third-col] 1fr [third-col] 1fr [fouth-col] 1fr [end-col]; //corner to corner
 //   grid-template-rows: [start-row] 1fr [second-row] 1fr [end-row]; //top to bottom
 // }
-
-.grid {
-  grid-template: [row-start] repeat(8, 1fr) [row-end] / [col-start] 2% repeat(8, 1fr) 2% [col-end]; // rows/cols
+.dash-area{
+  // display: grid;
+  // grid-template: [row-start] repeat(8, 1fr) [row-end] / [col-start] 2% repeat(8, 1fr) 2% [col-end]; // rows/cols
   grid-gap: 5px 5px; //row columns
   grid-template-areas:
   ". panel user user user messages messages appoint appoint ."
@@ -17,12 +17,11 @@
   ". panel consult consult review review review review client ."
   ". panel consult consult review review review review client ."
   ;
-
-  /* same as below:
-  display: grid;
-  grid-template-columns: [start-col] 1fr [second-col] 1fr [third-col] 1fr [third-col] 1fr [fouth-col] 1fr [end-col]; //corner to corner
-  grid-template-rows: [start-row] 1fr [second-row] 1fr [end-row]; //top to bottom
-  */
+//   /* same as below:
+//   display: grid;
+//   grid-template-columns: [start-col] 1fr [second-col] 1fr [third-col] 1fr [third-col] 1fr [fouth-col] 1fr [end-col]; //corner to corner
+//   grid-template-rows: [start-row] 1fr [second-row] 1fr [end-row]; //top to bottom
+//   */
 }
 
 .dashboard-user-info-div{
