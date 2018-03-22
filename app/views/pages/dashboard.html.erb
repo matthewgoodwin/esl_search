@@ -4,6 +4,10 @@
     <div class="user-dashboard-profile-image-div">
       <%= image_tag "user-icon.png", class: "user-dashboard-profile-image-img" %>
     </div><!--end of user-dashboard-profile-image-div-->
+    <div class="dashboard-user-info-div">
+      <h6 class=""><%= current_user.fname %></h6>
+      <h6 class=""><%= current_user.email %></h6>
+    </div><!--end of dashboard-user-info-div-->
       <ul class="dashboard-user-link-list">
         <li><%= link_to "new consult", new_consultation_path %></li>
         <li><%= link_to "about me", about_path %></li>
@@ -11,13 +15,17 @@
         <li><%= link_to "all consultations", consultations_path %></li>
       </ul><!--end of dashboard-user-link-list -->
   </div><!--end of dashbooard-user-link-div-->
-  <div class="dashboard-user-info-div">
-    <h6 class=""><%= current_user.fname %></h6>
-    <h6 class=""><%= current_user.email %></h6>
-  </div><!--end of dashboard-user-info-div-->
   <div class="dashboard-messages-div">
      <h3 class="dashboard-message-header">Messages</h3>
   </div><!--end of dashboard-messages-div-->
+  <div class="dashboard-myconsults-div">
+    <h3 class="dashboard-myconsult-header">MyConsults</h3>
+    <% @consultations.each do |c| %>
+      <% c.appointments.each do |a| %>
+      <p><%= image_tag "user-icon.png", class: "user-dashboard-icon-image-sm" %> <%= a.start.strftime('%m/%d/%Y at %I:%M%p')%> </p>
+      <% end %>
+    <% end %>
+  </div>
   <div class="dashboard-appointment-div">
     <h3 class="my-appointments-header">MyAppointments</h3>
     <h5>appointments</h5>
@@ -46,13 +54,14 @@
     <h3>RecentReviews</h3>
   </div><!--end dashboard-consult-reviews-div-->
   <div class="dashboard-client-div">
-    <h3 class="dashboard-client-header">Contacts</h3>
+    <h3 class="dashboard-client-header">Clients</h3>
       <% @consultations.each do |c|%>
-        <%= c.created_at %>
+        <% c.appointments.each do |a| %>
+          <div class="dashboard-client-list">
+            <p><%= image_tag "user-icon.png", class: "user-dashboard-icon-image-sm" %> </p>
+            <p> <%= a.user.fname %> </p>
+          </div>
+        <% end  %>
       <% end %>
-    <ul class="dashboard-client-list">
-      <li><%= image_tag "user-icon.png", class: "user-dashboard-icon-image-sm" %></li>
-      <li><%= image_tag "user-icon.png", class: "user-dashboard-icon-image-sm" %></li>
-    </ul>
   </div><!--end of dashboard-client-div-->
 </div><!--end of grid div-->

@@ -17,7 +17,11 @@
 li {
   list-style: none;
 }
+// .content-grid{
+//   display: grid;
+//   grid-gap: 10px;
+
+// }
 .content-grid{
   display: grid;
-  grid-template: [row-start] repeat(8, 1fr) [row-end] / [col-start] 2% repeat(8, 1fr) 2% [col-end];
 }

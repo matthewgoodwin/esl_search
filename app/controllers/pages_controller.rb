@@ -12,9 +12,9 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-
+    @appointments = current_user.appointments
     @consultations = current_user.consultations
-    # raise
+     # raise
   end
 
   def search
