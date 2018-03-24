@@ -1,13 +1,26 @@
-<h1>appointment#show</h1>
-<h6><%= link_to "homepage", root_path %></h6>
-<h6><%= link_to "dashboard", dashboard_path %></h6>
-<div class="appointment-show-div">
-  <h6>instructor: <%= @appointment.consultation.user.fname %> </h6>
-  <h6>instructor email: <%= @appointment.consultation.user.email %></h6>
-  <h6>client: <%= @appointment.pupil %></h6>
-  <h6>client contact: <%= @appointment.user.email %></h6>
-  <h6>locations: <%= @appointment.location %></h6>
-  <h6>start date: <%= @appointment.start %></h6>
-  <h6>end date: <%= @appointment.end %></h6>
-</div><!--end appointment-show-div-->
-
+<div class="content-grid appoint-show-area">
+  <div class="appoint-show-links">
+    <h1>appointment#show</h1>
+    <h6><%= link_to "homepage", root_path %></h6>
+    <h6><%= link_to "dashboard", dashboard_path %></h6>
+  </div><!--end apppointment-show-links-->
+  <!-- <div class="appointment-show-div"> -->
+    <div class="appoint-show-instructor">
+      <h4 class="appoint-show-instructor-head">Instructor</h4>
+      <%= image_tag "user-icon.png", class: "user-dashboard-profile-image-img" %>
+      <h6>instructor: <%= @appointment.consultation.user.fname %> </h6>
+      <h6>instructor email: <%= @appointment.consultation.user.email %></h6>
+    </div><!--end appointment-show-instructor-->
+    <div class="appoint-show-client">
+      <h4 class="appoint-show-client-head">Client</h4>
+      <%= image_tag "user-icon.png", class: "user-dashboard-profile-image-img" %>
+      <h6>client: <%= @appointment.pupil %></h6>
+      <h6>client contact: <%= @appointment.user.email %></h6>
+    </div><!--end appointment-show-client-->
+    <div class="appoint-show-details">
+      <h6>location: <%= @appointment.location %></h6>
+      <h6>start date: <%= @appointment.start %></h6>
+      <h6>end date: <%= @appointment.end %></h6>
+    </div><!--end appointment-show-details-->
+  <!-- </div>end appointment-show-div -->
+</div><!--end content-grid appoint-show-area-->

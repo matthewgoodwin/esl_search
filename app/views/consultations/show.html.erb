@@ -13,6 +13,9 @@
     </div><!--end of container-->
     <div class="consultation-show-review">
       <h2>reviews</h2>
+      <% @consultation.reviews.each do |r| %>
+      <%= r.user.fname %>-<%= r.star %>
+      <% end %>
     </div>
     <div class="appointment-show-form-div">
       <%= render "appointments/new_appointment_form", consultation: @consultation, appointment: @appointment %>

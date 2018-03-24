@@ -15,11 +15,12 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.user_id = current_user
+    @review.user_id = current_user.id
     @review.consultation = @consultation
     authorize @review
     @review.save
     redirect_to consultation_path(@consultation)
+    # raise
   end
 
   def edit

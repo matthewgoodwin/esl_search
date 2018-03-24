@@ -3,6 +3,6 @@
 <%= simple_form_for ([consultation, review]) do |f| %>
   <!-- add appoinment reservation number here -->
   <%= f.input :comment, label:false, placeholder: "comments"%>
-  <%= f.input :star, label:false, collection: (1..4) %>
+  <%= f.input :star, label:false, collection: (1..5) %>
   <%= f.submit %>
 <% end %>

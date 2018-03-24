@@ -33,7 +33,7 @@
   .dash-area{
     // display: grid;
     // grid-template: [row-start] repeat(8, 1fr) [row-end] / [col-start] 2% repeat(8, 1fr) 2% [col-end]; // rows/cols
-    grid-template: [row-start] repeat(8, 1fr) [row-end] / [col-start] 2% repeat(8, 1fr) 2% [col-end];
+    grid-template: [row-start] repeat(auto, 1fr) [row-end] / [col-start] 2% repeat(8, 1fr) 2% [col-end]; //rows set to automatic; now fits
     grid-gap: 5px 5px; //row columns
     grid-template-areas:
     ". panel messages messages messages myconsults myconsults appoint appoint ."
