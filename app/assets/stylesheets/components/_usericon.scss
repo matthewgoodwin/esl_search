@@ -1,9 +1,13 @@
-.user-dashboard-profile-image-div .user-dashboard-profile-image-img{
+.user-profile-image-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user-profile-image-div .user-large-profile-image-img{
   height: 200px;
   width: 200px;
 }//icon on dashboard
-
-.user-dashboard-icon-image-sm{
+.user-sm-profile-image-img{
   height: 60px;
   width: 60px;
 }

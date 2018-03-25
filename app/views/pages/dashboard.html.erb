@@ -1,9 +1,9 @@
 <div class="content-grid dash-area">
   <!-- <h1>Pages#dashboard</h1> -->
   <div class="dashboard-user-panel-links-shell">
-    <div class="user-dashboard-profile-image-div">
-      <%= image_tag "user-icon.png", class: "user-dashboard-profile-image-img" %>
-    </div><!--end of user-dashboard-profile-image-div-->
+    <div class="user-profile-image-div">
+      <%= image_tag "user-icon.png", class: "user-large-profile-image-img" %>
+    </div><!--end of user-profile-image-div find: _usericon.scss-->
     <div class="dashboard-user-info-div">
       <h6 class=""><%= current_user.fname %></h6>
       <h6 class=""><%= current_user.email %></h6>
@@ -24,7 +24,7 @@
       <% @consultations.last(3).each do |c| %>
         <% c.appointments.each do |a| %>
           <%= link_to appointment_path(a) do %>
-            <p><%= image_tag "user-icon.png", class: "user-dashboard-icon-image-sm" %> <%= a.start.strftime('%m/%d/%Y at %I:%M%p')%> </p>
+            <p><%= image_tag "user-icon.png", class: "user-sm-profile-image-img" %> <%= a.start.strftime('%m/%d/%Y at %I:%M%p')%> </p>
           <% end %><!--end link_to-->
         <% end %><!--end c.appointments.each-->
       <% end %><!-- end @consultations.each-->
@@ -36,7 +36,7 @@
         <% @appointments.last(3).each do |a| %>
           <%= link_to appointment_path(a), class: "no-decor" do %>
             <div class="dashboard-user-appointments-div">
-              <p><%= image_tag "user-icon.png", class: "user-dashboard-icon-image-sm" %> <%= a.start.strftime('%m/%d/%Y at %I:%M%p')%> </p>
+              <p><%= image_tag "user-icon.png", class: "user-sm-profile-image-img" %> <%= a.start.strftime('%m/%d/%Y at %I:%M%p')%> </p>
             </div><!-- end of dashboard-user-appointments-div-->
           <% end %><!--end of link_to-->
         <% end %><!-- end of current_user.appointments.each do -->
@@ -65,7 +65,7 @@
       <% @consultations.last(3).each do |c|%>
         <% c.appointments.each do |a| %>
           <div class="dashboard-clients-list-div">
-            <p><%= image_tag "user-icon.png", class: "user-dashboard-icon-image-sm" %> </p>
+            <p><%= image_tag "user-icon.png", class: "user-sm-profile-image-img" %> </p>
             <p> <%= a.user.fname %> </p>
           </div><!--end dashboard-clients-list-div-->
         <% end  %><!--end appointments-->
