@@ -56,34 +56,34 @@
   grid-area: user;
 }
 
-.dashboard-user-panel-link-div{
+.dashboard-user-panel-links-shell{
   grid-area: panel;
 }
 
-.dashboard-messages-div{
+.dashboard-messages-shell{
   grid-area: messages;
 }
 
-.dashboard-myconsults-div{
+.dashboard-consults-shell{
   grid-area: myconsults;
 }
-.dashboard-consultation-div{
+.dashboard-consults-product-shell{
   grid-area: consult;
 }
 
-.dashboard-appointment-div{
+.dashboard-appointments-shell{
   grid-area: appoint;
 }
 
-.dashboard-consult-reviews-div{
+.dashboard-consults-reviews-shell{
   grid-area: review;
 }
 
-.dashboard-client-div{
+.dashboard-clients-list-shell{
   grid-area: client;
 }
 
-.dashboard-client-list{
+.dashboard-clients-list-div{
   display: flex;
   justify-content: space-between;
 }

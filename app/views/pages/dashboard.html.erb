@@ -1,6 +1,6 @@
 <div class="content-grid dash-area">
   <!-- <h1>Pages#dashboard</h1> -->
-  <div class="dashboard-user-panel-link-div">
+  <div class="dashboard-user-panel-links-shell">
     <div class="user-dashboard-profile-image-div">
       <%= image_tag "user-icon.png", class: "user-dashboard-profile-image-img" %>
     </div><!--end of user-dashboard-profile-image-div-->
@@ -8,64 +8,68 @@
       <h6 class=""><%= current_user.fname %></h6>
       <h6 class=""><%= current_user.email %></h6>
     </div><!--end of dashboard-user-info-div-->
-      <ul class="dashboard-user-link-list">
+      <ul class="dashboard-user-panel-links-list">
         <li><%= link_to "new consult", new_consultation_path %></li>
         <li><%= link_to "about me", about_path %></li>
         <li><%= link_to "messages", dashboard_path %></li>
         <li><%= link_to "all consultations", consultations_path %></li>
-      </ul><!--end of dashboard-user-link-list -->
-  </div><!--end of dashbooard-user-link-div-->
-  <div class="dashboard-messages-div">
-     <h4 class="dashboard-message-header">Messages</h4>
-  </div><!--end of dashboard-messages-div-->
-  <div class="dashboard-myconsults-div">
-    <h4 class="dashboard-myconsult-header">MyConsults</h4>
-    <% @consultations.last(3).each do |c| %>
-      <% c.appointments.each do |a| %>
-        <%= link_to appointment_path(a) do %>
-          <p><%= image_tag "user-icon.png", class: "user-dashboard-icon-image-sm" %> <%= a.start.strftime('%m/%d/%Y at %I:%M%p')%> </p>
-        <% end %><!--end link_to-->
-      <% end %><!--end c.appointments.each-->
-    <% end %><!-- end @consultations.each-->
-  </div><!-- end dashboard-myconsults-div-->
-  <div class="dashboard-appointment-div">
-    <h4 class="my-appointments-header">MyAppointments</h4>
-      <!-- <div class="appointments-div"> -->
+      </ul><!--end of dashboard-user-panel-links-list -->
+  </div><!--end of dashboard-user-panel-links-shell-->
+  <div class="dashboard-messages-shell">
+     <h4 class="dashboard-messages-header">Messages</h4>
+  </div><!--end of dashboard-messages-shell-->
+  <div class="dashboard-consults-shell">
+    <h4 class="dashboard-consults-header">Consultations</h4>
+    <div class="dashboard-consults-div">
+      <% @consultations.last(3).each do |c| %>
+        <% c.appointments.each do |a| %>
+          <%= link_to appointment_path(a) do %>
+            <p><%= image_tag "user-icon.png", class: "user-dashboard-icon-image-sm" %> <%= a.start.strftime('%m/%d/%Y at %I:%M%p')%> </p>
+          <% end %><!--end link_to-->
+        <% end %><!--end c.appointments.each-->
+      <% end %><!-- end @consultations.each-->
+    </div><!--end dashboard-consults-div-->
+  </div><!-- end dashboard-consults-shell-->
+  <div class="dashboard-appointments-shell">
+    <h4 class="dashboard-appointments-header">Appointments</h4>
+      <div class="dashboard-appointments-div">
         <% @appointments.last(3).each do |a| %>
           <%= link_to appointment_path(a), class: "no-decor" do %>
             <div class="dashboard-user-appointments-div">
               <p><%= image_tag "user-icon.png", class: "user-dashboard-icon-image-sm" %> <%= a.start.strftime('%m/%d/%Y at %I:%M%p')%> </p>
-            </div><!-- end of dashboard-user-appnt-->
+            </div><!-- end of dashboard-user-appointments-div-->
           <% end %><!--end of link_to-->
         <% end %><!-- end of current_user.appointments.each do -->
-      <!-- </div>end of appointments-div -->
-  </div><!--end of dashboard-appointment-div-->
-  <div class="dashboard-consultation-div">
-    <h4 class="my-consultations-header">MyConsultations</h4>
-    <div class="consultations-div">
+      </div><!--end of dashboard-appointments-div-->
+  </div><!--end of dashboard-appointments-shell"-->
+  <div class="dashboard-consults-product-shell">
+    <h4 class="dashboard-consults-product-header">Services</h4>
+    <div class="dashboard-consults-product-div">
       <% @consultations.last(3).each do |c| %>
         <%= link_to consultation_path(c), class: "no-decor" do  %>
-          <div class="dashboard-user-consults-div">
+          <div class="dashboard-consults-product-div">
             <%= c.consulttype %>
             <%= c.focus %>
             <%= number_to_currency(c.consultfee, unit: "₩") %>
-          </div> <!-- end of dashboard-user-consults-div -->
+          </div> <!-- end of dashboard-consults-product-div -->
         <% end %><!--end link_to-->
       <% end %> <!-- end of current_user.consultations.each do-->
-    </div><!--end of consult-div-->
-  </div><!--end of dashboard-consultation-div-->
-  <div class="dashboard-consult-reviews-div">
+    </div><!--end of dashboard-consults-product-div-->
+  </div><!--end of dashboard-consults-product-shell-->
+  <div class="dashboard-consults-reviews-shell">
     <h4>RecentReviews</h4>
-  </div><!--end dashboard-consult-reviews-div-->
-  <div class="dashboard-client-div">
-    <h4 class="dashboard-client-header">Clients</h4>
+  </div><!--end dashboard-consults-reviews-shell-->
+  <div class="dashboard-clients-list-shell">
+    <h4 class="dashboard-clients-header">Clients</h4>
+    <div class="dashboard-clients-div">
       <% @consultations.last(3).each do |c|%>
         <% c.appointments.each do |a| %>
-          <div class="dashboard-client-list">
+          <div class="dashboard-clients-list-div">
             <p><%= image_tag "user-icon.png", class: "user-dashboard-icon-image-sm" %> </p>
             <p> <%= a.user.fname %> </p>
-          </div><!--end dashboard-client-list-->
+          </div><!--end dashboard-clients-list-div-->
         <% end  %><!--end appointments-->
       <% end %><!--end current_user.consultations-->
-  </div><!--end of dashboard-client-div-->
+    </div><!--end of dashboard-clients-div-->
+  </div><!--dashboard-clients-list-shell-->
 </div><!--end of grid div-->
