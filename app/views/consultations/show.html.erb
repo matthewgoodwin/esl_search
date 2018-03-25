@@ -7,7 +7,7 @@
       <p>instructor - <%= @consultation.user.fname %></p>
       <p>type - <%= @consultation.consulttype %></p>
       <p>focus - <%= @consultation.focus %></p>
-      <p>@consultation.consultfee </p>
+      <!-- <p> @consultation.consultfee </p> -->
       <p>rate/hour- <%= number_to_currency(@consultation.consultfee, :unit => "₩") %></p>
       <!-- :unit is built into the number_to_currency-->
     </div><!--end of consultation-show-details-shell-->
@@ -18,12 +18,45 @@
       <% end %>
     </div><!--end of consultation-show-review-shell-->
 
-
     <div class="appointment-show-form-div">
-      <%= render "appointments/new_appointment_form", consultation: @consultation, appointment: @appointment %>
-    </div><!--end appointment-show-form-div-->
+      <a href="" data-toggle="modal" data-target="#create-booking">
+        <div class="btn btn-primary round-div no-decor">book appointment</div>
+      </a>
+    </div><!--end of appointment-show-form-div-->
     <div class="consultation-review-form-div">
-      <%= render "review/new_review_form", consultation: @consultation, review: @review %>
-    </div><!--end consultation-review-form-div-->
+      <a href="" data-toggle="modal" data-target="#create-review">
+        <div class="btn btn-primary round-div no-decor">review</div>
+      </a>
+    </div><!--end of consultation-review-form-div-->
+
+    <!--begin modal of appointment create partial-->
+      <div class="modal fade appointment-mod-style" id="create-booking">
+        <div class="modal-dialog" role="document"><!--aligns the modal document-->
+          <div class="modal-content">
+            <div class="modal-header modal-head-grad flex flex-center">
+              <h3 class="create-review-modal-header">create appointment</h3>
+            </div><!--end of header-->
+            <div class="modal-body flex flex-center">
+              <%= render "appointments/new_appointment_form", consultation: @consultation, appointment: @appointment %>
+            </div><!--end of modal-body and appointment-show-form-div-->
+          </div><!--end of modal-content-->
+        </div><!--end of modal-dialog-->
+      </div><!--end of modal-->
+
+
+      <!--begin modal of review create partial-->
+      <div class="modal fade appointment-mod-style" id="create-review">
+        <div class="modal-dialog" role="document"><!--aligns the modal document-->
+          <div class="modal-content">
+            <div class="modal-header modal-head-grad flex flex-center">
+              <h3 class="create-review-modal-header">create review</h3>
+            </div><!--end of header-->
+            <div class="modal-body flex flex-center">
+              <%= render "review/new_review_form", consultation: @consultation, review: @review %>
+            </div><!--end of modal-body and appointment-show-form-div-->
+          </div><!--end of modal-content-->
+        </div><!--end of modal-dialog-->
+      </div><!--end of modal-->
+
   <!-- </div> -->
 </div> <!--end content-grid consultation-area-->
