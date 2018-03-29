@@ -13,6 +13,7 @@
     </div><!--end of consultation-show-details-shell-->
     <div class="consultation-show-reviews-shell">
       <h2>reviews</h2>
+
       <% @consultation.reviews.each do |r| %>
       <%= r.user.fname %>-<%= r.star %>
       <% end %>

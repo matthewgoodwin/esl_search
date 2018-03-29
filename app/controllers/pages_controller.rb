@@ -19,4 +19,7 @@ class PagesController < ApplicationController
 
   def search
   end
+
+  def userpage
+  end
 end

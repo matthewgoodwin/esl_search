@@ -5,7 +5,7 @@
 <div class="index-consultations-div">
   <% @consultations.each do |consult| %>
     <div class="index-consult-div">
-      <%= link_to consult.user.fname, about_path %>
+      <%= link_to consult.user.fname, user_path(consult.user) %>
       <%= link_to consult[:consulttype], consultation_path(consult) %>
       <!-- consult[:consultfee] -->
       <%= number_to_currency(consult[:consultfee], :unit => "₩") %>
