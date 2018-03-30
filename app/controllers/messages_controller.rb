@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   before_action :find_message, only: [:show, :edit, :update, :destroy]
-  before_action :find_consultation, only: [:new, :create]
+  before_action :find_consultation, only: [:new, :create, :show]
   before_action :message_params, only: [:new, :create]
   def show
   end
@@ -10,6 +10,13 @@ class MessagesController < ApplicationController
   end
 
   def create
+    @message = Message.new(message_params)
+    @message.consultation_id = @consultation.id
+    @message.user = current_user
+    # raise
+    authorize @message
+    @message.save
+    redirect_to consultation_path(@consultation)
   end
 
   def edit
@@ -29,6 +36,7 @@ class MessagesController < ApplicationController
   end
   def find_consultation
     @consultation = Consultation.find(params[:consultation_id])
+    authorize @consultation
   end
   def message_params
     params.require(:message).permit(:subject, :textmess)

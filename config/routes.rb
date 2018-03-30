@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   resources :consultations, shallow: true do
     resources :reviews
     resources :appointments
+    resources :messages
   end # end of shallow nest.. shallow nest allows only nesting for required resouces
   root to: 'pages#home'
   get 'about', to: 'pages#about'

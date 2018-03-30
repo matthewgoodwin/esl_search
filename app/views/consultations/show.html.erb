@@ -18,7 +18,9 @@
       <%= r.user.fname %>-<%= r.star %>
       <% end %>
     </div><!--end of consultation-show-review-shell-->
-
+<div>
+  <%= render "messages/new_message_form", consultation: @consultation, message: @message %>
+</div>
     <div class="appointment-show-form-div">
       <a href="" data-toggle="modal" data-target="#create-booking">
         <div class="btn btn-primary round-div no-decor">book appointment</div>

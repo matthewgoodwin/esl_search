@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @user = policy_scope(User).order(created_at: :desc)
   end
   def show
+    @message = Message.new
   end
 
   def search
