@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   before_action :find_message, only: [:show, :edit, :update, :destroy]
-  before_action :find_consultation, only: [:new, :create, :show]
+  before_action :find_consultation, only: [:new, :create]
   before_action :message_params, only: [:new, :create]
   def show
   end
@@ -33,6 +33,7 @@ class MessagesController < ApplicationController
 
   def find_message
     @message = Message.find(params[:id])
+    authorize @message
   end
   def find_consultation
     @consultation = Consultation.find(params[:consultation_id])

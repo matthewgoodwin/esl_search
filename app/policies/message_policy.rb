@@ -4,6 +4,9 @@ class MessagePolicy < ApplicationPolicy
       scope
     end
   end
+    def show?
+      owner_user?
+    end
     def new?
       return true
     end

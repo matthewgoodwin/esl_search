@@ -16,15 +16,19 @@
       </ul><!--end of dashboard-user-panel-links-list -->
   </div><!--end of dashboard-user-panel-links-shell-->
   <div class="dashboard-messages-shell">
-     <h4 class="dashboard-messages-header">Messages</h4>
+    <h4 class="dashboard-messages-header">Messages</h4>
+    <div>
      <% @consultations.each do |c| %>
         <% c.messages.each do |m| %>
-        <div>
-        <h6><b><%= m.subject %></b></h6>
-        <%= truncate(m.textmess, length: 35) %> <!--this limits the length of message text-->
-        </div>
+        <%= link_to message_path(m), class: "no-decor" do %>
+          <div>
+            <h6><b><%= m.subject %></b></h6>
+            <%= truncate(m.textmess, length: 35) %> <!--this limits the length of message text-->
+          </div>
+        <% end %>
       <% end %>
      <% end %>
+    </div>
   </div><!--end of dashboard-messages-shell-->
   <div class="dashboard-consults-shell">
     <h4 class="dashboard-consults-header">Consultations</h4>
@@ -72,10 +76,12 @@
     <div class="dashboard-clients-div">
       <% @consultations.last(3).each do |c|%>
         <% c.appointments.each do |a| %>
-          <div class="dashboard-clients-list-div">
-            <p><%= image_tag "user-icon.png", class: "user-sm-profile-image-img" %> </p>
-            <p> <%= a.user.fname %> </p>
-          </div><!--end dashboard-clients-list-div-->
+          <%= link_to user_path(a.user.id), class: "no-decor" do %>
+            <div class="dashboard-clients-list-div">
+              <p><%= image_tag "user-icon.png", class: "user-sm-profile-image-img" %> </p>
+              <p> <%= a.user.fname %> </p>
+            </div><!--end dashboard-clients-list-div-->
+          <% end %>
         <% end  %><!--end appointments-->
       <% end %><!--end current_user.consultations-->
     </div><!--end of dashboard-clients-div-->
