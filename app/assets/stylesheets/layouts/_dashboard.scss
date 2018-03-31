@@ -4,6 +4,7 @@
 //   grid-template-rows: [start-row] 1fr [second-row] 1fr [end-row]; //top to bottom
 // }
 .dash-area{
+  // background-color: #E5E5E5;
   grid-gap: 5px;
   grid-template-areas:
   "panel"
@@ -17,6 +18,7 @@
 }
 @media (min-width: 500px){
   .dash-area{
+    // background-color: #E5E5E5;
     grid-gap: 10px;
     grid-template-areas:
     ". panel panel ."
@@ -31,6 +33,7 @@
 }
 @media (min-width: 850px){
   .dash-area{
+    // background-color: #E5E5E5;
     // display: grid;
     // grid-template: [row-start] repeat(8, 1fr) [row-end] / [col-start] 2% repeat(8, 1fr) 2% [col-end]; // rows/cols
     grid-template: [row-start] repeat(auto, 1fr) [row-end] / [col-start] 2% repeat(8, 1fr) 2% [col-end]; //rows set to automatic; now fits
@@ -52,6 +55,7 @@
   //   */
   }
 }
+
 .dashboard-user-info-div{
   grid-area: user;
 }
