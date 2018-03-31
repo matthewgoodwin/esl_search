@@ -1,5 +1,8 @@
 <h1>Messages#show</h1>
 <p>Find me in app/views/messages/show.html.erb</p>
+<p><%= link_to "dashboard", dashboard_path %></p>
+<div>
+  <%= @message.subject %>
+  <%= @message.textmess %>
+</div>
 
-<%= @message.subject %>
-<%= @message.textmess %>

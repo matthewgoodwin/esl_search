@@ -6,7 +6,6 @@ class ReviewsController < ApplicationController
 
   end
   def show
-
   end
 
   def new

@@ -1,5 +1,8 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
-
-<%= @user.fname %>
+<p><%= link_to "dashboard", dashboard_path %></p>
+<div>
+  <%= @user.fname %>
+  <%= @user.lname %>
+</div>
 

@@ -4,6 +4,9 @@ class ReviewPolicy < ApplicationPolicy
       scope.all
     end
   end # end of scope
+  def show?
+    owner_or_client?
+  end
   def new?
     return true
   end
@@ -20,7 +23,7 @@ class ReviewPolicy < ApplicationPolicy
     owner_or_client?
   end
   private
-  def owner_or_client
-    record.user == user
+  def owner_or_client?
+    record.user == user || record.review.user = user
   end
 end
