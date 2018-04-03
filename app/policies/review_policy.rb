@@ -24,6 +24,6 @@ class ReviewPolicy < ApplicationPolicy
   end
   private
   def owner_or_client?
-    record.user == user || record.review.user = user
+    record.user == user || record.review.user == user
   end
 end

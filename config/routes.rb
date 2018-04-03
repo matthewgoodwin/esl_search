@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  # get 'privatemessages/index'
+
+  # get 'privatemessages/show'
+
+  # get 'privatemessages/new'
+
+  # get 'privatemessages/create'
+
+  # get 'privatemessages/edit'
+
+  # get 'privatemessages/update'
+
+  # get 'privatemessages/destroy'
+
   # get 'users/index'
 
   # get 'users/show'
@@ -28,7 +42,9 @@ Rails.application.routes.draw do
   # get 'messages/destroy'
 
   devise_for :users
-  resources :users, only:[:index, :show, :search]
+  resources :users, only:[:index, :show, :search], shallow: true do
+    resources :privatemessages
+  end
   resources :consultations, shallow: true do
     resources :reviews
     resources :appointments

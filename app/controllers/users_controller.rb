@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
   def show
     @message = Message.new
+    @privatemessage = Privatemessage.new
   end
 
   def search

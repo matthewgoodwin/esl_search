@@ -5,4 +5,7 @@
   <%= @user.fname %>
   <%= @user.lname %>
 </div>
+<div>
+ <%= render "privatemessages/new_privatemessage_form", user: @user, privatemessage: @privatemessage %>
+</div>
 
