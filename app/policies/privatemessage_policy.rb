@@ -24,6 +24,6 @@ class PrivatemessagePolicy < ApplicationPolicy
   end
   private
   def owner_creater?
-    record.user == user || record.privatemessage.user == user
+    record.user == user || record.sender_id == user.id
   end
 end

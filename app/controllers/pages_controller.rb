@@ -14,6 +14,7 @@ class PagesController < ApplicationController
   def dashboard
     @appointments = current_user.appointments
     @consultations = current_user.consultations
+    @privatemessages = current_user.privatemessages
      # raise
   end
 

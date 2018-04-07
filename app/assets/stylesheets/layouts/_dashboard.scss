@@ -59,15 +59,12 @@
 .dashboard-user-info-div{
   grid-area: user;
 }
-
 .dashboard-user-panel-links-shell{
   grid-area: panel;
 }
-
 .dashboard-messages-shell{
   grid-area: messages;
 }
-
 .dashboard-consults-shell{
   grid-area: myconsults;
 }
@@ -78,16 +75,25 @@
 .dashboard-appointments-shell{
   grid-area: appoint;
 }
-
 .dashboard-consults-reviews-shell{
   grid-area: review;
 }
-
+.dashboard-review-list-items{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.review-item{
+}
 .dashboard-clients-list-shell{
   grid-area: client;
 }
-
 .dashboard-clients-list-div{
+}
+.dashbaoard-client-list-items{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; //aligned on column?
+  align-items: center; //center of row?
+}
+.client-item{
 }

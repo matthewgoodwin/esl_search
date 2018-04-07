@@ -1,2 +1,8 @@
 <h1>Privatemessages#show</h1>
 <p>Find me in app/views/privatemessages/show.html.erb</p>
+<div>
+  From: <%= @sender.fname %> - <%= @sender.lname %> </div>
+<div>
+  <h3>Subject: <%= @privatemessage.subject %></h3>
+  <p><%= @privatemessage.pm %></p>
+</div>
