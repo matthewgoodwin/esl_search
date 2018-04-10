@@ -14,6 +14,7 @@
         <li><%= link_to "messages", dashboard_path %></li>
         <li><%= link_to "all consultations", consultations_path %></li>
       </ul><!--end of dashboard-user-panel-links-list -->
+      <%= @privatemessages.size %>
       <div>
 
       </div>
@@ -21,8 +22,8 @@
   <div class="dashboard-messages-shell shell-border">
     <h4 class="dashboard-messages-header">Messages</h4>
     <div>
-     <% @consultations.take(3).each do |c| %>
-      <% c.messages.take(3).each do |m| %>
+     <% @consultations.each do |c| %>
+      <% c.messages.last(1).each do |m| %>
         <%= link_to message_path(m), class: "no-decor" do %>
           <div class="shell-tab">
             <h6><b><%= m.subject %></b></h6>
@@ -34,10 +35,10 @@
     </div>
   </div><!--end of dashboard-messages-shell-->
   <div class="dashboard-consults-shell shell-border">
-    <h4 class="dashboard-consults-header">Consultations</h4>
+    <h4 class="dashboard-consults-header">Consultations - <%= @appointments_array.size %></h4>
     <div class="dashboard-consults-div">
-      <% @consultations.take(3).each do |c| %>
-        <% c.appointments.take(3).each do |a| %>
+      <% @consultations.each do |c| %>
+        <% c.appointments.last(1).each do |a| %>
           <%= link_to appointment_path(a) do %>
             <div class="shell-tab">
               <%= image_tag "user-icon.png", class: "user-sm-profile-image-img" %> <%= a.start.strftime('%m/%d/%Y at %I:%M%p')%>
@@ -50,7 +51,7 @@
   <div class="dashboard-appointments-shell shell-border">
     <h4 class="dashboard-appointments-header">Appointments</h4>
     <div class="dashboard-appointments-div">
-      <% @appointments.take(3).each do |a| %>
+      <% @appointments.last(3).each do |a| %>
         <%= link_to appointment_path(a), class: "no-decor" do %>
           <div class="dashboard-user-appointments-div shell-tab">
             <%= image_tag "user-icon.png", class: "user-sm-profile-image-img" %> <%= a.start.strftime('%m/%d/%Y at %I:%M%p')%>
@@ -62,7 +63,7 @@
   <div class="dashboard-consults-product-shell shell-border">
     <h4 class="dashboard-consults-product-header">Services</h4>
     <div class="dashboard-consults-product-div">
-      <% @consultations.limit(3).each do |c| %>
+      <% @consultations.limit(4).each do |c| %>
         <%= link_to consultation_path(c), class: "no-decor" do  %>
           <div class="dashboard-consults-product-div shell-border shell-tab">
             <%= c.consulttype %>
@@ -75,8 +76,8 @@
   </div><!--end of dashboard-consults-product-shell-->
   <div class="dashboard-consults-reviews-shell shell-border">
     <h4>RecentReviews</h4>
-    <% @consultations[0,3].each do |c| %>
-      <% c.reviews.take(3).each do |r| %>
+    <% @consultations.each do |c| %>
+      <% c.reviews.each do |r| %>
         <%= link_to review_path(r.id), class: "no-decor" do %>
           <div class="shell-tab dashboard-review-list-items">
             <div class= "review-item">
@@ -99,8 +100,8 @@
   <div class="dashboard-clients-list-shell shell-border">
     <h4 class="dashboard-clients-header">Clients</h4>
     <div class="dashboard-clients-div">
-      <% @consultations[0,3].each do |c|%>
-        <% c.appointments[0,3].each do |a| %>
+      <% @consultations.each do |c|%>
+        <% c.appointments.last(1).each do |a| %>
           <%= link_to user_path(a.user.id), class: "no-decor" do %>
             <div class="dashboard-clients-list-div">
               <div class="shell-tab dashbaoard-client-list-items">

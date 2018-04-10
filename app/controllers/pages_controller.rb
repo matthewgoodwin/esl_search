@@ -12,10 +12,15 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @appointments_array = []
     @appointments = current_user.appointments
     @consultations = current_user.consultations
     @privatemessages = current_user.privatemessages
      # raise
+    @consultations.each do |c|
+      @count = c.appointments
+      @appointments_array << @count
+    end
   end
 
   def search
