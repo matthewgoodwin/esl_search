@@ -65,6 +65,13 @@
 .dashboard-messages-shell{
   grid-area: messages;
 }
+.dashboard-message{
+}
+.header-items{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .dashboard-consults-shell{
   grid-area: myconsults;
 }
@@ -96,4 +103,13 @@
   align-items: center; //center of row?
 }
 .client-item{
+}
+.counter{
+  border: 1px solid $red;
+  background-color: $red;
+  box-shadow: 1px 1px 6px #a8a8a8;
+  border-radius: 10%;
+  padding: 2px;
+  margin: 2px;
+  color: white;
 }
