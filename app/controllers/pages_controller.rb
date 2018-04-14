@@ -17,8 +17,10 @@ class PagesController < ApplicationController
     @privatemessages = current_user.privatemessages
      # raise
     @my_consultation_appointments_array = []
+    @my_consultation_appointment_clients_array = []
     @my_consultations_array = []
     @my_messages_array = []
+    @my_reviews_array = []
 
     @consultations.each do |c|
       @my_consultations_array << c.id
@@ -30,8 +32,13 @@ class PagesController < ApplicationController
         # ^creates an object that counts all the consultations(only)
         # ^does not isolate the appointments
         @my_consultation_appointments_array << a.id
+        @my_consultation_appointment_clients_array << User.find(a.user_id).fname
+        # raise
         # ^takes each appointment id and adds it to an empty array
         # ^^array size is called on the dashboard page
+      end
+      c.reviews.each do |r|
+        @my_reviews_array << r.id
       end
     end
     # raise

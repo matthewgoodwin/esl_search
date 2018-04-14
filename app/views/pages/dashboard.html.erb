@@ -2,7 +2,10 @@
   <!-- <h1>Pages#dashboard</h1> -->
   <div class="dashboard-user-panel-links-shell shell-border">
     <div class="user-profile-image-div">
-      <%= image_tag "user-icon.png", class: "user-large-profile-image-img" %>
+      <!--added -->
+<!-- for face detection -->
+<%= cl_image_tag(@current_user.photo, width: 150, height: 150, crop: :thumb, gravity: :face, class: "user-large-profile-image-img")%>
+      <!--added -->
     </div><!--end of user-profile-image-div find: _usericon.scss-->
     <div class="dashboard-user-info-div">
       <h6 class=""><%= current_user.fname %></h6>
@@ -69,7 +72,7 @@
   <div class="dashboard-consults-product-shell shell-border">
     <div class="dashboard-product header-items">
       <div class="product-header-item"><h4 class="dashboard-consults-product-header">Services</h4></div>
-      <div class="product-header-item"></div>
+      <div class="product-header-item counter"><%= @consultations.size %></div>
     </div><!--end of dashboard-product header-items-->
     <div class="dashboard-consults-product-div">
       <% @consultations.limit(3).each do |c| %>
@@ -86,7 +89,7 @@
   <div class="dashboard-consults-reviews-shell shell-border">
     <div class="dashboard-review header-items">
       <div class="review-item"><h4>RecentReviews</h4></div>
-      <div class="review-item"></div>
+      <div class="review-item counter"><%= @my_reviews_array.size %></div>
     </div><!--end of dashboard-review header-items-->
     <% @consultations.each do |c| %>
       <% c.reviews.each do |r| %>
@@ -112,7 +115,7 @@
   <div class="dashboard-clients-list-shell shell-border">
     <div class="dashboard-client header-items">
       <div class="client-item"><h4 class="dashboard-clients-header">Clients</h4></div>
-      <div class="client-item"></div>
+      <div class="client-item counter"><%= @my_consultation_appointment_clients_array.size %></div>
     </div><!--dashboard-client header-items-->
     <div class="dashboard-clients-div">
       <% @consultations.each do |c|%>
