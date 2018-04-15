@@ -67,18 +67,18 @@
 }
 .dashboard-message{
 }
-.header-items{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 .dashboard-consults-shell{
   grid-area: myconsults;
 }
 .dashboard-consults-product-shell{
   grid-area: consult;
 }
-
+.dashboard-consults-product-items{
+}
+.dashboard-product-item{
+  flex: 0 0 6%;
+}
 .dashboard-appointments-shell{
   grid-area: appoint;
 }
@@ -86,9 +86,6 @@
   grid-area: review;
 }
 .dashboard-review-list-items{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 .review-item{
 }
@@ -98,12 +95,10 @@
 .dashboard-clients-list-div{
 }
 .dashbaoard-client-list-items{
-  display: flex;
-  justify-content: space-between; //aligned on column?
-  align-items: center; //center of row?
 }
 .client-item{
 }
+
 .counter{
   border: 1px solid $red;
   background-color: $red;

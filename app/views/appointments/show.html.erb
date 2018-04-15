@@ -8,7 +8,7 @@
   <div class="appoint-show-instructor-shell shell-border">
     <h4 class="appoint-show-instructor-head">Instructor</h4>
     <div class="user-profile-image-div">
-      <%= image_tag "user-icon.png", class: "user-large-profile-image-img shell-tab" %>
+      <%= cl_image_tag(@appointment.consultation.user.photo, width: 150, height: 150, crop: :thumb, gravity: :face, class: "user-large-profile-image-img shell-tab")%>
     </div><!--end of user-profile-image-div find: _usericon.scss-->
     <h6>instructor: <%= @appointment.consultation.user.fname %> </h6>
     <h6>instructor email: <%= @appointment.consultation.user.email %></h6>
@@ -16,7 +16,7 @@
   <div class="appoint-show-client-shell shell-border">
     <h4 class="appoint-show-client-head">Client</h4>
     <div class="user-profile-image-div">
-      <%= image_tag "user-icon.png", class: "user-large-profile-image-img" %>
+      <%= cl_image_tag(@appointment.user.photo, width: 150, height: 150, crop: :thumb, gravity: :face, class: "user-large-profile-image-img shell-tab")%>
     </div><!--end of user-profile-image-div find: _usericon.scss-->
     <h6>client: <%= @appointment.pupil %></h6>
     <h6>client contact: <%= @appointment.user.email %></h6>

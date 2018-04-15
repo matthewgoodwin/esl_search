@@ -6,8 +6,14 @@
 .user-profile-image-div .user-large-profile-image-img{
   height: 180px;
   width: 180px;
+  border-radius: 50%;
 }//icon on dashboard
 .user-sm-profile-image-img{
   height: 50px;
   width: 50px;
+  border-radius: 50%;
+}
+.icon-shell{
+  box-shadow: 1px 1px 10px #a8a8a8;
+  background-color: #F5F5F5;
 }

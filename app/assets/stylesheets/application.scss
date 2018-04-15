@@ -31,3 +31,19 @@ li {
   display: grid;
 }
 
+.flex-space-between{
+  display: flex;
+  justify-content: space-between; //aligned on column?
+  align-items: center; //center of row?
+  flex-direction: row;
+}
+.header-items{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-center-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

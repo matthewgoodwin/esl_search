@@ -3,8 +3,8 @@
   <div class="dashboard-user-panel-links-shell shell-border">
     <div class="user-profile-image-div">
       <!--added -->
-<!-- for face detection -->
-<%= cl_image_tag(@current_user.photo, width: 150, height: 150, crop: :thumb, gravity: :face, class: "user-large-profile-image-img")%>
+      <!-- for face detection -->
+      <%= image_tag(@current_user.photo.url(:bright_face), class: "user-large-profile-image-img icon-shell")%>
       <!--added -->
     </div><!--end of user-profile-image-div find: _usericon.scss-->
     <div class="dashboard-user-info-div">
@@ -46,8 +46,9 @@
       <% @consultations.each do |c| %>
         <% c.appointments.last(1).each do |a| %>
           <%= link_to appointment_path(a) do %>
-            <div class="shell-tab">
-              <%= image_tag "user-icon.png", class: "user-sm-profile-image-img" %> <%= a.start.strftime('%m/%d/%Y at %I:%M%p')%>
+            <div class="flex-space-between shell-tab">
+              <div class="consult-item"><%= image_tag a.user.photo.url(:bright_face), class: "user-sm-profile-image-img icon-shell" %></div>
+              <div class="consult-item"><%= a.start.strftime('%m/%d/%Y at %I:%M%p')%></div>
             </div><!--end of shell-tab-->
           <% end %><!--end link_to-->
         <% end %><!--end c.appointments.each-->
@@ -62,8 +63,9 @@
     <div class="dashboard-appointments-div">
       <% @appointments.last(3).each do |a| %>
         <%= link_to appointment_path(a), class: "no-decor" do %>
-          <div class="dashboard-user-appointments-div shell-tab">
-            <%= image_tag "user-icon.png", class: "user-sm-profile-image-img" %> <%= a.start.strftime('%m/%d/%Y at %I:%M%p')%>
+          <div class="dashboard-user-appointments-div flex-space-between shell-tab">
+            <div><%= cl_image_tag(a.user.photo.url(:bright_face), class: "user-sm-profile-image-img icon-shell")%></div>
+            <div><%= a.start.strftime('%m/%d/%Y at %I:%M%p')%></div>
           </div><!-- end of dashboard-user-appointments-div-->
         <% end %><!--end of link_to-->
       <% end %><!-- end of current_user.appointments.each do -->
@@ -74,17 +76,18 @@
       <div class="product-header-item"><h4 class="dashboard-consults-product-header">Services</h4></div>
       <div class="product-header-item counter"><%= @consultations.size %></div>
     </div><!--end of dashboard-product header-items-->
+
     <div class="dashboard-consults-product-div">
       <% @consultations.limit(3).each do |c| %>
-        <%= link_to consultation_path(c), class: "no-decor" do  %>
-          <div class="dashboard-consults-product-div shell-border shell-tab">
-            <%= c.consulttype %>
-            <%= c.focus %>
-            <%= number_to_currency(c.consultfee, unit: "₩") %>
-          </div><!-- end of dashboard-consults-product-div -->
-        <% end %><!--end link_to-->
+        <%= link_to consultation_path(c), class: "no-decor" do %>
+          <div class="flex-space-between dashboard-consults-product-items shell-border shell-tab">
+            <div class="dashboard-product-item"><%= c.language %></div>
+            <div class="dashboard-product-item"><%= number_to_currency(c.consultfee, unit: "₩") %></div>
+          </div><!--end of flex-space-between dashboard-consults-product-items shell-border shell-tab-->
+        <% end %><!--end link_to consultation_path(c)-->
       <% end %><!-- end of current_user.consultations.each do-->
-    </div><!--end of dashboard-consults-product-div-->
+    </div><!-- end of dashboard-consults-product-div -->
+
   </div><!--end of dashboard-consults-product-shell-->
   <div class="dashboard-consults-reviews-shell shell-border">
     <div class="dashboard-review header-items">
@@ -94,7 +97,7 @@
     <% @consultations.each do |c| %>
       <% c.reviews.each do |r| %>
         <%= link_to review_path(r.id), class: "no-decor" do %>
-          <div class="shell-tab dashboard-review-list-items">
+          <div class="shell-tab flex-space-between dashboard-review-list-items">
             <div class= "review-item">
               <%= r.star %>
               <% r.star.to_i.times do %>
@@ -119,12 +122,12 @@
     </div><!--dashboard-client header-items-->
     <div class="dashboard-clients-div">
       <% @consultations.each do |c|%>
-        <% c.appointments.last(1).each do |a| %>
+        <% c.appointments.last(3).each do |a| %>
           <%= link_to user_path(a.user.id), class: "no-decor" do %>
             <div class="dashboard-clients-list-div">
-              <div class="shell-tab dashbaoard-client-list-items">
+              <div class="shell-tab flex-space-between dashbaoard-client-list-items">
                 <div class="client-item">
-                  <%= image_tag "user-icon.png", class: "user-sm-profile-image-img" %>
+                  <%= image_tag a.user.photo.url(:bright_face), class: "user-sm-profile-image-img icon-shell" %>
                 </div><!--end of client-item-->
                 <div class="client-item">
                   <%= a.user.fname %>
