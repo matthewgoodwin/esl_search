@@ -1,8 +1,9 @@
 <div class="content-grid consultation-area">
   <!-- <h1>Consultations#show</h1> -->
   <!-- <div class=""> -->
-  <div class="consultation-show-details-shell">
+  <div class="consultation-show-details-shell shell-border shell-tab">
     <p>Find me in app/views/consultations/show.html.erb</p>
+
     <p><%= link_to "homepage", root_path %></p>
     <p><%= link_to "dashboard", dashboard_path %></p>
     <p>instructor - <%= @consultation.user.fname %></p>
@@ -13,29 +14,31 @@
     <p>rate/hour- <%= number_to_currency(@consultation.consultfee, :unit => "₩") %></p>
     <!-- :unit is built into the number_to_currency-->
     <div class="consultation-message-form-div">
-    <a href="" data-toggle="modal" data-target="#create-message">
-      <div class="btn btn-primary round-div no-decor">send message</div>
-    </a>
+      <a href="" data-toggle="modal" data-target="#create-message">
+        <div class="btn btn-primary round-div no-decor">send message</div>
+      </a>
+    </div><!--end of consultation-review-form-div-->
+    <div class="appointment-show-form-div">
+      <a href="" data-toggle="modal" data-target="#create-booking">
+        <div class="btn btn-primary round-div no-decor">book appointment</div>
+      </a>
+    </div><!--end of appointment-show-form-div-->
+
+    <div class="consultation-review-form-div">
+      <a href="" data-toggle="modal" data-target="#create-review">
+        <div class="btn btn-primary round-div no-decor">review</div>
+      </a>
     </div><!--end of consultation-review-form-div-->
   </div><!--end of consultation-show-details-shell-->
-  <div class="consultation-show-reviews-shell">
-    <h2>reviews</h2>
+
+  <div class="consultation-show-reviews-shell shell-border shell-tab">
+  <h2>reviews</h2>
     <% @consultation.reviews.each do |r| %>
       <div>
         <%= r.user.fname %>-<%= r.star %>
       </div>
     <% end %>
   </div><!--end of consultation-show-review-shell-->
-  <div class="appointment-show-form-div">
-    <a href="" data-toggle="modal" data-target="#create-booking">
-      <div class="btn btn-primary round-div no-decor">book appointment</div>
-    </a>
-  </div><!--end of appointment-show-form-div-->
-  <div class="consultation-review-form-div">
-    <a href="" data-toggle="modal" data-target="#create-review">
-      <div class="btn btn-primary round-div no-decor">review</div>
-    </a>
-  </div><!--end of consultation-review-form-div-->
 
   <!--begin modal of appointment create partial-->
   <div class="modal fade appointment-mod-style" id="create-booking">

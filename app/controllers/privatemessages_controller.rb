@@ -41,7 +41,7 @@ class PrivatemessagesController < ApplicationController
   end
   def find_user
     @user = User.find(params[:user_id])
-    authorize @user
+    # authorize @user
   end
   def find_sender
     @sender = User.find(@privatemessage.sender_id)
