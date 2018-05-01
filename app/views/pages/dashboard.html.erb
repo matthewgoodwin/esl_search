@@ -1,6 +1,6 @@
 <div class="content-grid dash-area">
   <!-- <h1>Pages#dashboard</h1> -->
-  <div class="dashboard-user-panel-links-shell shell-border">
+  <div class="dashboard-user-panel-links-shell shell-border" style="background-image: linear-gradient(rgba(0, 0, 0,0.2), rgba(0,0,0,0))">
     <div class="user-profile-image-div">
       <!--added -->
       <!-- for face detection -->
@@ -26,7 +26,7 @@
       <li><%= link_to "all consultations", consultations_path %></li>
     </ul><!--end of dashboard-user-panel-links-list -->
   </div><!--end of dashboard-user-panel-links-shell-->
-  <div class="dashboard-messages-shell shell-border">
+  <div class="dashboard-messages-shell shell-border" style="background-image: linear-gradient(rgba(132,175,255,0.7), rgba(0,0,0,0))">
     <div class="dashboard-message header-items">
       <div class="message-header-item"><h4 class="dashboard-messages-header">Messages</h4></div>
       <div class="message-header-item counter"><%= @my_messages_array.size %></div>
@@ -42,7 +42,7 @@
       <% end %><!--end of c.messages.each -->
     <% end %><!--end of @consultations.each-->
   </div><!--end of dashboard-messages-shell-->
-  <div class="dashboard-consults-shell shell-border">
+  <div class="dashboard-consults-shell shell-border" style="background-image: linear-gradient(rgba(132,175,255,0.7), rgba(0,0,0,0))">
     <div class="dashboard-consult header-items">
       <div class="consult-header-item"><h4 class="dashboard-consults-header">Consultations</h4></div>
       <div class="consult-header-item counter"><%= @my_cons_appointments_array.size %></div>
@@ -65,7 +65,7 @@
       <% end %><!-- end of @my_consult_array_desc-->
     </div><!--end dashboard-consults-div-->
   </div><!-- end dashboard-consults-shell-->
-  <div class="dashboard-appointments-shell shell-border">
+  <div class="dashboard-appointments-shell shell-border" style="background-image: linear-gradient(rgba(132,175,255,0.7), rgba(0,0,0,0))">
     <div class="dashboard-appointment header-items">
       <div class="appointment-header-item"><h4 class="dashboard-appointments-header">Appointments</h4></div>
       <div class="appointment-header-item counter"><%= @appointments.size %></div>
@@ -85,7 +85,7 @@
       <% end %><!-- end of current_user.appointments.each do -->
     </div><!--end of dashboard-appointments-div-->
   </div><!--end of dashboard-appointments-shell"-->
-  <div class="dashboard-consults-product-shell shell-border">
+  <div class="dashboard-consults-product-shell shell-border" style="background-image: linear-gradient(rgba(132,175,255,0.7), rgba(0,0,0,0))">
     <div class="dashboard-product header-items">
       <div class="product-header-item"><h4 class="dashboard-consults-product-header">Services</h4></div>
       <div class="product-header-item counter"><%= @consultations.size %></div>
@@ -108,7 +108,7 @@
     </div><!-- end of dashboard-consults-product-div -->
 
   </div><!--end of dashboard-consults-product-shell-->
-  <div class="dashboard-consults-reviews-shell shell-border">
+  <div class="dashboard-consults-reviews-shell shell-border" style="background-image: linear-gradient(rgba(132,175,255,0.7), rgba(0,0,0,0))">
     <div class="dashboard-review header-items">
       <div class="review-item"><h4>RecentReviews</h4></div>
       <div class="review-item counter"><%= @my_reviews_array.size %></div>
@@ -134,7 +134,7 @@
       <% end %><!--end c.review-->
     <% end %><!--end of @consultion.each-->
   </div><!--end dashboard-consults-reviews-shell-->
-  <div class="dashboard-clients-list-shell shell-border">
+  <div class="dashboard-clients-list-shell shell-border" style="background-image: linear-gradient(rgba(132,175,255,0.7), rgba(0,0,0,0))">
     <div class="dashboard-client header-items">
       <div class="client-item"><h4 class="dashboard-clients-header">Clients</h4></div>
       <div class="client-item counter"><%= @my_clients_array.size %></div>

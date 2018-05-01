@@ -5,32 +5,37 @@
     <h6><%= link_to "dashboard", dashboard_path %></h6>
   </div><!--end apppointment-show-links-shell-->
   <!-- <div class="appointment-show-div"> -->
-  <div class="appoint-show-instructor-shell shell-border">
-    <h4 class="appoint-show-instructor-head">Instructor</h4>
+  <div class="appoint-show-instructor-shell shell-border" style="background-image: linear-gradient(rgba(132,175,255,0.7), rgba(0,0,0,0))" >
+    <h3 class="appoint-show-role-head center-text">Instructor</h3>
     <div class="user-profile-image-div">
       <% avatar_url = @appointment.consultation.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
         <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
       <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
     </div><!--end of user-profile-image-div-->
-    <h6>instructor: <%= @appointment.consultation.user.fname %> </h6>
-    <h6>instructor email: <%= @appointment.consultation.user.email %></h6>
+    <h4 class="center-text"><%= @appointment.consultation.user.fname %> </h4>
+    <h6 class="center-text"><%= @appointment.consultation.user.email %></h6>
   </div><!--end appointment-show-instructor-shell-->
 
-  <div class="appoint-show-client-shell shell-border">
-    <h4 class="appoint-show-client-head">Client</h4>
+  <div class="appoint-show-client-shell shell-border" style="background-image: linear-gradient(rgba(132,175,255,0.7), rgba(0,0,0,0))">
+    <h3 class="appoint-show-role-head center-text">Client</h3>
     <div class="user-profile-image-div">
       <% avatar_url = @appointment.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
           <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
       <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
     </div><!--end of user-profile-image-div find: _usericon.scss-->
-    <h6>client: <%= @appointment.pupil %></h6>
-    <h6>client contact: <%= @appointment.user.email %></h6>
+    <h4 class="center-text"> <%= @appointment.pupil %></h4>
+    <h6 class="center-text"><%= @appointment.user.email %></h6>
   </div><!--end appointment-show-client-shell-->
 
-  <div class="appoint-show-details-shell shell-border">
+  <div class="appoint-show-details-shell center-text shell-border" style="background-image: linear-gradient(rgba(0, 0, 0,0.2), rgba(0,0,0,0))">
+    <h3 class="appoint-show-role-head center-text">Detail</h3>
+    <h6><%= @appointment.consultation.consulttype %></h6>
+    <h6><%= @appointment.consultation.language %></h6>
+    <h6><%= @appointment.consultation.focus %> </h6>
+    <h6><%= @appointment.consultation.consultfee%></h6>
     <h6>location: <%= @appointment.location %></h6>
-    <h6>start date: <%= @appointment.start %></h6>
-    <h6>end date: <%= @appointment.end %></h6>
+    <h6>start: <%= @appointment.start %></h6>
+    <h6>end: <%= @appointment.end %></h6>
   </div><!--end appointment-show-details-shell-->
   <!-- </div>end appointment-show-div -->
 </div><!--end content-grid appoint-show-area-->
