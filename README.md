@@ -22,6 +22,15 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+May 7, color scheme
+<!-- https://coolors.co/84afff-048ba8-16db93-efea5a-f29e4c -->
+
+<!-- #84AFFF -->
+<!-- #048BA8 -->
+<!-- #16DB93 -->
+<!-- #EFEA5A -->
+<!-- #F29E4C -->
+
 
 
 April 17

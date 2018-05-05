@@ -1,11 +1,35 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 <p><%= link_to "dashboard", dashboard_path %></p>
-<div>
-  <%= @user.fname %>
-  <%= @user.lname %>
+<div class="user-show-profile-shell shell-border green-shell-gradient" style="max-width: 800px; margin: auto;">
+  <div class="user-show-name-header center-text">
+    <h2><%= @user.fname %> <%= @user.lname %></h2>
+  </div><!--end of user-show-name-div-->
+  <div class="user-profile-image-div">
+    <% avatar_url = @user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
+    <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
+    <div class="user-large-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
+  </div><!--end of icon-div-->
+  <div class="user-show-details" style="max-width: 400px; margin: auto;">
+    <div class="flex-space-between">
+      <h5>City:</h5>
+      <h5><%= @user.city %></h5>
+    </div><!--end of city-div-->
+    <div class="flex-space-between">
+      <h5>University major:</h5>
+      <h5><%= @user.subjectmajor %></h5>
+    </div><!--end of major-div-->
+    <div class="flex-space-between">
+      <h5>Education:</h5>
+      <h5><%= @user.edulevel %></h5>
+    </div><!--end of Edu-div-->
+    <div class="flex-space-between">
+      <h5>Gender:</h5>
+      <h5><%= @user.gender %></h5>
+    </div><!--end of gender-div-->
+  </div><!--end of user-show-detials-->
 </div>
-<div>
+<div class="shell-border shell-tab" style="max-width: 500px; margin: auto;">
  <%= render "privatemessages/new_privatemessage_form", user: @user, privatemessage: @privatemessage %>
 </div>
 

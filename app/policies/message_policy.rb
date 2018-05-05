@@ -21,6 +21,6 @@ class MessagePolicy < ApplicationPolicy
     end
   private
   def owner_user?
-    record.user == user || record.message.user == user
+    record.user == user || record.consultation.user == user
   end
 end

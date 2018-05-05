@@ -21,8 +21,13 @@ class AppointmentsController < ApplicationController
     @appointment.invoice_number = Appointment.invoice_number #calls the appointment model
     # @appointment.reservation = Random.new_seed
     authorize @appointment # authorize before saving
-    @appointment.save
-    redirect_to appointment_path(@appointment)
+    if @appointment.valid?
+      @appointment.save
+      redirect_to appointment_path(@appointment)
+    else
+      flash[:notice] = 'missing info'
+      redirect_to consultation_path(@consultation.id)
+    end
   end
 
   def edit

@@ -5,7 +5,7 @@
     <h6><%= link_to "dashboard", dashboard_path %></h6>
   </div><!--end apppointment-show-links-shell-->
   <!-- <div class="appointment-show-div"> -->
-  <div class="appoint-show-instructor-shell shell-border" style="background-image: linear-gradient(rgba(132,175,255,0.7), rgba(0,0,0,0))" >
+  <div class="appoint-show-instructor-shell shell-border blue-shell-gradient" >
     <h3 class="appoint-show-role-head center-text">Instructor</h3>
     <div class="user-profile-image-div">
       <% avatar_url = @appointment.consultation.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
@@ -16,7 +16,7 @@
     <h6 class="center-text"><%= @appointment.consultation.user.email %></h6>
   </div><!--end appointment-show-instructor-shell-->
 
-  <div class="appoint-show-client-shell shell-border" style="background-image: linear-gradient(rgba(132,175,255,0.7), rgba(0,0,0,0))">
+  <div class="appoint-show-client-shell shell-border yellow-shell-gradient">
     <h3 class="appoint-show-role-head center-text">Client</h3>
     <div class="user-profile-image-div">
       <% avatar_url = @appointment.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
@@ -29,13 +29,13 @@
 
   <div class="appoint-show-details-shell center-text shell-border" style="background-image: linear-gradient(rgba(0, 0, 0,0.2), rgba(0,0,0,0))">
     <h3 class="appoint-show-role-head center-text">Detail</h3>
-    <h6><%= @appointment.consultation.consulttype %></h6>
-    <h6><%= @appointment.consultation.language %></h6>
+    <h4><%= @appointment.consultation.language %></h3>
+    <h6><%= @appointment.consultation.consulttype %></h4>
     <h6><%= @appointment.consultation.focus %> </h6>
     <h6><%= @appointment.consultation.consultfee%></h6>
     <h6>location: <%= @appointment.location %></h6>
-    <h6>start: <%= @appointment.start %></h6>
-    <h6>end: <%= @appointment.end %></h6>
+    <h6>start: <%= @appointment.start.strftime('%B %d, %Y @ %I:%M%p') %></h6>
+    <h6>end: <%= @appointment.end.strftime('%B %d, %Y @ %I:%M%p') %></h6>
   </div><!--end appointment-show-details-shell-->
   <!-- </div>end appointment-show-div -->
 </div><!--end content-grid appoint-show-area-->
