@@ -15,7 +15,7 @@
     <div class="navbar-esl-item">
       <div class="dropdown">
         <div class="dropdown-toggle"  id="navbar-esl-menu" data-toggle="dropdown" >
-        <% avatar_url = current_user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
+        <% user_signed_in? ? avatar_url = current_user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" : avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
         <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
           <div class="user-sm-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 50px; width: 50px; border-radius: 50%; background-position: center;"></div>
         </div><!--end of icon-div-->
