@@ -2,25 +2,27 @@
 <p>Find me in app/views/consultations/index.html.erb</p>
 <h6><%= link_to "homepage", root_path %></h6>
 <h6 class=""><%= link_to "dashboard", dashboard_path %></h6>
-<div class="index-consult-shell shell-border">
-  <% @consultations.each do |consult| %>
+<div class="content-grid consult-index-area">
+  <div class="consult-index-shell shell-border grey-shell-gradient">
+    <% @consultations.each do |consult| %>
 
-      <div class="index-consult-items shell-tab">
-        <div class="index-consult-item"><%= image_tag consult.user.photo.url(:bright_face), class: "user-sm-profile-image-img icon-shell"%></div>
-        <div class="index-consult-item"><%= link_to consult.user.fname, user_path(consult.user)%></div>
-        <div class="index-consult-item"><%= link_to consult[:language], consultation_path(consult)%></div>
-        <div class="index-consult-item"><%= link_to consult[:consulttype], consultation_path(consult)%></div>
-        <!-- consult[:consultfee] -->
-        <div class="index-consult-item"><%= number_to_currency(consult[:consultfee], :unit => "₩") %></div>
-        <!-- :unit is built into the number_to_currency-->
-        <div class="index-consult-item">
-          <% if policy(consult).destroy? %><!--only owner can see delete button-->
-            <%= link_to consultation_path(consult), method: :delete do %>
-             <i class="far fa-trash-alt"></i>
-            <% end %><!--end of link-->
-          <% end %><!-- end of if statment-->
-        </div>
-      </div><!--end of index-consult-items shell-tab-->
+        <div class="index-consult-items shell-tab">
+          <div class="index-consult-item"><%= image_tag consult.user.photo.url(:bright_face), class: "user-sm-profile-image-img icon-shell"%></div>
+          <div class="index-consult-item"><%= link_to consult.user.fname, user_path(consult.user)%></div>
+          <div class="index-consult-item"><%= link_to consult[:language], consultation_path(consult)%></div>
+          <div class="index-consult-item"><%= link_to consult[:consulttype], consultation_path(consult)%></div>
+          <!-- consult[:consultfee] -->
+          <div class="index-consult-item"><%= number_to_currency(consult[:consultfee], :unit => "₩") %></div>
+          <!-- :unit is built into the number_to_currency-->
+          <div class="index-consult-item">
+            <% if policy(consult).destroy? %><!--only owner can see delete button-->
+              <%= link_to consultation_path(consult), method: :delete do %>
+               <i class="far fa-trash-alt"></i>
+              <% end %><!--end of link-->
+            <% end %><!-- end of if statment-->
+          </div>
+        </div><!--end of index-consult-items shell-tab-->
 
-  <% end %><!--end of @consultations.each do-->
-</div><!-- end of index-consultations-div-->
+    <% end %><!--end of @consultations.each do-->
+  </div><!-- end of consultations-index-shell-->
+</div><!--end of consult-index-area-->

@@ -1,0 +1,55 @@
+
+.message-show-area{
+  // background-color: #E5E5E5;
+  grid-gap: 5px;
+  grid-template-areas:
+  ". subject ."
+  ". message ."
+  ". sender ."
+  ". action ."
+  ". . ."
+;
+}
+
+@media (min-width: 850px){
+  .message-show-area{
+    // background-color: #E5E5E5;
+    grid-gap: 10px;
+    grid-template-areas:
+    ". subject ."
+    ". message ."
+    ". sender ."
+    ". action ."
+    ". . ."
+    ;
+  }
+}
+
+@media (min-width: 950px){
+  .message-show-area{
+    // display: grid;
+    // grid-template: [row-start] repeat(8, 1fr) [row-end] / [col-start] 2% repeat(8, 1fr) 2% [col-end]; // rows/cols
+    grid-template: [row-start] repeat(auto, 1fr) [row-end] / [col-start] 2% repeat(10, 1fr) 2% [col-end]; //rows set to auto; not fits!
+    grid-gap: 5px 5px;
+    grid-template-areas:
+    ". sender subject subject subject message message message message message action ."
+    ". sender subject subject subject message message message message message action ."
+    ". . . . . . . . . . . ."
+    ;
+  }
+}
+.message-show-sender-div{
+ grid-area: sender;
+}
+
+.message-show-subject-div{
+  grid-area: subject;
+}
+
+.message-show-textmess-div{
+  grid-area: message;
+}
+
+.message-show-action-div{
+  grid-area: action;
+}

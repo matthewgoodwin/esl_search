@@ -30,8 +30,24 @@ May 7, color scheme
 <!-- #16DB93 -->
 <!-- #EFEA5A -->
 <!-- #F29E4C -->
+------------------
 
+<!-- new set below:
+rgb
+rgb(132, 175, 255)
+rgb(151, 132, 255)
+rgb(212, 132, 255)
+rgb(255, 132, 237)
+rgb(255, 132, 175)
+rgb(255, 151, 132)
 
+SCSS
+$color-1: #84afff;
+$color-2: #9784ff;
+$color-3: #d484ff;
+$color-4: #ff84ed;
+$color-5: #ff84af;
+$color-6: #ff9784; -->
 
 April 17
 

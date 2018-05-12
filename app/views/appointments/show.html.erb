@@ -5,7 +5,7 @@
     <h6><%= link_to "dashboard", dashboard_path %></h6>
   </div><!--end apppointment-show-links-shell-->
   <!-- <div class="appointment-show-div"> -->
-  <div class="appoint-show-instructor-shell shell-border blue-shell-gradient" >
+  <div class="appoint-show-instructor-shell shell-border turcoise-shell-gradient" >
     <h3 class="appoint-show-role-head center-text">Instructor</h3>
     <div class="user-profile-image-div">
       <% avatar_url = @appointment.consultation.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
@@ -16,7 +16,7 @@
     <h6 class="center-text"><%= @appointment.consultation.user.email %></h6>
   </div><!--end appointment-show-instructor-shell-->
 
-  <div class="appoint-show-client-shell shell-border yellow-shell-gradient">
+  <div class="appoint-show-client-shell shell-border green-shell-gradient">
     <h3 class="appoint-show-role-head center-text">Client</h3>
     <div class="user-profile-image-div">
       <% avatar_url = @appointment.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
@@ -27,7 +27,7 @@
     <h6 class="center-text"><%= @appointment.user.email %></h6>
   </div><!--end appointment-show-client-shell-->
 
-  <div class="appoint-show-details-shell center-text shell-border" style="background-image: linear-gradient(rgba(0, 0, 0,0.2), rgba(0,0,0,0))">
+  <div class="appoint-show-details-shell center-text shell-border grey-shell-gradient">
     <h3 class="appoint-show-role-head center-text">Detail</h3>
     <h4><%= @appointment.consultation.language %></h3>
     <h6><%= @appointment.consultation.consulttype %></h4>

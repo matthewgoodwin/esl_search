@@ -1,7 +1,7 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 <p><%= link_to "dashboard", dashboard_path %></p>
-<div class="user-show-profile-shell shell-border green-shell-gradient" style="max-width: 800px; margin: auto;">
+<div class="user-show-profile-shell shell-border blue-shell-gradient mw800 center-div">
   <div class="user-show-name-header center-text">
     <h2><%= @user.fname %> <%= @user.lname %></h2>
   </div><!--end of user-show-name-div-->
@@ -28,8 +28,24 @@
       <h5><%= @user.gender %></h5>
     </div><!--end of gender-div-->
   </div><!--end of user-show-detials-->
-</div>
-<div class="shell-border shell-tab" style="max-width: 500px; margin: auto;">
- <%= render "privatemessages/new_privatemessage_form", user: @user, privatemessage: @privatemessage %>
+
+  <div class="privatemessage-show-form-div flex-center-center">
+    <a href="" data-toggle="modal" data-target="#create-pm">
+      <div class="btn btn-primary round-div no-decor center-div">private message</div>
+    </a>
+  </div><!--end of privatemessage-show-form-div-->
 </div>
 
+<!--begin modal of privatemessage create partial-->
+  <div class="modal fade privatemessage-mod-style" id="create-pm">
+    <div class="modal-dialog" role="document"><!--aligns the modal document-->
+      <div class="modal-content">
+        <div class="modal-header modal-head-grad flex flex-center">
+          <h3 class="create-privatemessage-modal-header">To: <%= @user.fname %> <%= @user.lname %> </h3>
+        </div><!--end of header-->
+        <div class="modal-body flex flex-center">
+          <%= render "privatemessages/new_privatemessage_form", user: @user, privatemessage: @privatemessage %>
+        </div><!--end of modal-body and privatemessage-show-form-div-->
+      </div><!--end of modal-content-->
+    </div><!--end of modal-dialog-->
+  </div><!--end of modal-->

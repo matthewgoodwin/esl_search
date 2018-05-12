@@ -1,8 +1,29 @@
 <h1>Messages#show</h1>
 <p>Find me in app/views/messages/show.html.erb</p>
 <p><%= link_to "dashboard", dashboard_path %></p>
-<div>
-  <%= @message.subject %>
-  <%= @message.textmess %>
-</div>
 
+<div class="content-grid message-show-area">
+  <div class="message-show-sender-div center-div">
+    <div class="icon-div">
+      <% avatar_url = @message.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
+          <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
+      <div class="user-md-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 100px; width: 100px; border-radius: 50%; background-position: center;"></div>
+    </div><!--end of icon-div-->
+  </div>
+  <div class="message-show-subject-div shell-border padding grey-shell-gradient">
+    <div class="">
+      <h4 class="">SUBJECT:</h4>
+      <p class=""><%= @message.subject %></p>
+    </div>
+  </div><!--end of message-show-subject-div-->
+
+  <div class="message-show-textmess-div shell-border padding yellow-shell-gradient">
+    <div class="">
+      <h4 class="">MESSAGE:</h4>
+      <p><%= @message.textmess %></p>
+    </div>
+  </div><!--message-show-textmess-div-->
+  <div class="message-show-action-div shell-border padding center-text"><%= link_to message_path(@message), method: :delete do %>
+    <i class="fas fa-trash-alt" aria-hidden="true"></i><% end %>
+  </div>
+</div><!--end of message-area-->
