@@ -3,6 +3,7 @@
 <p>Find me in app/views/consultations/_new_consultation_form.html.erb</p>
 <div class="consultaiton-form-div">
   <%= simple_form_for @consultation do |f| %>
+    <%= f.input :consult_title, label: false, placeholder: "lesson title" %>
     <%= f.input :language, label: false, collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"], prompt: "language" %>
     <%= f.input :consulttype, label: false, collection: ["grammar-based", "skill-based", "hobby-based", "trade-based", "conversation (only)", "exam-prep"], prompt: "type" %>
     <%= f.input :focus, label: false, placeholder: "specific focus" %>
