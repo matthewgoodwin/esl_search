@@ -43,6 +43,6 @@ class ConsultationsController < ApplicationController
     authorize @consultation
   end
   def consultation_params
-    params.require(:consultation).permit(:language, :focus, :consulttype, :consultfee, :consult_title)
+    params.require(:consultation).permit(:consult_language, :consult_focus, :consult_type, :consultfee, :consult_title, :consult_desc)
   end
 end

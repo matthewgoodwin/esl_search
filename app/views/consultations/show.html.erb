@@ -22,12 +22,13 @@
     <h2>Details</h2>
     <p>Find me in app/views/consultations/show.html.erb</p>
     <p>Title: <%= @consultation.consult_title %> </p>
-    <p>Language - <%= @consultation.language %></p>
-    <p>Type - <%= @consultation.consulttype %></p>
-    <p>Focus - <%= @consultation.focus %></p>
+    <p>Language - <%= @consultation.consult_language %></p>
+    <p>Type - <%= @consultation.consult_type %></p>
+    <p>Focus - <%= @consultation.consult_focus %></p>
     <!-- <p> @consultation.consultfee </p> -->
     <p>rate/hour- <%= number_to_currency(@consultation.consultfee, :unit => "₩") %></p>
     <!-- :unit is built into the number_to_currency-->
+    <p><%= @consultation.consult_desc %></p>
     <div class="consultation-message-form-div">
       <a href="" data-toggle="modal" data-target="#create-message">
         <div class="round-div no-decor">send message</div>

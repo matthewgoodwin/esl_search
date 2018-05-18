@@ -4,5 +4,5 @@ class Consultation < ApplicationRecord
   has_many :appointments, dependent: :destroy
   has_many :messages, dependent: :destroy
 
-  validates :language, :consulttype, :focus, presence: true
+  validates :consult_language, :consult_type, :consult_focus, presence: true
 end

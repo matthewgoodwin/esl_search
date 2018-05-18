@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180516041414) do
+ActiveRecord::Schema.define(version: 20180518133310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,19 +31,19 @@ ActiveRecord::Schema.define(version: 20180516041414) do
 
   create_table "consultations", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "focus"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.string   "availableday"
-    t.string   "consultdur"
-    t.string   "consultperiod"
-    t.string   "consultfreq"
-    t.string   "consultdesc"
     t.string   "matincluded"
-    t.string   "consulttype"
-    t.decimal  "consultfee",    precision: 19, scale: 2
-    t.string   "language"
+    t.decimal  "consultfee",       precision: 19, scale: 2
     t.string   "consult_title"
+    t.string   "consult_type"
+    t.string   "consult_desc"
+    t.string   "consult_focus"
+    t.string   "consult_language"
+    t.string   "consult_dur"
+    t.string   "consult_period"
+    t.string   "consult_freq"
     t.index ["user_id"], name: "index_consultations_on_user_id", using: :btree
   end
 

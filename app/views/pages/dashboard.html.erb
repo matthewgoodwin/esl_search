@@ -95,13 +95,11 @@
     <div class="dashboard-consults-product-div">
       <% @consultations.limit(3).each do |c| %>
           <div class="flex-space-between dashboard-consults-product-items shell-border shell-tab grey-tab-gradient">
-            <div class="dashboard-product-item"><%= c.language %></div>
-            <div class="dashboard-product-item"><%= c.consulttype %></div>
-            <div class="dashboard-product-item"><%= number_to_currency(c.consultfee, unit: "₩") %></div>
-          <div class="dashboard-product-item"><%= link_to consultation_path(c) do %>
+            <div class=""><%= c.consult_title %></div>
+          <div class=""><%= link_to consultation_path(c) do %>
             <i class="fas fa-eye" aria-hidden="true"></i><% end %>
           </div>
-          <div class="dashboard-product-item"><%= link_to consultation_path(c), method: :delete do %>
+          <div class=""><%= link_to consultation_path(c), method: :delete do %>
             <i class="fas fa-trash-alt" aria-hidden="true"></i><% end %>
           </div>
         </div><!--end of flex-space-between dashboard-consults-product-items shell-border shell-tab-->
