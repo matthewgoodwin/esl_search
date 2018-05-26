@@ -10,4 +10,8 @@ class UserPolicy < ApplicationPolicy
       return true
     end
   end
+    def user_consultations?
+      # ^ outside the Scope < Scope bc does not exist in 'application_policy'
+      return true
+    end
 end

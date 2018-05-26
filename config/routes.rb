@@ -42,7 +42,14 @@ Rails.application.routes.draw do
   # get 'messages/destroy'
 
   devise_for :users
-  resources :users, only:[:index, :show, :search], shallow: true do
+  resources :users, only:[:index, :show], shallow: true do
+    member do
+      # ^ creates routes outside the seven routes created by default
+      get 'user_consultations', to: 'users#user_consultations'
+    end
+    collection do
+      get 'search'
+    end
     resources :privatemessages
   end
   resources :consultations, shallow: true do
@@ -56,5 +63,6 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'pages#dashboard'
   get 'search', to: 'pages#search'
   get 'users', to: 'pages#user'
+  # get 'user_consultations', to: 'users#consultations'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

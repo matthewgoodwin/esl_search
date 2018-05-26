@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180518133310) do
+ActiveRecord::Schema.define(version: 20180519074302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20180518133310) do
     t.string   "consult_dur"
     t.string   "consult_period"
     t.string   "consult_freq"
+    t.string   "consult_location"
     t.index ["user_id"], name: "index_consultations_on_user_id", using: :btree
   end
 

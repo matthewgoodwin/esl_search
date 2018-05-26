@@ -14,6 +14,7 @@
     <div class="header-items">
       <!-- <i class="far fa-envelope fa-3x"></i> -->
       <h5>Private Messages</h5>
+
       <div class="counter"><%= @privatemessages.size %></div>
     </div>
     <div class="dashboard-user-info-div">
@@ -29,7 +30,9 @@
   </div><!--end of dashboard-user-panel-links-shell-->
   <div class="dashboard-messages-shell shell-border blue-shell-gradient">
     <div class="dashboard-message header-items">
-      <div class="message-header-item"><h4 class="dashboard-messages-header">Messages</h4></div>
+      <div class="message-header-item">
+        <h4 class="dashboard-messages-header">Messages</h4>
+      </div>
       <div class="message-header-item counter"><%= @my_messages_array.size %></div>
     </div><!--end of dashboard-message header-items-->
      <% @consultations.each do |c| %>
@@ -88,16 +91,18 @@
   </div><!--end of dashboard-appointments-shell"-->
   <div class="dashboard-consults-product-shell shell-border blue-shell-gradient">
     <div class="dashboard-product header-items">
+      <%= link_to user_consultations_user_path(current_user.id) do %>
       <div class="product-header-item"><h4 class="dashboard-consults-product-header">Services</h4></div>
+      <% end %>
       <div class="product-header-item counter"><%= @consultations.size %></div>
     </div><!--end of dashboard-product header-items-->
 
     <div class="dashboard-consults-product-div">
       <% @consultations.limit(3).each do |c| %>
           <div class="flex-space-between dashboard-consults-product-items shell-border shell-tab grey-tab-gradient">
-            <div class=""><%= c.consult_title %></div>
+            <div class=""><%= truncate( c.consult_title, length: 20) %></div>
           <div class=""><%= link_to consultation_path(c) do %>
-            <i class="fas fa-eye" aria-hidden="true"></i><% end %>
+            <i class="fas fa-info-circle" aria-hidden="true"></i><% end %>
           </div>
           <div class=""><%= link_to consultation_path(c), method: :delete do %>
             <i class="fas fa-trash-alt" aria-hidden="true"></i><% end %>
