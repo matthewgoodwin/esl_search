@@ -1,9 +1,10 @@
 class PrivatemessagesController < ApplicationController
   before_action :find_privatemessage, only: [:show, :edit, :update, :destroy]
   before_action :privatemessage_params, only: [:new, :create]
-  before_action :find_user, only: [:new, :create, :edit, :update, :destroy]
+  before_action :find_user, only: [:index, :new, :create, :edit, :update, :destroy]
   before_action :find_sender, only: [:show]
   def index
+    @messages = policy_scope(Message).order(created_at: :desc)
   end
 
   def show

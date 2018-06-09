@@ -1,0 +1,17 @@
+<h1>user_messages.html.erb</h1>
+<%= link_to 'dashboard', dashboard_path %>
+<div class="content-grid user-message-area">
+  <div class="user-message-list-shell shell-border grey-shell-gradient">
+    <% @user_consultations.each do |c| %>
+      <% c.messages.each do |m| %>
+        <div class="user-message-item shell-tab">
+          <input id="checkbox" type="checkbox">
+          <h6><%= m.user.fname %></h6>
+          <h6><%= m.subject %></h6>
+          <h6><%= truncate(m.textmess, length: 40) %><!--limit size--></h6>
+          <h6><%= m.created_at.strftime('%B %d %Y @ %I:%M%p') %></h6>
+        </div><!--end of user message-item-->
+      <% end %><!--end of c.messages-->
+    <% end %><!--end of @user_consultations-->
+  </div><!-- end of user-mess-list-shell-->
+</div><!--end of content-grid-->

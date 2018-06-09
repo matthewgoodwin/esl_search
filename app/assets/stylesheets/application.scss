@@ -55,6 +55,19 @@ li {
   justify-content: space-around;
   align-items: center;
 }
+
+.flex-item-no-grow-shrink-20{
+  flex: 0 0 20%;
+}
+
+.flex-item-no-grow-shrink-30{
+  flex: 0 0 30%;
+}
+
+.flex-item-grow-only-auto{
+  flex: 1 0 auto;
+}
+
 .padding{
   padding: 10px;
 }
@@ -62,6 +75,7 @@ li {
 .center-div{
   margin: auto;
 }
+
 .grey-tab-gradient{
   background-image: -webkit-linear-gradient(275deg, rgba(0,0,0,0.1), rgba(0,0,0,0));
   background-image: -o-linear-gradient(275deg, rgba(0,0,0,0.1), rgba(0,0,0,0));

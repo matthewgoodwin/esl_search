@@ -46,6 +46,11 @@ Rails.application.routes.draw do
     member do
       # ^ creates routes outside the seven routes created by default
       get 'user_consultations', to: 'users#user_consultations'
+      get 'user_appointments', to: 'users#user_appointments'
+      get 'user_messages', to: 'users#user_messages'
+      get 'user_services', to: 'users#user_services'
+      get 'user_clients', to: 'users#user_clients'
+      get 'user_reviews', to: 'users#user_reviews'
     end
     collection do
       get 'search'

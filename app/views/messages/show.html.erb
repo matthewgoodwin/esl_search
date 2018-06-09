@@ -7,18 +7,22 @@
     <div class="icon-div">
       <% avatar_url = @message.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
           <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-      <div class="user-md-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 100px; width: 100px; border-radius: 50%; background-position: center;"></div>
+      <div class="user-md-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 150px; width: 150px; border-radius: 50%; background-position: center;"></div>
     </div><!--end of icon-div-->
   </div>
   <div class="message-show-subject-div shell-border padding grey-shell-gradient">
-    <div class="">
-      <h4 class="">SUBJECT:</h4>
-      <p class=""><%= @message.subject %></p>
+    <div class="center-text">
+      <div>
+      <h6 class=""><%= @message.created_at.strftime('%B %d %Y') %></h6>
+      <h6 class=""><%= @message.created_at.strftime("%I:%M %P") %></h6>
+      <h6 class="">SUBJECT:</h6>
+      <h3 class=""><%= @message.subject %></h3>
+      </div>
     </div>
   </div><!--end of message-show-subject-div-->
 
   <div class="message-show-textmess-div shell-border padding yellow-shell-gradient">
-    <div class="">
+    <div class="center-text">
       <h4 class="">MESSAGE:</h4>
       <p><%= @message.textmess %></p>
     </div>

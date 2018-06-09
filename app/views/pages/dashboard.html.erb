@@ -13,8 +13,9 @@
     </div><!--end of user-profile-image-div find: _usericon.scss-->
     <div class="header-items">
       <!-- <i class="far fa-envelope fa-3x"></i> -->
-      <h5>Private Messages</h5>
-
+      <%= link_to user_privatemessages_path(current_user.id) do %>
+        <h5>Private Messages</h5>
+      <% end %>
       <div class="counter"><%= @privatemessages.size %></div>
     </div>
     <div class="dashboard-user-info-div">
@@ -30,17 +31,24 @@
   </div><!--end of dashboard-user-panel-links-shell-->
   <div class="dashboard-messages-shell shell-border blue-shell-gradient">
     <div class="dashboard-message header-items">
-      <div class="message-header-item">
-        <h4 class="dashboard-messages-header">Messages</h4>
-      </div>
+      <%= link_to user_messages_user_path(current_user.id) do %>
+        <div class="message-header-item">
+          <h4 class="dashboard-messages-header">Messages</h4>
+        </div>
+      <% end %>
       <div class="message-header-item counter"><%= @my_messages_array.size %></div>
     </div><!--end of dashboard-message header-items-->
      <% @consultations.each do |c| %>
-      <% c.messages.last(1).each do |m| %>
+      <% c.messages.last(3).each do |m| %>
         <%= link_to message_path(m), class: "no-decor" do %>
-          <div class="shell-tab grey-tab-gradient">
-            <h5><b><%= m.subject %></b></h5>
-            <%= truncate(m.textmess, length: 35) %> <!--this limits the length of message text-->
+          <div class="flex-space-between shell-tab grey-tab-gradient">
+            <h6 class="flex-item-no-grow-shrink-20"><%= m.user.fname %> </h6>
+            <h6 class="flex-item-grow-only-auto"><b><%=truncate( m.subject, length: 15) %></b></h6>
+            <% if m.created_at.strftime('%b %d %y') == DateTime.now.strftime('%b %d %y')%>
+              <h6 class="flex-item-grow-only-auto"><%= m.created_at.strftime('%I:%M%p')%></h6>
+            <% else %>
+              <h6 class="flex-item-grow-only-auto"><%= m.created_at.strftime('%b %d %Y')%></h6>
+            <% end %>
           </div><!--end of shell-tab-->
         <% end %><!--end of link_to message_path-->
       <% end %><!--end of c.messages.each -->
@@ -48,7 +56,10 @@
   </div><!--end of dashboard-messages-shell-->
   <div class="dashboard-consults-shell shell-border blue-shell-gradient">
     <div class="dashboard-consult header-items">
-      <div class="consult-header-item"><h4 class="dashboard-consults-header">Consultations</h4></div>
+      <!---->
+      <%= link_to user_consultations_user_path(current_user.id) do %>
+        <div class="consult-header-item"><h4 class="dashboard-consults-header">Consultations</h4></div>
+      <% end %>
       <div class="consult-header-item counter"><%= @my_cons_appointments_array.size %></div>
     </div><!--end of dashboard-consult header-items-->
     <div class="dashboard-consults-div">
@@ -61,9 +72,9 @@
             <div class="consult-item">
               <% avatar_url = a.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
               <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-              <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 50px; width: 50px; border-radius: 50%; background-position: center;"></div>
+              <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
             </div><!--end of icon-div-->
-            <div class="consult-item"><%= a.start.strftime('%B %d @ %I:%M%p')%></div>
+            <div class="consult-item"><h6><%= a.start.strftime('%B %d @ %I:%M%p')%></h6></div>
           </div><!--end of shell-tab-->
         <% end %><!--end link_to-->
       <% end %><!-- end of @my_consult_array_desc-->
@@ -71,7 +82,9 @@
   </div><!-- end dashboard-consults-shell-->
   <div class="dashboard-appointments-shell shell-border blue-shell-gradient">
     <div class="dashboard-appointment header-items">
+      <%= link_to user_appointments_user_path(current_user.id) do %>
       <div class="appointment-header-item"><h4 class="dashboard-appointments-header">Appointments</h4></div>
+      <% end %>
       <div class="appointment-header-item counter"><%= @appointments.size %></div>
     </div><!--dashboard-appointment header-items-->
     <div class="dashboard-appointments-div">
@@ -81,9 +94,9 @@
             <div class="icon-div">
               <% avatar_url = a.consultation.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
                 <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-              <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 50px; width: 50px; border-radius: 50%; background-position: center;"></div>
+              <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
             </div><!--end of icon-div-->
-            <div><%= a.start.strftime('%B %d @ %I:%M%p')%></div>
+            <div><h6><%= a.start.strftime('%B %d @ %I:%M%p')%></h6></div>
           </div><!-- end of dashboard-user-appointments-div-->
         <% end %><!--end of link_to-->
       <% end %><!-- end of current_user.appointments.each do -->
@@ -91,8 +104,8 @@
   </div><!--end of dashboard-appointments-shell"-->
   <div class="dashboard-consults-product-shell shell-border blue-shell-gradient">
     <div class="dashboard-product header-items">
-      <%= link_to user_consultations_user_path(current_user.id) do %>
-      <div class="product-header-item"><h4 class="dashboard-consults-product-header">Services</h4></div>
+      <%= link_to user_services_user_path(current_user.id) do %>
+        <div class="product-header-item"><h4 class="dashboard-consults-product-header">Services</h4></div>
       <% end %>
       <div class="product-header-item counter"><%= @consultations.size %></div>
     </div><!--end of dashboard-product header-items-->
@@ -100,11 +113,11 @@
     <div class="dashboard-consults-product-div">
       <% @consultations.limit(3).each do |c| %>
           <div class="flex-space-between dashboard-consults-product-items shell-border shell-tab grey-tab-gradient">
-            <div class=""><%= truncate( c.consult_title, length: 20) %></div>
-          <div class=""><%= link_to consultation_path(c) do %>
+            <div class="flex-item-grow-only-auto"><h6><%= truncate( c.consult_title, length: 20) %></h6></div>
+          <div class="flex-item-no-grow-shrink-20"><%= link_to consultation_path(c) do %>
             <i class="fas fa-info-circle" aria-hidden="true"></i><% end %>
           </div>
-          <div class=""><%= link_to consultation_path(c), method: :delete do %>
+          <div class="flex-item-no-grow-shrink-20"><%= link_to consultation_path(c), method: :delete do %>
             <i class="fas fa-trash-alt" aria-hidden="true"></i><% end %>
           </div>
         </div><!--end of flex-space-between dashboard-consults-product-items shell-border shell-tab-->
@@ -114,7 +127,9 @@
   </div><!--end of dashboard-consults-product-shell-->
   <div class="dashboard-consults-reviews-shell shell-border blue-shell-gradient">
     <div class="dashboard-review header-items">
-      <div class="review-item"><h4>RecentReviews</h4></div>
+      <%= link_to user_reviews_user_path(current_user.id) do %>
+        <div class="review-item"><h4>Recent Reviews</h4></div>
+      <% end %><!--end of user_review_path-->
       <div class="review-item counter"><%= @my_reviews_array.size %></div>
     </div><!--end of dashboard-review header-items-->
     <% @consultations.each do |c| %>
@@ -131,7 +146,7 @@
              <% end %><!--end of 5-r.star-->
             </div><!--end of review-item-->
             <div class="review-item">
-              <%= truncate( r.comment, length: 15) %>
+              <h6><%= truncate( r.comment, length: 15) %></h6>
             </div><!--end of review-item-->
           </div><!--shell-tab dashboard-review-list-items-->
         <% end %><!--end of link_to review-->
@@ -140,7 +155,9 @@
   </div><!--end dashboard-consults-reviews-shell-->
   <div class="dashboard-clients-list-shell shell-border blue-shell-gradient">
     <div class="dashboard-client header-items">
-      <div class="client-item"><h4 class="dashboard-clients-header">Clients</h4></div>
+      <%= link_to user_clients_user_path(current_user.id) do %>
+        <div class="client-item"><h4 class="dashboard-clients-header">Clients</h4></div>
+      <% end %>
       <div class="client-item counter"><%= @my_clients_array.size %></div>
     </div><!--dashboard-client header-items-->
       <div class="dashboard-clients-div">
@@ -149,9 +166,9 @@
             <div class="shell-tab flex-space-between dashbaoard-client-list-items grey-tab-gradient">
               <div class="client-item">
               <% avatar_url = client.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
-              <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 50px; width: 50px; border-radius: 50%; background-position: center;"></div>
+              <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
               </div><!--end of client-item-->
-              <div class="client-item"><%= client.fname %></div>
+              <div class="client-item"><h6><%= client.fname %></h6></div>
             </div><!--end of client-item-->
           <% end %>
         <% end %><!--end of @my_clients_array.each-->

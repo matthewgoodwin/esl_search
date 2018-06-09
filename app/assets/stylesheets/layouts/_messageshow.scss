@@ -29,12 +29,12 @@
   .message-show-area{
     // display: grid;
     // grid-template: [row-start] repeat(8, 1fr) [row-end] / [col-start] 2% repeat(8, 1fr) 2% [col-end]; // rows/cols
-    grid-template: [row-start] repeat(auto, 1fr) [row-end] / [col-start] 2% repeat(10, 1fr) 2% [col-end]; //rows set to auto; not fits!
-    grid-gap: 5px 5px;
+    grid-template: [row-start] repeat(auto, 1fr) [row-end] / [col-start] 4% repeat(6, 1fr) 4% [col-end]; //rows set to auto; not fits!
+    grid-gap: 1px 1px;
     grid-template-areas:
-    ". sender subject subject subject message message message message message action ."
-    ". sender subject subject subject message message message message message action ."
-    ". . . . . . . . . . . ."
+    ". . . sender sender . . ."
+    ". . . subject subject . . ."
+    ". . . message message . . ."
     ;
   }
 }
