@@ -39,7 +39,7 @@
       <div class="message-header-item counter"><%= @my_messages_array.size %></div>
     </div><!--end of dashboard-message header-items-->
      <% @consultations.each do |c| %>
-      <% c.messages.last(3).each do |m| %>
+      <% c.messages.sort{|x,y| y <=> x}.take(3).each do |m| %>
         <%= link_to message_path(m), class: "no-decor" do %>
           <div class="flex-space-between shell-tab grey-tab-gradient">
             <h6 class="flex-item-no-grow-shrink-20"><%= m.user.fname %> </h6>
@@ -88,7 +88,7 @@
       <div class="appointment-header-item counter"><%= @appointments.size %></div>
     </div><!--dashboard-appointment header-items-->
     <div class="dashboard-appointments-div">
-      <% @appointments.last(3).each do |a| %>
+      <% @appointments.sort{|x,y| y <=> x}.take(3).each do |a| %>
         <%= link_to appointment_path(a), class: "no-decor" do %>
           <div class="dashboard-user-appointments-div flex-space-between shell-tab grey-tab-gradient">
             <div class="icon-div">
@@ -133,7 +133,8 @@
       <div class="review-item counter"><%= @my_reviews_array.size %></div>
     </div><!--end of dashboard-review header-items-->
     <% @consultations.each do |c| %>
-      <% c.reviews.each do |r| %>
+      <% c.reviews.sort{|x,y| y <=> x}.take(3).each do |r| %>
+      <!--new changes that should be tested-->
         <%= link_to review_path(r.id), class: "no-decor" do %>
           <div class="shell-tab flex-space-between dashboard-review-list-items grey-tab-gradient">
             <div class= "review-item">

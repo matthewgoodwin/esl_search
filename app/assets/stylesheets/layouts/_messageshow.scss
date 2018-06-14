@@ -5,8 +5,8 @@
   grid-template-areas:
   ". subject ."
   ". message ."
-  ". sender ."
-  ". action ."
+  // ". sender ."
+  // ". action ."
   ". . ."
 ;
 }
@@ -18,8 +18,8 @@
     grid-template-areas:
     ". subject ."
     ". message ."
-    ". sender ."
-    ". action ."
+    // ". sender ."
+    // ". action ."
     ". . ."
     ;
   }
@@ -30,9 +30,9 @@
     // display: grid;
     // grid-template: [row-start] repeat(8, 1fr) [row-end] / [col-start] 2% repeat(8, 1fr) 2% [col-end]; // rows/cols
     grid-template: [row-start] repeat(auto, 1fr) [row-end] / [col-start] 4% repeat(6, 1fr) 4% [col-end]; //rows set to auto; not fits!
-    grid-gap: 1px 1px;
+    grid-gap: 10px 10px;
     grid-template-areas:
-    ". . . sender sender . . ."
+    // ". . . sender sender . . ."
     ". . . subject subject . . ."
     ". . . message message . . ."
     ;

@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 # raise
   end
   def user_services
-
+    @user_services = @user.consultations
   end
   def user_clients
 
