@@ -1,5 +1,9 @@
 # README
 
+<!-- for issues with server :
+  kill -9 $(lsof -i tcp:3000 -t)
+-->
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

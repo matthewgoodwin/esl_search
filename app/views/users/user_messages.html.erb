@@ -9,7 +9,7 @@
           <h6 class="flex-item-no-grow-shrink-15"><%= m.user.fname %></h6>
           <h6 class="flex-item-no-grow-shrink-15"><%= m.subject %></h6>
           <h6 class="flex-item-grow-only-auto"><%= truncate(m.textmess, length: 40) %><!--limit size--></h6>
-          <h6 class="flex-item-no-grow-shrink-15"><%= m.created_at.strftime('%B %d %Y @ %I:%M%p') %></h6>
+          <h6 class="flex-item-no-grow-shrink-15"><%= m.created_at.strftime("%B %d %Y @ %I:%M%p") %></h6>
         </div><!--end of user message-item-->
       <% end %><!--end of c.messages-->
     <% end %><!--end of @user_consultations-->

@@ -7,6 +7,8 @@ class Consultation < ApplicationRecord
   validates :consult_title, :consult_language, :consult_type, presence: true
   validates :consult_focus, :consultfee, :consult_desc, :consult_location, presence: true
 
+  serialize(:consult_freq, Array)
+
   before_save :proper_format
   private
   def proper_format

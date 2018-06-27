@@ -1,10 +1,8 @@
 <h1>Messages#show</h1>
 <p>Find me in app/views/messages/show.html.erb</p>
 <p><%= link_to "dashboard", dashboard_path %></p>
-
 <div class="content-grid message-show-area">
   <!-- <div class="message-show-sender-div center-div">
-
   </div> -->
   <div class="message-show-subject-div shell-border padding grey-shell-gradient">
     <div class="icon-div center-div">
@@ -14,23 +12,22 @@
     </div><!--end of icon-div-->
     <div class="center-text">
       <div>
-      <h6 class=""><%= @message.created_at.strftime('%B %d %Y') %></h6>
-      <h6 class=""><%= @message.created_at.strftime("%I:%M %P") %></h6>
-      <div class="flex-center-center">
-        <h4 class="padding-5"><b>subject:</b></h4>
-        <h4 class="padding-5"><b><%= @message.subject %></b></h4>
-      </div><!--end of flex-space-around-->
+        <h6 class=""><%= @message.created_at.strftime("%B %d %Y") %></h6>
+        <h6 class=""><%= @message.created_at.strftime("%I:%M %P") %></h6>
+        <div class="flex-center-center">
+          <h5 class="padding-5"><b>subject:</b></h5>
+          <h5 class="padding-5"><b>"<%= @message.subject %>"</b></h5>
+        </div><!--end of flex-space-around-->
       </div>
     </div>
   </div><!--end of message-show-subject-div-->
-
   <div class="message-show-textmess-div shell-border padding yellow-shell-gradient">
     <div class="center-text">
-      <h4 class="">MESSAGE:</h4>
-      <p><%= @message.textmess %></p>
+      <h5 class=""><b>message:</b></h5>
+      <p>"<%= @message.textmess %>"</p>
     </div>
     <div class="message-show-action-div padding center-text center-div"><%= link_to message_path(@message), method: :delete do %>
       <i class="fas fa-trash-alt" aria-hidden="true"></i><% end %>
-  </div>
+    </div>
   </div><!--message-show-textmess-div-->
 </div><!--end of message-area-->

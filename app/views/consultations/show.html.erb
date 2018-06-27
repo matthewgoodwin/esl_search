@@ -1,4 +1,7 @@
 <div class="content-grid consultation-area">
+  <div>
+    <%= @consultation.consult_freq[0] %>
+  </div>
   <!-- <h1>Consultations#show</h1> -->
   <!-- <div class=""> -->
   <div class="consultation-show-instructor-shell shell-border green-shell-gradient">
@@ -8,23 +11,43 @@
       <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
     </div><!--end of user-profile-image-div-->
     <div class=" center-text">
+      <div class="flex-space-between">
       <h5><%= @consultation.user.fname %><%= @consultation.user.lname %></h5>
+      </div>
+      <div class="flex-space-between">
       <h5>Gender: <%= @consultation.user.gender %> </h5>
+      </div>
+      <div class="flex-space-between">
       <h5>Education: <%= @consultation.user.edulevel %></h5>
+      </div>
+      <div class="flex-space-between">
       <h5>Major:<%= @consultation.user.subjectmajor %></h5>
+      </div>
+      <div class="flex-space-between">
       <p><%= link_to "homepage", root_path %></p>
       <p><%= link_to "dashboard", dashboard_path %></p>
+      </div>
     </div>
   </div><!--end of shell-border-->
 
   <div class="consultation-show-details-shell shell-border blue-shell-gradient">
   <div class="shell-tab">
     <h2>Details</h2>
+    <div class="flex-space-between">
     <p>Find me in app/views/consultations/show.html.erb</p>
+    </div>
+    <div class="flex-space-between">
     <p>Title: <%= @consultation.consult_title %> </p>
+    </div>
+    <div class="flex-space-between">
     <p>Language - <%= @consultation.consult_language %></p>
+    </div>
+    <div class="flex-space-between">
     <p>Type - <%= @consultation.consult_type %></p>
+    </div>
+    <div class="flex-space-between">
     <p>Focus - <%= @consultation.consult_focus %></p>
+    </div>
     <!-- <p> @consultation.consultfee </p> -->
     <p>rate/hour- <%= number_to_currency(@consultation.consultfee, :unit => "₩") %></p>
     <!-- :unit is built into the number_to_currency-->

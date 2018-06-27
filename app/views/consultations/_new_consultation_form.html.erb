@@ -11,6 +11,13 @@
       <%= f.input :consult_focus, label: false, placeholder: "specific focus" %>
       <%= f.input :consult_location, label: false, placeholder: "city"%>
       <%= f.input :consultfee, label: false, placeholder: "consultation fee" %>
+      <%= f.input :consult_period, label: false, collection: ["one-time", "monthly", "3 months", "6 months", "one-year", "custom"], prompt: "set period" %>
+
+      <div>
+        <%= f.input :consult_freq, label: "frequency", as: :check_boxes, collection: [["monday", "monday"], ["tuesday", "tuesday"]] %>
+      </div>
+
+      <%= f.input_field :matincluded, label: "materials included?", as: :boolean, boolean_style: :inline %>
       <%= f.input :consult_desc, label: false, placeholder: "description", as: :text %>
       <div class="consultation-button-div flex flex-center">
         <%= f.button :submit, "create consultation", class: "btn btn-primary no-decor btn-grad-light light-shadow" %>

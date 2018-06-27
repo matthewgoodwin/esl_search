@@ -5,6 +5,9 @@
     <h6><%= link_to "dashboard", dashboard_path %></h6>
   </div><!--end apppointment-show-links-shell-->
   <!-- <div class="appointment-show-div"> -->
+    <div class="appoint-show-title-shell center-text">
+      <h1><%= @appointment.consultation.consult_title %></h1>
+    </div>
   <div class="appoint-show-instructor-shell shell-border turcoise-shell-gradient" >
     <h3 class="appoint-show-role-head center-text">Instructor</h3>
     <div class="user-profile-image-div">
@@ -28,14 +31,34 @@
   </div><!--end appointment-show-client-shell-->
 
   <div class="appoint-show-details-shell center-text shell-border grey-shell-gradient">
-    <h3 class="appoint-show-role-head center-text">Detail</h3>
-    <h4><%= @appointment.consultation.consult_language %></h3>
-    <h6><%= @appointment.consultation.consult_type %></h4>
-    <h6><%= @appointment.consultation.consult_focus %> </h6>
-    <h6><%= @appointment.consultation.consultfee%></h6>
-    <h6>location: <%= @appointment.consultation.consult_location %></h6>
-    <h6>start: <%= @appointment.start.strftime('%B %d, %Y @ %I:%M%p') %></h6>
-    <h6>end: <%= @appointment.end.strftime('%B %d, %Y @ %I:%M%p') %></h6>
-  </div><!--end appointment-show-details-shell-->
-  <!-- </div>end appointment-show-div -->
+    <div class="padding-5">
+      <h3 class="appoint-show-role-head center-text">Detail</h3>
+      <h5><%= @appointment.consultation.consult_language %></h5>
+      <div class="flex-space-between">
+        <h6 class="">location</h6>
+        <h6 class=""><%= @appointment.consultation.consult_location %></h6>
+      </div>
+      <div class="flex-space-between">
+        <h6 class="">type</h6>
+        <h6 class=""><%= @appointment.consultation.consult_type %></h6>
+      </div>
+      <div class="flex-space-between">
+        <h6 class="">focus</h6>
+        <h6 class=""><%= @appointment.consultation.consult_focus %> </h6>
+      </div>
+      <div class="flex-space-between">
+        <h6 class="">fee</h6>
+        <h6 class=""><%= @appointment.consultation.consultfee%></h6>
+      </div>
+      <div class="flex-space-between">
+        <h6 class="">start</h6>
+        <h6 class="flex-item-grow-only-auto"><%= @appointment.start.strftime('%B %d, %Y @ %I:%M%p') %></h6>
+      </div>
+      <div class="flex-space-between">
+        <h6 class="">end</h6>
+        <h6 class="flex-item-grow-only-auto"><%= @appointment.end.strftime('%B %d, %Y @ %I:%M%p') %></h6>
+      </div>
+    </div><!--end appointment-show-details-shell-->
+    <!-- </div>end appointment-show-div -->
+  </div>
 </div><!--end content-grid appoint-show-area-->

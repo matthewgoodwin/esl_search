@@ -2,6 +2,7 @@
   grid-gap: 5px 5px;
   grid-template-areas:
   ". links ."
+  ". title ."
   ". instructor ."
   ". client ."
   ". details ."
@@ -13,6 +14,7 @@
     grid-gap: 10px;
     grid-template-areas:
   ". links links ."
+  ". title title ."
   ". instructor instructor ."
   ". client client ."
   ". details details ."
@@ -28,7 +30,8 @@
     grid-gap: 5px 5px;
     grid-template-areas:
     ". links links links links links links links links links links ."
-    ". details . instructor instructor instructor instructor client client client client ."
+    ". . . title title title title title title title title ."
+    ". details details instructor instructor instructor instructor client client client client ."
     ". . . . . . . . . . . ."
     ;
   }
@@ -41,7 +44,9 @@
 .appoint-show-links-shell{
   grid-area: links;
 }
-
+.appoint-show-title-shell{
+  grid-area: title;
+}
 .appoint-show-instructor-shell{
   grid-area: instructor;
 }
