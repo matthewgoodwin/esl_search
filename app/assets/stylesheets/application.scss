@@ -30,6 +30,9 @@ li {
 .center-text{
   text-align: center;
 }
+.center-div{
+  margin: auto;
+}
 .content-grid{
   display: grid;
 }
@@ -46,12 +49,12 @@ li {
   // align-items: center; //center of row?
   flex-direction: row;
 }
-.header-items{
+.flex-center-center{
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.flex-center-center{
+.header-items{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,19 +68,15 @@ li {
 .flex-item-no-grow-shrink-0{
   flex: 0 0 auto;
 }
-
 .flex-item-grow-only-auto{
   flex: 1 0 auto;
 }
-
 .flex-item-no-grow-shrink-15{
   flex: 0 0 15%;
 }
-
 .flex-item-no-grow-shrink-20{
   flex: 0 0 20%;
 }
-
 .flex-item-no-grow-shrink-30{
   flex: 0 0 30%;
 }
@@ -88,10 +87,6 @@ li {
 
 .padding-5{
   padding: 5px;
-}
-
-.center-div{
-  margin: auto;
 }
 
 .grey-tab-gradient{

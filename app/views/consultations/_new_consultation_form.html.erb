@@ -3,7 +3,7 @@
   <h3>Consultations#new</h3>
   <%= link_to "dashboard", dashboard_path %>
   <p>Find me in app/views/consultations/_new_consultation_form.html.erb</p>
-  <div class="consultaiton-form-div">
+  <div class="consultaiton-form-div padding">
     <%= simple_form_for @consultation do |f| %>
       <%= f.input :consult_title, label: false, placeholder: "lesson title" %>
       <%= f.input :consult_language, label: false, collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"], prompt: "language" %>
@@ -14,10 +14,10 @@
       <%= f.input :consult_period, label: false, collection: ["one-time", "monthly", "3 months", "6 months", "one-year", "custom"], prompt: "set period" %>
 
       <div>
-        <%= f.input :consult_freq, label: "frequency", as: :check_boxes, collection: [["monday", "monday"], ["tuesday", "tuesday"]] %>
+        <%= f.input :consult_freq, label: false, as: :check_boxes, collection: [['sunday','sunday'],['monday','monday'], ['tuesday','tuesday'], ['wednesday','wednesday'], ['thurdsay','thurdsay'],['friday','friday'],['saturday','saturday']], label_method: :second, value_method: :first %>
       </div>
 
-      <%= f.input_field :matincluded, label: "materials included?", as: :boolean, boolean_style: :inline %>
+      <%= f.input :matincluded, label: 'materials included?', as: :boolean, boolean_style: :inline %>
       <%= f.input :consult_desc, label: false, placeholder: "description", as: :text %>
       <div class="consultation-button-div flex flex-center">
         <%= f.button :submit, "create consultation", class: "btn btn-primary no-decor btn-grad-light light-shadow" %>

@@ -1,6 +1,6 @@
 <h1>user_reviews.html.erb</h1>
 <% @user.consultations.each do |c| %>
-  <% c.reivews.each do |r| %>
+  <% c.reviews.each do |r| %>
     <p><%= r.comment %></p>
     <p><%= r.star %></p>
   <% end %>
