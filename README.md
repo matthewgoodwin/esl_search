@@ -1,5 +1,6 @@
 # README
-
+@consultation.consult_freq << consultation_params[:consult_freq]
+consultation_params[:consult_freq]
 <!-- for issues with server :
   kill -9 $(lsof -i tcp:3000 -t)
 -->

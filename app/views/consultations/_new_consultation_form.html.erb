@@ -14,7 +14,7 @@
       <%= f.input :consult_period, label: false, collection: ["one-time", "monthly", "3 months", "6 months", "one-year", "custom"], prompt: "set period" %>
 
       <div>
-        <%= f.input :consult_freq, label: false, as: :check_boxes, collection: [['sunday','sunday'],['monday','monday'], ['tuesday','tuesday'], ['wednesday','wednesday'], ['thurdsay','thurdsay'],['friday','friday'],['saturday','saturday']], label_method: :second, value_method: :first %>
+        <%= f.input :consult_dow, label: false, as: :check_boxes, collection: [['sunday','sunday'],['monday','monday'], ['tuesday','tuesday'], ['wednesday','wednesday'], ['thurdsay','thurdsay'],['friday','friday'],['saturday','saturday']], label_method: :second, value_method: :first %>
       </div>
 
       <%= f.input :matincluded, label: 'materials included?', as: :boolean, boolean_style: :inline %>

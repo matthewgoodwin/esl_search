@@ -1,9 +1,9 @@
 <h1>Messages#show</h1>
 <p>Find me in app/views/messages/show.html.erb</p>
 <p><%= link_to "dashboard", dashboard_path %></p>
-<div class="content-grid message-show-area">
-  <!-- <div class="message-show-sender-div center-div">
-  </div> -->
+<!-- <div class="content-grid message-show-area"> -->
+<div class="mw800 center-div message-show-sender-div center-div">
+  <!-- </div> -->
   <div class="message-show-subject-div shell-border padding blue-shell-gradient">
     <div class="icon-div center-div">
       <% avatar_url = @message.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>

@@ -1,43 +1,43 @@
 
-.message-show-area{
-  // background-color: #E5E5E5;
-  grid-gap: 5px;
-  grid-template-areas:
-  ". subject ."
-  ". message ."
-  // ". sender ."
-  // ". action ."
-  ". . ."
-;
-}
+// .message-show-area{
+//   // background-color: #E5E5E5;
+//   grid-gap: 5px;
+//   grid-template-areas:
+//   ". subject ."
+//   ". message ."
+//   // ". sender ."
+//   // ". action ."
+//   ". . ."
+// ;
+// }
 
-@media (min-width: 850px){
-  .message-show-area{
-    // background-color: #E5E5E5;
-    grid-gap: 10px;
-    grid-template-areas:
-    ". subject ."
-    ". message ."
-    // ". sender ."
-    // ". action ."
-    ". . ."
-    ;
-  }
-}
+// @media (min-width: 850px){
+//   .message-show-area{
+//     // background-color: #E5E5E5;
+//     grid-gap: 10px;
+//     grid-template-areas:
+//     ". subject ."
+//     ". message ."
+//     // ". sender ."
+//     // ". action ."
+//     ". . ."
+//     ;
+//   }
+// }
 
-@media (min-width: 950px){
-  .message-show-area{
-    // display: grid;
-    // grid-template: [row-start] repeat(8, 1fr) [row-end] / [col-start] 2% repeat(8, 1fr) 2% [col-end]; // rows/cols
-    grid-template: [row-start] repeat(auto, 1fr) [row-end] / [col-start] 4% repeat(6, 1fr) 4% [col-end]; //rows set to auto; not fits!
-    grid-gap: 10px 10px;
-    grid-template-areas:
-    // ". . . sender sender . . ."
-    ". . . subject subject . . ."
-    ". . . message message . . ."
-    ;
-  }
-}
+// @media (min-width: 950px){
+//   .message-show-area{
+//     // display: grid;
+//     // grid-template: [row-start] repeat(8, 1fr) [row-end] / [col-start] 2% repeat(8, 1fr) 2% [col-end]; // rows/cols
+//     grid-template: [row-start] repeat(auto, 1fr) [row-end] / [col-start] 4% repeat(6, 1fr) 4% [col-end]; //rows set to auto; not fits!
+//     grid-gap: 10px 10px;
+//     grid-template-areas:
+//     // ". . . sender sender . . ."
+//     ". . . subject subject . . ."
+//     ". . . message message . . ."
+//     ;
+//   }
+// }
 .message-show-sender-div{
  grid-area: sender;
 }
