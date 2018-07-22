@@ -1,7 +1,8 @@
-<h1>Consultations#index</h1>
-<p>Find me in app/views/consultations/index.html.erb</p>
 <h6><%= link_to "homepage", root_path %></h6>
 <h6 class=""><%= link_to "dashboard", dashboard_path %></h6>
+<div class="flex-center text-center div-center">
+  <h1 class="text-center">Consultations</h1>
+</div>
 <div class="content-grid consult-index-area">
   <div class="consult-index-shell shell-border grey-shell-gradient">
     <% @consultations.each do |consult| %>

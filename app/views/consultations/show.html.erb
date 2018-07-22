@@ -1,7 +1,4 @@
 <div class="content-grid consultation-area">
-  <div>
-    <%= @consultation.consult_freq[0] %>
-  </div>
   <!-- <h1>Consultations#show</h1> -->
   <!-- <div class=""> -->
   <div class="consultation-show-instructor-shell shell-border green-shell-gradient">
@@ -12,16 +9,19 @@
     </div><!--end of user-profile-image-div-->
     <div class=" center-text">
       <div class="flex-space-between">
-      <h5><%= @consultation.user.fname %><%= @consultation.user.lname %></h5>
+      <h5><%= @consultation.user.fname %> <%= @consultation.user.lname %></h5>
       </div>
       <div class="flex-space-between">
-      <h5>Gender: <%= @consultation.user.gender %> </h5>
+      <h5>Gender:</h5>
+      <h5> <%= @consultation.user.gender %> </h5>
       </div>
       <div class="flex-space-between">
-      <h5>Education: <%= @consultation.user.edulevel %></h5>
+      <h5>Education:</h5>
+      <h5><%= @consultation.user.edulevel %></h5>
       </div>
       <div class="flex-space-between">
-      <h5>Major:<%= @consultation.user.subjectmajor %></h5>
+      <h5>Major:</h5>
+      <h5><%= @consultation.user.subjectmajor %></h5>
       </div>
       <div class="flex-space-between">
       <p><%= link_to "homepage", root_path %></p>
@@ -30,28 +30,54 @@
     </div>
   </div><!--end of shell-border-->
 
-  <div class="consultation-show-details-shell shell-border blue-shell-gradient">
+  <div class="consultation-show-details-shell shell-border grey-shell-gradient">
   <div class="shell-tab">
-    <h2>Details</h2>
-    <div class="flex-space-between">
-    <p>Find me in app/views/consultations/show.html.erb</p>
+    <div class="flex-center-center center-div">
+      <h2>Details</h2>
     </div>
-    <div class="flex-space-between">
-    <p>Title: <%= @consultation.consult_title %> </p>
+    <div class="flex-space-around">
+      <p>Find me in app/views/consultations/show.html.erb</p>
     </div>
-    <div class="flex-space-between">
-    <p>Language - <%= @consultation.consult_language %></p>
+    <div class="flex-space-between padding">
+      <h5><b>Title:</b> </h5>
+      <p><%= @consultation.consult_title %> </p>
     </div>
-    <div class="flex-space-between">
-    <p>Type - <%= @consultation.consult_type %></p>
+    <div class="flex-space-between padding">
+      <h5><b>Primary Language:</b> </h5>
+      <p><%= @consultation.consult_language %></p>
     </div>
-    <div class="flex-space-between">
-    <p>Focus - <%= @consultation.consult_focus %></p>
+    <div class="flex-space-between padding">
+      <h5><b>Secondary Language:</b> </h5>
+      <p><%= @consultation.consult_sec_lang %></p>
     </div>
+    <div class="flex-space-between padding">
+      <h5><b>Type:</b> </h5>
+      <p><%= @consultation.consult_type %></p>
+    </div>
+    <div class="flex-space-between padding">
+      <h5><b>Focus:</b></h5>
+      <p><%= @consultation.consult_focus %></p>
+    </div>
+    <div class="flex-space-between padding">
+      <h5><b>Contract Period:</b></h5>
+      <p><%= @consultation.consult_period %></p>
+    </div>
+    <div class="flex-space-between padding">
+      <h5><b>Days of Instruction:</b></h5>
+      <% @consultation.consult_dow.each do |d| %>
+        <%= d %>
+      <% end %>
+    </div>
+    <div class="flex-space-between padding">
     <!-- <p> @consultation.consultfee </p> -->
-    <p>rate/hour- <%= number_to_currency(@consultation.consultfee, :unit => "₩") %></p>
+      <h5><b>Contract Rate:</b></h5>
+      <p><%= number_to_currency(@consultation.consultfee, :unit => "₩") %></p>
+    </div>
     <!-- :unit is built into the number_to_currency-->
-    <p><%= @consultation.consult_desc %></p>
+    <div class="flex-center-center">
+      <p><%= @consultation.consult_desc %></p>
+    </div>
+
     <div class="consultation-message-form-div">
       <a href="" data-toggle="modal" data-target="#create-message">
         <div class="round-div no-decor">send message</div>
@@ -73,7 +99,9 @@
 
   <div class="consultation-show-reviews-shell shell-border yellow-shell-gradient ">
   <div class="shell-tab">
-  <h2>Reviews</h2>
+  <div class="flex-center-center center-div">
+      <h2>Reviews</h2>
+    </div>
     <% @consultation.reviews.each do |r| %>
     <div class="flex-space-between ">
       <div>
@@ -96,10 +124,10 @@
   <div class="modal fade appointment-mod-style" id="create-booking">
     <div class="modal-dialog" role="document"><!--aligns the modal document-->
       <div class="modal-content">
-        <div class="modal-header modal-head-grad flex flex-center">
+        <div class="modal-header modal-head-grad flex flex-center-center">
           <h3 class="create-appointment-modal-header">create appointment</h3>
         </div><!--end of header-->
-        <div class="modal-body flex flex-center">
+        <div class="modal-body flex flex-center-center">
           <%= render "appointments/new_appointment_form", consultation: @consultation, appointment: @appointment %>
         </div><!--end of modal-body and appointment-show-form-div-->
       </div><!--end of modal-content-->
@@ -111,10 +139,10 @@
   <div class="modal fade review-mod-style" id="create-review">
     <div class="modal-dialog" role="document"><!--aligns the modal document-->
       <div class="modal-content">
-        <div class="modal-header modal-head-grad flex flex-center">
-          <h3 class="create-review-modal-header">create review</h3>
+        <div class="modal-header modal-head-grad flex flex-center-center">
+          <h3 class="create-review-modal-header">write review</h3>
         </div><!--end of header-->
-        <div class="modal-body flex flex-center">
+        <div class="modal-body flex flex-center-center">
           <%= render "reviews/new_review_form", consultation: @consultation, review: @review %>
         </div><!--end of modal-body and review-show-form-div-->
       </div><!--end of modal-content-->
@@ -126,10 +154,10 @@
   <div class="modal fade message-mod-style" id="create-message">
     <div class="modal-dialog" role="document"><!--aligns the modal document-->
       <div class="modal-content">
-        <div class="modal-header modal-head-grad flex flex-center">
+        <div class="modal-header modal-head-grad flex flex-center-center">
           <h3 class="create-message-modal-header">create message</h3>
         </div><!--end of header-->
-        <div class="modal-body flex flex-center">
+        <div class="modal-body flex flex-center-center">
           <%= render "messages/new_message_form", consultation: @consultation, message: @message %>
         </div><!--end of modal-body and message-show-form-div-->
       </div><!--end of modal-content-->

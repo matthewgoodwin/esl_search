@@ -24,7 +24,11 @@
     </div><!--end of dashboard-user-info-div-->
     <ul class="dashboard-user-panel-links-list">
       <li><%= link_to "all consultations", consultations_path %></li>
-      <li><%= link_to "new consult", new_consultation_path %></li>
+      <li>
+        <a href="" data-toggle="modal" data-target="#create-new-consultation">
+          <div class="round-div no-decor">new consult</div>
+        </a>
+      </li>
       <li><%= link_to "about me", about_path %></li>
       <li><%= link_to "messages", dashboard_path %></li>
     </ul><!--end of dashboard-user-panel-links-list -->
@@ -177,3 +181,16 @@
     </div><!--end of dashboard-clients-div-->
   </div><!--dashboard-clients-list-shell-->
 </div><!--end of grid div-->
+
+<div class="modal fade appointment-mod-style" id="create-new-consultation">
+    <div class="modal-dialog" role="document"><!--aligns the modal document-->
+      <div class="modal-content">
+        <div class="modal-header modal-head-grad flex flex-center-center">
+          <h3 class="create-appointment-modal-header text-center">create new consultations</h3>
+        </div><!--end of header-->
+        <div class="modal-body flex flex-center">
+          <%= render "consultations/new_consultation_form", consultation: @consultation %>
+        </div><!--end of modal-body and appointment-show-form-div-->
+      </div><!--end of modal-content-->
+    </div><!--end of modal-dialog-->
+  </div><!--end of modal-->

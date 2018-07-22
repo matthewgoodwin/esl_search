@@ -1,8 +1,6 @@
-<h3>Review</h3>
-<p>find me at 'reivew/_new_review_form'</p>
 <%= simple_form_for ([consultation, review]) do |f| %>
   <!-- add appoinment reservation number here -->
   <%= f.input :comment, label:false, placeholder: "comments"%>
-  <%= f.input :star, label:false, collection: (1..5) %>
-  <%= f.submit %>
+  <%= f.input :star, label:false, prompt: "rate", collection: (1..5) %>
+  <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>

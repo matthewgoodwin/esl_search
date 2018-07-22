@@ -21,7 +21,6 @@ class ConsultationsController < ApplicationController
 
   def create
     @consultation = Consultation.new(consultation_params)
-    @consultation.consult_freq << consultation_params[:consult_freq]
     # raise
     @consultation.user = current_user
     authorize @consultation # authorize then save
@@ -46,6 +45,6 @@ class ConsultationsController < ApplicationController
     authorize @consultation
   end
   def consultation_params
-    params.require(:consultation).permit(:consult_language, :consult_focus, :consult_period, :consult_type, :consultfee, :consult_title, :consult_desc, :consult_location, :matincluded, :consult_freq=>[], :consult_dow=>[])
+    params.require(:consultation).permit(:consult_language, :consult_sec_lang, :consult_native_speaker, :consult_focus, :consult_period, :consult_type, :consultfee, :consult_title, :consult_desc, :consult_location, :matincluded, :consult_dow=>[])
   end
 end

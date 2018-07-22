@@ -1,12 +1,10 @@
 <!--this should be in a partial-->
-<h3>Message#new</h3>
-<p>Find me in app/views/messages/_new_message_form.html.erb</p>
 <div class="message-form-div">
   <%= simple_form_for ([consultation, message]) do |f| %>
     <%= f.input :subject, label: false, placeholder: "subject" %>
     <%= f.input :textmess, label: false, placeholder:"message" %>
     <div class="message-button-div flex flex-center">
-      <%= f.button :submit, "create message", class: "btn btn-primary no-decor btn-grad-light light-shadow" %>
+      <%= f.button :submit, "send", class: "btn btn-primary no-decor btn-grad-light light-shadow" %>
     </div><!-- end of message-button-div -->
   <% end %><!--end of form-->
 </div><!--end of message-form-div-->
