@@ -8,7 +8,8 @@
       <%= f.input :consult_type, label: false, collection: ["grammar-based", "skill-based", "hobby-based", "trade-based", "conversation (only)", "exam-prep"], prompt: "type" %>
       <%= f.input :consult_focus, label: false, placeholder: "specific focus (optional)" %>
       <%= f.input :consult_location, label: false, placeholder: "city"%>
-      <%= f.input :consult_period, label: false, collection: ["one-time", "weekly", "month to month", "3 months term", "6 months term"], prompt: "contract period" %>
+      <%= f.input :consult_period, label: false, collection: ["single-consultation", "one week", "month-to-month", "3 months term", "6 months term"], prompt: "contract period" %>
+      <%= f.input :consult_dur, label: false, placeholder: "consultation duration", collection: ["30 mins", "60 mins", "90 mins", "120 mins", "180 mins"] %>
       <!--how much time goes here-->
       <%= f.input :consultfee, label: false, placeholder: "fee/contract (whole numbers)" %>
       <div>
