@@ -1,24 +1,23 @@
 <!--this should be in a partial-->
 <div class="grid-area new-consult-form mw800 center-div shell-border">
     <%= simple_form_for @consultation do |f| %>
-      <%= f.input :consult_title, label: false, placeholder: "lesson title" %>
-      <%= f.input :consult_language, label: false, collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"], prompt: "primary language (required)" %>
-      <%= f.input :consult_native_speaker, label: "native speaker?", as: :radio_buttons, collection: [['yes','yes'],['no','no']], label_method: :second, value_method: :first %>
-      <%= f.input :consult_sec_lang, label: false, prompt: "secondary language", collection: ["None","English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"] %>
-      <%= f.input :consult_type, label: false, collection: ["grammar-based", "skill-based", "hobby-based", "trade-based", "conversation (only)", "exam-prep"], prompt: "type" %>
+      <%= f.input :consult_title, label: "lesson title:", placeholder: "lesson title" %>
+      <%= f.input :consult_language, label: "primary language:", default: ["English"] ,collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"]%>
+      <%= f.input :consult_native_speaker, label: "native speaker?", as: :radio_buttons, collection: [['yes','yes'],['no','no']], label_method: :second, value_method: :first, checked: ['yes','yes'] %>
+      <%= f.input :consult_sec_lang, label: "secondary language:", default: [ "None" ], collection: ["None", "English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"] %>
+      <%= f.input :consult_type, label: false, collection: ["grammar-based", "skill-based", "hobby-based", "trade-based", "conversation (only)", "exam-prep"], prompt: "-select type-" %>
       <%= f.input :consult_focus, label: false, placeholder: "specific focus (optional)" %>
       <%= f.input :consult_location, label: false, placeholder: "city"%>
-      <%= f.input :consult_period, label: false, collection: ["single-consultation", "one week", "month-to-month", "3 months term", "6 months term"], prompt: "contract period" %>
-      <%= f.input :consult_dur, label: false, placeholder: "consultation duration", collection: ["30 mins", "60 mins", "90 mins", "120 mins", "180 mins"] %>
-      <!--how much time goes here-->
-      <%= f.input :consultfee, label: false, placeholder: "fee/contract (whole numbers)" %>
+      <%= f.input :consult_dur, label: "consultation duration:", default: ["30 minutes"], collection: ["30 minutes", "60 minutes", "90 minutes", "120 minutes", "180 minutes"] %>
+      <%= f.input :consult_period, label: "contract period:", default: ["one-time"], collection: ["one-time", "one week", "month-to-month", "3 month term", "6 month term"]%>
+      <%= f.input :consultfee, label: "rate:", placeholder: "fee/contract (whole numbers)" %>
       <div>
         <div class="flex-space-between">
-          <%= f.input :consult_dow, class: 'flex-center-center', prompt: "available days", label: false, as: :check_boxes, collection: [['flexible','flexible'],['weekdays','weekdays'],['sunday','sunday'],['monday','monday'], ['tuesday','tuesday'], ['wednesday','wednesday'], ['thurdsay','thurdsay'],['friday','friday'],['saturday','saturday']], label_method: :second, value_method: :first%>
+          <%= f.input :consult_dow, class: 'flex-center-center', prompt: "available days", label: "available days:", as: :check_boxes, collection: [['flexible','flexible'],['weekdays','weekdays'],['sunday','sunday'],['monday','monday'], ['tuesday','tuesday'], ['wednesday','wednesday'], ['thurdsay','thurdsay'],['friday','friday'],['saturday','saturday']], label_method: :second, value_method: :first%>
         </div>
       </div>
 
-      <%= f.input :matincluded, label: 'materials included?', as: :radio_buttons, collection:[["yes","yes"], ["no","no"]], label_method: :second, value_method: :first %>
+      <%= f.input :matincluded, label: 'materials included?', as: :radio_buttons, collection:[["yes","yes"], ["no","no"]], label_method: :second, value_method: :first, checked: ["no","no"] %>
       <%= f.input :consult_desc, label: false, placeholder: "description", as: :text %>
       <div class="consultation-button-div flex flex-center">
         <%= f.button :submit, "create consultation", class: "btn btn-primary no-decor btn-grad-light light-shadow" %>

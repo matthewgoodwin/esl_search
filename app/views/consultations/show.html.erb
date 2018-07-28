@@ -56,14 +56,14 @@
       <p><%= @consultation.consult_focus %></p>
     </div>
     <div class="flex-space-between padding">
-      <h5><b>Contract Period:</b></h5>
-      <p><%= @consultation.consult_period %></p>
-    </div>
-    <div class="flex-space-between padding">
       <h5><b>Days of Instruction:</b></h5>
       <% @consultation.consult_dow.each do |d| %>
         <%= d %>
       <% end %>
+    </div>
+    <div class="flex-space-between padding">
+      <h5><b>Contract Period:</b></h5>
+      <p><%= @consultation.consult_period %></p>
     </div>
     <div class="flex-space-between padding">
     <!-- <p> @consultation.consultfee </p> -->
