@@ -1,6 +1,6 @@
 <!--this should be in a partial-->
 <div class="grid-area new-consult-form mw800 center-div shell-border">
-    <%= simple_form_for @consultation do |f| %>
+    <%= simple_form_for @consultation, remote: true do |f| %>
       <%= f.input :consult_title, label: "lesson title:", placeholder: "lesson title" %>
       <%= f.input :consult_language, label: "primary language:", default: ["English"] ,collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"]%>
       <%= f.input :consult_native_speaker, label: "native speaker?", as: :radio_buttons, collection: [['yes','yes'],['no','no']], label_method: :second, value_method: :first, checked: ['yes','yes'] %>
