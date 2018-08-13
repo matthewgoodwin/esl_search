@@ -24,9 +24,21 @@ class ConsultationsController < ApplicationController
     # raise
     @consultation.user = current_user
     authorize @consultation # authorize then save
-    @consultation.save
-    redirect_to consultation_path(@consultation)
-  end
+    # @consultation.save
+    if @consultation.save
+      respond_to do |format|
+        format.html { redirect_to dashboard_path }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
+    else
+      respond_to do |format|
+        format.html { render 'pages/dashboard' }
+        format.js  # <-- idem
+      end
+    end
+    # redirect_to dashboard_path
+
+  end # end of create
 
   def edit
   end
