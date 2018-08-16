@@ -39,6 +39,7 @@ class AppointmentsController < ApplicationController
 
   def destroy
     @appointment.destroy
+    redirect_to dashboard_path
   end
 
   private

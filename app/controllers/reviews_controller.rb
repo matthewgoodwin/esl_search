@@ -17,9 +17,18 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     @review.consultation = @consultation
     authorize @review
-    @review.save
-    redirect_to consultation_path(@consultation)
+    if @review.save
+      respond_to do |format|
+        format.html { redirect_to consultation_path(@consultation) }
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to consultation_path(@consultation) }
+        format.js
+    end
     # raise
+    end
   end
 
   def edit
@@ -48,7 +57,7 @@ class ReviewsController < ApplicationController
     authorize @consultation
   end
   def review_params
-    params.require(:review).permit(:comment, :star)
+    params.require(:review).permit(:comment, :star, :review_title)
     # add appointment reservation number above
   end
 end

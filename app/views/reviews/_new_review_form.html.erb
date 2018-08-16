@@ -1,6 +1,7 @@
-<%= simple_form_for ([consultation, review]) do |f| %>
+<%= simple_form_for([consultation, review], remote: true) do |f| %>
   <!-- add appoinment reservation number here -->
-  <%= f.input :comment, label:false, placeholder: "comments"%>
+  <%= f.input :review_title, label: false, placeholder: "title" %>
+  <%= f.input :comment, label:false, placeholder: "comments" %>
   <%= f.input :star, label:false, prompt: "rate", collection: (1..5) %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>

@@ -1,0 +1,13 @@
+<div class="flex-space-between shell-tab">
+  <div class= "review-item">
+    <% element.star.to_i.times do %>
+      <i class="fa fa-star yellow-star"></i><!--reference 'components/_reviewstars.scss'-->
+      <% end %><!--end of r.star-->
+    <% (5 - element.star.to_i).times do %>
+      <i class="fa fa-star grey-star"></i><!--reference 'components/_reviewstars.scss'-->
+   <% end %><!--end of 5-r.star-->
+  </div><!--end of review-item-->
+  <div class="review-item">
+    <h6><%= truncate( element.review_title, length: 10) %></h6>
+  </div><!--end review-item comment-->
+</div><!--flex-space-between shell-tab-->

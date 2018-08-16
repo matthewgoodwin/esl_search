@@ -101,6 +101,9 @@
               <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
             </div><!--end of icon-div-->
             <div><h6><%= a.start.strftime('%B %d @ %I:%M%p')%></h6></div>
+                <div><%= link_to appointment_path(a), method: :delete do %>
+                  <i class="fas fa-trash-alt" aria-hidden="true"></i><% end %>
+                </div><!--end of cancel button div-->
           </div><!-- end of dashboard-user-appointments-div-->
         <% end %><!--end of link_to-->
       <% end %><!-- end of current_user.appointments.each do -->
@@ -133,18 +136,7 @@
       <!--new changes that should be tested-->
         <%= link_to review_path(r.id), class: "no-decor" do %>
           <div class="shell-tab flex-space-between dashboard-review-list-items grey-tab-gradient">
-            <div class= "review-item">
-              <%= r.star %>
-              <% r.star.to_i.times do %>
-                <i class="fa fa-star yellow-star"></i><!--reference 'components/_reviewstars.scss'-->
-                <% end %><!--end of r.star-->
-              <% (5 - r.star.to_i).times do %>
-                <i class="fa fa-star grey-star"></i><!--reference 'components/_reviewstars.scss'-->
-             <% end %><!--end of 5-r.star-->
-            </div><!--end of review-item-->
-            <div class="review-item">
-              <h6><%= truncate( r.comment, length: 15) %></h6>
-            </div><!--end of review-item-->
+            <%= render 'reviews/show_min_reviews', element: r %>
           </div><!--shell-tab dashboard-review-list-items-->
         <% end %><!--end of link_to review-->
       <% end %><!--end c.review-->

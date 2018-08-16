@@ -5,7 +5,7 @@
   </div><!--end apppointment-show-links-shell-->
   <!-- <div class="appointment-show-div"> -->
     <div class="appoint-show-title-shell center-text">
-      <h1><%= @appointment.consultation.consult_title %></h1>
+      <h1><%= link_to @appointment.consultation.consult_title, consultation_path(@appointment.consultation.id) %></h1>
     </div>
   <div class="appoint-show-instructor-shell shell-border turcoise-shell-gradient" >
     <h3 class="appoint-show-role-head center-text">Instructor</h3>

@@ -95,26 +95,17 @@
   </div><!--end of consultation-show-details-shell-->
 
   <div class="consultation-show-reviews-shell shell-border yellow-shell-gradient ">
-  <div class="shell-tab">
-  <div class="flex-center-center center-div">
-      <h2>Reviews</h2>
-    </div>
-    <% @consultation.reviews.each do |r| %>
-    <div class="flex-space-between ">
-      <div>
-        <%= r.user.fname %>
-      </div>
-      <div class= "review-item">
-        <% r.star.to_i.times do %>
-          <i class="fa fa-star yellow-star"></i><!--reference 'components/_reviewstars.scss'-->
-          <% end %><!--end of r.star-->
-        <% (5 - r.star.to_i).times do %>
-          <i class="fa fa-star grey-star"></i><!--reference 'components/_reviewstars.scss'-->
-       <% end %><!--end of 5-r.star-->
-      </div><!--end of review-item-->
-    <% end %>
-  </div><!--end of flex-space-between-->
-</div><!--end of shell-tab-->
+    <div class="shell-tab">
+      <div class="flex-center-center center-div">
+        <h2>Reviews</h2>
+      </div><!--end of flex-center-center center-div-->
+<div id="review-min">
+      <% @consultation.reviews.each do |r| %>
+          <%= render 'reviews/show_min_reviews', element: r %>
+      <% end %><!--end of consult.review.each-->
+
+    </div><!--end of shell-tab-->
+</div><!--id="review-min"-->
   </div><!--end of consultation-show-review-shell-->
 
   <!--begin modal of appointment create partial-->
