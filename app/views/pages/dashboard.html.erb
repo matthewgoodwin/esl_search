@@ -138,9 +138,7 @@
       <% c.reviews.sort{|x,y| y <=> x}.take(3).each do |r| %>
       <!--new changes that should be tested-->
         <%= link_to review_path(r.id), class: "no-decor" do %>
-          <div class="shell-tab flex-space-between dashboard-review-list-items grey-tab-gradient">
             <%= render 'reviews/show_min_reviews', element: r %>
-          </div><!--shell-tab dashboard-review-list-items-->
         <% end %><!--end of link_to review-->
       <% end %><!--end c.review-->
     <% end %><!--end of @consultion.each-->
