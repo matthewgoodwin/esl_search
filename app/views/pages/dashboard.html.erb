@@ -26,9 +26,12 @@
       <li><%= link_to "all consultations", consultations_path %></li>
       <li>
         <a href="" data-toggle="modal" data-target="#create-new-consultation">
-          <div class="round-div no-decor">new consult</div>
+          <div class="round-div no-decor">new consultation</div>
         </a>
       </li>
+      <a href="" data-toggle="modal" data-target="#create-new-consultation-class">
+          <div class="round-div no-decor">new class</div>
+      </a>
       <li><%= link_to "about me", about_path %></li>
       <li><%= link_to "messages", dashboard_path %></li>
     </ul><!--end of dashboard-user-panel-links-list -->
@@ -170,10 +173,23 @@
     <div class="modal-dialog" role="document"><!--aligns the modal document-->
       <div class="modal-content">
         <div class="modal-header modal-head-grad flex flex-center-center">
-          <h3 class="create-appointment-modal-header text-center">create new consultations</h3>
+          <h3 class="create-appointment-modal-header text-center">create new consultation</h3>
         </div><!--end of header-->
         <div class="modal-body">
           <%= render "consultations/new_consultation_form", consultation: @consultation %>
+        </div><!--end of modal-body and appointment-show-form-div-->
+      </div><!--end of modal-content-->
+    </div><!--end of modal-dialog-->
+
+  </div><!--end of modal-->
+  <div class="modal fade appointment-mod-style" id="create-new-consultation-class">
+    <div class="modal-dialog" role="document"><!--aligns the modal document-->
+      <div class="modal-content">
+        <div class="modal-header modal-head-grad flex flex-center-center">
+          <h3 class="create-appointment-modal-header text-center">create new class</h3>
+        </div><!--end of header-->
+        <div class="modal-body">
+          <%= render "consultations/new_consultation_class_form", consultation: @consultation %>
         </div><!--end of modal-body and appointment-show-form-div-->
       </div><!--end of modal-content-->
     </div><!--end of modal-dialog-->
