@@ -39,6 +39,11 @@ li {
 .content-grid{
   display: grid;
 }
+.flex-space-between-3item-row{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
 
 .flex-space-between{
   display: flex;

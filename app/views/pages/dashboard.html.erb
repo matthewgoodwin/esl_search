@@ -97,17 +97,7 @@
     <div class="dashboard-appointments-div">
       <% @appointments.sort{|x,y| y <=> x}.take(3).each do |a| %>
         <%= link_to appointment_path(a), class: "no-decor" do %>
-          <div class="dashboard-user-appointments-div flex-space-between shell-tab grey-tab-gradient">
-            <div class="icon-div">
-              <% avatar_url = a.consultation.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
-                <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-              <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
-            </div><!--end of icon-div-->
-            <div><h6><%= a.start.strftime('%B %d @ %I:%M%p')%></h6></div>
-                <div><%= link_to appointment_path(a), method: :delete do %>
-                  <i class="fas fa-trash-alt" aria-hidden="true"></i><% end %>
-                </div><!--end of cancel button div-->
-          </div><!-- end of dashboard-user-appointments-div-->
+          <%= render 'appointments/show_appointments', element: a %>
         <% end %><!--end of link_to-->
       <% end %><!-- end of current_user.appointments.each do -->
     </div><!--end of dashboard-appointments-div-->
