@@ -74,16 +74,7 @@
       <!-- @my_consult_array_desc from controller-->
       <!-- ^c.appointment => each consult has appointments-->
       <!-- ^^ pushes each consultation appointment into an array and reverses the order-->
-        <%= link_to appointment_path(a) do %>
-          <div class="flex-space-between shell-tab grey-tab-gradient">
-            <div class="consult-item">
-              <% avatar_url = a.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
-              <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-              <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
-            </div><!--end of icon-div-->
-            <div class="consult-item"><h6><%= a.start.strftime('%B %d @ %I:%M%p')%></h6></div>
-          </div><!--end of shell-tab-->
-        <% end %><!--end link_to-->
+        <%= render 'consultations/show_consultations', element: a %>
       <% end %><!-- end of @my_consult_array_desc-->
     </div><!--end dashboard-consults-div-->
   </div><!-- end dashboard-consults-shell-->

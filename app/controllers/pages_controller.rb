@@ -54,7 +54,7 @@ class PagesController < ApplicationController
       c.reviews.each do |r|
         @my_reviews_array << r.id
       end
-    end
+    end # end of @consultations.each
     # raise
   end
 
