@@ -1,5 +1,6 @@
 <div class="center-div"><h1 class="center-text">PRODUCTS</h1></div>
 <h6><%= link_to 'dashboard', dashboard_path %></h6>
+<div class="shell-border grey-shell-gradient">
 <div class="flex-space-between shell-tab-header green-shell-gradient">
   <!--header work-->
   <div class="flex-item-grow-only-auto"><h6>Class</h6></div>
@@ -13,3 +14,4 @@
     <%= render 'consultations/show_user_products', element: consultation %> <!--c(generic local used in partial) : |consultation|-->
   <% end %><!-- end of current_user.consultations.each do-->
 </div><!-- end of dashboard-consults-product-div -->
+</div><!--end of user-shell grey-gradient-->

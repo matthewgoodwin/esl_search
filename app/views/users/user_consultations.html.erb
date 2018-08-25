@@ -1,7 +1,8 @@
 <!--full size consultations-->
-<h1>user_consultations.html.erb</h1>
-<%= link_to "dashboard", dashboard_path %>
-<div class="flex-space-between shell-border shell-tab padding-5">
+<div class="center-div"><h1 class="center-text">CONSULTATIONS</h1></div>
+<h6><%= link_to "dashboard", dashboard_path %></h6>
+<div class="shell-border grey-shell-gradient">
+<div class="flex-space-between shell-tab-header green-shell-gradient padding-5">
   <div class="flex-item-no-grow-shrink-20"><h6>user</h6></div>
   <div class="flex-item-no-grow-shrink-20"><h6>title</h6></div>
   <div class="flex-item-no-grow-shrink-20"><h6>fee</h6></div>
@@ -21,7 +22,8 @@
       <div class="flex-item-no-grow-shrink-20"><h6><%= a.start.strftime('%m/%d @ %I:%M%p')%></h6></div>
       <div class="flex-item-no-grow-shrink-20"><%= link_to appointment_path(a) do %>
         <i class="fas fa-info-circle" aria-hidden="true"></i><% end %>
-      </div>
-    </div>
-  <% end %>
-<% end %>
+      </div><!-- end of link-->
+    </div><!--end of flex-space-between shell-border shell-tab-->
+  <% end %><!-- end of c.appointments.each-->
+<% end %><!--end of @user_consultations.each-->
+</div> <!--end of shell-border grey-shell-gradient-->
