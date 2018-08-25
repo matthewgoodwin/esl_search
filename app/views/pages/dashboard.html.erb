@@ -104,7 +104,7 @@
   </div><!--end of dashboard-appointments-shell"-->
   <div class="dashboard-consults-product-shell shell-border blue-shell-gradient">
     <div class="dashboard-product header-items">
-      <%= link_to user_services_user_path(current_user.id) do %>
+      <%= link_to user_products_user_path(current_user.id) do %>
         <div class="product-header-item"><h4 class="dashboard-consults-product-header">Services</h4></div>
       <% end %>
       <div class="product-header-item counter"><%= @consultations.size %></div>

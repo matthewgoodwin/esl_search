@@ -1,6 +1,6 @@
 <div class="flex-space-between shell-tab grey-tab-gradient">
   <% avatar_url = element.consultation.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
-      <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
+    <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
   <div class="flex-space-between flex-item-grow-only-auto">
     <!--embedded flex for appointment link items(icon & time/day); they respond as a single div-->
     <!-- ^ this div can grow-->
@@ -12,7 +12,6 @@
       <!--appointment link details-->
     </div><!--end of NESTED detials flex item div-->
   </div><!-- end of NESTED link div-->
-
   <div class="flex-item-no-grow-shrink-15"><%= link_to appointment_path(element), method: :delete do %>
     <i class="fas fa-trash-alt" aria-hidden="true"></i><% end %>
   </div><!--end of nested trash can-->

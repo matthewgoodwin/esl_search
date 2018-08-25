@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show, :user_consultations, :user_appointments, :user_messages, :user_services, :user_clients, :user_reviews]
+  before_action :find_user, only: [:show, :user_consultations, :user_appointments, :user_messages, :user_products, :user_clients, :user_reviews]
   def index
     # @users = User.all
     @user = policy_scope(User).order(created_at: :desc)
@@ -14,14 +14,14 @@ class UsersController < ApplicationController
     # raise
   end
   def user_appointments
-
+    @user_appointments = @user.appointments
   end
   def user_messages
     @user_consultations = @user.consultations
 # raise
   end
-  def user_services
-    @user_services = @user.consultations
+  def user_products
+    @user_products = @user.consultations
   end
   def user_clients
 

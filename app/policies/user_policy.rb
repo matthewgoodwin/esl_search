@@ -20,7 +20,7 @@ class UserPolicy < ApplicationPolicy
     def user_messages?
       return true
     end
-    def user_services?
+    def user_products?
       return true
     end
     def user_clients?
