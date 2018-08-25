@@ -1,7 +1,27 @@
+<!--full size consultations-->
 <h1>user_consultations.html.erb</h1>
-
 <%= link_to "dashboard", dashboard_path %>
-
+<div class="flex-space-between shell-border shell-tab padding-5">
+  <div class="flex-item-no-grow-shrink-20"><h6>user</h6></div>
+  <div class="flex-item-no-grow-shrink-20"><h6>title</h6></div>
+  <div class="flex-item-no-grow-shrink-20"><h6>fee</h6></div>
+  <div class="flex-item-no-grow-shrink-20"><h6>MM/DD @ Time</h6></div>
+  <div class="flex-item-no-grow-shrink-20"><h6>information</h6></div>
+</div>
 <% @user_consultations.each do |c| %>
-  <p><%= c.consult_title %></p>
+  <% c.appointments.each do |a| %>
+    <div class="flex-space-between shell-border shell-tab">
+        <div class="flex-item-no-grow-shrink-20">
+          <% avatar_url = a.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
+          <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
+          <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
+        </div><!--end of icon-->
+      <div class="flex-item-no-grow-shrink-20"><h6><%= truncate(a.consultation.consult_title, length: 20) %></h6></div>
+      <div class="flex-item-no-grow-shrink-20"><h6><%= a.consultation.consultfee %></h6></div>
+      <div class="flex-item-no-grow-shrink-20"><h6><%= a.start.strftime('%m/%d @ %I:%M%p')%></h6></div>
+      <div class="flex-item-no-grow-shrink-20"><%= link_to appointment_path(a) do %>
+        <i class="fas fa-info-circle" aria-hidden="true"></i><% end %>
+      </div>
+    </div>
+  <% end %>
 <% end %>
