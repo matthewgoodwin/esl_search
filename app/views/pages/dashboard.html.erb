@@ -45,18 +45,21 @@
       <% end %>
       <div class="message-header-item counter"><%= @my_messages_array.size %></div>
     </div><!--end of dashboard-message header-items-->
+    <% if @my_messages_array.size > 0 %>
+      <div class="flex-space-between shell-tab-header">
+            <div class="flex-item-no-grow-shrink-15"><h6><b>delete</b></h6></div>
+            <div class="flex-item-no-grow-shrink-30"><h6><b>name</b></h6></div>
+            <div class="flex-item-grow-only-auto"><h6><b>subject</b></h6></div>
+            <div class="flex-item-grow-only-auto"><h6><b>time/date</b></h6></div>
+          </div><!--end of shell-tab-->
+    <% else %>
+    <% end %>
      <% @consultations.each do |c| %>
       <% c.messages.sort{|x,y| y <=> x}.take(3).each do |m| %>
+      <!-- each consultations messages-->
         <%= link_to message_path(m), class: "no-decor" do %>
-          <div class="flex-space-between shell-tab grey-tab-gradient">
-            <h6 class="flex-item-no-grow-shrink-20"><%= m.user.fname %> </h6>
-            <h6 class="flex-item-grow-only-auto"><b><%=truncate( m.subject, length: 15) %></b></h6>
-            <% if m.created_at.strftime('%b %d %y') == DateTime.now.strftime('%b %d %y')%>
-              <h6 class="flex-item-grow-only-auto"><%= m.created_at.strftime('%I:%M%p')%></h6>
-            <% else %>
-              <h6 class="flex-item-grow-only-auto"><%= m.created_at.strftime('%b %d %Y')%></h6>
-            <% end %>
-          </div><!--end of shell-tab-->
+        <!-- each message-->
+          <%= render 'messages/show_messages', element: m %>
         <% end %><!--end of link_to message_path-->
       <% end %><!--end of c.messages.each -->
     <% end %><!--end of @consultations.each-->
