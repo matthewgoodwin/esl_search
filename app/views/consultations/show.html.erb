@@ -91,6 +91,11 @@
         <div class="round-div no-decor">review</div>
       </a>
     </div><!--end of consultation-review-form-div-->
+    <div class="consultation-lesson-form-div">
+      <a href="" data-toggle="modal" data-target="#create-lesson">
+        <div class="round-div no-decor">lesson</div>
+      </a>
+    </div><!--end of consultation-review-form-div-->
   </div><!--end of shell-tab-->
   </div><!--end of consultation-show-details-shell-->
 
@@ -99,13 +104,12 @@
       <div class="flex-center-center center-div">
         <h2>Reviews</h2>
       </div><!--end of flex-center-center center-div-->
-<div id="review-min">
+      <div id="review-min">
       <% @consultation.reviews.each do |r| %>
           <%= render 'reviews/show_min_reviews', element: r %>
       <% end %><!--end of consult.review.each-->
-
-    </div><!--end of shell-tab-->
-</div><!--id="review-min"-->
+      </div><!--end of shell-tab-->
+    </div><!--id="review-min"-->
   </div><!--end of consultation-show-review-shell-->
 
   <!--begin modal of appointment create partial-->
@@ -152,5 +156,18 @@
     </div><!--end of modal-dialog-->
   </div><!--end of modal-->
 
+  <!--begin modal of lesson create partial-->
+  <div class="modal fade lesson-mod-style" id="create-lesson">
+    <div class="modal-dialog" role="document"><!--aligns the modal document-->
+      <div class="modal-content">
+        <div class="modal-header modal-head-grad flex flex-center-center">
+          <h3 class="create-lesson-modal-header">create lesson</h3>
+        </div><!--end of header-->
+        <div class="modal-body flex flex-center-center">
+          <%= render "lessons/new_lesson_form", consultation: @consultation, lesson: @lesson %>
+        </div><!--end of modal-body and lesson-show-form-div-->
+      </div><!--end of modal-content-->
+    </div><!--end of modal-dialog-->
+  </div><!--end of modal-->
   <!-- </div> -->
 </div> <!--end content-grid consultation-area-->

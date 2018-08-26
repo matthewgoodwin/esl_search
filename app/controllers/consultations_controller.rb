@@ -10,6 +10,7 @@ class ConsultationsController < ApplicationController
     @appointment = Appointment.new
     @message = Message.new
     @review = Review.new
+    @lesson = Lesson.new
     # authorize @appointment
     # raise
   end

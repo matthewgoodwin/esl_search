@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  # get 'lessons/index'
+
+  # get 'lessons/show'
+
+  # get 'lessons/create'
+
+  # get 'lessons/update'
+
+  # get 'lessons/edit'
+
+  # get 'lessons/destroy'
+
   # get 'privatemessages/index'
 
   # get 'privatemessages/show'
@@ -58,6 +70,7 @@ Rails.application.routes.draw do
     resources :privatemessages
   end
   resources :consultations, shallow: true do
+    resources :lessons
     resources :reviews
     resources :appointments
     resources :messages

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180816154647) do
+ActiveRecord::Schema.define(version: 20180826094309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,17 @@ ActiveRecord::Schema.define(version: 20180816154647) do
     t.string   "consult_sec_lang"
     t.string   "consult_native_speaker"
     t.index ["user_id"], name: "index_consultations_on_user_id", using: :btree
+  end
+
+  create_table "lessons", force: :cascade do |t|
+    t.integer  "consultation_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.text     "lesson_dow",       default: [],              array: true
+    t.time     "lesson_start"
+    t.time     "lesson_end"
+    t.datetime "lesson_terminate"
+    t.index ["consultation_id"], name: "index_lessons_on_consultation_id", using: :btree
   end
 
   create_table "messages", force: :cascade do |t|
@@ -121,6 +132,7 @@ ActiveRecord::Schema.define(version: 20180816154647) do
   add_foreign_key "appointments", "consultations"
   add_foreign_key "appointments", "users"
   add_foreign_key "consultations", "users"
+  add_foreign_key "lessons", "consultations"
   add_foreign_key "messages", "consultations"
   add_foreign_key "messages", "users"
   add_foreign_key "privatemessages", "users"
