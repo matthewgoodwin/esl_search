@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180826094309) do
+ActiveRecord::Schema.define(version: 20180828142754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,9 @@ ActiveRecord::Schema.define(version: 20180826094309) do
     t.integer  "consultation_id"
     t.string   "invoice_number"
     t.string   "pupil"
+    t.integer  "lesson_id"
     t.index ["consultation_id"], name: "index_appointments_on_consultation_id", using: :btree
+    t.index ["lesson_id"], name: "index_appointments_on_lesson_id", using: :btree
     t.index ["user_id"], name: "index_appointments_on_user_id", using: :btree
   end
 
@@ -57,6 +59,8 @@ ActiveRecord::Schema.define(version: 20180826094309) do
     t.time     "lesson_start"
     t.time     "lesson_end"
     t.datetime "lesson_terminate"
+    t.integer  "lesson_section"
+    t.string   "lesson_level"
     t.index ["consultation_id"], name: "index_lessons_on_consultation_id", using: :btree
   end
 
@@ -130,6 +134,7 @@ ActiveRecord::Schema.define(version: 20180826094309) do
   end
 
   add_foreign_key "appointments", "consultations"
+  add_foreign_key "appointments", "lessons"
   add_foreign_key "appointments", "users"
   add_foreign_key "consultations", "users"
   add_foreign_key "lessons", "consultations"

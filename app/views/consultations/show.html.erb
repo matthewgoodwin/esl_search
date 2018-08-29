@@ -74,30 +74,33 @@
         </a>
       </div><!--end of consultation-lesson-form-div-->
       <div class="flex-space-between shell-tab shell-border">
-        <div class="flex-item-no-grow-shrink-20"><h6><b>start</b></h6></div>
-        <div class="flex-item-no-grow-shrink-20"><h6><b>end</b></h6></div>
+        <div class="flex-item-no-grow-shrink-15 center-text"><h6><b>section</b></h6></div>
+        <div class="flex-item-no-grow-shrink-30 center-text"><h6><b>level</b></h6></div>
+        <div class="flex-item-no-grow-shrink-20 center-text"><h6><b>start/end</b></h6></div>
         <div class="flex-item-grow-only-auto center-text"><h6><b>days</b></h6></div>
       </div>
       <% @consultation.lessons.each do |l| %>
         <div class="flex-space-between shell-tab shell-border">
-          <div class="flex-item-no-grow-shrink-20"><h6><%= l.lesson_start.strftime('%I:%M %p')%></h6></div>
-          <div class="flex-item-no-grow-shrink-20"><h6><%= l.lesson_end.strftime('%I:%M %p')%></h6></div>
-          <% l.lesson_dow.each do |d| %>
-          <div class="flex-item-grow-only-auto"><%= d %>&nbsp</div>
-          <% end %><!--end lesson_dow.each-->
+          <div class="flex-item-no-grow-shrink-15 center-text"><h6><%= l.lesson_section %></h6></div>
+          <div class="flex-item-no-grow-shrink-30 center-text"><h6><%= l.lesson_level %></h6></div>
+          <div class="flex-item-no-grow-shrink-20 center-text"><h6><%= l.lesson_start.strftime('%I:%M %p')%> - <%= l.lesson_end.strftime('%I:%M %p')%></h6></div>
+          <div class="flex-item-grow-only-auto center-text"> <!-- lesson days -->
+            <% l.lesson_dow.each do |d| %>
+              <div class="center-text"><%= d %>&nbsp</div>
+            <% end %><!--end lesson_dow.each-->
+          </div><!-- end of lesson days -->
         </div><!--end of flex-space-between shell-tab shell-border-->
       <% end %><!--end consultation.lessons.each-->
-      <div class="consultation-message-form-div">
-        <a href="" data-toggle="modal" data-target="#create-message">
-          <div class="round-div no-decor">send message</div>
-        </a>
-      </div><!--end of consultation-review-form-div-->
       <div class="appointment-show-form-div">
         <a href="" data-toggle="modal" data-target="#create-booking">
           <div class="round-div no-decor">book appointment</div>
         </a>
       </div><!--end of appointment-show-form-div-->
-
+      <div class="consultation-message-form-div">
+        <a href="" data-toggle="modal" data-target="#create-message">
+          <div class="round-div no-decor">send message</div>
+        </a>
+      </div><!--end of consultation-message-form-div-->
       <div class="consultation-review-form-div">
         <a href="" data-toggle="modal" data-target="#create-review">
           <div class="round-div no-decor">review</div>

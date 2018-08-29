@@ -4,6 +4,7 @@ class Consultation < ApplicationRecord
   has_many :appointments, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :lessons, dependent: :destroy
+  accepts_nested_attributes_for :lessons
 
   validates :consult_title, :consult_language, :consult_type, presence: true
   validates :consult_focus, :consultfee, :consult_desc, :consult_location, presence: true

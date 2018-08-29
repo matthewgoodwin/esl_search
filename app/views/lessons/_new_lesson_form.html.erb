@@ -1,16 +1,17 @@
 <div class="lesson-form-div">
   <%= simple_form_for ([consultation, lesson]) do |f| %>
-    <%= f.input :lesson_start, label: "start" %>
-    <%= f.input :lesson_end, label: "end" %>
+    <%= f.input :lesson_section, label: "section number (ex: 1)"%>
+    <%= f.input :lesson_start, label: "start time"%>
+    <%= f.input :lesson_end, label: "end time"%>
+    <%= f.input :lesson_level, collection: ["beginner","intermediate","advanced"]%>
     <div>
-        <div class="flex-space-between">
-          <%= f.input :lesson_dow, class: 'flex-center-center', prompt: "available days", label: "available days:", as: :check_boxes, collection: [['flexible','flexible'],['weekdays','weekdays'],['sunday','sunday'],['monday','monday'], ['tuesday','tuesday'], ['wednesday','wednesday'], ['thurdsay','thurdsay'],['friday','friday'],['saturday','saturday']], label_method: :second, value_method: :first%>
-        </div>
-      </div>
-      <%= f.input :lesson_terminate, label: "when to terminate" %>
-
+      <div class="flex-space-between">
+        <%= f.input :lesson_dow, class: 'flex-center-center', prompt: "available days", label: "available days:", as: :check_boxes, collection: [['flexible','flexible'],['weekdays','weekdays'],['sunday','sunday'],['monday','monday'], ['tuesday','tuesday'], ['wednesday','wednesday'], ['thurdsay','thurdsay'],['friday','friday'],['saturday','saturday']], label_method: :second, value_method: :first%>
+      </div><!--end of flex-space-between-->
+    </div>
+    <%= f.input :lesson_terminate, label: "when to terminate"%>
     <div class="lesson-button-div flex flex-center">
-      <%= f.button :submit, "send", class: "btn btn-primary no-decor btn-grad-light light-shadow" %>
+      <%= f.button :submit, "send", class: "btn btn-primary no-decor btn-grad-light light-shadow"%>
     </div><!-- end of message-button-div -->
   <% end %><!--end of form-->
 </div><!--end of message-form-div-->

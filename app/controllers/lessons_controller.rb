@@ -8,6 +8,7 @@ class LessonsController < ApplicationController
 
   def show
     @appointment = Appointment.new
+    # @lesson_appoint = @consultation.lessons.all.map{|x| x.stall}
   end
 
   def create
@@ -37,6 +38,6 @@ class LessonsController < ApplicationController
     authorize @lesson
   end
   def lesson_params
-    params.require(:lesson).permit(:lesson_start, :lesson_end, :lesson_terminate, :lesson_dow=>[])
+    params.require(:lesson).permit(:lesson_level, :lesson_section, :lesson_start, :lesson_end, :lesson_terminate, :lesson_dow=>[])
   end
 end
