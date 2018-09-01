@@ -1,7 +1,7 @@
 <div class="">
   <%= simple_form_for([consultation, appointment]) do |f| %>
-    <%= f.input :pupil, label: false, placeholder: "name" %>
-    <%= f.input :lesson, collection: @lesson_op.sort_by.each{|l| [l]}, label: false, prompt: "lesson", input_html: { class: "clear-order" } %>
+    <%= f.input :pupil, label: false, placeholder: "client name" %>
+    <%= f.input :lesson, collection: @lesson_op.sort_by.each{|l| [l]}, label: false, prompt: "lesson section", input_html: { class: "clear-order" } %>
     <%= f.button :submit, class:"btn btn-primary" %>
   <% end %>
 </div>
