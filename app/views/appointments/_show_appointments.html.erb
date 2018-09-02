@@ -7,9 +7,13 @@
     <!-- ^ this div can grow-->
     <div class="flex-item-no-grow-shrink-30"><!--icon-cant grow or shrink-->
       <div class="user-sm-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
-      </div><!--end of NESTED icon flex item div-->
+    </div><!--end of NESTED icon flex item div-->
     <div class="flex-item-grow-only-auto"><!--can grow-->
-      <h6 class=""><%= element.start.strftime('%B %d @ %I:%M %p')%></h6>
+      <% if element.consultation.consult_period == 'hourly'%>
+        <h6 class=""><%= element.consultation.consult_period %></h6>
+      <% else %>
+        <h6 class=""><%= element.lesson.lesson_start.strftime('%B %d @ %I:%M %p')%></h6>
+      <% end %>
       <!--appointment link details-->
     </div><!--end of NESTED detials flex item div-->
   </div><!-- end of NESTED link div-->

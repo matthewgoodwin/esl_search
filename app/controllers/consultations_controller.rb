@@ -11,7 +11,9 @@ class ConsultationsController < ApplicationController
     @message = Message.new
     @review = Review.new
     @lesson = Lesson.new
+    authorize @lesson
     @lesson_op = @consultation.lessons.all.map{|x| [x.lesson_section]}
+    # raise
     # authorize @appointment
     # raise
   end

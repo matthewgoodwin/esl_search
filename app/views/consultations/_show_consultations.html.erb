@@ -6,6 +6,13 @@
       <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
       <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
     </div><!--end of icon-div-->
-    <div class="flex-item-grow-only-auto"><h6><%= element.start.strftime('%m/%d (MM/DD) @ %I:%M %p')%></h6></div>
+    <div class="flex-item-grow-only-auto">
+      <% if element.consultation.consult_period == 'hourly'%>
+        <h6><%= element.consultation.consult_period %></h6>
+      <% else %>
+        <h6><%= element.lesson.lesson_start.strftime('%m/%d (MM/DD) @ %I:%M %p')%></h6>
+      <% end %>
+        <h6><%= element.consultation.consult_title %></h6>
+    </div>
   </div><!--end of shell-tab-->
 <% end %><!--end link_to appointments-->

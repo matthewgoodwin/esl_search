@@ -7,25 +7,28 @@
           <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
       <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
     </div><!--end of user-profile-image-div-->
-    <div class=" center-text">
+    <div class="center-text">
       <div class="flex-space-between">
-      <h6><%= @consultation.user.fname %> <%= @consultation.user.lname %></h6>
+        <h6><%= @consultation.user.fname %> <%= @consultation.user.lname %></h6>
       </div>
       <div class="flex-space-between">
-      <h6>Gender:</h6>
-      <h6> <%= @consultation.user.gender %> </h6>
+        <h6><%= @consultation.user.email%></h6>
       </div>
       <div class="flex-space-between">
-      <h6>Education:</h6>
-      <h6><%= @consultation.user.edulevel %></h6>
+        <h6>Gender:</h6>
+        <h6> <%= @consultation.user.gender %> </h6>
       </div>
       <div class="flex-space-between">
-      <h6>Major:</h6>
-      <h6><%= @consultation.user.subjectmajor %></h6>
+        <h6>Education:</h6>
+        <h6><%= @consultation.user.edulevel %></h6>
       </div>
       <div class="flex-space-between">
-      <p><%= link_to "homepage", root_path %></p>
-      <p><%= link_to "dashboard", dashboard_path %></p>
+        <h6>Major:</h6>
+        <h6><%= @consultation.user.subjectmajor %></h6>
+      </div>
+      <div class="flex-space-between">
+        <p><%= link_to "homepage", root_path %></p>
+        <p><%= link_to "dashboard", dashboard_path %></p>
       </div>
     </div>
   </div><!--end of shell-border-->
@@ -80,8 +83,11 @@
         <div class="flex-item-grow-only-auto center-text"><h6><b>days</b></h6></div>
       </div>
       <% @consultation.lessons.each do |l| %>
+      <a href="" data-toggle="modal" data-target="#lesson-form-<%= l.id %>">
         <div class="flex-space-between shell-tab shell-border">
-          <div class="flex-item-no-grow-shrink-15 center-text"><h6><%= l.lesson_section %></h6></div>
+          <div class="flex-item-no-grow-shrink-15 center-text">
+            <h6><%= l.lesson_section %></h6>
+          </div>
           <div class="flex-item-no-grow-shrink-30 center-text"><h6><%= l.lesson_level %></h6></div>
           <% if @consultation.consult_period == 'hourly' %>
             <div class="flex-item-no-grow-shrink-20 center-text"><h6>hourly</h6></div>
@@ -94,12 +100,20 @@
             <% end %><!--end lesson_dow.each-->
           </div><!-- end of lesson days -->
         </div><!--end of flex-space-between shell-tab shell-border-->
+      </a><!--end of appointment MODAL link-->
+        <div class="modal fade lesson-mod-style" id="lesson-form-<%= l.id %>">
+          <div class="modal-dialog" role="document"><!--aligns the modal document-->
+            <div class="modal-content">
+              <div class="modal-header modal-head-grad flex flex-center">
+                <h3 class="lesson-modal-header">Booking for section: '<%= l.lesson_section %>'</h3>
+              </div><!--end of header-->
+              <div class="modal-body flex flex-center-center">
+                <%= render "appointments/new_less_appointment_form", lesson: l, appointment: @appointment %>
+              </div><!--end of modal-body-->
+            </div><!--end of modal-content-->
+          </div><!--end of modal-dialog-->
+        </div><!--end of modal-->
       <% end %><!--end consultation.lessons.each-->
-      <div class="appointment-show-form-div">
-        <a href="" data-toggle="modal" data-target="#create-booking">
-          <div class="round-div no-decor">book appointment</div>
-        </a>
-      </div><!--end of appointment-show-form-div-->
       <div class="consultation-message-form-div">
         <a href="" data-toggle="modal" data-target="#create-message">
           <div class="round-div no-decor">send message</div>
@@ -113,7 +127,7 @@
     </div><!--end of shell-tab-->
   </div><!--end of consultation-show-details-shell-->
 
-  <div class="consultation-show-reviews-shell shell-border yellow-shell-gradient ">
+  <div class="consultation-show-reviews-shell shell-border grey-shell-gradient ">
     <div class="shell-tab">
       <div class="flex-center-center center-div">
         <h2>Reviews</h2>
@@ -125,21 +139,6 @@
       </div><!--end of shell-tab-->
     </div><!--id="review-min"-->
   </div><!--end of consultation-show-review-shell-->
-
-  <!--begin modal of appointment create partial-->
-  <div class="modal fade appointment-mod-style" id="create-booking">
-    <div class="modal-dialog" role="document"><!--aligns the modal document-->
-      <div class="modal-content">
-        <div class="modal-header modal-head-grad flex flex-center-center">
-          <h3 class="create-appointment-modal-header">create appointment</h3>
-        </div><!--end of header-->
-        <div class="modal-body flex flex-center-center">
-          <%= render "appointments/new_appointment_form", consultation: @consultation, appointment: @appointment %>
-        </div><!--end of modal-body and appointment-show-form-div-->
-      </div><!--end of modal-content-->
-    </div><!--end of modal-dialog-->
-  </div><!--end of modal-->
-
 
   <!--begin modal of review create partial-->
   <div class="modal fade review-mod-style" id="create-review">

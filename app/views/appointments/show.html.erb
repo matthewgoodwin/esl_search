@@ -51,11 +51,11 @@
       </div>
       <div class="flex-space-between">
         <h6 class="">start</h6>
-        <h6 class="flex-item-grow-only-auto"><%= @appointment.start.strftime('%B %d, %Y @ %I:%M%p') %></h6>
+        <h6 class="flex-item-grow-only-auto"><%= @appointment.lesson.lesson_start.strftime('%B %d, %Y @ %I:%M%p') %></h6>
       </div>
       <div class="flex-space-between">
         <h6 class="">end</h6>
-        <h6 class="flex-item-grow-only-auto"><%= @appointment.end.strftime('%B %d, %Y @ %I:%M%p') %></h6>
+        <h6 class="flex-item-grow-only-auto"><%= @appointment.lesson.lesson_end.strftime('%B %d, %Y @ %I:%M%p') %></h6>
       </div>
     </div><!--end appointment-show-details-shell-->
     <!-- </div>end appointment-show-div -->

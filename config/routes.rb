@@ -70,7 +70,9 @@ Rails.application.routes.draw do
     resources :privatemessages
   end
   resources :consultations, shallow: true do
-    resources :lessons
+    resources :lessons, shallow: true do
+      resources :appointments
+    end
     resources :reviews
     resources :appointments
     resources :messages

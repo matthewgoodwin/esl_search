@@ -1,0 +1,10 @@
+<div class="">
+  <%= simple_form_for([lesson, appointment]) do |f| %>
+    <%= f.input :pupil, label: false, placeholder: "client name" %>
+    <% if lesson.consultation.consult_period == 'hourly' %>
+      <%= f.input :start, label: "date and time" %>
+    <% else %>
+    <% end %>
+    <%= f.button :submit, class:"btn btn-primary" %>
+  <% end %>
+</div>
