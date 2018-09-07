@@ -19,7 +19,19 @@
         </div><!--end of icon-->
       <div class="flex-item-no-grow-shrink-20"><h6><%= truncate(a.consultation.consult_title, length: 20) %></h6></div>
       <div class="flex-item-no-grow-shrink-20"><h6><%= a.consultation.consultfee %></h6></div>
-      <div class="flex-item-no-grow-shrink-20"><h6><%= a.start.strftime('%m/%d @ %I:%M%p')%></h6></div>
+      <% if a.start == nil %>
+        <div class="flex-item-no-grow-shrink-20">
+          <h6><%= a.consultation.consult_period %></h6>
+          <h6><%= a.lesson.lesson_start.strftime('%I:%M %p')%></h6>
+          <!-- classes schedules are set by lesson plans -->
+        </div>
+      <% else %>
+        <div class="flex-item-no-grow-shrink-20">
+          <h6><%= a.consultation.consult_period %></h6>
+          <h6><%= a.start.strftime('%m/%d @ %I:%M%p')%></h6>
+          <!-- hourly classes are set by the appointment -->
+        </div>
+      <% end %>
       <div class="flex-item-no-grow-shrink-20"><%= link_to appointment_path(a) do %>
         <i class="fas fa-info-circle" aria-hidden="true"></i><% end %>
       </div><!-- end of link-->

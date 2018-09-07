@@ -90,9 +90,9 @@
     </div><!--dashboard-appointment header-items-->
     <div class="dashboard-appointments-div">
       <% @appointments.sort{|x,y| y <=> x}.take(3).each do |a| %>
-        <%= link_to appointment_path(a), class: "no-decor" do %>
+
           <%= render 'appointments/show_appointments', element: a %>
-        <% end %><!--end of link_to-->
+
       <% end %><!-- end of current_user.appointments.each do -->
     </div><!--end of dashboard-appointments-div-->
   </div><!--end of dashboard-appointments-shell"-->

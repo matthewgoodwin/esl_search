@@ -46,6 +46,17 @@
         <h6 class=""><%= @appointment.consultation.consult_focus %> </h6>
       </div>
       <div class="flex-space-between">
+        <h6 class="">period</h6>
+        <h6 class=""><%= @appointment.consultation.consult_period %> </h6>
+      </div>
+      <% if @appointment.consultation.consult_period == 'hourly' %>
+      <% else %>
+        <div class="flex-space-between">
+          <h6 class="">duration</h6>
+          <h6 class=""><%= @appointment.consultation.consult_dur %> </h6>
+        </div>
+      <% end %>
+      <div class="flex-space-between">
         <h6 class="">fee</h6>
         <h6 class=""><%= @appointment.consultation.consultfee%></h6>
       </div>

@@ -1,7 +1,7 @@
 <div class="lesson-form-div">
   <%= simple_form_for ([consultation, lesson]) do |f| %>
     <%= f.input :lesson_section, label: "section number", placeholder:"(ex: 1)"%>
-    <%= f.input :lesson_level, label: false, prompt:"skill level" ,collection: ["beginner","intermediate","advanced"]%>
+    <%= f.input :lesson_level, label: false, prompt:"skill level" ,collection: ["everyone","beginner","intermediate","advanced"]%>
     <% if consultation.consult_period == 'hourly' %>
       <%= f.input :lesson_start, label: "start", as: :hidden, input_html: {value: Time.now} %>
       <%= f.input :lesson_end, label: "end", as: :hidden, input_html: {value: Time.now} %>
@@ -16,7 +16,7 @@
     </div>
     <%= f.input :lesson_terminate, label: "terminate lesson"%>
     <div class="lesson-button-div flex flex-center">
-      <%= f.button :submit, "create houly lesson", class: "btn btn-primary no-decor btn-grad-light light-shadow"%>
+      <%= f.button :submit, "publish lesson", class: "btn btn-primary no-decor btn-grad-light light-shadow"%>
     </div><!-- end of message-button-div -->
   <% end %><!--end of form-->
 </div><!--end of message-form-div-->

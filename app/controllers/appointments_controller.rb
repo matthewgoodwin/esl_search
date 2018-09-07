@@ -1,7 +1,7 @@
 class AppointmentsController < ApplicationController
   before_action :find_appointment, only: [:show, :edit, :update, :destroy]
   # before_action :find_consultation, only: [:create]
-  before_action :find_lesson, only: [:create, :edit, :update, :destroy]
+  before_action :find_lesson, only: [:create, :edit, :update]
   before_action :appointment_params, only: [:create]
   def index
   end
