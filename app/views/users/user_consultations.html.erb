@@ -3,7 +3,7 @@
 <h6><%= link_to "dashboard", dashboard_path %></h6>
 <div class="shell-border grey-shell-gradient">
 <div class="flex-space-between shell-tab-header green-shell-gradient padding-5">
-  <div class="flex-item-no-grow-shrink-20"><h6>user</h6></div>
+  <div class="flex-item-no-grow-shrink-20"><h6>client</h6></div>
   <div class="flex-item-no-grow-shrink-20"><h6>title</h6></div>
   <div class="flex-item-no-grow-shrink-20"><h6>fee</h6></div>
   <div class="flex-item-no-grow-shrink-20"><h6>MM/DD @ Time</h6></div>
@@ -19,17 +19,20 @@
         </div><!--end of icon-->
       <div class="flex-item-no-grow-shrink-20"><h6><%= truncate(a.consultation.consult_title, length: 20) %></h6></div>
       <div class="flex-item-no-grow-shrink-20"><h6><%= a.consultation.consultfee %></h6></div>
-      <% if a.start == nil %>
+      <% if a.consultation.consult_period == 'hourly' %>
+        <!-- ^ if not consultaiton is hourly-->
         <div class="flex-item-no-grow-shrink-20">
-          <h6><%= a.consultation.consult_period %></h6>
-          <h6><%= a.lesson.lesson_start.strftime('%I:%M %p')%></h6>
-          <!-- classes schedules are set by lesson plans -->
-        </div>
-      <% else %>
-        <div class="flex-item-no-grow-shrink-20">
+          <!-- hourly lesson -->
           <h6><%= a.consultation.consult_period %></h6>
           <h6><%= a.start.strftime('%m/%d @ %I:%M%p')%></h6>
           <!-- hourly classes are set by the appointment -->
+        </div>
+      <% else %>
+        <div class="flex-item-no-grow-shrink-20">
+          <!-- class lesson -->
+          <h6><%= a.consultation.consult_period %></h6>
+          <h6><%= a.lesson.lesson_start.strftime('%I:%M %p')%></h6>
+          <!-- classes schedules are set by lesson plans -->
         </div>
       <% end %>
       <div class="flex-item-no-grow-shrink-20"><%= link_to appointment_path(a) do %>

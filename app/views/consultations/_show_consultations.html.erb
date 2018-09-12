@@ -8,13 +8,12 @@
     </div><!--end of icon-div-->
     <div class="flex-item-grow-only-auto">
       <h6><b><%= element.consultation.consult_title %></b></h6>
+      <h6><%= element.consultation.consult_period %></h6>
       <% if element.consultation.consult_period == 'hourly'%>
-        <h6><%= element.consultation.consult_period %></h6>
-        <h6><%= element.start.strftime('@%I:%M %p') %></h6>
+        <h6><%= element.start.strftime('@ %I:%M %p') %></h6>
       <% else %>
-        <h6><%= element.consultation.consult_period %></h6>
-        <h6><%= element.lesson.lesson_start.strftime('@%I:%M %p')%></h6>
-      <% end %>
-    </div>
+        <h6><%= element.lesson.lesson_start.strftime('@ %I:%M %p')%></h6>
+      <% end %><!---end of if statement-->
+    </div><!--end of flex-item-grow-only-auto-->
   </div><!--end of shell-tab-->
 <% end %><!--end link_to appointments-->

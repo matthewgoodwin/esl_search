@@ -15,10 +15,11 @@ class UsersController < ApplicationController
   end
   def user_appointments
     @user_appointments = @user.appointments
+    # raise
   end
   def user_messages
     @user_consultations = @user.consultations
-# raise
+    # raise
   end
   def user_products
     @user_products = @user.consultations
