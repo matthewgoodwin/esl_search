@@ -1,7 +1,22 @@
-<h1>user_reviews.html.erb</h1>
-<% @user.consultations.each do |c| %>
-  <% c.reviews.each do |r| %>
-    <p><%= r.comment %></p>
-    <p><%= r.star %></p>
-  <% end %>
-<% end %>
+<div class="center-div"><h1 class="center-text">Reviews</h1></div>
+<%= link_to 'dashboard', dashboard_path %>
+<div class="mw800 shell-border center-div">
+    <% @user_consultations.each do |c| %>
+      <% c.reviews.each do |r| %>
+        <div class="shell-tab-box">
+          <div class=""><h6><b><%= r.user.fname %></h6></b></div>
+          <div class="">
+            <div class= "">
+              <% r.star.to_i.times do %>
+                <i class="fa fa-star yellow-star"></i><!--reference 'components/_reviewstars.scss'-->
+              <% end %><!--end of r.star-->
+              <% (5 - r.star.to_i).times do %>
+                <i class="fa fa-star grey-star"></i><!--reference 'components/_reviewstars.scss'-->
+             <% end %><!--end of 5-r.star-->
+            </div><!--end of ""-->
+          </div>
+          <div class=""><h6><%= r.comment %></h6></div>
+        </div><!--end of user message-flex-space-between-->
+      <% end %><!--end of c.messages-->
+    <% end %><!--end of @user_consultations-->
+  </div><!-- end of user-message-list-shell shell-border grey-shell-gradient-->

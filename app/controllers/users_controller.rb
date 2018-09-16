@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show, :user_consultations, :user_appointments, :user_messages, :user_products, :user_clients, :user_reviews]
+  before_action :find_user, only: [:show, :user_consultations, :user_appointments, :user_messages, :user_products, :user_clients, :user_reviews, :user_privatemessages]
+  before_action :find_sender
   def index
     # @users = User.all
     @user = policy_scope(User).order(created_at: :desc)
@@ -21,14 +22,17 @@ class UsersController < ApplicationController
     @user_consultations = @user.consultations
     # raise
   end
+  def user_privatemessages
+    @user_privatemessages = @user.privatemessages
+    # @sender = User
+  end
   def user_products
     @user_products = @user.consultations
   end
   def user_clients
-
   end
   def user_reviews
-
+    @user_consultations = @user.consultations
   end
   def search
   end
@@ -36,5 +40,8 @@ class UsersController < ApplicationController
   def find_user
     @user = User.find(params[:id])
     authorize @user
+  end
+  def find_sender
+    # @sender = User.find()
   end
 end

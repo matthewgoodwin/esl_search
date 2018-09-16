@@ -14,7 +14,7 @@
         <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
       <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
     </div><!--end of user-profile-image-div-->
-    <h4 class="center-text"><%= @appointment.consultation.user.fname %> </h4>
+    <h4 class="center-text"><b><%= @appointment.consultation.user.fname %></b></h4>
     <h6 class="center-text"><%= @appointment.consultation.user.email %></h6>
   </div><!--end appointment-show-instructor-shell-->
 
@@ -25,14 +25,18 @@
           <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
       <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
     </div><!--end of user-profile-image-div find: _usericon.scss-->
-    <h4 class="center-text"> <%= @appointment.pupil %></h4>
+    <h4 class="center-text"><b><%= @appointment.pupil %></b></h4>
     <h6 class="center-text"><%= @appointment.user.email %></h6>
   </div><!--end appointment-show-client-shell-->
 
   <div class="appoint-show-details-shell center-text shell-border grey-shell-gradient">
     <div class="padding-5">
       <h3 class="appoint-show-role-head center-text">Detail</h3>
-      <h5><%= @appointment.consultation.consult_language %></h5>
+      <h4><%= @appointment.consultation.consult_title %></h4>
+      <div class="flex-space-between">
+        <h6 class="">language</h6>
+        <h6 class=""><%= @appointment.consultation.consult_language %></h6>
+      </div>
       <div class="flex-space-between">
         <h6 class="">location</h6>
         <h6 class=""><%= @appointment.consultation.consult_location %></h6>

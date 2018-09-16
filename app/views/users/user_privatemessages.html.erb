@@ -1,0 +1,23 @@
+<!--private message index from dashboard link -->
+<div class="center-div"><h1 class="center-text">PRIVATE MESSAGES</h1></div>
+<%= link_to 'dashboard', dashboard_path %>
+<div class="content-grid user-message-area">
+  <div class="user-message-list-shell shell-border grey-shell-gradient">
+    <div class="flex-space-between shell-tab-header green-shell-gradient">
+      <div class="flex-item-no-grow-shrink-10"><h6><b>DELETE</b></h6></div>
+      <div class="flex-item-no-grow-shrink-15"><h6><b>SENDER</b></h6></div>
+      <div class="flex-item-no-grow-shrink-20"><h6><b>SUBJECT</b></h6></div>
+      <div class="flex-item-grow-only-auto"><h6><b>PRIVATE MESSAGE</b></h6></div>
+      <div class="flex-item-no-grow-shrink-20"><h6><b>TIME/DATE : (MM/DD)</b></h6></div>
+    </div><!--end of user message-flex-space-between-->
+    <% @user_privatemessages.each do |pm| %>
+        <div class="flex-space-between shell-tab">
+          <div class="flex-item-no-grow-shrink-10"><input class="" id="checkbox" type="checkbox"></div>
+          <div class="flex-item-no-grow-shrink-15"><h6><%= User.find(pm.sender_id).fname %></h6></div>
+          <div class="flex-item-no-grow-shrink-20"><h6><%= truncate(pm.subject, length: 20) %></h6></div>
+          <div class="flex-item-grow-only-auto"><h6><%= truncate(pm.pm, length: 35) %><!--limit size--></h6></div>
+          <div class="flex-item-no-grow-shrink-20"><h6><%= pm.created_at.strftime("%m/%d @ %I:%M %p") %></h6></div>
+        </div><!--end of user message-flex-space-between-->
+    <% end %><!--end of @user_privatemessage-->
+  </div><!-- end of user-message-list-shell shell-border grey-shell-gradient-->
+</div><!--end of content-grid-->

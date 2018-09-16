@@ -20,6 +20,9 @@ class UserPolicy < ApplicationPolicy
     def user_messages?
       return true
     end
+    def user_privatemessages?
+      return true
+    end
     def user_products?
       return true
     end

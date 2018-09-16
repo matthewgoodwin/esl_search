@@ -63,11 +63,12 @@ Rails.application.routes.draw do
       get 'user_products', to: 'users#user_products'
       get 'user_clients', to: 'users#user_clients'
       get 'user_reviews', to: 'users#user_reviews'
+      get 'user_privatemessages', to: 'users#user_privatemessages'
     end
     collection do
       get 'search'
     end
-    resources :privatemessages
+    resources :privatemessages, only: [:show,:create, :edit, :update, :destroy]
   end
   resources :consultations, shallow: true do
     resources :lessons, shallow: true do
