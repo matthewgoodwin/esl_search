@@ -1,6 +1,6 @@
 <h6><%= link_to "homepage", root_path %></h6>
 <h6 class=""><%= link_to "dashboard", dashboard_path %></h6>
-<div class="flex-center text-center div-center">
+<div class="flex-center-center text-center div-center">
   <h1 class="text-center">Consultations</h1>
 </div>
 <div class="content-grid consult-index-area">
@@ -13,11 +13,23 @@
               <%= image_tag consult.user.photo.url(:bright_face), class: "user-sm-profile-image-img icon-shell"%>
             </div>
           <% end %><!--end of user_path link-->
-          <div class="index-consult-item"><%= link_to consult[:consult_title], consultation_path(consult)%></div>
-          <div class="index-consult-item"><%= link_to consult[:consult_language], consultation_path(consult)%></div>
-          <div class="index-consult-item"><%= link_to consult[:consult_location], consultation_path(consult)%></div>
-          <!-- consult[:consultfee] -->
-          <div class="index-consult-item"><%= number_to_currency(consult[:consultfee], :unit => "₩") %></div>
+          <%= link_to consultation_path(consult) do %>
+          <div>
+            <div class="index-consult-item"><h5><%= consult.consult_title %></h5></div>
+            <div class="index-consult-item"><h6><%= consult.consult_language %></h6></div>
+            <div class="index-consult-item"><h6><%= consult.consult_location %></h6></div>
+            <!-- consult[:consultfee] -->
+            <div class="index-consult-item"><h6><%= number_to_currency(consult[:consultfee], :unit => "₩")%></h6></div>
+            <div class= "flex-center-center center-div">
+        <% @avg_star.to_i.times do %>
+          <i class="fa fa-star yellow-star"></i><!--reference 'components/_reviewstars.scss'-->
+        <% end %><!--end of r.star-->
+          <% (5 - @avg_star.to_i).times do %>
+          <i class="fa fa-star grey-star"></i><!--reference 'components/_reviewstars.scss'-->
+        <% end %><!--end of 5-r.star-->
+      </div><!--end of review-item-->
+          </div>
+          <% end %>
           <!-- :unit is built into the number_to_currency-->
           <div class="index-consult-item">
             <% if policy(consult).destroy? %><!--only owner can see delete button-->
