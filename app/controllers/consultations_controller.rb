@@ -14,15 +14,18 @@ class ConsultationsController < ApplicationController
     authorize @lesson
     @lesson_op = @consultation.lessons.all.map{|x| [x.lesson_section]}
     @consultation_review_star = @consultation.reviews.all.map{|r| [r.star]}
-    # ^ creates and array of review stars ex: [[4],[1]]
-    @review_stars = @consultation_review_star.sum
-    # ^ @total_review_stars produces single array ex: [4,2] not sure why
-    @total_review_stars = @review_stars.sum
-    # ^ SAME as above: @total_review_stars = @review_stars.inject(0){|sum,x| sum + x }
-    # ^^ sum of all stars ex[4 + 1] = 5
-    @total_reviews = @consultation_review_star.size
-    # ^ total number of reviews with stars ex: 2
-    @avg_star = (@total_review_stars / @total_reviews)
+    if @consultation_review_star != []
+      # ^ creates and array of review stars ex: [[4],[1]]
+      @review_stars = @consultation_review_star.sum
+      # ^ @total_review_stars produces single array ex: [4,2] not sure why
+      @total_review_stars = @review_stars.sum
+      # ^ SAME as above: @total_review_stars = @review_stars.inject(0){|sum,x| sum + x }
+      # ^^ sum of all stars ex[4 + 1] = 5
+      @total_reviews = @consultation_review_star.size
+      # ^ total number of reviews with stars ex: 2
+      @avg_star = (@total_review_stars / @total_reviews)
+    else
+    end
     # raise
     # authorize @appointment
     # raise
