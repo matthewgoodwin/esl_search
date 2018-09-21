@@ -1,44 +1,48 @@
 <!--full size consultations-->
 <div class="center-div"><h1 class="center-text">CONSULTATIONS</h1></div>
 <h6><%= link_to "dashboard", dashboard_path %></h6>
-<div class="shell-border grey-shell-gradient center-div mw800">
-<div class="flex-space-between shell-tab-header green-shell-gradient padding-5">
-  <div class="flex-item-no-grow-shrink-20"><h6>client</h6></div>
-  <div class="flex-item-no-grow-shrink-20"><h6>title</h6></div>
-  <div class="flex-item-no-grow-shrink-20"><h6>fee</h6></div>
-  <div class="flex-item-no-grow-shrink-20"><h6>MM/DD @ Time</h6></div>
-  <div class="flex-item-no-grow-shrink-20"><h6>information</h6></div>
-</div>
-<% @user_consultations.each do |c| %>
-  <% c.appointments.each do |a| %>
-    <div class="flex-space-between shell-border shell-tab">
-        <div class="flex-item-no-grow-shrink-20">
-          <% avatar_url = a.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
-          <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-          <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
-        </div><!--end of icon-->
-      <div class="flex-item-no-grow-shrink-20"><h6><%= truncate(a.consultation.consult_title, length: 20) %></h6></div>
-      <div class="flex-item-no-grow-shrink-20"><h6><%= a.consultation.consultfee %></h6></div>
-      <% if a.consultation.consult_period == 'hourly' %>
-        <!-- ^ if not consultaiton is hourly-->
-        <div class="flex-item-no-grow-shrink-20">
-          <!-- hourly lesson -->
-          <h6><%= a.consultation.consult_period %></h6>
-          <h6><%= a.start.strftime('%m/%d @ %I:%M%p')%></h6>
-          <!-- hourly classes are set by the appointment -->
-        </div>
-      <% else %>
-        <div class="flex-item-no-grow-shrink-20">
-          <!-- class lesson -->
-          <h6><%= a.consultation.consult_period %></h6>
-          <h6><%= a.lesson.lesson_start.strftime('%I:%M %p')%></h6>
-          <!-- classes schedules are set by lesson plans -->
-        </div>
-      <% end %>
-      <div class="flex-item-no-grow-shrink-20"><%= link_to appointment_path(a) do %>
-        <i class="fas fa-info-circle" aria-hidden="true"></i><% end %>
-      </div><!-- end of link-->
-    </div><!--end of flex-space-between shell-border shell-tab-->
-  <% end %><!-- end of c.appointments.each-->
-<% end %><!--end of @user_consultations.each-->
-</div> <!--end of shell-border grey-shell-gradient-->
+<div class="content-grid element-index-area">
+  <div class="element-index-shell padding shell-border">
+    <div class="flex-space-between padding grey-shell-gradient">
+      <div class="flex-item-no-grow-shrink-30"><h6>CLIENT</h6></div>
+      <div class="flex-item-grow-only-auto"><h6>INFO</h6></div>
+      <div class=""><h6>VIEW</h6></div>
+    </div>
+    <% @user_consultations.each do |c| %>
+      <% c.appointments.each do |a| %>
+        <div class="flex-space-between padding">
+          <div class="flex-item-no-grow-shrink-30">
+            <% avatar_url = a.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
+            <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
+            <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
+            <h6><b><%= a.user.fname %></b></h6>
+          </div><!--end of icon-->
+          <div class="flex-item-grow-only-auto">
+            <h6><b><%= truncate(a.consultation.consult_title, length: 40) %></b></h6>
+            <% if a.consultation.consult_period == 'hourly' %>
+            <!-- ^ if not consultaiton is hourly-->
+            <div class="">
+              <!-- hourly lesson -->
+              <h6><%= a.consultation.consult_period %></h6>
+              <h6><%= a.start.strftime('%m/%d @ %I:%M%p')%></h6>
+              <!-- hourly classes are set by the appointment -->
+            </div>
+          <% else %>
+            <div class="">
+              <!-- class lesson -->
+              <h6><%= a.consultation.consult_period %></h6>
+              <h6><%= a.lesson.lesson_start.strftime('%I:%M %p')%></h6>
+              <!-- classes schedules are set by lesson plans -->
+            </div>
+          <% end %><!--end of if else statemnt-->
+          </div><!-- end of flex-item-grow-only-auto-->
+          <div>
+            <%= link_to appointment_path(a) do %>
+              <i class="fas fa-info-circle" aria-hidden="true"></i><% end %>
+          </div><!--end info link div-->
+        </div><!--end of flex-space-between-->
+        <hr>
+      <% end %><!-- end of c.appointments.each-->
+    <% end %><!--end of @user_consultations.each-->
+  </div> <!--end of element-index-shell shell-border grey-shell-gradient-->
+</div><!--end of content-grid element-index-area-->

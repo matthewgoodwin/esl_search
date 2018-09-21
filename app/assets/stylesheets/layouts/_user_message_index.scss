@@ -1,32 +1,32 @@
-.user-message-area{
-  grid-gap: 5px;
-  grid-template-areas:
-  ". user-mess-index ."
-  ;
-}
+// .user-message-area{
+//   grid-gap: 5px;
+//   grid-template-areas:
+//   ". user-mess-index ."
+//   ;
+// }
 
-@media (min-width: 850px){
-  .user-message-area{
-    grid-gap: 10px;
-    grid-template-areas:
-    ". user-mess-index user-mess-index."
-    ;
-  }
-}
+// @media (min-width: 850px){
+//   .user-message-area{
+//     grid-gap: 10px;
+//     grid-template-areas:
+//     ". user-mess-index user-mess-index."
+//     ;
+//   }
+// }
 
-@media (min-width: 950px){
-  .user-message-area{
-    grid-gap: 10px;
-    grid-template-areas:
-    ". user-mess-index user-mess-index user-mess-index ."
-    ;
-  }
-}
+// @media (min-width: 950px){
+//   .user-message-area{
+//     grid-gap: 10px;
+//     grid-template-areas:
+//     ". user-mess-index user-mess-index user-mess-index ."
+//     ;
+//   }
+// }
 
 
-.user-message-list-shell{
-  grid-area: user-mess-index;
-}
+// .user-message-list-shell{
+//   grid-area: user-mess-index;
+// }
 
 // .user-message-item{
 //   display: flex;

@@ -3,20 +3,29 @@
 <div class="flex-center-center text-center div-center">
   <h1 class="text-center">Consultations</h1>
 </div>
-<div class="content-grid consult-index-area">
-  <div class="consult-index-shell shell-border grey-shell-gradient">
+<div class="content-grid element-index-area">
+  <div class="element-index-shell shell-border padding">
+    <div class="flex-space-between grey-shell-gradient padding">
+      <div class="flex-item-no-grow-shrink-30"><h6>INSTRUCTOR</h6></div>
+      <div class="flex-item-grow-only-auto"><h6>INFO</h6></div>
+      <div class="flex-item-no-grow-shrink-20"><h6>RATE</h6></div>
+    </div>
     <% @consultations.each do |consult| %>
-      <div class="flex-space-between shell-tab">
+      <div class="flex-space-between padding">
         <%= link_to user_path(consult.user) do %>
-          <div class="">
-            <%= image_tag consult.user.photo.url(:bright_face), class: "user-sm-profile-image-img icon-shell"%>
-          </div>
+          <div class="flex-item-no-grow-shrink-30">
+            <% avatar_url = consult.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
+            <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
+            <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
+            <h6><b><%= consult.user.fname %></b></h6>
+          </div><!--end of icon-->
         <% end %><!--end of user_path link-->
         <%= link_to consultation_path(consult) do %>
-        <div class=""><!--shell-->
+        <div class="flex-item-grow-only-auto"><!--shell-->
           <div class=""><h5><%= consult.consult_title %></h5></div>
           <div class=""><h6><%= consult.consult_language %></h6></div>
           <div class=""><h6><%= consult.consult_location %></h6></div>
+          <div class=""><h6><%= consult.consult_period %></h6></div>
           <div class= "">
             <% @avg_star.to_i.times do %>
               <i class="fa fa-star yellow-star"></i><!--reference 'components/_reviewstars.scss'-->
@@ -29,18 +38,11 @@
         <% end %>
         <!-- :unit is built into the number_to_currency-->
         <!-- consult[:consultfee] -->
-        <div class="">
-          <h6><%= consult.consult_period %></h6>
+        <div class="flex-item-no-grow-shrink-20 btn btn-primary">
           <h6><%= number_to_currency(consult[:consultfee], :unit => "₩")%></h6>
         </div>
-        <div class="">
-          <% if policy(consult).destroy? %><!--only owner can see delete button-->
-            <%= link_to consultation_path(consult), method: :delete do %>
-             <i class="far fa-trash-alt"></i>
-            <% end %><!--end of link-->
-          <% end %><!-- end of if statment-->
-        </div>
-      </div><!--end of index-consult-items shell-tab-->
+      </div><!--end of index-consult-items-->
+      <hr>
     <% end %><!--end of @consultations.each do-->
   </div><!-- end of consultations-index-shell-->
 </div><!--end of consult-index-area-->
