@@ -1,12 +1,12 @@
 <!--full size consultations-->
 <div class="center-div"><h1 class="center-text">CONSULTATIONS</h1></div>
 <h6><%= link_to "dashboard", dashboard_path %></h6>
-<div class="content-grid element-index-area">
-  <div class="element-index-shell padding shell-border">
-    <div class="flex-space-between padding grey-shell-gradient">
+<div class="content-grid element-index-area padding">
+  <div class="element-index-shell shell-border">
+    <div class="flex-space-between grey-shell-gradient padding">
       <div class="flex-item-no-grow-shrink-30"><h6>CLIENT</h6></div>
       <div class="flex-item-grow-only-auto"><h6>INFO</h6></div>
-      <div class=""><h6>VIEW</h6></div>
+      <div class="flex-item-no-grow-shrink-20"><h6>VIEW</h6></div>
     </div>
     <% @user_consultations.each do |c| %>
       <% c.appointments.each do |a| %>
@@ -36,7 +36,7 @@
             </div>
           <% end %><!--end of if else statemnt-->
           </div><!-- end of flex-item-grow-only-auto-->
-          <div>
+          <div class="flex-item-no-grow-shrink-20">
             <%= link_to appointment_path(a) do %>
               <i class="fas fa-info-circle" aria-hidden="true"></i><% end %>
           </div><!--end info link div-->

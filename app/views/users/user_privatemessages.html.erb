@@ -1,12 +1,12 @@
 <!--private message index from dashboard link -->
 <div class="center-div"><h1 class="center-text">PRIVATE MESSAGES</h1></div>
 <%= link_to 'dashboard', dashboard_path %>
-<div class="content-grid element-index-area">
-  <div class="element-index-shell shell-border padding">
+<div class="content-grid element-index-area padding">
+  <div class="element-index-shell shell-border">
     <div class="flex-space-between grey-shell-gradient padding">
       <div class="flex-item-no-grow-shrink-30"><h6>SENDER</h6></div>
       <div class="flex-item-grow-only-auto"><h6>PM</h6></div>
-      <div><h6>TIME</h6></div>
+      <div class="flex-item-no-grow-shrink-20"><h6>TIME</h6></div>
     </div><!--end of flex-space-between-->
     <% @user_privatemessages.each do |pm| %>
         <div class="flex-space-between padding">
@@ -14,14 +14,14 @@
             <!--image goes here-->
             <% avatar_url = User.find(pm.sender_id).photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
               <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-              <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
-            <h5><b> <%= User.find(pm.sender_id).fname %></b></h5>
+              <div class="user-sm-profile-image-img icon-shell icon-shell center-div" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
+            <h5 class="center-text"><b> <%= User.find(pm.sender_id).fname %></b></h5>
           </div>
           <div class="flex-item-grow-only-auto">
             <h5><b><%= truncate(pm.subject, length: 25) %></b></h5>
             <h6><%= truncate(pm.pm, length: 40) %><!--limit size--></h6>
           </div>
-          <div class="">
+          <div class="flex-item-no-grow-shrink-20">
             <h6><%= pm.created_at.strftime("%m/%d") %></h6>
             <h6><%= pm.created_at.strftime("%I:%M %p") %></h6>
           </div>
