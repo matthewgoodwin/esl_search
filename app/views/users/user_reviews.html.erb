@@ -1,12 +1,14 @@
 <div class="center-div"><h1 class="center-text">Reviews</h1></div>
-<%= link_to 'dashboard', dashboard_path %>
-<div class="element-index-area content-grid">
+
+<h6><%= link_to 'dashboard', dashboard_path %></h6>
+
+<div class="content-grid element-index-area padding">
   <div class="element-index-shell shell-border">
     <% @user_consultations.each do |c| %>
       <% c.reviews.each do |r| %>
-        <div class="shell-tab">
-          <div><h6><%= r.consultation.consult_title %></h6></div>
-          <div class=""><h5><b><%= r.user.fname %></b></h5></div>
+        <div class="mw800 padding">
+          <div><h4><b><%= r.consultation.consult_title %></b></h4></div>
+          <div class=""><h6><b><%= r.user.fname %></b></h6></div>
           <div class= "">
             <% r.star.to_i.times do %>
               <i class="fa fa-star yellow-star"></i><!--reference 'components/_reviewstars.scss'-->
@@ -16,9 +18,10 @@
             <% end %><!--end of 5-r.star-->
           </div><!--end of ""-->
           <div><h6><%= r.created_at.strftime("%m/%d/%Y @ %I:%M %p") %></h6></div>
-          <div class=""><h6>"<%= r.comment %>"</h6></div>
-        </div><!--end of user shell-tab-->
+          <div><p>"&nbsp<%= truncate(r.comment, length: 400) %><!--limit size-->&nbsp"</p></div>
+          <hr>
+        </div>
       <% end %><!--end of c.reviews-->
     <% end %><!--end of @user_consultations-->
-  </div><!-- end of user-message-list-shell shell-border grey-shell-gradient-->
-</div><!--end element-index-area content-grid-->
+  </div><!--end of user shell-tab-->
+</div><!-- end of element-index-shell shell-border grey-shell-gradient-->

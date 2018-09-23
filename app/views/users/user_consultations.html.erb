@@ -3,21 +3,21 @@
 <h6><%= link_to "dashboard", dashboard_path %></h6>
 <div class="content-grid element-index-area padding">
   <div class="element-index-shell shell-border">
-    <div class="flex-space-between grey-shell-gradient padding">
-      <div class="flex-item-no-grow-shrink-30"><h6>CLIENT</h6></div>
-      <div class="flex-item-grow-only-auto"><h6>INFO</h6></div>
-      <div class="flex-item-no-grow-shrink-20"><h6>VIEW</h6></div>
+    <div class="flex-space-between grey-shell-gradient padding-5">
+      <div class="flex-33"><h6>CLIENT</h6></div>
+      <div class="flex-33"><h6>INFO</h6></div>
+      <div class="flex-33 center-text"><h6>VIEW</h6></div>
     </div>
     <% @user_consultations.each do |c| %>
       <% c.appointments.each do |a| %>
-        <div class="flex-space-between padding">
-          <div class="flex-item-no-grow-shrink-30">
+        <div class="flex-space-between flex-wrap padding-5">
+          <div class="flex-33">
             <% avatar_url = a.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
             <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
             <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
             <h6><b><%= a.user.fname %></b></h6>
           </div><!--end of icon-->
-          <div class="flex-item-grow-only-auto">
+          <div class="flex-33">
             <h6><b><%= truncate(a.consultation.consult_title, length: 40) %></b></h6>
             <% if a.consultation.consult_period == 'hourly' %>
             <!-- ^ if not consultaiton is hourly-->
@@ -36,7 +36,7 @@
             </div>
           <% end %><!--end of if else statemnt-->
           </div><!-- end of flex-item-grow-only-auto-->
-          <div class="flex-item-no-grow-shrink-20">
+          <div class="flex-33 center-text">
             <%= link_to appointment_path(a) do %>
               <i class="fas fa-info-circle" aria-hidden="true"></i><% end %>
           </div><!--end info link div-->

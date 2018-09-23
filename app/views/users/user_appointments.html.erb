@@ -3,22 +3,21 @@
   <h6><%= link_to "dashboard", dashboard_path %></h6>
 <div class="element-index-area content-grid padding">
   <div class="element-index-shell shell-border">
-    <div class="flex-space-between grey-shell-gradient padding">
-      <div class="flex-item-no-grow-shrink-30"><h6>INSTRUCTOR</h6></div>
-      <div class="flex-item-grow-only-auto"><h6>INFO</h6></div>
-      <div class="flex-item-no-grow-shrink-30"><h6>RATE</h6></div>
-      <div class=""><h6>VIEW</h6></div>
+    <div class="flex-space-between grey-shell-gradient padding-5">
+      <div class="flex-33"><h6>INSTRUCTOR</h6></div>
+      <div class="flex-33"><h6>INFO</h6></div>
+      <div class="flex-33 center-text"><h6>VIEW</h6></div>
     </div>
   <% @user_appointments.each do |a| %>
-      <div class="flex-space-between padding">
-        <div class="flex-item-no-grow-shrink-30">
+      <div class="flex-space-between padding-5">
+        <div class="flex-33">
           <!--icon-->
           <% avatar_url = a.consultation.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
             <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
             <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
             <h6 class=""><b><%= a.consultation.user.fname %></b></h6>
         </div>
-        <div class="flex-item-grow-only-auto">
+        <div class="flex-33">
           <!--content here-->
           <h6><b><%= truncate(a.consultation.consult_title, length: 40) %></b></h6>
           <% if a.consultation.consult_period == 'hourly' %>
@@ -27,6 +26,7 @@
               <!-- hourly lesson -->
               <h6><%= a.consultation.consult_period %></h6>
               <h6><%= a.start.strftime('%m/%d @ %I:%M%p')%></h6>
+              <h6><%= number_to_currency(a.consultation[:consultfee], :unit => "₩")%></h6>
               <!-- hourly classes are set by the appointment -->
             </div>
           <% else %>
@@ -34,14 +34,12 @@
               <!-- class lesson -->
               <h6><%= a.consultation.consult_period %></h6>
               <h6><%= a.lesson.lesson_start.strftime('%I:%M %p')%></h6>
+              <h6><%= number_to_currency(a.consultation[:consultfee], :unit => "₩")%></h6>
               <!-- classes schedules are set by lesson plans -->
             </div>
           <% end %>
         </div>
-        <div class="flex-item-no-grow-shrink-30">
-          <h6><%= number_to_currency(a.consultation[:consultfee], :unit => "₩")%></h6>
-        </div>
-        <div class="">
+        <div class="flex-33 center-text">
           <%= link_to appointment_path(a) do %>
             <i class="fas fa-info-circle" aria-hidden="true"></i>
           <% end %>

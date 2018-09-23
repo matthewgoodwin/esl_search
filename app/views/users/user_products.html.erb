@@ -1,17 +1,19 @@
 <div class="center-div"><h1 class="center-text">PRODUCTS</h1></div>
 <h6><%= link_to 'dashboard', dashboard_path %></h6>
-<div class="shell-border grey-shell-gradient">
-<div class="flex-space-between shell-tab-header green-shell-gradient">
-  <!--header work-->
-  <div class="flex-item-grow-only-auto"><h6>Class</h6></div>
-  <div class="flex-item-no-grow-shrink-20"><h6>Focus</h6></div>
-  <div class="flex-item-no-grow-shrink-20"><h6>fee</h6></div>
-  <div class="flex-item-no-grow-shrink-20"><h6>Information</h6></div>
-  <div class="flex-item-no-grow-shrink-20"><h6>Destroy</h6></div>
-</div><!--end of flex-space-between dashboard-consults-product-items shell-border shell-tab-->
-<div id="products" class="dashboard-consults-product-div">
-  <% @user_products.each do |consultation| %>
-    <%= render 'consultations/show_user_products', element: consultation %> <!--c(generic local used in partial) : |consultation|-->
-  <% end %><!-- end of current_user.consultations.each do-->
-</div><!-- end of dashboard-consults-product-div -->
+<div class="content-grid element-index-area padding">
+  <div class="element-index-shell shell-border">
+    <div class="flex-space-between grey-shell-gradient padding-5">
+      <!--header work-->
+      <div class="flex-20"><h6>CLASS</h6></div>
+      <div class="flex-20"><h6>FOCUS</h6></div>
+      <div class="flex-20"><h6>FEE</h6></div>
+      <div class="flex-20 center-text"><h6>INFO</h6></div>
+      <div class="flex-20 center-text"><h6>DESTROY</h6></div>
+    </div><!--end of flex-space-between dashboard-consults-product-items shell-border shell-tab-->
+    <div id="products" class="dashboard-consults-product-div">
+      <% @user_products.each do |consultation| %>
+        <%= render 'consultations/show_user_products', element: consultation %> <!--c(generic local used in partial) : |consultation|-->
+      <% end %><!-- end of current_user.consultations.each do-->
+    </div><!-- end of dashboard-consults-product-div -->
+  </div>
 </div><!--end of user-shell grey-gradient-->

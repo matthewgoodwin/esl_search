@@ -27,9 +27,6 @@ li {
 //   display: grid;
 //   grid-gap: 10px;
 // }
-.flex{
-  display: flex;
-}
 .center-text{
   text-align: center;
 }
@@ -39,12 +36,20 @@ li {
 .content-grid{
   display: grid;
 }
+.flex{
+  display: flex;
+}
+.flex-wrap{
+  flex-wrap: wrap;
+}
+.flex-dir{
+  flex-direction: row;
+}
 .flex-space-between-3item-row{
   display: flex;
   justify-content: space-between;
   flex-direction: row;
 }
-
 .flex-space-between{
   display: flex;
   justify-content: space-between; //aligned on column?
@@ -72,12 +77,23 @@ li {
   justify-content: space-around;
   align-items: center;
 }
-
+.flex-33{
+  flex: 0 0 33%;
+}//three items
+.flex-25{
+  flex: 0 0 25%;
+}//four items
+.flex-20{
+  flex:0 0 20%;
+} //five items
 .flex-item-no-grow-shrink-0{
   flex: 0 0 auto;
 }
 .flex-item-grow-only-auto{
   flex: 1 0 auto;
+}
+.flex-item-no-grow-shrink-5{
+  flex: 0 0 5%;
 }
 .flex-item-no-grow-shrink-10{
   flex: 0 0 10%;
