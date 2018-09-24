@@ -6,9 +6,9 @@ class UserMailer < ApplicationMailer
   #   en.user_mailer.welcome.subject
   #
   def welcome(user1)
-    @user = user1
+    @user1 = user1
 
-    mail (to: @user.email, subject: "Welcome, community member!")
+    mail to: @user1.email, subject: "Welcome, community member!"
     # This will render a view in `app/views/user_mailer`!
   end
 end
