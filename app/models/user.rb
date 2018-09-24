@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  after_create :anyeong
+  # ^ sends welcome letter after creation
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   mount_uploader :photo, PhotoUploader
@@ -13,4 +16,8 @@ class User < ApplicationRecord
 
          validates :fname, :lname, :email, :city, :address, presence: true
          validates :fname, uniqueness: {scope: :email, message: "already a memeber? please log in!"}
+  private
+    def anyeong
+      UserMailer.welcome(self).deliver_now
+    end
 end
