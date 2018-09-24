@@ -5,11 +5,20 @@ class AppointmentMailer < ApplicationMailer
   #
   #   en.appointment_mailer.confirmation.subject
   #
-  def confirmation(user1, user2)
-    @user1 = user1
-    @user2 = user2
-    mail to: @user1.email, subject: "appointment confirmation!"
-    mail to: @user2.email, subject: "consultation confirmation!"
+  def confirmation(appointment)
+    # from controller : AppointmentMailer.confimation(@appointment)
+    @appointment = appointment
+    mail(
+      to: @appointment.user.email,
+      subject: "appointment confirmation!"
+      )
      # This will render a view in `app/views/appointment_mailer`!
+  end
+  def confirmationx(appointment)
+    @appointment = appointment
+    mail(
+      to: @appointment.consultation.user.email,
+      subject: "consultation confirmation!"
+      )
   end
 end

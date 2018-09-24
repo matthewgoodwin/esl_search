@@ -26,6 +26,9 @@ class AppointmentsController < ApplicationController
     authorize @appointment # authorize before saving
     if @appointment.valid?
       @appointment.save
+      AppointmentMailer.confirmation(@appointment).deliver_now
+      AppointmentMailer.confirmationx(@appointment).deliver_now
+      # ^ calls app/mailers/appointment_mailer.rb ; before redirect
       redirect_to appointment_path(@appointment)
     else
       flash[:notice] = 'missing info'

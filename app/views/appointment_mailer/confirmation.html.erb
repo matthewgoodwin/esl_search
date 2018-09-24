@@ -1,8 +1,8 @@
 <h1>Appointment#confirmation</h1>
 
 <p>
-  Hello <%= @user1.fname %>,
+  Hello <%= @appointment.user.fname %>,
 </p>
 <p>
-  This is your confirmation letter. You have an appointment with <%= @user2.fname %>!
+  This is your confirmation letter. You have an appointment is with <%= @appointment.consultation.user.fname %> on <%= @appointment.start %>!
 </p>
