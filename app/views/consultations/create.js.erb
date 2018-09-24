@@ -1,4 +1,3 @@
-console.log('hello world');
 $('.modal').modal('hide');
-var add_product = $("<%= j render 'consultations/show_products', element: @consultation %>");
+var add_product = $("<%= j render 'consultations/show_min_products', element: @consultation %>");
 $('#products').prepend(add_product);

@@ -3,7 +3,7 @@
   <!--product data-->
   <div class="flex-20"><h6><%= truncate( element.consult_title, length: 45) %></h6></div>
   <div class="flex-20"><h6><%= truncate(element.consult_focus) %></h6></div>
-  <div class="flex-20"><h6><%= element.consultfee %></h6></div>
+  <div class="flex-20 center-text"><h6><%= number_to_currency(element[:consultfee], :unit => "₩")%></h6></div>
   <div class="flex-20 center-text"><%= link_to consultation_path(element) do %>
     <i class="fas fa-info-circle" aria-hidden="true"></i><% end %>
   </div>

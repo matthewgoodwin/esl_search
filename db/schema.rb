@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180828142754) do
+ActiveRecord::Schema.define(version: 20180924194352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,14 +53,16 @@ ActiveRecord::Schema.define(version: 20180828142754) do
 
   create_table "lessons", force: :cascade do |t|
     t.integer  "consultation_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.text     "lesson_dow",       default: [],              array: true
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.text     "lesson_dow",        default: [],              array: true
     t.time     "lesson_start"
     t.time     "lesson_end"
     t.datetime "lesson_terminate"
     t.integer  "lesson_section"
     t.string   "lesson_level"
+    t.integer  "lesson_capacity"
+    t.text     "lesson_enrollment", default: [],              array: true
     t.index ["consultation_id"], name: "index_lessons_on_consultation_id", using: :btree
   end
 
