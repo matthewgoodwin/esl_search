@@ -4,14 +4,14 @@
     <!--nested details flex-->
     <!--embedded flex for appointment link items(icon & time/day); they respond as a single div-->
     <!-- ^ this div can grow-->
-    <div class="flex-item-no-grow-shrink-30"><!--icon-cant grow or shrink-->
+    <div class="flex-33"><!--icon-cant grow or shrink-->
      <%= link_to user_path(element.user) do %>
      <% avatar_url = element.consultation.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
         <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
       <div class="user-sm-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
     </div><!--end of NESTED icon flex item div-->
     <% end %>
-      <div class="flex-item-grow-only-auto"><!--can grow-->
+      <div class="flex-33"><!--can grow-->
         <%= link_to appointment_path(element) do %>
           <h6 class=""><b><%= element.consultation.consult_title %></b></h6>
           <h6 class=""><%= element.consultation.consult_period %></h6>
@@ -24,7 +24,7 @@
           <% end %><!--end of if statement-->
         <% end %><!--end of appointment link-->
       </div><!--end of the flex-item-grow-only-auto-->
-    <div class="flex-item-no-grow-shrink-10"><%= link_to appointment_path(element), method: :delete do %>
+    <div class="flex-33 center-text"><%= link_to appointment_path(element), method: :delete do %>
       <i class="fas fa-trash-alt" aria-hidden="true"></i><% end %>
     </div><!--end of nested trash can-->
   </div><!--end of NESTED detials flex item div-->

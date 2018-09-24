@@ -36,7 +36,7 @@
       <li><h6><b><%= link_to "messages", dashboard_path %></b></h6></li>
     </ul><!--end of dashboard-user-panel-links-list -->
   </div><!--end of dashboard-user-panel-links-shell-->
-  <div class="dashboard-messages-shell shell-border blue-shell-gradient">
+  <div class="dashboard-messages-shell shell-border blue-shell-gradient padding-5">
     <div class="dashboard-message header-items">
       <%= link_to user_messages_user_path(current_user.id) do %>
         <div class="message-header-item">
@@ -46,12 +46,11 @@
       <div class="message-header-item counter"><%= @my_messages_array.size %></div>
     </div><!--end of dashboard-message header-items-->
     <% if @my_messages_array.size > 0 %>
-      <div class="flex-space-between shell-tab-header">
-            <div class="flex-item-no-grow-shrink-10 hidden-xs"><h6><input type="checkbox" name=""></h6></div>
-            <div class="flex-item-no-grow-shrink-30"><h6><b>name</b></h6></div>
-            <div class="flex-item-grow-only-auto"><h6><b>subject</b></h6></div>
-            <div class="flex-item-grow-only-30"><h6><b>time/date</b></h6></div>
-          </div><!--end of shell-tab-->
+       <!-- <div class="flex-space-between">
+        <div class="flex-33"><h6><b>name</b></h6></div>
+        <div class="flex-33"><h6><b>subject</b></h6></div>
+        <div class="flex-33"><h6><b>time/date</b></h6></div>
+      </div> --><!--end of shell-tab-->
     <% else %>
     <% end %>
      <% @consultations.each do |c| %>
@@ -59,7 +58,7 @@
       <!-- each consultations messages-->
         <%= link_to message_path(m), class: "no-decor" do %>
         <!-- each message-->
-          <%= render 'messages/show_messages', element: m %>
+          <%= render 'messages/show_min_messages', element: m %>
         <% end %><!--end of link_to message_path-->
       <% end %><!--end of c.messages.each -->
     <% end %><!--end of @consultations.each-->
@@ -77,7 +76,7 @@
       <!-- @my_consult_array_desc from controller-->
       <!-- ^c.appointment => each consult has appointments-->
       <!-- ^^ pushes each consultation appointment into an array and reverses the order-->
-        <%= render 'consultations/show_consultations', element: a %>
+        <%= render 'consultations/show_min_consultations', element: a %>
       <% end %><!-- end of @my_consult_array_desc-->
     </div><!--end dashboard-consults-div-->
   </div><!-- end dashboard-consults-shell-->
@@ -90,9 +89,7 @@
     </div><!--dashboard-appointment header-items-->
     <div class="dashboard-appointments-div">
       <% @appointments.sort{|x,y| y <=> x}.take(3).each do |a| %>
-
-          <%= render 'appointments/show_appointments', element: a %>
-
+        <%= render 'appointments/show_min_appointments', element: a %>
       <% end %><!-- end of current_user.appointments.each do -->
     </div><!--end of dashboard-appointments-div-->
   </div><!--end of dashboard-appointments-shell"-->
@@ -106,7 +103,7 @@
     <div>
       <div id="products" class="dashboard-consults-product-div">
         <% @consultations.limit(3).each do |consultation| %>
-          <%= render 'consultations/show_products', element: consultation %> <!--c(generic local used in partial) : |consultation|-->
+          <%= render 'consultations/show_min_products', element: consultation %> <!--c(generic local used in partial) : |consultation|-->
         <% end %><!-- end of current_user.consultations.each do-->
       </div><!-- end of dashboard-consults-product-div -->
     </div>
@@ -138,11 +135,11 @@
         <% @my_clients_array.each do |client| %> <!-- @my_client_array in pages#dashboard-->
           <%= link_to user_path(client) do %>
             <div class="shell-tab flex-space-between dashbaoard-client-list-items grey-tab-gradient">
-              <div class="client-item">
+              <div class="flex-33">
               <% avatar_url = client.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
               <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
               </div><!--end of client-item-->
-              <div class="client-item"><h6><%= client.fname %></h6></div>
+              <div class="flex-67 center-text"><h6><%= client.fname %></h6></div>
             </div><!--end of client-item-->
           <% end %>
         <% end %><!--end of @my_clients_array.each-->
@@ -150,7 +147,7 @@
     </div><!--end of dashboard-clients-div-->
   </div><!--dashboard-clients-list-shell-->
 </div><!--end of grid div-->
-
+<!--modals below-->
 <div class="modal fade appointment-mod-style" id="create-new-consultation">
     <div class="modal-dialog" role="document"><!--aligns the modal document-->
       <div class="modal-content">

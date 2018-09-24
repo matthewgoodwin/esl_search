@@ -86,6 +86,12 @@ li {
 .flex-20{
   flex:0 0 20%;
 } //five items
+.flex-67{
+  flex: 0 0 67%;
+} //minus 33%
+.flex-50{
+  flex: 0 0 50%;
+}//50/50
 .flex-item-no-grow-shrink-0{
   flex: 0 0 auto;
 }

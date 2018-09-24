@@ -1,13 +1,13 @@
 <!--minified version for dashboard-->
 <div class="flex-space-between shell-tab grey-tab-gradient">
-  <div class="flex-item-no-grow-shrink-30">
+  <div class="flex-33">
     <%= link_to user_path(element.user.id) do %>
       <% avatar_url = element.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
       <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
       <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
     </div><!--end of icon-div-->
   <% end %><!--end of userlink-->
-  <div class="flex-item-grow-only-auto">
+  <div class="flex-67">
     <%= link_to appointment_path(element) do %>
       <h6><b><%= element.consultation.consult_title %></b></h6>
       <h6><%= element.consultation.consult_period %></h6>
