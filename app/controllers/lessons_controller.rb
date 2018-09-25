@@ -33,6 +33,6 @@ class LessonsController < ApplicationController
     authorize @lesson
   end
   def lesson_params
-    params.require(:lesson).permit(:lesson_level, :lesson_section, :lesson_start, :lesson_end, :lesson_terminate, :lesson_dow=>[])
+    params.require(:lesson).permit(:lesson_level, :lesson_section, :lesson_capacity, :lesson_start, :lesson_end, :lesson_terminate, :lesson_dow=>[])
   end
 end
