@@ -1,7 +1,7 @@
 class LessonsController < ApplicationController
   before_action :find_consultation, only: [:create]
   before_action :lesson_params, only: [:create]
-  before_action :find_lesson, only: [:destroy]
+  before_action :find_lesson, only: [:enrollment, :destroy]
   def index
     @lessons = policy_scope(Lesson)
   end
@@ -18,6 +18,9 @@ class LessonsController < ApplicationController
     @lesson.save
     redirect_to consultation_path(@consultation)
 
+  end
+
+  def enrollment
   end
 
   def destroy

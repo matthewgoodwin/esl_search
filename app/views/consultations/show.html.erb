@@ -77,12 +77,14 @@
         <p><%= @consultation.consult_desc %></p>
       </div>
       <hr>
-      <div class="consultation-lesson-form-div">
-        <a href="" data-toggle="modal" data-target="#create-lesson">
-          <div class="round-div no-decor center-text"><h3>Create a Lesson</h3></div>
-        </a>
-      </div><!--end of consultation-lesson-form-div-->
-      <hr>
+      <% if policy(@consultation).destroy? %>
+        <div class="consultation-lesson-form-div">
+          <a href="" data-toggle="modal" data-target="#create-lesson">
+            <div class="round-div no-decor center-text"><h3>Create a Lesson</h3></div>
+          </a>
+        </div><!--end of consultation-lesson-form-div-->
+        <hr>
+      <% end %>
       <div class="flex-space-between shell-tab shell-border">
         <div class="flex-25"><h6><b>section</b></h6></div>
         <div class="flex-25"><h6><b>level</b></h6></div>
@@ -94,6 +96,7 @@
         <div class="flex-space-between shell-tab shell-border">
           <div class="flex-25">
             <% if l.appointments.size < l.lesson_capacity %>
+            <!-- cant compare 0 : nil -->
               <a href="" data-toggle="modal" data-target="#lesson-form-<%= l.id %>">
                 <h6><%= l.lesson_section %></h6>
                 <h6>section open</h6>
@@ -109,6 +112,8 @@
             <div class="flex-25"><h6><%= l.lesson_start.strftime('%I:%M %p')%> - <%= l.lesson_end.strftime('%I:%M %p')%></h6></div>
           <% end %>
           <div class="flex-25 center-text"> <!-- lesson days -->
+            <% l.lesson_dow.shift %>
+            <!-- ^ 'shift' drops the first default black space in lessons_dow array-->
             <% l.lesson_dow.each do |d| %>
               <div class="center-text"><h6><%= d %>&nbsp</h6></div>
             <% end %><!--end lesson_dow.each-->

@@ -5,6 +5,7 @@
     <% if consultation.consult_period == 'hourly' %>
       <%= f.input :lesson_start, label: "start", as: :hidden, input_html: {value: Time.now} %>
       <%= f.input :lesson_end, label: "end", as: :hidden, input_html: {value: Time.now} %>
+      <%= f.input :lesson_capacity, label:"max capacity", as: :hidden, input_html: {value: 1000} %>
     <% else  %>
       <%= f.input :lesson_capacity, label: "max enrollment:" %>
       <%= f.input :lesson_start, as: :time, label: "start" %>

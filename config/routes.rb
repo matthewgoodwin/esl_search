@@ -1,57 +1,4 @@
 Rails.application.routes.draw do
-  # get 'lessons/index'
-
-  # get 'lessons/show'
-
-  # get 'lessons/create'
-
-  # get 'lessons/update'
-
-  # get 'lessons/edit'
-
-  # get 'lessons/destroy'
-
-  # get 'privatemessages/index'
-
-  # get 'privatemessages/show'
-
-  # get 'privatemessages/new'
-
-  # get 'privatemessages/create'
-
-  # get 'privatemessages/edit'
-
-  # get 'privatemessages/update'
-
-  # get 'privatemessages/destroy'
-
-  # get 'users/index'
-
-  # get 'users/show'
-
-  # get 'users/search'
-
-  # get 'review/show'
-
-  # get 'review/new'
-
-  # get 'review/create'
-
-  # get 'review/edit'
-
-  # get 'review/destroy'
-
-  # get 'messages/show'
-
-  # get 'messages/new'
-
-  # get 'messages/create'
-
-  # get 'messages/edit'
-
-  # get 'messages/update'
-
-  # get 'messages/destroy'
 
   devise_for :users
   resources :users, only:[:index, :show], shallow: true do
@@ -72,6 +19,7 @@ Rails.application.routes.draw do
   end
   resources :consultations, shallow: true do
     resources :lessons, shallow: true do
+        get 'enrollment', to: 'lesson#enrollment'
       resources :appointments
     end
     resources :reviews

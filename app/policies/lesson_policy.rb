@@ -27,6 +27,9 @@ class LessonPolicy < ApplicationPolicy
   def destroy?
     owner?
   end
+  def enrollment
+    owner?
+  end
   private
   def owner?
     record.consultation.user == user

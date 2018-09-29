@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180925063528) do
+ActiveRecord::Schema.define(version: 20180926184057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20180925063528) do
     t.text     "consult_dow",                                     default: [],              array: true
     t.string   "consult_sec_lang"
     t.string   "consult_native_speaker"
+    t.string   "consult_demo"
     t.index ["user_id"], name: "index_consultations_on_user_id", using: :btree
   end
 
