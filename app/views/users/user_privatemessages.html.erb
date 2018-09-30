@@ -9,6 +9,7 @@
       <div class="flex-33 center-text"><h6>TIME</h6></div>
     </div><!--end of flex-space-between-->
     <% @user_privatemessages.each do |pm| %>
+      <%= link_to privatemessage_path(pm) do %>
         <div class="flex-space-between padding-5">
           <div class="flex-33">
             <!--image goes here-->
@@ -27,6 +28,7 @@
           </div>
         </div><!--end of user message-flex-space-between-->
         <hr>
+      <% end %><!--end of pm link-->
     <% end %><!--end of @user_privatemessage-->
   </div><!-- end of user-message-list-shell shell-border grey-shell-gradient-->
 </div><!--end of content-grid-->

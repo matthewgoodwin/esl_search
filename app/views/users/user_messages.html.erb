@@ -9,6 +9,7 @@
     </div><!--end of user message-flex-space-between-->
     <% @user_consultations.each do |c| %>
       <% c.messages.each do |m| %>
+        <%= link_to message_path(m) do %>
         <div class="flex-space-between flex-wrap padding-5">
           <div class="flex-33">
             <% avatar_url = m.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
@@ -24,6 +25,7 @@
             <h6><%= m.created_at.strftime("%m/%d @ %I:%M %p") %></h6>
           </div>
         </div>
+        <% end %><!--end of message link-->
       <% end %><!--end of c.messages-->
     <% end %><!--end of @user_consultations-->
   </div><!-- end of user-message-list-shell shell-border grey-shell-gradient-->
