@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show, :user_consultations, :user_appointments, :user_messages, :user_products, :user_clients, :user_reviews, :user_privatemessages]
+  before_action :find_user, only: [:show, :edit, :update, :user_consultations, :user_appointments, :user_messages, :user_products, :user_clients, :user_reviews, :user_privatemessages]
   before_action :find_sender
   def index
     # @users = User.all
@@ -8,6 +8,10 @@ class UsersController < ApplicationController
   def show
     @message = Message.new
     @privatemessage = Privatemessage.new
+  end
+  def edit
+  end
+  def update
   end
   def user_consultations
     # @user_consultations = policy_scope(Consultation)
