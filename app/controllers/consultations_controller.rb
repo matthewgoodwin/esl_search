@@ -61,6 +61,11 @@ class ConsultationsController < ApplicationController
   end
 
   def update
+    if @consultation.update(review_params)
+    redirect_to consultation_path(@consultation)
+    else
+    render :edit
+    end
   end
 
   def destroy

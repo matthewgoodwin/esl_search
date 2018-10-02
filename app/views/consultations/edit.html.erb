@@ -1,2 +1,8 @@
 <h1>Consultations#edit</h1>
 <p>Find me in app/views/consultations/edit.html.erb</p>
+<%= link_to 'dashboard', dashboard_path %>
+<% if @consultation.consult_period == 'hourly' %>
+  <%= render 'consultations/new_consultation_form', consultation: @consultation %>
+  <% else %>
+  <%= render 'consultations/new_consultation_class_form', consultation: @consultation %>
+<% end %>
