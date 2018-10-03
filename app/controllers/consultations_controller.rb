@@ -61,7 +61,10 @@ class ConsultationsController < ApplicationController
   end
 
   def update
-    if @consultation.update(review_params)
+    if @consultation.update(consultation_params)
+    # respond_to do |format|
+    #     format.html { redirect_to dashboard_path }
+    #   end
     redirect_to consultation_path(@consultation)
     else
     render :edit

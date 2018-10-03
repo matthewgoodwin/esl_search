@@ -3,8 +3,8 @@
   <!-- <div class=""> -->
   <div class="consultation-show-instructor-shell shell-border">
     <div class="grey-shell-gradient padding-5 center-text">
-        <h2><%= @consultation.user.fname %> <%= @consultation.user.lname %></h2>
-      </div>
+      <h2><%= @consultation.user.fname %> <%= @consultation.user.lname %></h2>
+    </div>
     <div class="user-profile-image-div">
       <% avatar_url = @consultation.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
           <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
@@ -13,15 +13,21 @@
     <div class="padding-5">
       <div class="flex-space-between">
         <h6>Edit:</h6>
-        <h6><%= link_to "edit", edit_consultation_path(@consultation) %></h6>
-      </div>
+        <% if policy(@consultation).destroy? %>
+          <div class="consultation-lesson-form-div">
+            <a href="" data-toggle="modal" data-target="#edit-consult">
+              <div class="round-div no-decor center-text"><h6>edit</h6></div>
+            </a>
+          </div><!--end of consultation-lesson-form-div-->
+        <% end %><!--end of policy-->
+      </div><!--end of flex-spc-between-->
       <div class="flex-space-between">
         <h6>Email:</h6>
-        <h6><%= @consultation.user.email%></h6>
+        <h6><%= @consultation.user.email %></h6>
       </div>
       <div class="flex-space-between">
         <h6>Gender:</h6>
-        <h6> <%= @consultation.user.gender %> </h6>
+        <h6><%= @consultation.user.gender %></h6>
       </div>
       <div class="flex-space-between">
         <h6>Education:</h6>
@@ -35,8 +41,8 @@
         <p><%= link_to "homepage", root_path %></p>
         <p><%= link_to "dashboard", dashboard_path %></p>
       </div>
-    </div>
-  </div><!--end of shell-border-->
+    </div><!--end of padding div-->
+  </div><!--end of consultation-show-instructor-shell shell-border-->
 
   <div class="consultation-show-details-shell">
     <div class="shell-border padding-5">
@@ -88,7 +94,7 @@
           </a>
         </div><!--end of consultation-lesson-form-div-->
         <hr>
-      <% end %>
+      <% end %><!--end of policy-->
       <div class="flex-space-between shell-tab shell-border">
         <div class="flex-25"><h6><b>section</b></h6></div>
         <div class="flex-25"><h6><b>level</b></h6></div>
@@ -107,8 +113,8 @@
               </a><!--end of appointment MODAL link-->
             <% else %>
               <h6> section closed</h6>
-            <% end %>
-          </div>
+            <% end %><!--end of lesson size vs capacity-->
+          </div><!--end of flex 25-->
           <div class="flex-25"><h6><%= l.lesson_level %></h6></div>
           <% if @consultation.consult_period == 'hourly' %>
             <div class="flex-25"><h6>hourly</h6></div>
@@ -140,15 +146,15 @@
       <div class="consultation-message-form-div">
         <a href="" data-toggle="modal" data-target="#create-message">
           <div class="round-div no-decor">send message</div>
-        </a>
+        </a><!-- end of consult-message modal-->
       </div><!--end of consultation-message-form-div-->
       <div class="consultation-review-form-div">
         <a href="" data-toggle="modal" data-target="#create-review">
           <div class="round-div no-decor">review</div>
-        </a>
+        </a><!-- end of modal link-->
       </div><!--end of consultation-review-form-div-->
-    </div><!--end of shell-tab-->
-  </div><!--end of consultation-show-details-shell-->
+    </div> <!--end of shell-tab-->
+  </div> <!--end of consultation-show-details-shell-->
 
   <div class="consultation-show-reviews-shell">
     <div class="shell-tab">
@@ -163,6 +169,22 @@
     </div><!--id="review-min"-->
   </div><!--end of consultation-show-review-shell-->
 
+<!--modals below-->
+
+  <!--begin modal of edit create partial-->
+  <div class="modal fade edit-mod-style" id="edit-consult">
+    <div class="modal-dialog" role="document"><!--aligns the modal document-->
+      <div class="modal-content">
+        <div class="modal-header modal-head-grad flex flex-center-center">
+          <h3 class="create-edit-modal-header">edit consultation</h3>
+        </div><!--end of header-->
+        <div class="modal-body">
+          <%= render template: "consultations/edit", consultation: @consultation %>
+        </div><!--end of modal-body and edit-show-form-div-->
+      </div><!--end of modal-content-->
+    </div><!--end of modal-dialog-->
+  </div><!--end of modal-->
+
   <!--begin modal of review create partial-->
   <div class="modal fade review-mod-style" id="create-review">
     <div class="modal-dialog" role="document"><!--aligns the modal document-->
@@ -176,7 +198,6 @@
       </div><!--end of modal-content-->
     </div><!--end of modal-dialog-->
   </div><!--end of modal-->
-
 
   <!--begin modal of message create partial-->
   <div class="modal fade message-mod-style" id="create-message">
@@ -206,4 +227,5 @@
     </div><!--end of modal-dialog-->
   </div><!--end of modal-->
   <!-- </div> -->
+
 </div> <!--end content-grid consultation-area-->
