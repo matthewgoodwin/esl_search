@@ -12,6 +12,10 @@
     </div><!--end of user-profile-image-div-->
     <div class="padding-5">
       <div class="flex-space-between">
+        <p><%= link_to "homepage", root_path %></p>
+        <p><%= link_to "dashboard", dashboard_path %></p>
+      </div>
+      <div class="flex-space-between">
         <h6>Edit:</h6>
         <% if policy(@consultation).destroy? %>
           <div class="consultation-lesson-form-div">
@@ -37,10 +41,6 @@
         <h6>Major:</h6>
         <h6><%= @consultation.user.subjectmajor %></h6>
       </div>
-      <div class="flex-space-between">
-        <p><%= link_to "homepage", root_path %></p>
-        <p><%= link_to "dashboard", dashboard_path %></p>
-      </div>
     </div><!--end of padding div-->
   </div><!--end of consultation-show-instructor-shell shell-border-->
 
@@ -57,33 +57,49 @@
           <i class="fa fa-star grey-star"></i><!--reference 'components/_reviewstars.scss'-->
         <% end %><!--end of 5-r.star-->
       </div><!--end of review-item-->
-      <div class="flex-space-between padding">
-        <h6><b>Primary Language:</b></h6>
-        <p><%= @consultation.consult_language %></p>
+      <div class="flex-space-between padding center-text 1">
+        <div class="flex-50">
+          <h6><b>Primary Language:</b></h6>
+          <p><%= @consultation.consult_language %></p>
+        </div>
+        <div class="flex-50">
+          <h6 class=""><b>Secondary Language:</b></h6>
+          <p><%= @consultation.consult_sec_lang %></p>
+        </div>
+      </div><!--end flex 1-->
+      <div class="flex-space-between padding center-text 2">
+        <div class="flex-50">
+          <h6><b>Type:</b></h6>
+          <p><%= @consultation.consult_type %></p>
+        </div>
+        <div class="flex-50">
+          <h6><b>Focus:</b></h6>
+          <p><%= @consultation.consult_focus %></p>
+        </div>
+      </div><!--end of flex 2-->
+      <div class="flex-space-between flex-row padding center-text 3">
+        <div class="flex-50">
+          <h6><b>Contract Period:</b></h6>
+          <p><%= @consultation.consult_period %></p>
+        </div>
+        <div class="flex-50">
+        <!-- <p> @consultation.consultfee </p> -->
+          <h6><b>Contract Rate:</b></h6>
+          <p><%= number_to_currency(@consultation.consultfee, :unit => "₩") %></p>
+        </div>
+        <!-- :unit is built into the number_to_currency-->
+      </div><!-- end of flex 3-->
+      <div class="flex-space-between flex-row padding center-text 4">
+      <div class="flex-50">
+        <h6><b>Group:</b></h6>
+        <p><%= @consultation.consult_demo %></p>
       </div>
-      <div class="flex-space-between padding">
-        <h6><b>Secondary Language:</b></h6>
-        <p><%= @consultation.consult_sec_lang %></p>
+      <div class="flex-50">
+        <h6><b>Location:</b></h6>
+        <p><%= @consultation.consult_location %></p>
       </div>
-      <div class="flex-space-between padding">
-        <h6><b>Type:</b></h6>
-        <p><%= @consultation.consult_type %></p>
-      </div>
-      <div class="flex-space-between padding">
-        <h6><b>Focus:</b></h6>
-        <p><%= @consultation.consult_focus %></p>
-      </div>
-      <div class="flex-space-between padding">
-        <h6><b>Contract Period:</b></h6>
-        <p><%= @consultation.consult_period %></p>
-      </div>
-      <div class="flex-space-between padding">
-      <!-- <p> @consultation.consultfee </p> -->
-        <h6><b>Contract Rate:</b></h6>
-        <p><%= number_to_currency(@consultation.consultfee, :unit => "₩") %></p>
-      </div>
-      <!-- :unit is built into the number_to_currency-->
-      <div class="flex-center-center">
+      </div><!--end of flex 4-->
+      <div class="padding">
         <p><%= @consultation.consult_desc %></p>
       </div>
       <hr>
@@ -108,8 +124,9 @@
             <% if l.appointments.size < l.lesson_capacity %>
             <!-- cant compare 0 : nil -->
               <a href="" data-toggle="modal" data-target="#lesson-form-<%= l.id %>">
-                <h6><%= l.lesson_section %></h6>
+                <h5><%= l.lesson_section %></h5>
                 <h6>section open</h6>
+                <h6>seats left: <%= l.lesson_capacity - l.appointments.size %></h6>
               </a><!--end of appointment MODAL link-->
             <% else %>
               <h6> section closed</h6>

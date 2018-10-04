@@ -19,7 +19,7 @@
             <h6 class=""><%= element.start.strftime('@ %I:%M %p') %></h6>
             <!-- hourly schedules are set by the appointment -->
           <% else %>
-            <h6 class=""><%= element.lesson.lesson_start.strftime('%I:%M %p') %></h6>
+            <h6 class=""><%= element.lesson.lesson_start.strftime('%I:%M %p') %> - <%= element.lesson.lesson_end.strftime('%I:%M %p') %></h6>
             <!-- classes are set by the lesson schedule -->
           <% end %><!--end of if statement-->
         <% end %><!--end of appointment link-->

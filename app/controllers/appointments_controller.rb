@@ -12,7 +12,6 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-
   end
 
   def create
@@ -40,7 +39,11 @@ class AppointmentsController < ApplicationController
   end
 
   def update
-    @appointment.update(params[:appointment_params])
+    if @appointment.update(appointment_params)
+      redirect_to appointment_path(@appointment)
+    else
+      render :edit
+    end
   end
 
   def destroy

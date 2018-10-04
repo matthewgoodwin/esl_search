@@ -45,6 +45,12 @@ li {
 .flex-dir{
   flex-direction: row;
 }
+.flex-start{
+  justify-content: flex-start;
+}
+.flex-end{
+  justify-content: flex-end;
+}
 .flex-space-between-3item-row{
   display: flex;
   justify-content: space-between;

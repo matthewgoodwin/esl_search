@@ -31,7 +31,8 @@
             <div class="">
               <!-- class lesson -->
               <h6><%= a.consultation.consult_period %></h6>
-              <h6><%= a.lesson.lesson_start.strftime('%I:%M %p')%></h6>
+              <h6><b>begin:</b>&nbsp<%= a.lesson.lesson_start.strftime('%I:%M %p')%></h6>
+              <h6><b>end:</b>&nbsp<%= a.lesson.lesson_end.strftime('%I:%M %p')%></h6>
               <!-- classes schedules are set by lesson plans -->
             </div>
           <% end %><!--end of if else statemnt-->

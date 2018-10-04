@@ -1,2 +1,10 @@
-<h1>Appointments#edit</h1>
-<p>Find me in app/views/appointments/edit.html.erb</p>
+<div class="">
+  <%= simple_form_for([@appointment]) do |f| %>
+    <%= f.input :pupil, label: false, placeholder: "client name" %>
+    <% if @appointment.lesson.consultation.consult_period == 'hourly' %>
+      <%= f.input :start, label: "date and time" %>
+    <% else %>
+    <% end %>
+    <%= f.button :submit, class:"btn btn-primary" %>
+  <% end %>
+</div>
