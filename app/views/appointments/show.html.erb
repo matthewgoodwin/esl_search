@@ -6,10 +6,9 @@
       <div class="round-div no-decor"><h6><b>edit appointment</b></h6></div>
     </a>
   </div><!--end apppointment-show-links-shell-->
-  <!-- <div class="appointment-show-div"> -->
     <div class="appoint-show-title-shell center-text">
       <h1><%= link_to @appointment.consultation.consult_title, consultation_path(@appointment.consultation.id) %></h1>
-    </div>
+    </div><!--end of appoint-show-title-shell center-text-->
   <div class="appoint-show-instructor-shell shell-border turcoise-shell-gradient" >
     <h3 class="appoint-show-role-head center-text">Instructor</h3>
     <div class="user-profile-image-div">
@@ -73,7 +72,6 @@
           <h6 class="flex-50">start</h6>
           <h6 class="flex-50"><%= @appointment.start.strftime('%B %d, %Y @ %I:%M%p') %></h6>
         </div>
-        </div>
       <% else %>
         <div class="flex-space-between">
           <h6 class="flex-50">start</h6>
@@ -85,20 +83,20 @@
         </div>
         <div class="flex-space-between flex-row flex-wrap">
           <h6 class="flex-50">Days</h6>
-
-          <!-- ^ in controller-->
           <div class="flex-50">
           <% @appointment_dow.each do |dow| %>
+          <!-- ^ in controller-->
             <h6><%= dow %></h6>
           <% end %><!--end of DOW array-->
           </div>
         </div>
       <% end %><!--end of if statement-->
+    </div><!--end of padding-->
+  </div><!--end appointment-show-details-shell-->
 
-    </div><!--end appointment-show-details-shell-->
-    <!-- </div>end appointment-show-div -->
-  </div>
+</div><!--end content-grid appoint-show-area-->
 
+<!--modal-->
   <div class="modal fade appointment-mod-style" id="edit-appointment">
     <div class="modal-dialog" role="document"><!--aligns the modal document-->
       <div class="modal-content">
@@ -110,4 +108,4 @@
         </div><!--end of modal-body and appointment-show-form-div-->
       </div><!--end of modal-content-->
     </div><!--end of modal-dialog-->
-</div><!--end content-grid appoint-show-area-->
+  </div><!--end of modal grid-->
