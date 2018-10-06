@@ -32,64 +32,68 @@
     <h6 class="center-text"><%= @appointment.user.email %></h6>
   </div><!--end appointment-show-client-shell-->
 
-  <div class="appoint-show-details-shell center-text shell-border grey-shell-gradient">
+  <div class="appoint-show-details-shell shell-border grey-shell-gradient">
     <div class="padding-5">
       <h3 class="appoint-show-role-head center-text">Detail</h3>
-      <h4><%= @appointment.consultation.consult_title %></h4>
+      <h4 class="center-text"><%= @appointment.consultation.consult_title %></h4>
       <div class="flex-space-between">
-        <h6 class="">language</h6>
-        <h6 class=""><%= @appointment.consultation.consult_language %></h6>
+        <h6 class="flex-50">language</h6>
+        <h6 class="flex-50"><%= @appointment.consultation.consult_language %></h6>
       </div>
       <div class="flex-space-between">
-        <h6 class="">location</h6>
-        <h6 class=""><%= @appointment.consultation.consult_location %></h6>
+        <h6 class="flex-50">location</h6>
+        <h6 class="flex-50"><%= @appointment.consultation.consult_location %></h6>
       </div>
       <div class="flex-space-between">
-        <h6 class="">type</h6>
-        <h6 class=""><%= @appointment.consultation.consult_type %></h6>
+        <h6 class="flex-50">type</h6>
+        <h6 class="flex-50"><%= @appointment.consultation.consult_type %></h6>
       </div>
       <div class="flex-space-between">
-        <h6 class="">focus</h6>
-        <h6 class=""><%= @appointment.consultation.consult_focus %> </h6>
+        <h6 class="flex-50">focus</h6>
+        <h6 class="flex-50"><%= @appointment.consultation.consult_focus %> </h6>
       </div>
       <div class="flex-space-between">
-        <h6 class="">period</h6>
-        <h6 class=""><%= @appointment.consultation.consult_period %> </h6>
+        <h6 class="flex-50">period</h6>
+        <h6 class="flex-50"><%= @appointment.consultation.consult_period %> </h6>
       </div>
       <% if @appointment.consultation.consult_period == 'hourly' %>
       <% else %>
         <div class="flex-space-between">
-          <h6 class="">duration</h6>
-          <h6 class=""><%= @appointment.consultation.consult_dur %> </h6>
+          <h6 class="flex-50">duration</h6>
+          <h6 class="flex-50"><%= @appointment.consultation.consult_dur %> </h6>
         </div>
       <% end %>
       <div class="flex-space-between">
-        <h6 class="">fee</h6>
-        <h6 class=""><%= @appointment.consultation.consultfee%></h6>
+        <h6 class="flex-50">fee</h6>
+        <h6 class="flex-50"><%= @appointment.consultation.consultfee%></h6>
       </div>
       <!--start-->
       <% if @appointment.consultation.consult_period == 'hourly'%>
-      <div class="flex-space-between">
-        <h6 class="">start</h6>
-        <h6 class=""><%= @appointment.start.strftime('%B %d, %Y @ %I:%M%p') %></h6>
-      </div>
-      </div>
+        <div class="flex-space-between">
+          <h6 class="flex-50">start</h6>
+          <h6 class="flex-50"><%= @appointment.start.strftime('%B %d, %Y @ %I:%M%p') %></h6>
+        </div>
+        </div>
       <% else %>
-      <div class="flex-space-between">
-        <h6 class="">start</h6>
-        <h6 class=""><%= @appointment.lesson.lesson_start.strftime('%I:%M%p') %></h6>
-      </div>
-      <div class="flex-space-between">
-        <h6 class="">end</h6>
-        <h6 class=""><%= @appointment.lesson.lesson_end.strftime('%I:%M%p') %></h6>
-      </div>
-      <div class="flex-space-between">
-        <h6 class="">Days</h6>
-        <% @appointment.lesson.lesson_dow.shift %>
-        <h6 class=""><%= @appointment.lesson.lesson_dow %></h6>
-      </div>
-      <% end %>
-  <!--end-->
+        <div class="flex-space-between">
+          <h6 class="flex-50">start</h6>
+          <h6 class="flex-50"><%= @appointment.lesson.lesson_start.strftime('%I:%M%p') %></h6>
+        </div>
+        <div class="flex-space-between">
+          <h6 class="flex-50">end</h6>
+          <h6 class="flex-50"><%= @appointment.lesson.lesson_end.strftime('%I:%M%p') %></h6>
+        </div>
+        <div class="flex-space-between flex-row flex-wrap">
+          <h6 class="flex-50">Days</h6>
+
+          <!-- ^ in controller-->
+          <div class="flex-50">
+          <% @appointment_dow.each do |dow| %>
+            <h6><%= dow %></h6>
+          <% end %><!--end of DOW array-->
+          </div>
+        </div>
+      <% end %><!--end of if statement-->
 
     </div><!--end appointment-show-details-shell-->
     <!-- </div>end appointment-show-div -->

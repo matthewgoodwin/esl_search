@@ -12,6 +12,7 @@ class AppointmentsController < ApplicationController
   end
 
   def show
+    @appointment_dow = @appointment.lesson.lesson_dow
   end
 
   def create
