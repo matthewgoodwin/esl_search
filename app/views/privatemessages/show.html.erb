@@ -1,8 +1,33 @@
-<h1>Privatemessages#show</h1>
-<p>Find me in app/views/privatemessages/show.html.erb</p>
-<div>
-  From: <%= @sender.fname %> - <%= @sender.lname %> </div>
-<div>
-  <h3>Subject: <%= @privatemessage.subject %></h3>
-  <p><%= @privatemessage.pm %></p>
-</div>
+<h1 class="center-text">Private Message</h1>
+<p><%= link_to "dashboard", dashboard_path %></p>
+<!-- <div class="content-grid message-show-area"> -->
+<div class="mw800 center-div message-show-sender-div center-div">
+  <!-- </div> -->
+  <div class="message-show-subject-div shell-border padding blue-shell-gradient">
+    <div class="icon-div center-div">
+      <% avatar_url = @sender.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
+          <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
+      <div class="user-md-profile-image-img icon-shell center-div" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 150px; width: 150px; border-radius: 50%; background-position: center;"></div>
+    </div><!--end of icon-div-->
+    <div class="center-text">
+      <div>
+        <h6 style="color: red;" class=""><%= @privatemessage.created_at.strftime("%B %d %Y") %></h6>
+        <h6 style="color: red;" class=""><%= @privatemessage.created_at.strftime("%I:%M %P") %></h6>
+        <div class="flex-center-center">
+          <h5 class="padding-5"><b>subject:</b></h5>
+          <h5 class="padding-5"><b>"<%= @privatemessage.subject %>"</b></h5>
+        </div><!--end of flex-space-around-->
+      </div>
+    </div>
+    <div class="message-show-textmess-div padding turcoise-shell-gradient">
+      <div class="center-text">
+        <h5 class=""><b>message:</b></h5>
+        <p>"<%= @privatemessage.pm %>"</p>
+      </div>
+      <div class="message-show-action-div padding center-text center-div"><%= link_to privatemessage_path(@privatemessage), method: :delete do %>
+        <i class="fas fa-trash-alt" aria-hidden="true"></i><% end %>
+      </div>
+    </div><!--message-show-textmess-div-->
+  </div><!--end of message-show-subject-div-->
+  <!-- form here-->
+</div><!--end of message-area-->

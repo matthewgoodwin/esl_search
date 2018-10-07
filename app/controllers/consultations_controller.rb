@@ -14,6 +14,7 @@ class ConsultationsController < ApplicationController
     authorize @lesson
     @lesson_op = @consultation.lessons.all.map{|x| [x.lesson_section]}
     @lesson_dow_array = @consultation.lessons.all.map{|x| [x.lesson_dow]}
+    @consultation_review_star = @consultation.reviews.all.map{|x| [x.review_rating]}
     if @consultation_review_star != []
       # ^ creates and array of review stars ex: [[4],[1]]
       @review_stars = @consultation_review_star.sum
