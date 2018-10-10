@@ -1,6 +1,4 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<p><%= link_to "dashboard", dashboard_path %></p>
+<h6><%= link_to "dashboard", dashboard_path %></h6>
 <div class="user-show-profile-shell shell-border blue-shell-gradient mw800 center-div">
   <div class="user-show-name-header center-text">
     <h2><%= @user.fname %> <%= @user.lname %></h2>
@@ -16,7 +14,7 @@
       <h5><%= @user.city %></h5>
     </div><!--end of city-div-->
     <div class="flex-space-between">
-      <h5>University major:</h5>
+      <h5>University Major:</h5>
       <h5><%= @user.subjectmajor %></h5>
     </div><!--end of major-div-->
     <div class="flex-space-between">
@@ -40,10 +38,10 @@
   <div class="modal fade privatemessage-mod-style" id="create-pm">
     <div class="modal-dialog" role="document"><!--aligns the modal document-->
       <div class="modal-content">
-        <div class="modal-header modal-head-grad flex flex-center">
+        <div class="modal-header modal-head-grad flex flex-center-center">
           <h3 class="create-privatemessage-modal-header">To: <%= @user.fname %> <%= @user.lname %> </h3>
         </div><!--end of header-->
-        <div class="modal-body flex flex-center">
+        <div class="modal-body flex flex-center-center">
           <%= render "privatemessages/new_privatemessage_form", user: @user, privatemessage: @privatemessage %>
         </div><!--end of modal-body and privatemessage-show-form-div-->
       </div><!--end of modal-content-->

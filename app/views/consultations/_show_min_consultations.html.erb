@@ -14,7 +14,8 @@
       <% if element.consultation.consult_period == 'hourly'%>
         <h6><%= element.start.strftime('@ %I:%M %p') %></h6>
       <% else %>
-        <h6><%= element.lesson.lesson_start.strftime('@ %I:%M %p')%></h6>
+        <h6><%= element.lesson.lesson_start.strftime('start %I:%M %p')%></h6>
+        <h6><%= element.lesson.lesson_end.strftime('end %I:%M %p')%></h6>
       <% end %><!---end of if statement-->
     <% end %><!--end link_to appointments-->
   </div><!--end of flex-item-grow-only-auto-->

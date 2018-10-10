@@ -2,9 +2,12 @@
   <div class="appoint-show-links-shell">
     <h6><%= link_to "homepage", root_path %></h6>
     <h6><%= link_to "dashboard", dashboard_path %></h6>
+    <% if @appointment.user == current_user || policy(@appointment).destroy? %>
+    <!-- need real security here. use policy-->
     <a href="" data-toggle="modal" data-target="#edit-appointment">
       <div class="round-div no-decor"><h6><b>edit appointment</b></h6></div>
     </a>
+    <% end %>
   </div><!--end apppointment-show-links-shell-->
     <div class="appoint-show-title-shell center-text">
       <h1><%= link_to @appointment.consultation.consult_title, consultation_path(@appointment.consultation.id) %></h1>

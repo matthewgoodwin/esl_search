@@ -1,6 +1,4 @@
 <div class="content-grid consultation-area">
-  <!-- <h1>Consultations#show</h1> -->
-  <!-- <div class=""> -->
   <div class="consultation-show-instructor-shell shell-border">
     <div class="grey-shell-gradient padding-5 center-text">
       <h2><%= @consultation.user.fname %> <%= @consultation.user.lname %></h2>
@@ -15,16 +13,16 @@
         <p><%= link_to "homepage", root_path %></p>
         <p><%= link_to "dashboard", dashboard_path %></p>
       </div>
-      <div class="flex-space-between">
-        <h6>Edit:</h6>
-        <% if policy(@consultation).destroy? %>
-          <div class="consultation-lesson-form-div">
-            <a href="" data-toggle="modal" data-target="#edit-consult">
-              <div class="round-div no-decor center-text"><h6>edit</h6></div>
-            </a>
-          </div><!--end of consultation-lesson-form-div-->
-        <% end %><!--end of policy-->
-      </div><!--end of flex-spc-between-->
+      <% if policy(@consultation).destroy? %>
+        <div class="edit flex-space-between">
+          <h6>Edit:</h6>
+            <div class="consultation-lesson-form-div">
+              <a href="" data-toggle="modal" data-target="#edit-consult">
+                <div class="round-div no-decor center-text"><h6>edit</h6></div>
+              </a>
+            </div><!--end of consultation-lesson-form-div-->
+        </div><!--end of edit flex-spc-between-->
+      <% end %><!--end of policy-->
       <div class="flex-space-between">
         <h6>Email:</h6>
         <h6><%= @consultation.user.email %></h6>
@@ -44,138 +42,9 @@
     </div><!--end of padding div-->
   </div><!--end of consultation-show-instructor-shell shell-border-->
 
-  <div class="consultation-show-details-shell">
-    <div class="shell-border padding-5">
-      <div class="flex-center-center center-div grey-shell-gradient">
-        <h2><%= @consultation.consult_title %></h2>
-      </div>
-      <div class= "flex-center-center center-div">
-        <% @avg_star.to_i.times do %>
-          <i class="fa fa-star yellow-star"></i><!--reference 'components/_reviewstars.scss'-->
-        <% end %><!--end of r.star-->
-          <% (5 - @avg_star.to_i).times do %>
-          <i class="fa fa-star grey-star"></i><!--reference 'components/_reviewstars.scss'-->
-        <% end %><!--end of 5-r.star-->
-      </div><!--end of review-item-->
-      <div class="flex-space-between padding center-text 1">
-        <div class="flex-50">
-          <h6><b>Primary Language:</b></h6>
-          <p><%= @consultation.consult_language %></p>
-        </div>
-        <div class="flex-50">
-          <h6 class=""><b>Secondary Language:</b></h6>
-          <p><%= @consultation.consult_sec_lang %></p>
-        </div>
-      </div><!--end flex 1-->
-      <div class="flex-space-between padding center-text 2">
-        <div class="flex-50">
-          <h6><b>Type:</b></h6>
-          <p><%= @consultation.consult_type %></p>
-        </div>
-        <div class="flex-50">
-          <h6><b>Focus:</b></h6>
-          <p><%= @consultation.consult_focus %></p>
-        </div>
-      </div><!--end of flex 2-->
-      <div class="flex-space-between flex-row padding center-text 3">
-        <div class="flex-50">
-          <h6><b>Contract Period:</b></h6>
-          <p><%= @consultation.consult_period %></p>
-        </div>
-        <div class="flex-50">
-        <!-- <p> @consultation.consultfee </p> -->
-          <h6><b>Contract Rate:</b></h6>
-          <p><%= number_to_currency(@consultation.consultfee, :unit => "₩") %></p>
-        </div>
-        <!-- :unit is built into the number_to_currency-->
-      </div><!-- end of flex 3-->
-      <div class="flex-space-between flex-row padding center-text 4">
-      <div class="flex-50">
-        <h6><b>Group:</b></h6>
-        <p><%= @consultation.consult_demo %></p>
-      </div>
-      <div class="flex-50">
-        <h6><b>Location:</b></h6>
-        <p><%= @consultation.consult_location %></p>
-      </div>
-      </div><!--end of flex 4-->
-      <div class="padding">
-        <p><%= @consultation.consult_desc %></p>
-      </div>
-      <hr>
-      <% if policy(@consultation).destroy? %>
-        <div class="consultation-lesson-form-div">
-          <a href="" data-toggle="modal" data-target="#create-lesson">
-            <div class="round-div no-decor center-text"><h3>Create a Lesson</h3></div>
-          </a>
-        </div><!--end of consultation-lesson-form-div-->
-        <hr>
-      <% end %><!--end of policy-->
-      <div class="flex-space-between shell-tab shell-border">
-        <div class="flex-25"><h6><b>section</b></h6></div>
-        <div class="flex-25"><h6><b>level</b></h6></div>
-        <div class="flex-25"><h6><b>start/end</b></h6></div>
-        <div class="flex-25 center-text"><h6><b>days</b></h6></div>
-      </div>
-      <% @consultation.lessons.each do |l| %>
-        <!-- below should be exported to a partial-->
-        <div class="flex-space-between shell-tab shell-border">
-          <div class="flex-25">
-            <% if l.appointments.size < l.lesson_capacity %>
-            <!-- cant compare 0 : nil -->
-              <a href="" data-toggle="modal" data-target="#lesson-form-<%= l.id %>">
-                <h5><%= l.lesson_section %></h5>
-                <h6>section open</h6>
-                <% unless @consultation.consult_period == 'hourly' %>
-                <!-- ^executes unless condition is true-->
-                  <!-- hides lesson capacity if hourly-->
-                  <h6> seats left: <%= l.lesson_capacity - l.appointments.size %></h6>
-                <% end %>
-              </a><!--end of appointment MODAL link-->
-            <% else %>
-              <h6> section closed</h6>
-            <% end %><!--end of lesson size vs capacity-->
-          </div><!--end of flex 25-->
-          <div class="flex-25"><h6><%= l.lesson_level %></h6></div>
-          <% if @consultation.consult_period == 'hourly' %>
-            <div class="flex-25"><h6>hourly</h6></div>
-          <% else %>
-            <div class="flex-25"><h6><%= l.lesson_start.strftime('%I:%M %p')%> - <%= l.lesson_end.strftime('%I:%M %p')%></h6></div>
-          <% end %>
-          <div class="flex-25 center-text"> <!-- lesson days -->
-            <% l.lesson_dow.shift %>
-            <!-- ^ 'shift' drops the first default black space in lessons_dow array-->
-            <% l.lesson_dow.each do |d| %>
-              <div class="center-text"><h6><%= d %>&nbsp</h6></div>
-            <% end %><!--end lesson_dow.each-->
-          </div><!-- end of lesson days -->
-        </div><!--end of flex-space-between shell-tab shell-border-->
-
-        <div class="modal fade lesson-mod-style" id="lesson-form-<%= l.id %>">
-          <div class="modal-dialog" role="document"><!--aligns the modal document-->
-            <div class="modal-content">
-              <div class="modal-header modal-head-grad flex flex-center">
-                <h3 class="lesson-modal-header">Booking for section: '<%= l.lesson_section %>'</h3>
-              </div><!--end of header-->
-              <div class="modal-body flex flex-center-center">
-                <%= render "appointments/new_less_appointment_form", lesson: l, appointment: @appointment %>
-              </div><!--end of modal-body-->
-            </div><!--end of modal-content-->
-          </div><!--end of modal-dialog-->
-        </div><!--end of modal-->
-      <% end %><!--end consultation.lessons.each-->
-      <div class="consultation-message-form-div">
-        <a href="" data-toggle="modal" data-target="#create-message">
-          <div class="round-div no-decor">send message</div>
-        </a><!-- end of consult-message modal-->
-      </div><!--end of consultation-message-form-div-->
-      <div class="consultation-review-form-div">
-        <a href="" data-toggle="modal" data-target="#create-review">
-          <div class="round-div no-decor">review</div>
-        </a><!-- end of modal link-->
-      </div><!--end of consultation-review-form-div-->
-    </div> <!--end of shell-tab-->
-  </div> <!--end of consultation-show-details-shell-->
+  <!--consult details partial-->
+  <%= render 'consultations/details_consultation_show', consultation: @consultation %>
+  <!--end of consult parital-->
 
   <div class="consultation-show-reviews-shell">
     <div class="shell-tab">
@@ -184,69 +53,76 @@
       </div><!--end of flex-center-center center-div-->
       <div id="review-min">
       <% @consultation.reviews.each do |r| %>
-        <%= render 'reviews/show_min_reviews', element: r %>
+        <%= link_to review_path(r) do %>
+          <%= render 'reviews/show_min_reviews', element: r %>
+        <% end %><!--end of link-->
       <% end %><!--end of consult.review.each-->
       </div><!--end of shell-tab-->
+      <% unless @consultation.user == current_user %>
+        <div class="consultation-review-form-div center-text padding">
+          <a href="" data-toggle="modal" data-target="#create-review">
+            <div class="round-div no-decor btn btn-primary center-text">publish review</div>
+          </a><!-- end of modal link-->
+        </div><!--end of consultation-review-form-div-->
+      <% end %>
     </div><!--id="review-min"-->
   </div><!--end of consultation-show-review-shell-->
-
+</div> <!--end content-grid consultation-area-->
 <!--modals below-->
 
-  <!--begin modal of edit create partial-->
-  <div class="modal fade edit-mod-style" id="edit-consult">
-    <div class="modal-dialog" role="document"><!--aligns the modal document-->
-      <div class="modal-content">
-        <div class="modal-header modal-head-grad flex flex-center-center">
-          <h3 class="create-edit-modal-header">edit consultation</h3>
-        </div><!--end of header-->
-        <div class="modal-body">
-          <%= render template: "consultations/edit", consultation: @consultation %>
-        </div><!--end of modal-body and edit-show-form-div-->
-      </div><!--end of modal-content-->
-    </div><!--end of modal-dialog-->
-  </div><!--end of modal-->
+<!--begin modal of edit create partial-->
+<div class="modal fade edit-mod-style" id="edit-consult">
+  <div class="modal-dialog" role="document"><!--aligns the modal document-->
+    <div class="modal-content">
+      <div class="modal-header modal-head-grad flex flex-center-center">
+        <h3 class="create-edit-modal-header">edit consultation</h3>
+      </div><!--end of header-->
+      <div class="modal-body">
+        <%= render template: "consultations/edit", consultation: @consultation %>
+      </div><!--end of modal-body and edit-show-form-div-->
+    </div><!--end of modal-content-->
+  </div><!--end of modal-dialog-->
+</div><!--end of modal-->
 
-  <!--begin modal of review create partial-->
-  <div class="modal fade review-mod-style" id="create-review">
-    <div class="modal-dialog" role="document"><!--aligns the modal document-->
-      <div class="modal-content">
-        <div class="modal-header modal-head-grad flex flex-center-center">
-          <h3 class="create-review-modal-header">write review</h3>
-        </div><!--end of header-->
-        <div class="modal-body flex flex-center-center">
-          <%= render "reviews/new_review_form", consultation: @consultation, review: @review %>
-        </div><!--end of modal-body and review-show-form-div-->
-      </div><!--end of modal-content-->
-    </div><!--end of modal-dialog-->
-  </div><!--end of modal-->
+<!--begin modal of review create partial-->
+<div class="modal fade review-mod-style" id="create-review">
+  <div class="modal-dialog" role="document"><!--aligns the modal document-->
+    <div class="modal-content">
+      <div class="modal-header modal-head-grad flex flex-center-center">
+        <h3 class="create-review-modal-header">write review</h3>
+      </div><!--end of header-->
+      <div class="modal-body flex flex-center-center">
+        <%= render "reviews/new_review_form", consultation: @consultation, review: @review %>
+      </div><!--end of modal-body and review-show-form-div-->
+    </div><!--end of modal-content-->
+  </div><!--end of modal-dialog-->
+</div><!--end of modal-->
 
-  <!--begin modal of message create partial-->
-  <div class="modal fade message-mod-style" id="create-message">
-    <div class="modal-dialog" role="document"><!--aligns the modal document-->
-      <div class="modal-content">
-        <div class="modal-header modal-head-grad flex flex-center-center">
-          <h3 class="create-message-modal-header">create message</h3>
-        </div><!--end of header-->
-        <div class="modal-body flex flex-center-center">
-          <%= render "messages/new_message_form", consultation: @consultation, message: @message %>
-        </div><!--end of modal-body and message-show-form-div-->
-      </div><!--end of modal-content-->
-    </div><!--end of modal-dialog-->
-  </div><!--end of modal-->
+<!--begin modal of message create partial-->
+<div class="modal fade message-mod-style" id="create-message">
+  <div class="modal-dialog" role="document"><!--aligns the modal document-->
+    <div class="modal-content">
+      <div class="modal-header modal-head-grad flex flex-center-center">
+        <h3 class="create-message-modal-header">create message</h3>
+      </div><!--end of header-->
+      <div class="modal-body flex flex-center-center">
+        <%= render "messages/new_message_form", consultation: @consultation, message: @message %>
+      </div><!--end of modal-body and message-show-form-div-->
+    </div><!--end of modal-content-->
+  </div><!--end of modal-dialog-->
+</div><!--end of modal-->
 
-  <!--begin modal of lesson create partial-->
-  <div class="modal fade lesson-mod-style" id="create-lesson">
-    <div class="modal-dialog" role="document"><!--aligns the modal document-->
-      <div class="modal-content">
-        <div class="modal-header modal-head-grad flex flex-center-center">
-          <h3 class="create-lesson-modal-header">create lesson</h3>
-        </div><!--end of header-->
-        <div class="modal-body flex flex-center-center">
-          <%= render "lessons/new_lesson_form", consultation: @consultation, lesson: @lesson %>
-        </div><!--end of modal-body and lesson-show-form-div-->
-      </div><!--end of modal-content-->
-    </div><!--end of modal-dialog-->
-  </div><!--end of modal-->
+<!--begin modal of lesson create partial-->
+<div class="modal fade lesson-mod-style" id="create-lesson">
+  <div class="modal-dialog" role="document"><!--aligns the modal document-->
+    <div class="modal-content">
+      <div class="modal-header modal-head-grad flex flex-center-center">
+        <h3 class="create-lesson-modal-header">create lesson</h3>
+      </div><!--end of header-->
+      <div class="modal-body flex flex-center-center">
+        <%= render "lessons/new_lesson_form", consultation: @consultation, lesson: @lesson %>
+      </div><!--end of modal-body and lesson-show-form-div-->
+    </div><!--end of modal-content-->
+  </div><!--end of modal-dialog-->
+</div><!--end of modal-->
   <!-- </div> -->
-
-</div> <!--end content-grid consultation-area-->
