@@ -44,14 +44,14 @@
       <!-- :unit is built into the number_to_currency-->
     </div><!-- end of flex 3-->
     <div class="flex-space-between flex-row padding center-text 4">
-    <div class="flex-50">
-      <h6><b>Group:</b></h6>
-      <p><%= @consultation.consult_demo %></p>
-    </div>
-    <div class="flex-50">
-      <h6><b>Location:</b></h6>
-      <p><%= @consultation.consult_location %></p>
-    </div>
+      <div class="flex-50">
+        <h6><b>Group:</b></h6>
+        <p><%= @consultation.consult_demo %></p>
+      </div>
+      <div class="flex-50">
+        <h6><b>Location:</b></h6>
+        <p><%= @consultation.consult_location %></p>
+      </div>
     </div><!--end of flex 4-->
     <div class="padding">
       <p><%= @consultation.consult_desc %></p>
@@ -63,14 +63,14 @@
           <div class="round-div no-decor center-text"><h3>Create a Lesson</h3></div>
         </a>
       </div><!--end of consultation-lesson-form-div-->
-      <hr>
+    <hr>
     <% end %><!--end of policy-->
     <div class="flex-space-between shell-tab shell-border">
       <div class="flex-25"><h6><b>#</b></h6></div>
       <div class="flex-25"><h6><b>level</b></h6></div>
       <div class="flex-25"><h6><b>start/end</b></h6></div>
       <div class="flex-25 center-text"><h6><b>days</b></h6></div>
-    </div>
+    </div><!--flex-space-between-->
     <% @consultation.lessons.each do |l| %>
       <!-- below should be exported to a partial-->
       <div class="flex-space-between shell-tab shell-border">
@@ -104,7 +104,6 @@
           <% end %><!--end lesson_dow.each-->
         </div><!-- end of lesson days -->
       </div><!--end of flex-space-between shell-tab shell-border-->
-
       <div class="modal fade lesson-mod-style" id="lesson-form-<%= l.id %>">
         <div class="modal-dialog" role="document"><!--aligns the modal document-->
           <div class="modal-content">
@@ -125,5 +124,5 @@
         </a><!-- end of consult-message modal-->
       </div><!--end of consultation-message-form-div-->
     </div>
-  </div> <!--end of shell-tab-->
+  </div> <!--end of shell-border-->
 </div> <!--end of consultation-show-details-shell-->

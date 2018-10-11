@@ -1,6 +1,9 @@
 <div class="content-grid dash-area">
   <!-- <h1>Pages#dashboard</h1> -->
-  <div class="dashboard-user-panel-links-shell shell-border grey-shell-gradient">
+  <div class="dashboard-user-panel-links-shell shell-border">
+    <div class="grey-shell-gradient padding-5 center-text">
+      <h2><%= current_user.fname %></h2>
+    </div>
     <div class="user-profile-image-div">
       <!--added -->
       <!-- for face detection -->
@@ -20,7 +23,6 @@
     </div>
     <div class="header-items"><h5><b><%= link_to "consultations directory", consultations_path %></b></h5></div>
     <div class="dashboard-user-info-div">
-      <h6 class=""><%= current_user.fname %></h6>
       <h6 class=""><%= current_user.email %></h6>
     </div><!--end of dashboard-user-info-div-->
     <ul class="dashboard-user-panel-links-list">
@@ -58,7 +60,9 @@
       <!-- each consultations messages-->
         <%= link_to message_path(m), class: "no-decor" do %>
         <!-- each message-->
-          <%= render 'messages/show_min_messages', element: m %>
+          <div class="flex-space-between shell-tab">
+            <%= render 'messages/show_min_messages', element: m %>
+          </div><!--end of flexbox shell-tab-->
         <% end %><!--end of link_to message_path-->
       <% end %><!--end of c.messages.each -->
     <% end %><!--end of @consultations.each-->
