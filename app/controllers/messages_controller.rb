@@ -17,8 +17,11 @@ class MessagesController < ApplicationController
     @message.user = current_user
     # raise
     authorize @message
-    @message.save
-    redirect_to consultation_path(@consultation)
+    if @message.save
+      redirect_to consultation_path(@consultation)
+    else
+      render :new, consultation: @consultation, message: @message
+    end
   end
 
   def edit

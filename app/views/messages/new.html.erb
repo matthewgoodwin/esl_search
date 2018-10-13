@@ -1,3 +1,10 @@
-<h1>Messages#new</h1>
-<p>Find me in app/views/messages/new.html.erb</p>
-<%= render "users/new_message_form" %>
+<div class="container">
+  <div class="flex-center-center shell-border">
+    <div class="shell-border">
+      <div class="flex-center-center center-div grey-shell-gradient">
+        <h4 class="center-text">message:</h4>
+      </div>
+    <%= render "messages/new_message_form", consultation: @consultation, message: @message %>
+    </div>
+  </div>
+</div>
