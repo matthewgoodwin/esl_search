@@ -1,7 +1,7 @@
 <div class="lesson-form-div">
-  <%= simple_form_for ([consultation, lesson]) do |f| %>
+  <%= simple_form_for([consultation, lesson], remote: true) do |f| %>
     <%= f.input :lesson_section, label: "section number", placeholder:"(ex: 1)"%>
-    <%= f.input :lesson_level, label: false, prompt:"skill level" ,collection: ["everyone","beginner","intermediate","advanced"]%>
+    <%= f.input :lesson_level, label: false, prompt:"skill level" ,collection: ["everyone","beginner","intermediate","advanced"] %>
     <% if consultation.consult_period == 'hourly' %>
       <%= f.input :lesson_start, label: "start", as: :hidden, input_html: {value: Time.now} %>
       <%= f.input :lesson_end, label: "end", as: :hidden, input_html: {value: Time.now} %>
@@ -13,12 +13,12 @@
     <% end %>
     <div>
       <div class="flex-space-between">
-        <%= f.input :lesson_dow, class: 'flex-center-center', prompt: "available days", label: "available days:", as: :check_boxes, collection: [['weekdays','weekdays'],['monday','monday'], ['tuesday','tuesday'], ['wednesday','wednesday'], ['thurdsay','thurdsay'],['friday','friday'],['saturday','saturday'],['sunday','sunday'],['flexible','flexible']], label_method: :second, value_method: :first%>
+        <%= f.input :lesson_dow, class: 'flex-center-center', prompt: "available days", label: "available days:", as: :check_boxes, collection: [['weekdays','weekdays'],['monday','monday'], ['tuesday','tuesday'], ['wednesday','wednesday'], ['thurdsay','thurdsay'],['friday','friday'],['saturday','saturday'],['sunday','sunday'],['flexible','flexible']], label_method: :second, value_method: :first %>
       </div><!--end of flex-space-between-->
     </div>
-    <%= f.input :lesson_terminate, label: "terminate lesson"%>
+    <%= f.input :lesson_terminate, label: "terminate lesson" %>
     <div class="lesson-button-div flex flex-center">
-      <%= f.button :submit, "publish lesson", class: "btn btn-primary no-decor btn-grad-light light-shadow"%>
+      <%= f.button :submit, "publish lesson", class: "btn btn-primary no-decor btn-grad-light light-shadow" %>
     </div><!-- end of message-button-div -->
   <% end %><!--end of form-->
 </div><!--end of message-form-div-->

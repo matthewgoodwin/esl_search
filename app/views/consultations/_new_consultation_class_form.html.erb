@@ -1,6 +1,16 @@
 <!--this should be in a partial-->
 <div class="grid-area new-consult-form mw800 center-div shell-border">
     <%= simple_form_for(consultation, remote: true) do |f| %>
+      <% if consultation.errors.any? %>
+        <div class="errors-container shell-border">
+          <ul>
+            <li><h6>Errors</h6></li>
+            <% consultation.errors.full_consultations.each do |m| %>
+              <li><%= m %>.</li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
       <%= f.input :consult_title, label: "Class title:", placeholder: "class title" %>
       <%= f.input :consult_language, label: "primary language:", default: ["English"] ,collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"]%>
       <%= f.input :consult_native_speaker, label: "native speaker?", as: :radio_buttons, collection: [['yes','yes'],['no','no']], label_method: :second, value_method: :first, checked: ['yes','yes']%>

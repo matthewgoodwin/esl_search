@@ -4,6 +4,9 @@
       <div class="flex-center-center center-div grey-shell-gradient">
         <h4 class="center-text">message:</h4>
       </div>
+      <div class="flex-center-center center-div">
+        <h6 class="center-text"><%= link_to 'dashboard', dashboard_path %></h6>
+      </div>
     <%= render "messages/new_message_form", consultation: @consultation, message: @message %>
     </div>
   </div>
