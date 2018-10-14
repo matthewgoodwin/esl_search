@@ -22,8 +22,13 @@ class PrivatemessagesController < ApplicationController
     # ^^ User.find(@privatemessage.sender_id)
     authorize @privatemessage
     # raise
-    @privatemessage.save
-    redirect_to user_path(@user.id)
+    if @privatemessage.save
+      flash[:notice] = "Your personal message has been added!"
+      redirect_to user_path(@user.id)
+    else
+      flash[:alert] = "your message is too long.. try again!"
+      redirect_to user_path(@user.id)
+    end
   end
 
   def edit
@@ -34,6 +39,8 @@ class PrivatemessagesController < ApplicationController
 
   def destroy
     @privatemessage.destroy
+    flash[:notice] = "your message was deleted!"
+    redirect_to
   end
   private
   def find_privatemessage

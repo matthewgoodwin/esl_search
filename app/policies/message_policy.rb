@@ -16,7 +16,7 @@ class MessagePolicy < ApplicationPolicy
     def update?
       owner_user?
     end
-    def destroy
+    def destroy?
       owner_user?
     end
   private

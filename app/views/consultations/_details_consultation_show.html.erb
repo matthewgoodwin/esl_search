@@ -1,58 +1,57 @@
-
-    <div class="flex-center-center center-div grey-shell-gradient">
-      <h2><%= @consultation.consult_title %></h2>
-    </div>
-    <div class= "flex-center-center center-div">
-      <% @avg_star.to_i.times do %>
-        <i class="fa fa-star yellow-star"></i><!--reference 'components/_reviewstars.scss'-->
-      <% end %><!--end of r.star-->
-        <% (5 - @avg_star.to_i).times do %>
-        <i class="fa fa-star grey-star"></i><!--reference 'components/_reviewstars.scss'-->
-      <% end %><!--end of 5-r.star-->
-    </div><!--end of review-item-->
-    <div class="flex-space-between padding center-text 1">
-      <div class="flex-50">
-        <h6><b>Primary Language:</b></h6>
-        <p><%= @consultation.consult_language %></p>
-      </div>
-      <div class="flex-50">
-        <h6 class=""><b>Secondary Language:</b></h6>
-        <p><%= @consultation.consult_sec_lang %></p>
-      </div>
-    </div><!--end flex 1-->
-    <div class="flex-space-between padding center-text 2">
-      <div class="flex-50">
-        <h6><b>Type:</b></h6>
-        <p><%= @consultation.consult_type %></p>
-      </div>
-      <div class="flex-50">
-        <h6><b>Focus:</b></h6>
-        <p><%= @consultation.consult_focus %></p>
-      </div>
-    </div><!--end of flex 2-->
-    <div class="flex-space-between flex-row padding center-text 3">
-      <div class="flex-50">
-        <h6><b>Contract Period:</b></h6>
-        <p><%= @consultation.consult_period %></p>
-      </div>
-      <div class="flex-50">
-      <!-- <p> @consultation.consultfee </p> -->
-        <h6><b>Contract Rate:</b></h6>
-        <p><%= number_to_currency(@consultation.consultfee, :unit => "₩") %></p>
-      </div>
-      <!-- :unit is built into the number_to_currency-->
-    </div><!-- end of flex 3-->
-    <div class="flex-space-between flex-row padding center-text 4">
-      <div class="flex-50">
-        <h6><b>Group:</b></h6>
-        <p><%= @consultation.consult_demo %></p>
-      </div>
-      <div class="flex-50">
-        <h6><b>Location:</b></h6>
-        <p><%= @consultation.consult_location %></p>
-      </div>
-    </div><!--end of flex 4-->
-    <div class="padding">
-      <p><%= @consultation.consult_desc %></p>
-    </div>
+<div class="flex-center-center center-div grey-shell-gradient">
+  <h2><%= @consultation.consult_title %></h2>
+</div>
+<div class= "flex-center-center center-div">
+  <% @avg_star.to_i.times do %>
+    <i class="fa fa-star yellow-star"></i><!--reference 'components/_reviewstars.scss'-->
+  <% end %><!--end of r.star-->
+    <% (5 - @avg_star.to_i).times do %>
+    <i class="fa fa-star grey-star"></i><!--reference 'components/_reviewstars.scss'-->
+  <% end %><!--end of 5-r.star-->
+</div><!--end of review-item-->
+<div class="flex-space-between padding center-text 1">
+  <div class="flex-50">
+    <h6><b>Primary Language:</b></h6>
+    <p><%= @consultation.consult_language %></p>
+  </div>
+  <div class="flex-50">
+    <h6 class=""><b>Secondary Language:</b></h6>
+    <p><%= @consultation.consult_sec_lang %></p>
+  </div>
+</div><!--end flex 1-->
+<div class="flex-space-between padding center-text 2">
+  <div class="flex-50">
+    <h6><b>Type:</b></h6>
+    <p><%= @consultation.consult_type %></p>
+  </div>
+  <div class="flex-50">
+    <h6><b>Focus:</b></h6>
+    <p><%= @consultation.consult_focus %></p>
+  </div>
+</div><!--end of flex 2-->
+<div class="flex-space-between flex-row padding center-text 3">
+  <div class="flex-50">
+    <h6><b>Contract Period:</b></h6>
+    <p><%= @consultation.consult_period %></p>
+  </div>
+  <div class="flex-50">
+  <!-- <p> @consultation.consultfee </p> -->
+    <h6><b>Contract Rate:</b></h6>
+    <p><%= number_to_currency(@consultation.consultfee, :unit => "₩") %></p>
+  </div>
+  <!-- :unit is built into the number_to_currency-->
+</div><!-- end of flex 3-->
+<div class="flex-space-between flex-row padding center-text 4">
+  <div class="flex-50">
+    <h6><b>Group:</b></h6>
+    <p><%= @consultation.consult_demo %></p>
+  </div>
+  <div class="flex-50">
+    <h6><b>Location:</b></h6>
+    <p><%= @consultation.consult_location %></p>
+  </div>
+</div><!--end of flex 4-->
+<div class="padding">
+  <p><%= @consultation.consult_desc %></p>
+</div>
 

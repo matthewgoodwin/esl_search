@@ -17,11 +17,13 @@ class LessonsController < ApplicationController
     @lesson.consultation = @consultation
     authorize @lesson
     if @lesson.save
+      flash[:notice] = "Your lesson has been added!"
       respond_to do |format|
         format.html { redirect_to consultation_path(@consultation) }
         format.js
       end
     else
+      flash[:alert] = "Your lesson could not be saved.. Please try again!"
       respond_to do |format|
         format.html { redirect_to consultation_path(@consultation) }
         format.js
@@ -34,6 +36,7 @@ class LessonsController < ApplicationController
 
   def destroy
     @lesson.destroy
+    flash[:notice] = "Your lesson has been dropped!"
     redirect_to consultation_path(@consult_lesson)
   end
 

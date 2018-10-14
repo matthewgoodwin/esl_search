@@ -44,11 +44,13 @@ class ConsultationsController < ApplicationController
     authorize @consultation # authorize then save
     # @consultation.save
     if @consultation.save
+      flash[:notice] = "Your class has been created!"
       respond_to do |format|
         format.html { redirect_to dashboard_path }
         format.js  # <-- will render `app/views/reviews/create.js.erb`
       end
     else
+      flash[:alert] = "Your class was not created. Please try again!"
       respond_to do |format|
         format.html { render 'pages/dashboard' }
         format.js  # <-- idem
@@ -66,6 +68,7 @@ class ConsultationsController < ApplicationController
     # respond_to do |format|
     #     format.html { redirect_to dashboard_path }
     #   end
+    flash[:notice] = "Your class has been updated!"
     redirect_to consultation_path(@consultation)
     else
     render :edit
@@ -74,6 +77,7 @@ class ConsultationsController < ApplicationController
 
   def destroy
     @consultation.destroy
+    flash[:notice] = "Your class has been destroyed!"
     redirect_to dashboard_path
   end
 
