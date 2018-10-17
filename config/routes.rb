@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
-    resources :privatemessages, only: [:show,:create, :edit, :update, :destroy]
+    resources :privatemessages, only: [:show, :create, :edit, :update, :destroy]
   end
   resources :consultations, shallow: true do
     resources :lessons, shallow: true do

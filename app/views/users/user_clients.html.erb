@@ -1,2 +1,50 @@
-<h1>user_clients.html.erb</h1>
 <%= link_to 'dashboard', dashboard_path %>
+<% @my_clients_array.each do |client| %>
+  <div class="user-show-profile-shell shell-border blue-shell-gradient mw800 center-div padding">
+    <div class="user-show-name-header center-text">
+      <h2><%= client.fname %> <%= client.lname %></h2>
+    </div><!--end of user-show-name-div-->
+    <div class="user-profile-image-div">
+      <% avatar_url = client.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
+      <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
+      <div class="user-large-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
+    </div><!--end of icon-div-->
+    <div class="user-show-details" style="max-width: 400px; margin: auto;">
+      <div class="flex-space-between">
+        <h5>City:</h5>
+        <h5><%= client.city %></h5>
+      </div><!--end of city-div-->
+      <div class="flex-space-between">
+        <h5>University Major:</h5>
+        <h5><%= client.subjectmajor %></h5>
+      </div><!--end of major-div-->
+      <div class="flex-space-between">
+        <h5>Education:</h5>
+        <h5><%= client.edulevel %></h5>
+      </div><!--end of Edu-div-->
+      <div class="flex-space-between">
+        <h5>Gender:</h5>
+        <h5><%= client.gender %></h5>
+      </div><!--end of gender-div-->
+    </div><!--end of user-show-detials-->
+    <div class="privatemessage-show-form-div flex-center-center">
+    <a href="" data-toggle="modal" data-target="#create-pm-<%= client.id %>">
+      <div class="btn btn-primary round-div no-decor center-div">private message</div>
+    </a>
+  </div><!--end of privatemessage-show-form-div-->
+  </div><!--end of user-show-profile-shell-->
+  <hr>
+  <div class="modal fade privatemessage-mod-style" id="create-pm-<%= client.id %>">
+    <div class="modal-dialog" role="document"><!--aligns the modal document-->
+      <div class="modal-content">
+        <div class="modal-header modal-head-grad flex flex-center-center">
+          <h3 class="create-privatemessage-modal-header">To: <%= client.fname %> <%= client.lname %> </h3>
+        </div><!--end of header-->
+        <div class="modal-body flex flex-center-center">
+          <%= render "privatemessages/new_privatemessage_form", user: client, privatemessage: @privatemessage %>
+        </div><!--end of modal-body and privatemessage-show-form-div-->
+      </div><!--end of modal-content-->
+    </div><!--end of modal-dialog-->
+  </div><!--end of modal-->
+<% end %><!--end of client array-->
+<!--begin modal of privatemessage create partial-->

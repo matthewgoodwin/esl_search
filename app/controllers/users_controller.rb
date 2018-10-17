@@ -34,6 +34,18 @@ class UsersController < ApplicationController
     @user_products = @user.consultations
   end
   def user_clients
+    @privatemessage = Privatemessage.new
+    @consultations = current_user.consultations
+    @my_clients_array = []
+    @consultations.each do |c|
+      c.appointments.each do |a|
+        unless @my_clients_array.include? User.find(a.user_id)
+         @my_clients_array << User.find(a.user_id)
+         @my_client = User.find(a.user_id)
+        # raise
+        end
+      end
+    end
   end
   def user_reviews
     @user_consultations = @user.consultations

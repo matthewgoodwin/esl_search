@@ -1,7 +1,7 @@
-<div class="privatemessage-form-div">
+<div class="privatemessage-form-div grey-shell-gradient">
   <%= simple_form_for ([user, privatemessage]) do |f| %>
     <%= f.input :subject, label: false, placeholder: "subject" %>
-    <%= f.input :pm, label: false, placeholder: "private message" %>
+    <%= f.input :pm, label: false, as: :text, placeholder: "private message: must be less than 350 characters!" %>
     <div>
       <%= f.button :submit, "submit message", class: "btn btn-primary no-decor btn-grad-light light-shadow" %>
     </div>

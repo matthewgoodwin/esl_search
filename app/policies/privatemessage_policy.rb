@@ -22,8 +22,4 @@ class PrivatemessagePolicy < ApplicationPolicy
   def destroy?
     owner_creater?
   end
-  private
-  def owner_creater?
-    record.user == user || record.sender_id == user.id
-  end
 end
