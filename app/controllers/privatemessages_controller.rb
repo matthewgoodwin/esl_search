@@ -1,7 +1,8 @@
 class PrivatemessagesController < ApplicationController
   before_action :find_privatemessage, only: [:show, :edit, :update, :destroy]
   before_action :privatemessage_params, only: [:new, :create]
-  before_action :find_user, only: [:index, :new, :create, :edit, :update, :destroy]
+  before_action :find_current_user, only: [:destroy]
+  before_action :find_user, only: [:index, :new, :create, :edit, :update]
   before_action :find_sender, only: [:show]
   def index
     @privatemessages = policy_scope(Privatemessage).order(created_at: :desc)
@@ -40,12 +41,15 @@ class PrivatemessagesController < ApplicationController
   def destroy
     @privatemessage.destroy
     flash[:notice] = "your message was deleted!"
-    redirect_to user_privatemessages_user_path(@user)
+    redirect_to user_privatemessages_user_path(@current_user)
   end
   private
   def find_privatemessage
     @privatemessage = Privatemessage.find(params[:id])
     authorize @privatemessage
+  end
+  def find_current_user
+    @current_user = @privatemessage.user
   end
   def find_user
     @user = User.find(params[:user_id])

@@ -21,7 +21,7 @@ class UserPolicy < ApplicationPolicy
       return true
     end
     def user_privatemessages?
-      pm_owner_creater?
+      owner?
     end
     def user_products?
       return true
@@ -33,8 +33,8 @@ class UserPolicy < ApplicationPolicy
       return true
     end
     private
-  def pm_owner_creater?
-    record.user == user || record.sender_id == user.id
-  end
+    def owner?
+      record == user
+    end
 end
 
