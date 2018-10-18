@@ -18,7 +18,7 @@ class UserPolicy < ApplicationPolicy
       return true
     end
     def user_messages?
-      return true
+      owner?
     end
     def user_privatemessages?
       owner?
@@ -27,10 +27,10 @@ class UserPolicy < ApplicationPolicy
       return true
     end
     def user_clients?
-      return true
+      owner?
     end
     def user_reviews?
-      return true
+      owner?
     end
     private
     def owner?

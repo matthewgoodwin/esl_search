@@ -55,17 +55,19 @@
       </div> --><!--end of shell-tab-->
     <% else %>
     <% end %>
+    <div>
      <% @consultations.each do |c| %>
-      <% c.messages.sort{|x,y| y <=> x}.take(3).each do |m| %>
-      <!-- each consultations messages-->
-        <%= link_to message_path(m), class: "no-decor" do %>
-        <!-- each message-->
-          <div class="flex-space-between shell-tab">
-            <%= render 'messages/show_min_messages', element: m %>
-          </div><!--end of flexbox shell-tab-->
-        <% end %><!--end of link_to message_path-->
-      <% end %><!--end of c.messages.each -->
-    <% end %><!--end of @consultations.each-->
+        <% c.messages.sort{|x,y| y <=> x}.take(3).each do |m| %>
+        <!-- each consultations messages-->
+          <%= link_to message_path(m), class: "no-decor" do %>
+          <!-- each message-->
+            <div class="flex-space-between shell-tab">
+              <%= render 'messages/show_min_messages', element: m %>
+            </div><!--end of flexbox shell-tab-->
+          <% end %><!--end of link_to message_path-->
+        <% end %><!--end of c.messages.each -->
+      <% end %><!--end of @consultations.each-->
+    </div>
   </div><!--end of dashboard-messages-shell-->
   <div class="dashboard-consults-shell shell-border blue-shell-gradient">
     <div class="dashboard-consult header-items">
