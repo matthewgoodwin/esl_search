@@ -21,6 +21,7 @@ class PagesController < ApplicationController
     @my_clients_array = [] # list of clients (no repeats clients)
     @my_consult_array = [] # consults with clients
     @my_consultations_array = [] # array of consultations(only)
+    @my_messages_id_array = [] # array of consulation messages
     @my_messages_array = [] # array of consulation messages
     @my_reviews_array = [] # ids of reviews
 
@@ -28,7 +29,8 @@ class PagesController < ApplicationController
       @my_consultations_array << c.id
       # ^takes consultation id's and adds them to array
       c.messages.each do |m|
-        @my_messages_array << m.id
+        @my_messages_id_array << m.id
+        @my_messages_array << m
       end
       c.appointments.each do |a|
         # ^creates an object that counts all the consultations(only)
