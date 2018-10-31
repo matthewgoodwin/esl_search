@@ -14,29 +14,37 @@
       </div><!--end of icon-div-->
       <!--added -->
     </div><!--end of user-profile-image-div find: _usericon.scss-->
-    <div class="header-items">
-      <!-- <i class="far fa-envelope fa-3x"></i> -->
-      <%= link_to user_privatemessages_user_path(current_user.id) do %>
-        <h5><b>Private Messages</b></h5>
-      <% end %>
-      <div class="counter"><%= @privatemessages.size %></div>
-    </div>
-    <div class="header-items"><h5><b><%= link_to "consultations directory", consultations_path %></b></h5></div>
     <div class="dashboard-user-info-div">
       <h6 class=""><%= current_user.email %></h6>
     </div><!--end of dashboard-user-info-div-->
-    <ul class="dashboard-user-panel-links-list">
-      <li>
-        <a href="" data-toggle="modal" data-target="#create-new-consultation">
-          <div class="round-div no-decor"><h6><b>create hourly session</b></h6></div>
-        </a>
-      </li>
-      <a href="" data-toggle="modal" data-target="#create-new-consultation-class">
-          <div class="round-div no-decor"><h6><b>create a class</b></h6></div>
-      </a>
-      <li><h6><b><%= link_to "about me", about_path %></b></h6></li>
-      <li><h6><b><%= link_to "messages", dashboard_path %></b></h6></li>
-    </ul><!--end of dashboard-user-panel-links-list -->
+    <div class="unordered-list">
+      <ul class="dashboard-user-panel-links-list">
+        <li class="shell-tab-header">
+          <div class="header-items">
+          <!-- <i class="far fa-envelope fa-3x"></i> -->
+          <%= link_to user_privatemessages_user_path(current_user.id) do %>
+            <h5><b>Private Messages</b></h5>
+          <% end %>
+          <div class="counter"><%= @privatemessages.size %></div>
+          </div>
+        </li>
+        <li class="shell-tab-header">
+          <div class="header-items"><h5><b><%= link_to "consultations directory", consultations_path %></b></h5></div>
+        </li>
+        <li class="shell-tab-header">
+          <a href="" data-toggle="modal" data-target="#create-new-consultation">
+            <div class="round-div no-decor"><h6><b>create hourly session</b></h6></div>
+          </a>
+        </li>
+        <li class="shell-tab-header">
+          <a href="" data-toggle="modal" data-target="#create-new-consultation-class">
+              <div class="round-div no-decor"><h6><b>create a class</b></h6></div>
+          </a>
+        </li>
+        <li class="shell-tab-header"><h6><b><%= link_to "about me", about_path %></b></h6></li>
+        <li class="shell-tab-header"><h6><b><%= link_to "messages", dashboard_path %></b></h6></li>
+      </ul><!--end of dashboard-user-panel-links-list -->
+    </div><!--end of unordered-list-->
   </div><!--end of dashboard-user-panel-links-shell-->
   <div class="dashboard-messages-shell shell-border blue-shell-gradient padding-5">
     <div class="dashboard-message header-items">

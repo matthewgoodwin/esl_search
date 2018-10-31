@@ -27,6 +27,19 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+<!-- Oct 31
+$( document ).ready(function() {
+  $('input[type=radio]').on('change',function() {
+    if( $(this).is(':checked') ) {
+          $('.instructor-registration').eq( $('input[type=radio]').index( this ) ).show();
+    } else {
+          $('.instructor-registration').eq( $('input[type=radio]').index( this ) ).hide();
+    }
+  });
+}); -->
+
+
 May 7, color scheme
 <!-- https://coolors.co/84afff-048ba8-16db93-efea5a-f29e4c -->
 
@@ -53,6 +66,8 @@ $color-3: #d484ff;
 $color-4: #ff84ed;
 $color-5: #ff84af;
 $color-6: #ff9784; -->
+
+
 
 April 17
 
