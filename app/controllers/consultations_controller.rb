@@ -52,7 +52,7 @@ class ConsultationsController < ApplicationController
     else
       flash[:alert] = "Your class was not created. Please try again!"
       respond_to do |format|
-        format.html { render 'pages/dashboard' }
+        format.html { render :new, consultation: @consultation }
         format.js  # <-- idem
       end
     end

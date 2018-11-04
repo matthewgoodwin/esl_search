@@ -22,7 +22,7 @@
   </div><!--end of flex 25-->
   <div class="flex-25"><h6><%= element.lesson_level %></h6></div>
   <% if @consultation.consult_period == 'hourly' %>
-    <div class="flex-25"><h6>hourly</h6></div>
+    <div class="flex-25"><h6>hourly</h6><h6><%= element.lesson_start.strftime('%I:%M: %p') %></h6></div>
   <% else %>
     <div class="flex-25"><h6><%= element.lesson_start.strftime('%I:%M %p')%> - <%= element.lesson_end.strftime('%I:%M %p')%></h6></div>
   <% end %>

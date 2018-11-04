@@ -28,6 +28,12 @@ Things you may want to cover:
 
 * ...
 
+<!-- $( document ).ready(function() {
+  $('input[type=radio]').on('change',function() {
+    $('input[name=name_of_your_radiobutton]:checked').val();
+  });
+}); -->
+
 <!-- Oct 31
 $( document ).ready(function() {
   $('input[type=radio]').on('change',function() {
