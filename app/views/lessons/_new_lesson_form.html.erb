@@ -4,8 +4,9 @@
     <%= f.input :lesson_level, label: false, prompt:"skill level" ,collection: ["everyone","beginner","intermediate","advanced"] %>
     <% if consultation.consult_period == 'hourly' %>
       <%= f.input :lesson_start, as: :time, label: "start" %>
-      <%= f.input :lesson_end, label: "end", as: :hidden, input_html: {value: Time.now} %>
+
       <%= f.input :lesson_capacity, label:"max capacity", as: :hidden, input_html: {value: 1} %>
+      <%= f.input :lesson_max_dur, class: 'flex-center-center', label: false, prompt: "time limit", collection: [[0, 'no limit'],[60, '1 hour'], [120, '2 hours'], [180, '3 hours']], label_method: :second, value_method: :first %>
     <% else  %>
       <%= f.input :lesson_capacity, label: "max enrollment:" %>
       <%= f.input :lesson_start, as: :time, label: "start" %>
@@ -16,7 +17,6 @@
         <%= f.input :lesson_dow, class: 'flex-center-center', prompt: "available days", label: "available days:", as: :check_boxes, collection: [['weekdays','weekdays'],['monday','monday'], ['tuesday','tuesday'], ['wednesday','wednesday'], ['thurdsay','thurdsay'],['friday','friday'],['saturday','saturday'],['sunday','sunday'],['flexible','flexible']], label_method: :second, value_method: :first %>
       </div><!--end of flex-space-between-->
     </div>
-    <%= f.input :lesson_terminate, label: "terminate lesson" %>
     <div class="lesson-button-div flex flex-center">
       <%= f.button :submit, "publish lesson", class: "btn btn-primary no-decor btn-grad-light light-shadow" %>
     </div><!-- end of message-button-div -->

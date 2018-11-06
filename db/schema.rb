@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180926184057) do
+ActiveRecord::Schema.define(version: 20181105132739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20180926184057) do
     t.text     "lesson_enrollment", default: [],              array: true
     t.datetime "lesson_start"
     t.datetime "lesson_end"
+    t.integer  "lesson_max_dur"
     t.index ["consultation_id"], name: "index_lessons_on_consultation_id", using: :btree
   end
 
