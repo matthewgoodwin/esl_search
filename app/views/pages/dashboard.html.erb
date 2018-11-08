@@ -2,7 +2,9 @@
   <!-- <h1>Pages#dashboard</h1> -->
   <div class="dashboard-user-panel-links-shell shell-border">
     <div class="grey-shell-gradient padding-5 center-text">
+      <h5>welcome,</h5>
       <h2><%= current_user.fname %></h2>
+      <h6 class=""><%= current_user.email %></h6>
     </div>
     <div class="user-profile-image-div">
       <!--added -->
@@ -14,9 +16,6 @@
       </div><!--end of icon-div-->
       <!--added -->
     </div><!--end of user-profile-image-div find: _usericon.scss-->
-    <div class="dashboard-user-info-div">
-      <h6 class=""><%= current_user.email %></h6>
-    </div><!--end of dashboard-user-info-div-->
     <div class="unordered-list">
       <ul class="dashboard-user-panel-links-list">
         <li class="shell-tab-header">
@@ -30,11 +29,6 @@
         </li>
         <li class="shell-tab-header">
           <div class="header-items"><h5><b><%= link_to "consultations directory", consultations_path %></b></h5></div>
-        </li>
-        <li class="shell-tab-header">
-          <a href="" data-toggle="modal" data-target="#create-new-consultation">
-            <div class="round-div no-decor"><h6><b>create hourly session</b></h6></div>
-          </a>
         </li>
         <li class="shell-tab-header">
           <a href="" data-toggle="modal" data-target="#create-new-consultation-class">
@@ -152,19 +146,6 @@
   </div><!--dashboard-clients-list-shell-->
 </div><!--end of grid div-->
 <!--modals below-->
-<div class="modal fade appointment-mod-style" id="create-new-consultation">
-    <div class="modal-dialog" role="document"><!--aligns the modal document-->
-      <div class="modal-content">
-        <div class="modal-header modal-head-grad flex flex-center-center turcoise-shell-gradient">
-          <h3 class="create-appointment-modal-header text-center">Create Hourly Session</h3>
-        </div><!--end of header-->
-        <div class="modal-body">
-          <%= render "consultations/new_consultation_form", consultation: @consultation %>
-        </div><!--end of modal-body and appointment-show-form-div-->
-      </div><!--end of modal-content-->
-    </div><!--end of modal-dialog-->
-
-  </div><!--end of modal-->
   <div class="modal fade appointment-mod-style" id="create-new-consultation-class">
     <div class="modal-dialog" role="document"><!--aligns the modal document-->
       <div class="modal-content">

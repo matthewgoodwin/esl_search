@@ -1,3 +1,4 @@
+<!-- NO LONGER IN USE -->
 <!--this should be in a partial-->
 <div class="grid-area new-consult-form mw800 center-div shell-border">
     <%= simple_form_for(consultation, remote: true) do |f| %>
@@ -19,8 +20,8 @@
       <%= f.input :consult_type, label: false, collection: ["grammar-based", "verbal-skills", "hobby-based", "trade-based", "conversation (only)","voice call", "interview prep", "translation", "exam-prep"], prompt: "-select type-"%>
       <%= f.input :consult_focus, label: false, placeholder: "specific focus (optional)"%>
       <%= f.input :consult_location, label: false, placeholder: "city"%>
-      <%= f.input :consult_period, label: "contract period:", default: ["hourly"], collection: ["hourly"]%>
-      <%= f.input :consultfee, label: "rate:", placeholder: "fee/hour (whole numbers)"%>
+      <%= f.input :consult_period, label: "term:", default: ["hourly"], collection: ["hourly", "single-class", "1 week", "1 month", "3 month term", "6 month term"]%>
+      <%= f.input :consultfee, label: "fee:", placeholder: "fee/term (whole numbers)"%>
       <div>
       <%= f.input :matincluded, label: 'materials included?', as: :radio_buttons, collection:[["yes","yes"], ["no","no"]], label_method: :second, value_method: :first, checked: ["no","no"]%>
       <%= f.input :consult_desc, label: false, placeholder: "description", as: :text%>
