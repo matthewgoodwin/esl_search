@@ -25,7 +25,7 @@
             <div class="">
               <!-- hourly lesson -->
               <h6><%= a.consultation.consult_period %></h6>
-              <h6><%= a.start.strftime('%m/%d @ %I:%M%p')%></h6>
+              <h6><%= a.lesson.lesson_start.strftime('%m/%d @ %I:%M%p')%></h6>
               <h6><%= number_to_currency(a.consultation[:consultfee], :unit => "₩")%></h6>
               <!-- hourly classes are set by the appointment -->
             </div>
