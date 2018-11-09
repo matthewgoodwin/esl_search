@@ -58,13 +58,6 @@
         <h6 class="flex-50">period</h6>
         <h6 class="flex-50"><%= @appointment.consultation.consult_period %> </h6>
       </div>
-      <% if @appointment.consultation.consult_period == 'hourly' %>
-      <% else %>
-        <div class="flex-space-between">
-          <h6 class="flex-50">duration</h6>
-          <h6 class="flex-50"><%= @appointment.consultation.consult_dur %> </h6>
-        </div>
-      <% end %>
       <div class="flex-space-between">
         <h6 class="flex-50">fee</h6>
         <h6 class="flex-50"><%= number_to_currency(@appointment.consultation.consultfee, :unit => "₩") %></h6>
