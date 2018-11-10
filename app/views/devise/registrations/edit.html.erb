@@ -1,3 +1,5 @@
+<div class="flex-center-center">
+  <div class="shell-border">
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -9,12 +11,20 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
-
+    <%= f.input :fname, label: 'first name', error: 'first name is mandatory, please specify one', required: true, autofocus: true %>
+    <%= f.input :lname, label: 'last name', error: 'last name is mandatory, please specify one', required: true, autofocus: true %>
+    <%= f.input :gender, collection: ["male","female"], error: 'your gender is mandatory, please specify one', autofocus: true %>
+    <%= f.input :address, label: 'address', error: 'a physical address is mandatory, please specify one', required: true, autofocus: true %>
+    <%= f.input :city, label: 'city', error: 'your city name is mandatory, please specify one', required: true, autofocus: true %>
+    <%= f.input :subjectmajor, label: 'university major', autofocus: true %>
+    <%= f.input :edulevel, label: 'education level', error: 'please specify the highest education attained', autofocus: true %>
     <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
     <%= f.input :password_confirmation, required: false %>
     <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
-    <%= f.input :photo, label: "Upload Avatar" %>
-    <%= f.input :photo_cache, as: :hidden %>
+    <div class="shell-tab-header grey-shell-gradient">
+      <%= f.input :photo, label: "Upload Photo" %>
+      <%= f.input :photo_cache, as: :hidden %>
+    </div>
   </div>
 
   <div class="form-actions">
@@ -27,3 +37,5 @@
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+</div>
+</div>

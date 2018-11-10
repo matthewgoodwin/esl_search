@@ -4,11 +4,10 @@
 
   <%= simple_form_for(@consultation) do |f| %>
     <%= f.input :consult_title, label: "Session title:", placeholder: "session title" %>
-    <%= f.input :consult_language, label: "primary language:", default: ["English"] ,collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"]%>
-    <%= f.input :consult_native_speaker, label: "native speaker?", as: :radio_buttons, collection: [['yes','yes'],['no','no']], label_method: :second, value_method: :first, checked: ['yes','yes']%>
-    <%= f.input :consult_sec_lang, label: "secondary language:", default: [ "None" ], collection: ["None", "English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"]%>
-    <%= f.input :consult_demo, label:"demographic:", collection: ["everyone", "kindergarden", "elementary", "middle school", "high school", "adult"] %>
-    <%= f.input :consult_type, label: false, collection: ["grammar-based", "verbal-skills", "hobby-based", "trade-based", "conversation (only)","voice call", "interview prep", "translation", "exam-prep"], prompt: "-select type-"%>
+    <%= f.input :consult_language, label: "primary class language:", default: ["English"] ,collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"]%>
+    <%= f.input :consult_sec_lang, label: "secondary class language:", default: [ "None" ], collection: ["None", "English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"]%>
+    <%= f.input :consult_demo, label:"class demographic:", collection: ["everyone", "kindergarden", "elementary", "middle school", "high school", "adult"] %>
+    <%= f.input :consult_type, label: false, collection: ["grammar-based", "verbal-skills", "hobby-based", "trade-based", "proof reading","conversation (only)","voice call", "interview prep", "translation", "exam-prep"], prompt: "-select type-"%>
     <%= f.input :consult_focus, label: false, placeholder: "specific focus (optional)"%>
     <%= f.input :consult_location, label: false, placeholder: "city"%>
     <%= f.input :consult_period, label: "contract period:", default: ["hourly"], collection: ["hourly"]%>
@@ -25,11 +24,10 @@
 
     <%= simple_form_for(@consultation) do |f| %>
       <%= f.input :consult_title, label: "Class title:", placeholder: "class title" %>
-      <%= f.input :consult_language, label: "primary language:", default: ["English"] ,collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"]%>
-      <%= f.input :consult_native_speaker, label: "native speaker?", as: :radio_buttons, collection: [['yes','yes'],['no','no']], label_method: :second, value_method: :first, checked: ['yes','yes']%>
-      <%= f.input :consult_sec_lang, label: "secondary language:", default: [ "None" ], collection: ["None", "English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"]%>
-      <%= f.input :consult_demo, label:"demographic:", collection: ["everyone", "kindergarden", "elementary", "middle school", "high school", "adult"] %>
-      <%= f.input :consult_type, label: false, collection: ["grammar-based", "verbal-skills", "hobby-based", "trade-based", "conversation (only)","voice call", "interview prep", "translation", "exam-prep"], prompt: "-select type-"%>
+      <%= f.input :consult_language, label: "primary class language:", default: ["English"] ,collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"]%>
+      <%= f.input :consult_sec_lang, label: "secondary class language:", default: [ "None" ], collection: ["None", "English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"]%>
+      <%= f.input :consult_demo, label:"class demographic:", collection: ["everyone", "kindergarden", "elementary", "middle school", "high school", "adult"] %>
+      <%= f.input :consult_type, label: false, collection: ["grammar-based", "verbal-skills", "hobby-based", "trade-based", "proof reading","conversation (only)","voice call", "interview prep", "translation", "exam-prep"], prompt: "-select type-"%>
       <%= f.input :consult_focus, label: false, placeholder: "specific focus (optional)"%>
       <%= f.input :consult_location, label: false, placeholder: "city"%>
       <%= f.input :consult_period, label: "contract period:", default: ["single-class"], collection: ["single-class", "one-week", "one-month", "3 month term", "6 month term"]%>

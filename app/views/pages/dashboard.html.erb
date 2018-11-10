@@ -5,6 +5,7 @@
       <h5>welcome,</h5>
       <h2><%= current_user.fname %></h2>
       <h6 class=""><%= current_user.email %></h6>
+      <h5><%= link_to 'edit profile', edit_user_registration_path(current_user) %></h5>
     </div>
     <div class="user-profile-image-div">
       <!--added -->

@@ -13,14 +13,15 @@
         <%= f.input :email, label: 'email', error: 'an email address is mandatory, please specify one', required: true, autofocus: true %>
         <%= f.input :address, label: 'address', error: 'a physical address is mandatory, please specify one', required: true, autofocus: true %>
         <%= f.input :city, label: 'city', error: 'your city name is mandatory, please specify one', required: true, autofocus: true %>
-        <%= f.input :instructor_reg, as: :radio_buttons, input_html: { class: 'toggle-instructor-form' }, collection: [['0','instructor'],['1','student']], label_method: :second, value_method: :first %>
         <div class="instructor-registration">
-          <%= f.input :edu, label: 'school', error: 'this information is mandatory', autofocus: true  %>
-          <%= f.input :subjectmajor, label: 'university major', error: 'this information is mandatory', autofocus: true %>
-          <%= f.input :edulevel, label: 'education', error: 'please specify the highest education attained', autofocus: true %>
+          <%= f.input :edu, label: 'school', autofocus: true  %>
+          <%= f.input :subjectmajor, label: 'university major', autofocus: true %>
+          <%= f.input :edulevel, label: 'education level', error: 'please specify the highest education attained', autofocus: true %>
         </div>
-        <%= f.input :photo, label: "Upload Avatar" %>
-        <%= f.input :photo_cache, as: :hidden %>
+        <div class="shell-tab-header grey-shell-gradient">
+          <%= f.input :photo, label: "Upload Avatar" %>
+          <%= f.input :photo_cache, as: :hidden %>
+        </div>
         <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
         <%= f.input :password_confirmation, required: true %>
       </div>

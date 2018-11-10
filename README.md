@@ -28,6 +28,8 @@ Things you may want to cover:
 
 * ...
 
+<!-- <%= f.input :consult_native_speaker, label: "native speaker?", as: :radio_buttons, collection: [['yes','yes'],['no','no']], label_method: :second, value_method: :first, checked: ['yes','yes']%> -->
+
 <!-- $( document ).ready(function() {
   $('input[type=radio]').on('change',function() {
     $('input[name=name_of_your_radiobutton]:checked').val();
