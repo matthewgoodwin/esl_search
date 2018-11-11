@@ -13,6 +13,8 @@
     <% end %>
     <%= f.input :fname, label: 'first name', error: 'first name is mandatory, please specify one', required: true, autofocus: true %>
     <%= f.input :lname, label: 'last name', error: 'last name is mandatory, please specify one', required: true, autofocus: true %>
+    <%= f.input :user_native_lang, label: 'native language', collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"], error: 'your native language is required, please specify one', required: true, autofocus: true %>
+    <%= f.input :user_second_lang, label: 'secondary language', collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"], error: 'your native language is required, please specify one', required: true, autofocus: true %>
     <%= f.input :gender, collection: ["male","female"], error: 'your gender is mandatory, please specify one', autofocus: true %>
     <%= f.input :address, label: 'address', error: 'a physical address is mandatory, please specify one', required: true, autofocus: true %>
     <%= f.input :city, label: 'city', error: 'your city name is mandatory, please specify one', required: true, autofocus: true %>

@@ -39,8 +39,12 @@
       <h3 class="appoint-show-role-head center-text">Detail</h3>
       <h4 class="center-text"><%= @appointment.consultation.consult_title %></h4>
       <div class="flex-space-between">
-        <h6 class="flex-50">language</h6>
+        <h6 class="flex-50">primary language</h6>
         <h6 class="flex-50"><%= @appointment.consultation.consult_language %></h6>
+      </div>
+      <div class="flex-space-between">
+        <h6 class="flex-50">secondary language</h6>
+        <h6 class="flex-50"><%= @appointment.consultation.consult_sec_lang %></h6>
       </div>
       <div class="flex-space-between">
         <h6 class="flex-50">location</h6>

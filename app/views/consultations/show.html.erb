@@ -50,9 +50,9 @@
       <hr>
       <!-- lessons here-->
       <% if policy(@consultation).destroy? %>
-        <div class="consultation-lesson-form-div">
+        <div class="flex-center-center consultation-lesson-form-div">
           <a href="" data-toggle="modal" data-target="#create-lesson">
-            <div class="round-div no-decor center-text"><h3>Create a Lesson</h3></div>
+            <div class="btn btn-primary no-decor center-text">Create a Lesson</div>
           </a>
         </div><!--end of consultation-lesson-form-div-->
       <hr>
@@ -81,13 +81,15 @@
           </div><!--end of modal-->
         <% end %><!--end consultation.lessons.each-->
       </div><!--end lesson-min-->
-      <div class="flex-center-center btn shell">
-        <div class="consultation-message-form-div">
-          <a href="" data-toggle="modal" data-target="#create-message">
-            <div class="round-div no-decor btn btn-primary">send inquiry</div>
-          </a><!-- end of consult-message modal-->
-        </div><!--end of consultation-message-form-div-->
-      </div><!--flex-center-center btn shell-->
+      <% unless policy(@consultation).destroy? %>
+        <div class="flex-center-center btn shell">
+          <div class="consultation-message-form-div">
+            <a href="" data-toggle="modal" data-target="#create-message">
+              <div class="round-div no-decor btn btn-primary">send a message</div>
+            </a><!-- end of consult-message modal-->
+          </div><!--end of consultation-message-form-div-->
+        </div><!--flex-center-center btn shell-->
+      <% end %>
     </div><!--end of shell-border-->
   </div><!--end of consultation-show-details-shell-->
 
@@ -100,7 +102,9 @@
       <div id="review-min">
         <% @consultation.reviews.each do |r| %>
           <%= link_to review_path(r) do %>
-            <%= render 'reviews/show_min_reviews', element: r %>
+            <div class="shell-tab">
+              <%= render 'reviews/show_min_reviews', element: r %>
+            </div>
           <% end %><!--end of link-->
         <% end %><!--end of consult.review.each-->
       </div><!--end of shell-tab-->

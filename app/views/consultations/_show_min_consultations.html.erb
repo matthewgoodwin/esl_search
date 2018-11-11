@@ -12,7 +12,8 @@
       <h6><b><%= element.consultation.consult_title %></b></h6>
       <h6><%= element.consultation.consult_period %></h6>
       <% if element.consultation.consult_period == 'hourly'%>
-        <h6><%= element.start.strftime('@ %I:%M %p') %></h6>
+        <h6><%= element.lesson.lesson_start.strftime('@ %I:%M %p') %></h6>
+        <h6><%= element.lesson.lesson_max_dur %>&nbsp;minute max</h6>
       <% else %>
         <h6><%= element.lesson.lesson_start.strftime('start %I:%M %p')%></h6>
         <h6><%= element.lesson.lesson_end.strftime('end %I:%M %p')%></h6>

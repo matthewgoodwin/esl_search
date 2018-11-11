@@ -5,7 +5,7 @@ class ReviewPolicy < ApplicationPolicy
     end
   end # end of scope
   def show?
-    owner_or_client?
+    return true
   end
   def new?
     return true
