@@ -4,7 +4,7 @@
     <h2><%= @user.fname %> <%= @user.lname %></h2>
   </div><!--end of user-show-name-div-->
   <div class="user-profile-image-div">
-    <% avatar_url = @user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
+    <% avatar_url = @user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
     <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
     <div class="user-large-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
   </div><!--end of icon-div-->

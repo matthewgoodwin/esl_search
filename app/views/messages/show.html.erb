@@ -6,9 +6,9 @@
   <!-- </div> -->
   <div class="message-show-subject-div shell-border padding blue-shell-gradient">
     <div class="icon-div center-div">
-      <% avatar_url = @message.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
+      <% avatar_url = @message.user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
           <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-      <div class="user-md-profile-image-img icon-shell center-div" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 150px; width: 150px; border-radius: 50%; background-position: center;"></div>
+      <div class="user-md-profile-image-img icon-shell center-div" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
     </div><!--end of icon-div-->
     <div class="center-text">
       <div>

@@ -11,7 +11,7 @@
       <!--added -->
       <!-- for face detection -->
       <div class="icon-div">
-        <% avatar_url = @current_user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
+        <% avatar_url = @current_user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
         <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
         <div class="user-large-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
       </div><!--end of icon-div-->
