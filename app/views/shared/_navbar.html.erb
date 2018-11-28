@@ -21,10 +21,9 @@
           <div class="user-sm-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 50px; width: 50px; border-radius: 50%; background-position: center;"></div>
         </div><!--end of icon-div-->
         <ul class="dropdown-menu dropdown-menu-right navbar-esl-dropdown-menu">
-          <li><%= link_to 'home', root_path %></li>
-          <li><%= link_to 'edit profile', edit_user_registration_path(current_user) %></li>
           <li><%= link_to 'dashboard', dashboard_path %></li>
           <li><%= link_to "find classes", consultations_path %></li>
+          <li><%= link_to 'edit profile', edit_user_registration_path(current_user) %></li>
           <li><%= link_to 'log out', destroy_user_session_path, method: :delete %></li>
           <!-- <li><a href="#">home</a></li> -->
           <!-- <li><a href="#">Profile</a></li> -->

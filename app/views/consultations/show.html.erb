@@ -9,9 +9,8 @@
       <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
     </div><!--end of user-profile-image-div-->
     <div class="padding-5">
-      <div class="flex-space-between">
-        <p><%= link_to "homepage", root_path %></p>
-        <p><%= link_to "dashboard", dashboard_path %></p>
+      <div class="flex-center-center">
+        <h5><%= link_to "dashboard", dashboard_path %></h5>
       </div>
       <% if policy(@consultation).destroy? %>
         <div class="edit flex-space-between">
@@ -50,9 +49,10 @@
       <hr>
       <!-- lessons here-->
       <% if policy(@consultation).destroy? %>
-        <div class="flex-center-center consultation-lesson-form-div">
+        <div class="flex-center-column consultation-lesson-form-div text-center div-center">
           <a href="" data-toggle="modal" data-target="#create-lesson">
-            <div class="btn btn-primary no-decor center-text">Create a Lesson</div>
+            <div class="animated pulse animate-lesson-btn btn btn-primary no-decor center-text">Create a Lesson</div>
+            <p class="">create a lesson so users can join your class!</p>
           </a>
         </div><!--end of consultation-lesson-form-div-->
       <hr>

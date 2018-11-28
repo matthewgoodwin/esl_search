@@ -33,6 +33,10 @@ h6{
 p{
   font-size: 10.5px;
 }
+.form-text{
+  font-size: 11.5px;
+  font-family: arial;
+}
 .center-text{
   text-align: center;
 }
@@ -74,19 +78,29 @@ p{
   // align-items: center; //center of row?
   flex-direction: row;
 }
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
 .flex-center-center{
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.header-items{
+.flex-center-column{
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 .flex-space-around{
   display: flex;
   justify-content: space-around;
+  align-items: center;
+}
+.header-items{
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 .flex-33{
@@ -137,6 +151,16 @@ p{
   padding: 5px;
 }
 
+.animate-lesson-btn{
+  animation-duration: 3s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+}
+.animate-class-btn{
+  animation-duration: 3s;
+  animation-delay: 3s;
+  animation-iteration-count: 5;
+}
 .grey-tab-gradient{
   background-image: -webkit-linear-gradient(275deg, rgba(248,248,248,0.05), rgba(0,0,0,0));
   background-image: -o-linear-gradient(275deg, rgba(248,248,248,0.05), rgba(0,0,0,0));
@@ -172,4 +196,9 @@ p{
   background-image: -webkit-linear-gradient(rgba(242,158,76,0.3), rgba(0,0,0,0));
   background-image: -o-linear-gradient(rgba(242,158,76,0.3), rgba(0,0,0,0));
   background-image: linear-gradient(rgba(242,158,76,0.3), rgba(0,0,0,0));
+}
+.green-shell-gradient-header{
+  background-image: -webkit-linear-gradient(rgba(22,219,147,0.5), rgba(22,219,147,0.2));
+  background-image: -o-linear-gradient(rgba(22,219,147,0.5), rgba(22,219,147,0.2));
+  background-image: linear-gradient(rgba(22,219,147,0.5), rgba(22,219,147,0.2));
 }

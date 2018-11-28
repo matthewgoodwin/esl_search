@@ -1,22 +1,22 @@
-<h6><%= link_to "homepage", root_path %></h6>
-<h6 class=""><%= link_to "dashboard", dashboard_path %></h6>
-<div class="flex-center-center text-center div-center">
-  <h1 class="text-center">Consultations</h1>
-</div>
 <div class="content-grid element-index-area padding">
   <div class="element-index-shell shell-border">
+    <div class="flex-center-column text-center div-center green-shell-gradient-header">
+      <h1 class="text-center">Directory</h1>
+      <h6>find classes below!</h6>
+    </div>
+    <h5 class=""><%= link_to "dashboard", dashboard_path %></h5>
     <div class="flex-space-between grey-shell-gradient padding-5">
-      <div class="flex-33"><h6>INSTRUCTOR</h6></div>
+      <div class="flex-33 center-div center-text"><h6>INSTRUCTOR</h6></div>
       <div class="flex-33"><h6>INFO</h6></div>
       <div class="flex-33 center-text"><h6>RATE</h6></div>
     </div><!--end of flex-space-between-->
     <% @consultations.each do |consult| %>
       <div class="flex-space-between flex-wrap padding-5">
-        <div class="flex-33">
+        <div class="flex-33 flex-center-column">
           <% avatar_url = consult.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
           <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
           <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 50px; width: 50px; border-radius: 50%; background-position: center;"></div>
-          <h6><b><%= consult.user.fname %></b></h6>
+          <div><h6><b><%= consult.user.fname %></b></h6></div>
         </div>
         <div class="flex-33"><!--shell-->
           <h5><b><%= consult.consult_title %></b></h5>

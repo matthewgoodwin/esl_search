@@ -1,5 +1,5 @@
 <!--this should be in a partial-->
-<div class="grid-area new-consult-form mw800 center-div shell-border">
+<div class="grid-area new-consult-form mw800 center-div shell-border form-text">
     <%= simple_form_for(consultation, remote: true) do |f| %>
       <% if consultation.errors.any? %>
         <div class="errors-container shell-border">
@@ -12,19 +12,19 @@
         </div>
       <% end %>
       <%= f.input :consult_title, label: "Class title:", placeholder: "class title" %>
-      <%= f.input :consult_language, label: "primary class language:", default: ["English"] ,collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"]%>
-      <%= f.input :consult_sec_lang, label: "secondary class language:", default: [ "None" ], collection: ["None", "English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"]%>
-      <%= f.input :consult_demo, label:"class demographic:", default: ["everyone"], collection: ["everyone", "kindergarden", "elementary", "middle school", "high school", "adult"] %>
-      <%= f.input :consult_type, label: false, collection: ["grammar-based", "verbal-skills", "hobby-based", "trade-based", "proof reading","conversation (only)","voice call", "interview prep", "translation", "exam-prep"], prompt: "-select type-"%>
-      <%= f.input :consult_focus, label: false, placeholder: "specific focus (optional)"%>
+      <%= f.input :consult_language, label: "primary class language:", default: ["English"] ,collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"] %>
+      <%= f.input :consult_sec_lang, label: "secondary class language:", default: [ "none" ], collection: ["none", "English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"]%>
+      <%= f.input :consult_demo, label:"group:", default: ["everyone"], collection: ["everyone", "kindergarten", "elementary/primary", "middle school", "high school/secondary", "adult"] %>
+      <%= f.input :consult_type, label: false, collection: ["grammar-based", "verbal-skills", "hobby-based", "trade-based", "proof reading","conversation (only)","voice call", "interview prep", "speech prep", "translation", "exam-prep", "other"], prompt: "-select type-"%>
+      <%= f.input :consult_focus, label: "specific focus", placeholder: "limit 30 characters (optional)!"%>
       <%= f.input :consult_location, label: false, placeholder: "city"%>
-      <%= f.input :consult_period, label: "term:", default: ["hourly"], collection: ["hourly", "single-class", "one-week", "one-month", "3 month term", "6 month term"]%>
-      <%= f.input :consultfee, label: "fee:", placeholder: "fee/term (whole numbers)"%>
+      <%= f.input :consult_period, label: "term:", default: ["hourly"], collection: ["hourly", "single-class", "one-week", "one-month", "3 month term"]%>
+      <%= f.input :consultfee, label: "rate:", placeholder: "fee/term (whole numbers)"%>
       <div>
       <%= f.input :matincluded, label: 'materials included?', as: :radio_buttons, collection:[["yes","yes"], ["no","no"]], label_method: :second, value_method: :first, checked: ["no","no"]%>
-      <%= f.input :consult_desc, label: false, placeholder: "descriptions, prerequisites and recommendations", as: :text %>
+      <%= f.input :consult_desc, label: false, placeholder: "class descriptions, prerequisites and recommendations", as: :text %>
       <div class="consultation-button-div flex flex-center">
-        <%= f.button :submit, "create consultation", class: "btn btn-primary no-decor btn-grad-light light-shadow" %>
+        <%= f.button :submit, "create class", class: "btn btn-primary no-decor btn-grad-light light-shadow center-div center-text" %>
       </div><!-- end of consultation-button-div -->
     <% end %><!--end of form-->
   </div><!--end of consultaiton-form-div-->
