@@ -8,6 +8,7 @@
  <% end %><!--end of 5-r.star-->
 </div><!--end of review-item-->
 <div class="flex-50 padding">
+  <p>&nbsp;<%= element.user.fname %></p>
   <h6><b><%= truncate(element.consultation.consult_title, length: 20)%></b></h6>
   <h6><%= truncate(element.review_title, length: 20)%></h6>
 </div><!--end review-item comment-->

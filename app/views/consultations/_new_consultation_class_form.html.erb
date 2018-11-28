@@ -22,7 +22,7 @@
       <%= f.input :consultfee, label: "fee:", placeholder: "fee/term (whole numbers)"%>
       <div>
       <%= f.input :matincluded, label: 'materials included?', as: :radio_buttons, collection:[["yes","yes"], ["no","no"]], label_method: :second, value_method: :first, checked: ["no","no"]%>
-      <%= f.input :consult_desc, label: false, placeholder: "descriptions, prerequisites and recommendations", as: :text%>
+      <%= f.input :consult_desc, label: false, placeholder: "descriptions, prerequisites and recommendations", as: :text %>
       <div class="consultation-button-div flex flex-center">
         <%= f.button :submit, "create consultation", class: "btn btn-primary no-decor btn-grad-light light-shadow" %>
       </div><!-- end of consultation-button-div -->

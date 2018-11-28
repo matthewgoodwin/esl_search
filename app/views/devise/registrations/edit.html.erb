@@ -18,6 +18,7 @@
     <%= f.input :gender, collection: ["male","female"], error: 'your gender is mandatory, please specify one', autofocus: true %>
     <%= f.input :address, label: 'address', error: 'a physical address is mandatory, please specify one', required: true, autofocus: true %>
     <%= f.input :city, label: 'city', error: 'your city name is mandatory, please specify one', required: true, autofocus: true %>
+    <%= f.input :user_phone, label: 'mobile number', error: 'please enter your mobile number', required: true, autofocus: true %>
     <%= f.input :subjectmajor, label: 'university major', autofocus: true %>
     <%= f.input :edulevel, label: 'education level', error: 'please specify the highest education attained', autofocus: true %>
     <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>

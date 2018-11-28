@@ -29,15 +29,15 @@
           </div>
         </li>
         <li class="shell-tab-header">
-          <div class="header-items"><h5><b><%= link_to "consultations directory", consultations_path %></b></h5></div>
-        </li>
-        <li class="shell-tab-header">
+
           <a href="" data-toggle="modal" data-target="#create-new-consultation-class">
-              <div class="round-div no-decor"><h6><b>create a class</b></h6></div>
+              <div class="header-items round-div no-decor"><h5><b>Create a Class</b></h5></div>
           </a>
         </li>
+        <li class="shell-tab-header">
+          <div class=""><h6><b><%= link_to "find classes", consultations_path %></b></h6></div>
+        </li>
         <li class="shell-tab-header"><h6><b><%= link_to "about me", about_path %></b></h6></li>
-        <li class="shell-tab-header"><h6><b><%= link_to "messages", dashboard_path %></b></h6></li>
       </ul><!--end of dashboard-user-panel-links-list -->
     </div><!--end of unordered-list-->
   </div><!--end of dashboard-user-panel-links-shell-->
@@ -45,7 +45,7 @@
     <div class="dashboard-message header-items">
       <%= link_to user_messages_user_path(current_user.id) do %>
         <div class="message-header-item">
-          <h4 class="dashboard-messages-header">Messages</h4>
+          <h4 class="dashboard-messages-header">Class Messages</h4>
         </div>
       <% end %>
       <div class="message-header-item counter"><%= @my_messages_id_array.size %></div>
@@ -95,7 +95,7 @@
   <div class="dashboard-consults-product-shell shell-border blue-shell-gradient">
     <div class="dashboard-product header-items">
       <%= link_to user_products_user_path(current_user.id) do %>
-        <div class="product-header-item"><h4 class="dashboard-consults-product-header">Services</h4></div>
+        <div class="product-header-item"><h4 class="dashboard-consults-product-header">Class List</h4></div>
       <% end %>
       <div class="product-header-item counter"><%= @consultations.size %></div>
     </div><!--end of dashboard-product header-items-->
