@@ -12,16 +12,6 @@
       <div class="flex-center-center">
         <h5><%= link_to "dashboard", dashboard_path %></h5>
       </div>
-      <% if policy(@consultation).destroy? %>
-        <div class="edit flex-space-between">
-          <h6>Edit:</h6>
-          <div class="consultation-lesson-form-div">
-            <a href="" data-toggle="modal" data-target="#edit-consult">
-              <div class="round-div no-decor center-text"><h6>edit</h6></div>
-            </a>
-          </div><!--end of consultation-lesson-form-div-->
-        </div><!--end of edit flex-spc-between-->
-      <% end %><!--end of policy-->
       <div class="flex-space-between">
         <h6>Email:</h6>
         <h6><%= @consultation.user.email %></h6>

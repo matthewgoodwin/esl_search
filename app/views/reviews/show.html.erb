@@ -1,7 +1,6 @@
 <h6><%= link_to 'dashboard', dashboard_path %></h6>
 <div class="content-grid element-index-area padding">
   <div class="element-index-shell shell-border grey-shell-gradient">
-    <div class="center-div"><h1 class="center-text">Review</h1></div>
     <hr>
     <div class="user-profile-image-div center-text">
       <% avatar_url = @review.user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
@@ -10,7 +9,7 @@
     </div><!--end of icon-div-->
     <div class="center-div center-text mw400">
       <div><h4><b><%= @review.consultation.consult_title %></b></h4></div>
-      <div class=""><h6><b><%= @review.user.fname %></b></h6></div>
+      <div class=""><h6><b>published&nbsp;by&nbsp;<%= @review.user.fname %></b></h6></div>
       <div class= "">
         <% @review.star.to_i.times do %>
           <i class="fa fa-star yellow-star"></i><!--reference 'components/_reviewstars.scss'-->

@@ -9,6 +9,15 @@
     <i class="fa fa-star grey-star"></i><!--reference 'components/_reviewstars.scss'-->
   <% end %><!--end of 5-r.star-->
 </div><!--end of review-item-->
+<div class="center-div center-text">
+  <% if policy(@consultation).destroy? %>
+    <div class="consultation-lesson-form-div">
+      <a href="" data-toggle="modal" data-target="#edit-consult">
+        <div class="round-div no-decor center-text"><h6>edit</h6></div>
+      </a>
+    </div><!--end of consultation-lesson-form-div-->
+  <% end %><!--end of policy-->
+</div>
 <div class="flex-space-between padding center-text 1">
   <div class="flex-50">
     <h6><b>Primary Language:</b></h6>
