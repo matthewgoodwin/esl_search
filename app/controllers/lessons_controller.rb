@@ -1,7 +1,7 @@
 class LessonsController < ApplicationController
   before_action :find_consultation, only: [:new, :create, :update]
   before_action :lesson_params, only: [:new, :create]
-  before_action :find_lesson, only: [:enrollment, :destroy]
+  before_action :find_lesson, only: [:show, :enrollment, :destroy]
   before_action :find_consultation_lesson, only:[:destroy]
   def index
     @lessons = policy_scope(Lesson)
@@ -31,13 +31,13 @@ class LessonsController < ApplicationController
     end #end if
   end
 
-  def enrollment
-  end
-
   def destroy
     @lesson.destroy
     flash[:notice] = "Your lesson has been dropped!"
     redirect_to consultation_path(@consult_lesson)
+  end
+
+  def enrollment
   end
 
   private

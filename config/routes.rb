@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
   resources :consultations, shallow: true do
     resources :lessons, shallow: true do
-        get 'enrollment', to: 'lesson#enrollment'
+        get 'enrollment', to: 'lessons#enrollment'
       resources :appointments
     end
     resources :reviews
