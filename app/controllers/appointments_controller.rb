@@ -67,6 +67,6 @@ class AppointmentsController < ApplicationController
     @lesson = Lesson.find(params[:lesson_id])
   end
   def appointment_params
-    params.require(:appointment).permit(:start, :end, :location, :pupil)
+    params.require(:appointment).permit(:pupil)
   end
 end

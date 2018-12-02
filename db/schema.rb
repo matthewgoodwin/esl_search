@@ -10,15 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181115040918) do
+ActiveRecord::Schema.define(version: 20181202083117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "appointments", force: :cascade do |t|
-    t.datetime "start"
-    t.datetime "end"
-    t.string   "location"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "user_id"
@@ -33,21 +30,18 @@ ActiveRecord::Schema.define(version: 20181115040918) do
 
   create_table "consultations", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at",                                                   null: false
-    t.datetime "updated_at",                                                   null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.string   "matincluded"
-    t.decimal  "consultfee",             precision: 19, scale: 2
+    t.decimal  "consultfee",       precision: 19, scale: 2
     t.string   "consult_title"
     t.string   "consult_type"
     t.string   "consult_desc"
     t.string   "consult_focus"
     t.string   "consult_language"
-    t.string   "consult_dur"
     t.string   "consult_location"
     t.string   "consult_period"
-    t.text     "consult_dow",                                     default: [],              array: true
     t.string   "consult_sec_lang"
-    t.string   "consult_native_speaker"
     t.string   "consult_demo"
     t.index ["user_id"], name: "index_consultations_on_user_id", using: :btree
   end
