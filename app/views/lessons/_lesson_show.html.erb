@@ -31,8 +31,8 @@
     <!-- ^ 'shift' drops the first default black space in lessons_dow array-->
     <% element.lesson_dow.each do |d| %>
       <div class="center-text"><h6><%= d %>&nbsp;</h6></div>
-      <div class="center-text"><%= link_to 'enrollment', lesson_path(element) %></div>
     <% end %><!--end lesson_dow.each-->
+    <div class="center-text"><%= link_to 'enrollment', lesson_path(element) %></div>
   </div><!-- end of lesson days -->
 </div><!--end of flex-space-between shell-tab shell-border-->
 

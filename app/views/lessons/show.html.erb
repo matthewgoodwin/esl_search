@@ -1,3 +1,45 @@
-<% @lesson.appointments.each do |a| %>
-  <%= a.user.fname %>
-<% end %>
+<div class="content-grid element-index-area padding">
+  <div class="element-index-shell shell-border">
+    <div class="center-text center-div">
+      <h1>Class Roster:</h1>
+    </div>
+    <div>
+      <h5>Class:&nbsp;<%= @lesson.consultation.consult_title %></h5>
+      <h5>Location:&nbsp;<%= @lesson.consultation.consult_location %></h5>
+      <h5>Class&nbsp;Time:&nbsp;<%= @lesson.lesson_start %></h5>
+      <% @lesson.lesson_dow.shift %>
+      <!-- ^ 'shift' drops the first default black space in lessons_dow array-->
+      <% @lesson.lesson_dow.each do |d| %>
+        <h5>Day:&nbsp;<%= d %>&nbsp;</h5>
+      <% end %><!--end lesson_dow.each-->
+    </div>
+    <hr>
+    <div class="flex-center-center">
+      <div class="flex-33"><b>pupil</b></div>
+      <div class="flex-33"><b>contact info</b></div>
+      <div class="flex-33"><b>enrollment date</b></div>
+    </div>
+    <hr>
+    <% num = 1 %>
+    <% @lesson.appointments.each do |a| %>
+      <div class="flex-center-center">
+        <div class="flex-33">
+        <% avatar_url = a.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
+          <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
+          <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
+          <h6><%= num %>&nbsp;<%= a.pupil %></h6>
+        </div><!--end of icon-div flex-25-->
+        <div class="flex-33">
+          <h6><%= a.user.email %></h6>
+          <h6><%= a.user.user_phone %></h6>
+        </div>
+        <div class="flex-33">
+          <h6><%= a.created_at %></h6>
+        </div><!--end of name flex-25-->
+        <% num +=1 %>
+      </div><!--end of flex-center-center-->
+      <hr>
+    <% end %>
+  </div><!--end of content-grid-->
+</div><!--end of element-index-shell-->
+
