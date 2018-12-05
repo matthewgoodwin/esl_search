@@ -13,7 +13,7 @@
     <% end %>
     <div>
       <div class="flex-space-between">
-        <%= f.input :lesson_dow, class: 'flex-center-center', prompt: "available days", label: "available days:", as: :check_boxes, collection: [['weekdays','weekdays'],['monday','monday'], ['tuesday','tuesday'], ['wednesday','wednesday'], ['thurdsay','thurdsay'],['friday','friday'],['saturday','saturday'],['sunday','sunday'],['flexible','flexible']], label_method: :second, value_method: :first %>
+        <%= f.input :lesson_dow, class: 'flex-center-center', prompt: "available days", label: "available days:", as: :check_boxes, collection: [['monday','monday'], ['tuesday','tuesday'], ['wednesday','wednesday'], ['thurdsay','thurdsay'],['friday','friday'],['saturday','saturday'],['sunday','sunday'],['weekdays','weekdays']], label_method: :second, value_method: :first %>
       </div><!--end of flex-space-between-->
     </div>
     <div class="lesson-button-div flex flex-center">

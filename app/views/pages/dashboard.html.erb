@@ -5,7 +5,12 @@
       <h5>welcome,</h5>
       <h2><%= current_user.fname %></h2>
       <h6 class=""><%= current_user.email %></h6>
-      <h5><%= link_to 'edit profile', edit_user_registration_path(current_user) %></h5>
+      <h6 class="">Kakao:&nbsp;<%= current_user.user_kakao_id %></h6>
+      <div>
+        <%= link_to edit_user_registration_path(current_user) do %>
+          <i class="fas fa-edit" aria-hidden="true"></i>
+        <% end %>
+      </div>
     </div>
     <div class="user-profile-image-div">
       <!--added -->

@@ -17,6 +17,14 @@
         <h6><%= @consultation.user.email %></h6>
       </div>
       <div class="flex-space-between">
+        <h6>Phone:</h6>
+        <h6><%= @consultation.user.user_phone %></h6>
+      </div>
+      <div class="flex-space-between">
+        <h6>kakao:</h6>
+        <h6><%= @consultation.user.user_kakao_id %></h6>
+      </div>
+      <div class="flex-space-between">
         <h6>Gender:</h6>
         <h6><%= @consultation.user.gender %></h6>
       </div>
@@ -48,7 +56,7 @@
       <hr>
       <% end %><!--end of policy-->
       <div class="flex-space-between shell-tab shell-border">
-        <div class="flex-25"><h6><b>#</b></h6></div>
+        <div class="flex-25"><h6><b>status</b></h6></div>
         <div class="flex-25"><h6><b>level</b></h6></div>
         <div class="flex-25"><h6><b>start/end</b></h6></div>
         <div class="flex-25 center-text"><h6><b>day(s)</b></h6></div>

@@ -14,11 +14,12 @@
     <%= f.input :fname, label: 'first name', error: 'first name is mandatory, please specify one', required: true, autofocus: true %>
     <%= f.input :lname, label: 'last name', error: 'last name is mandatory, please specify one', required: true, autofocus: true %>
     <%= f.input :user_native_lang, label: 'native language', collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"], error: 'your native language is required, please specify one', required: true, autofocus: true %>
-    <%= f.input :user_second_lang, label: 'secondary language', collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"], error: 'your native language is required, please specify one', required: true, autofocus: true %>
+    <%= f.input :user_second_lang, label: 'secondary language', collection: ["None","English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"], error: 'your native language is required, please specify one', required: true, autofocus: true %>
     <%= f.input :gender, collection: ["male","female"], error: 'your gender is mandatory, please specify one', autofocus: true %>
     <%= f.input :address, label: 'address', error: 'a physical address is mandatory, please specify one', required: true, autofocus: true %>
     <%= f.input :city, label: 'city', error: 'your city name is mandatory, please specify one', required: true, autofocus: true %>
     <%= f.input :user_phone, label: 'mobile number', error: 'please enter your mobile number', required: true, autofocus: true %>
+    <%= f.input :user_kakao_id, label: 'kakao id', error: 'please enter kakao id', required: true, autofocus: true %>
     <%= f.input :subjectmajor, label: 'university major', autofocus: true %>
     <%= f.input :edulevel, label: 'education level', error: 'please specify the highest education attained', autofocus: true %>
     <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>

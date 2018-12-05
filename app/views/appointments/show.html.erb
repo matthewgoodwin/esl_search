@@ -1,16 +1,20 @@
 <div class="content-grid appoint-show-area">
   <div class="appoint-show-links-shell">
-    <h6><%= link_to "homepage", root_path %></h6>
-    <h6><%= link_to "dashboard", dashboard_path %></h6>
-    <% if @appointment.user == current_user || policy(@appointment).destroy? %>
-    <!-- need real security here. use policy-->
-    <a href="" data-toggle="modal" data-target="#edit-appointment">
-      <div class="round-div no-decor"><h6><b>edit appointment</b></h6></div>
-    </a>
-    <% end %>
+    <!--empty-->
   </div><!--end apppointment-show-links-shell-->
     <div class="appoint-show-title-shell center-text">
       <h1><%= link_to @appointment.consultation.consult_title, consultation_path(@appointment.consultation.id) %></h1>
+        <ul class="flex">
+          <li class="inline-list-item"><h6><%= link_to "homepage", root_path %></h6></li>
+          <li class="inline-list-item"><h6><%= link_to "dashboard", dashboard_path %></h6></li>
+          <li class="inline-list-item"><% if @appointment.user == current_user || policy(@appointment).destroy? %>
+            <!-- need real security here. use policy-->
+            <a href="" data-toggle="modal" data-target="#edit-appointment">
+              <div class="round-div no-decor"><h6><b>edit appointment</b></h6></div>
+            </a>
+            <% end %>
+          </li>
+        </ul>
     </div><!--end of appoint-show-title-shell center-text-->
   <div class="appoint-show-instructor-shell shell-border turcoise-shell-gradient" >
     <h3 class="appoint-show-role-head center-text">Instructor</h3>
@@ -21,6 +25,8 @@
     </div><!--end of user-profile-image-div-->
     <h4 class="center-text"><b><%= @appointment.consultation.user.fname %></b></h4>
     <h6 class="center-text"><%= @appointment.consultation.user.email %></h6>
+    <h6 class="center-text"><%= @appointment.consultation.user.user_phone %></h6>
+    <h6 class="center-text">kakao:&nbsp;<%= @appointment.consultation.user.user_kakao_id %></h6>
   </div><!--end appointment-show-instructor-shell-->
 
   <div class="appoint-show-client-shell shell-border green-shell-gradient">
@@ -32,6 +38,8 @@
     </div><!--end of user-profile-image-div find: _usericon.scss-->
     <h4 class="center-text"><b><%= @appointment.pupil %></b></h4>
     <h6 class="center-text"><%= @appointment.user.email %></h6>
+    <h6 class="center-text"><%= @appointment.user.user_phone %></h6>
+    <h6 class="center-text">kakao:&nbsp;<%= @appointment.user.user_kakao_id %></h6>
   </div><!--end appointment-show-client-shell-->
 
   <div class="appoint-show-details-shell shell-border grey-shell-gradient">

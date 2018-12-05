@@ -6,16 +6,19 @@
     <div>
       <h5>Class:&nbsp;<%= @lesson.consultation.consult_title %></h5>
       <h5>Location:&nbsp;<%= @lesson.consultation.consult_location %></h5>
-      <h5>Class&nbsp;Time:&nbsp;<%= @lesson.lesson_start %></h5>
+      <h5 style="color: red;">Class&nbsp;Time:&nbsp;<%= @lesson.lesson_start %></h5>
       <% @lesson.lesson_dow.shift %>
       <!-- ^ 'shift' drops the first default black space in lessons_dow array-->
-      <% @lesson.lesson_dow.each do |d| %>
-        <h5>Day:&nbsp;<%= d %>&nbsp;</h5>
+      <div class="flex">
+        <h5 class="">Day(s):</h5>
+        <% @lesson.lesson_dow.each do |d| %>
+        <h5 class="">&nbsp;<%= d %>&nbsp;</h5>
       <% end %><!--end lesson_dow.each-->
+      </div>
     </div>
     <hr>
     <div class="flex-center-center">
-      <div class="flex-33"><b>pupil</b></div>
+      <div class="flex-33"><b>student</b></div>
       <div class="flex-33"><b>contact info</b></div>
       <div class="flex-33"><b>enrollment date</b></div>
     </div>
@@ -32,6 +35,7 @@
         <div class="flex-33">
           <h6><%= a.user.email %></h6>
           <h6><%= a.user.user_phone %></h6>
+          <h6><%= a.user.user_kakao_id %></h6>
         </div>
         <div class="flex-33">
           <h6><%= a.created_at %></h6>
