@@ -10,18 +10,18 @@
     </div><!--end of user-profile-image-div-->
     <div class="padding-5">
       <div class="flex-center-center">
-        <h5><%= link_to "dashboard", dashboard_path %></h5>
+        <%= link_to dashboard_path do %><i class="fas fa-tachometer-alt fa-2x" aria-hidden="true"></i><% end %>
       </div>
       <div class="flex-space-between">
         <h6>Email:</h6>
         <h6><%= @consultation.user.email %></h6>
       </div>
       <div class="flex-space-between">
-        <h6>Phone:</h6>
+        <h6>mobile:</h6>
         <h6><%= @consultation.user.user_phone %></h6>
       </div>
       <div class="flex-space-between">
-        <h6>kakao:</h6>
+        <h6>kakao id:</h6>
         <h6><%= @consultation.user.user_kakao_id %></h6>
       </div>
       <div class="flex-space-between">

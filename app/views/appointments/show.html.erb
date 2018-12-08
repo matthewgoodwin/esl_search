@@ -5,7 +5,6 @@
     <div class="appoint-show-title-shell center-text">
       <h1><%= link_to @appointment.consultation.consult_title, consultation_path(@appointment.consultation.id) %></h1>
         <ul class="flex">
-          <li class="inline-list-item"><h6><%= link_to "homepage", root_path %></h6></li>
           <li class="inline-list-item"><h6><%= link_to "dashboard", dashboard_path %></h6></li>
           <li class="inline-list-item"><% if @appointment.user == current_user || policy(@appointment).destroy? %>
             <!-- need real security here. use policy-->
@@ -24,8 +23,8 @@
       <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
     </div><!--end of user-profile-image-div-->
     <h4 class="center-text"><b><%= @appointment.consultation.user.fname %></b></h4>
-    <h6 class="center-text"><%= @appointment.consultation.user.email %></h6>
-    <h6 class="center-text"><%= @appointment.consultation.user.user_phone %></h6>
+    <h6 class="center-text">email:&nbsp;<%= @appointment.consultation.user.email %></h6>
+    <h6 class="center-text">mobile:&nbsp;<%= @appointment.consultation.user.user_phone %></h6>
     <h6 class="center-text">kakao:&nbsp;<%= @appointment.consultation.user.user_kakao_id %></h6>
   </div><!--end appointment-show-instructor-shell-->
 
@@ -37,8 +36,8 @@
       <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
     </div><!--end of user-profile-image-div find: _usericon.scss-->
     <h4 class="center-text"><b><%= @appointment.pupil %></b></h4>
-    <h6 class="center-text"><%= @appointment.user.email %></h6>
-    <h6 class="center-text"><%= @appointment.user.user_phone %></h6>
+    <h6 class="center-text">email:&nbsp;<%= @appointment.user.email %></h6>
+    <h6 class="center-text">mobile:&nbsp;<%= @appointment.user.user_phone %></h6>
     <h6 class="center-text">kakao:&nbsp;<%= @appointment.user.user_kakao_id %></h6>
   </div><!--end appointment-show-client-shell-->
 

@@ -4,7 +4,6 @@
       <h1 class="text-center">Directory</h1>
       <h6>find classes below!</h6>
     </div>
-    <h5 class=""><%= link_to "dashboard", dashboard_path %></h5>
     <div class="flex-space-between grey-shell-gradient padding-5">
       <div class="flex-33 center-div center-text"><h6>INSTRUCTOR</h6></div>
       <div class="flex-33"><h6>INFO</h6></div>
@@ -36,7 +35,7 @@
         <!-- :unit is built into the number_to_currency-->
         <!-- consult[:consultfee] -->
         <div class="flex-33 center-text">
-            <div class="btn btn-default" style="background-color: #E6E6E6;"><%= number_to_currency(consult[:consultfee], :unit => "₩")%></div>
+            <div><%= number_to_currency(consult[:consultfee], :unit => "₩")%></div>
             <%= link_to consultation_path(consult) do %>
             <div><h5>find a lesson</h5></div>
           <% end %>
