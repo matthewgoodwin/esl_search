@@ -1,7 +1,10 @@
-<div class="center-div"><h1 class="center-text">Reviews</h1></div>
-<h6><%= link_to 'dashboard', dashboard_path %></h6>
 <div class="content-grid element-index-area padding">
   <div class="element-index-shell shell-border">
+    <div class="center-div center-text">
+      <h1 class="center-text">USER REVIEWS</h1>
+      <h6 class="center-text"><%= link_to 'dashboard', dashboard_path %></h6>
+    </div>
+    <hr>
     <% @user_consultations.each do |c| %>
       <% c.reviews.each do |r| %>
         <%= link_to review_path(r) do %>

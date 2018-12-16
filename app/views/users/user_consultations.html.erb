@@ -1,12 +1,14 @@
 <!--full size consultations-->
-<div class="center-div"><h1 class="center-text">CONSULTATIONS</h1></div>
-<h6><%= link_to "dashboard", dashboard_path %></h6>
 <div class="content-grid element-index-area padding">
   <div class="element-index-shell shell-border">
+    <div class="center-div center-text">
+      <h1 class="center-text">CONSULTATIONS</h1>
+      <h6 class="center-text"><%= link_to 'dashboard', dashboard_path %></h6>
+    </div>
     <div class="flex-space-between grey-shell-gradient padding-5">
-      <div class="flex-33"><h6>CLIENT</h6></div>
-      <div class="flex-33"><h6>INFO</h6></div>
-      <div class="flex-33 center-text"><h6>VIEW</h6></div>
+      <div class="flex-33"><h6><b>CLIENT</b></h6></div>
+      <div class="flex-33"><h6><b>INFO</b></h6></div>
+      <div class="flex-33 center-text"><h6><b>VIEW</b></h6></div>
     </div>
     <% @user_consultations.each do |c| %>
       <% c.appointments.each do |a| %>
