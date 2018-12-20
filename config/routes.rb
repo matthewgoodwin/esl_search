@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'clients/index'
+
+  get 'clients/show'
+
+  get 'clients/destroy'
+
   devise_for :users
   resources :users, only:[:index, :show], shallow: true do
     member do
