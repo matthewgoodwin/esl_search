@@ -24,6 +24,8 @@ class PagesController < ApplicationController
     @my_messages_id_array = [] # array of consulation messages
     @my_messages_array = [] # array of consulation messages
     @my_reviews_array = [] # ids of reviews
+    @my_client_list
+    @client = Client.all
 
     @consultations.each do |c|
       @my_consultations_array << c.id

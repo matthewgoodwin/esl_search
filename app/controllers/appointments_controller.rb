@@ -21,10 +21,12 @@ class AppointmentsController < ApplicationController
     @appointment.consultation_id = @lesson.consultation.id
     @appointment.lesson_id = @lesson.id
     @appointment.invoice_number = Appointment.invoice_number #calls the appointment model
-    raise
+    # save the client to contact list
     @client = Client.new
     @client.user_id = @lesson.consultation.user_id
     @client.client_id = current_user.id
+    @client.save
+    # raise
     # @appointment.reservation = Random.new_seed
     authorize @appointment # authorize before saving
     if @appointment.valid?

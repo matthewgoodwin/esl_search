@@ -33,7 +33,7 @@
           <div class="counter"><%= @privatemessages.size %></div>
           </div>
         </li>
-        <li class="shell-tab-header animated pulse animate-class-btn">
+        <li class="shell-tab-header left-border animated pulse animate-class-btn">
           <a href="" data-toggle="modal" data-target="#create-new-consultation-class">
               <div class="header-items round-div no-decor"><h5><b>Create a Class</b></h5></div>
           </a>
@@ -45,7 +45,7 @@
       </ul><!--end of dashboard-user-panel-links-list -->
     </div><!--end of unordered-list-->
   </div><!--end of dashboard-user-panel-links-shell-->
-  <div class="dashboard-messages-shell shell-border blue-shell-gradient padding-5">
+  <div class="dashboard-messages-shell shell-border grey-shell-gradient padding-5">
     <div class="dashboard-message header-items">
       <%= link_to user_messages_user_path(current_user.id) do %>
         <div class="message-header-item">
@@ -59,14 +59,14 @@
       <!-- each consultations messages-->
         <%= link_to message_path(m), class: "no-decor" do %>
         <!-- each message-->
-          <div class="flex-space-between shell-tab">
+          <div class="flex-space-between dash-shell-tab">
             <%= render 'messages/show_min_messages', element: m %>
           </div><!--end of flexbox shell-tab-->
         <% end %><!--end of link_to message_path-->
       <% end %><!--end of c.messages.each -->
 
   </div><!--end of dashboard-messages-shell-->
-  <div class="dashboard-consults-shell shell-border blue-shell-gradient">
+  <div class="dashboard-consults-shell shell-border grey-shell-gradient">
     <div class="dashboard-consult header-items">
       <!---->
       <%= link_to user_consultations_user_path(current_user.id) do %>
@@ -83,7 +83,7 @@
       <% end %><!-- end of @my_consult_array_desc-->
     </div><!--end dashboard-consults-div-->
   </div><!-- end dashboard-consults-shell-->
-  <div class="dashboard-appointments-shell shell-border blue-shell-gradient">
+  <div class="dashboard-appointments-shell shell-border grey-shell-gradient">
     <div class="dashboard-appointment header-items">
       <%= link_to user_appointments_user_path(current_user.id) do %>
       <div class="appointment-header-item"><h4 class="dashboard-appointments-header">Appointments</h4></div>
@@ -96,7 +96,7 @@
       <% end %><!-- end of current_user.appointments.each do -->
     </div><!--end of dashboard-appointments-div-->
   </div><!--end of dashboard-appointments-shell"-->
-  <div class="dashboard-consults-product-shell shell-border blue-shell-gradient">
+  <div class="dashboard-consults-product-shell shell-border grey-shell-gradient">
     <div class="dashboard-product header-items">
       <%= link_to user_products_user_path(current_user.id) do %>
         <div class="product-header-item"><h4 class="dashboard-consults-product-header">Class List</h4></div>
@@ -111,7 +111,7 @@
       </div><!-- end of dashboard-consults-product-div -->
     </div>
   </div><!--end of dashboard-consults-product-shell-->
-  <div class="dashboard-consults-reviews-shell shell-border blue-shell-gradient">
+  <div class="dashboard-consults-reviews-shell shell-border grey-shell-gradient">
     <div class="dashboard-review header-items">
       <%= link_to user_reviews_user_path(current_user.id) do %>
         <div class="review-item"><h4>Recent Reviews</h4></div>
@@ -122,14 +122,14 @@
       <% c.reviews.sort{|x,y| y <=> x}.take(3).each do |r| %>
       <!--new changes that should be tested-->
         <%= link_to review_path(r.id), class: "no-decor" do %>
-          <div class="flex-space-between shell-tab">
+          <div class="flex-space-between dash-shell-tab">
             <%= render 'reviews/show_min_reviews', element: r %>
           </div><!--flex-space-between shell-tab-->
         <% end %><!--end of link_to review-->
       <% end %><!--end c.review-->
     <% end %><!--end of @consultion.each-->
   </div><!--end dashboard-consults-reviews-shell-->
-  <div class="dashboard-clients-list-shell shell-border blue-shell-gradient">
+  <div class="dashboard-clients-list-shell shell-border grey-shell-gradient">
     <div class="dashboard-client header-items">
       <%= link_to user_clients_user_path(current_user.id) do %>
         <div class="client-item"><h4 class="dashboard-clients-header">Clients</h4></div>
@@ -139,7 +139,7 @@
       <div class="dashboard-clients-div">
         <% @my_clients_array.each do |client| %> <!-- @my_client_array in pages#dashboard-->
           <%= link_to user_path(client) do %>
-            <div class="shell-tab flex-space-between dashbaoard-client-list-items grey-tab-gradient">
+            <div class="dash-shell-tab flex-space-between dashbaoard-client-list-items grey-tab-gradient">
               <div class="flex-33">
               <% avatar_url = client.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
               <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
@@ -152,6 +152,7 @@
     </div><!--end of dashboard-clients-div-->
   </div><!--dashboard-clients-list-shell-->
 </div><!--end of grid div-->
+<hr>
 <!--modals below-->
   <div class="modal fade appointment-mod-style" id="create-new-consultation-class">
     <div class="modal-dialog" role="document"><!--aligns the modal document-->

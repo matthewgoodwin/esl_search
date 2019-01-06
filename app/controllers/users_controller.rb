@@ -35,18 +35,20 @@ class UsersController < ApplicationController
   end
   def user_clients
     @privatemessage = Privatemessage.new
-    @consultations = current_user.consultations
-    @my_clients_array = []
-    @consultations.each do |c|
-      c.appointments.each do |a|
-        unless @my_clients_array.include? User.find(a.user_id)
-         @my_clients_array << User.find(a.user_id)
-         @my_client = User.find(a.user_id)
-        # raise
+
+    @clients = Client.all
+    @all_clients_array = []
+    @clients_array2 = []
+    @clients.each do |c|
+      if c.user_id == User.find(current_user).id
+        @clients_array2 << c
+        unless @all_clients_array.include? User.find(c.client_id)
+          @all_clients_array << User.find(c.client_id)
         end
+      else
       end
-    end
-  end
+    end #end of clients each
+  end # end of user_clients
   def user_reviews
     @user_consultations = @user.consultations
   end
