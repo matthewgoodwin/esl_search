@@ -137,7 +137,7 @@
       <div class="client-item counter"><%= @my_clients_array.size %></div>
     </div><!--dashboard-client header-items-->
       <div class="dashboard-clients-div">
-        <% @my_clients_array.each do |client| %> <!-- @my_client_array in pages#dashboard-->
+        <% @all_clients_array.each do |client| %> <!-- @my_client_array in pages#dashboard-->
           <%= link_to user_path(client) do %>
             <div class="dash-shell-tab flex-space-between dashbaoard-client-list-items grey-tab-gradient">
               <div class="flex-33">

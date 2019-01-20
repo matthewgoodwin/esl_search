@@ -25,7 +25,7 @@ class PagesController < ApplicationController
     @my_messages_array = [] # array of consulation messages
     @my_reviews_array = [] # ids of reviews
     @my_client_list
-    @client = Client.all
+    @clients = Client.all
 
     @consultations.each do |c|
       @my_consultations_array << c.id
@@ -34,6 +34,7 @@ class PagesController < ApplicationController
         @my_messages_id_array << m.id
         @my_messages_array << m
       end
+
       c.appointments.each do |a|
         # ^creates an object that counts all the consultations(only)
         # ^does not isolate the appointments
@@ -55,6 +56,18 @@ class PagesController < ApplicationController
         # ^takes each appointment id and adds it to an empty array
         # ^^array size is called on the dashboard page
       end
+
+      @all_clients_array = []
+      @clients_array2 = []
+      @clients.each do |c|
+      if c.user_id == User.find(current_user).id
+        @clients_array2 << c
+        unless @all_clients_array.include? User.find(c.client_id)
+          @all_clients_array << User.find(c.client_id)
+        end
+      else
+      end
+    end #end of clients each
       c.reviews.each do |r|
         @my_reviews_array << r.id
       end
