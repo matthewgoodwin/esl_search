@@ -34,6 +34,12 @@ class ConsultationPolicy < ApplicationPolicy
       owner?
     end
 
+    def location?
+      # not needed? using `skip_after_action :verify_authorized` in controller
+      # may delete for test
+      return true
+    end
+
   private
   def owner?
     record.user == user

@@ -1,0 +1,5 @@
+<% @consult_location_links.each do |cloc_link| %>
+<h4><%= link_to cloc_link,location_consultations_path(consult_location: cloc_link) %></h4>
+<!-- sent to Consultatios#location controller as param -->
+<% end %>
+

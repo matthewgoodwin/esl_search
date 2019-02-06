@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users, only:[:index, :show], shallow: true do
-    member do
+    member do # member => User id in URL
       # ^ creates routes outside the seven routes created by default
       get 'user_consultations', to: 'users#user_consultations'
       get 'user_appointments', to: 'users#user_appointments'
@@ -18,12 +18,18 @@ Rails.application.routes.draw do
       get 'user_reviews', to: 'users#user_reviews'
       get 'user_privatemessages', to: 'users#user_privatemessages'
     end
-    collection do
+    collection do # collection => no id in URL
       get 'search'
     end
     resources :privatemessages, only: [:show, :create, :edit, :update, :destroy]
   end
   resources :consultations, shallow: true do
+    collection do
+      get 'locations', to: 'consultations#locations'
+      get 'location', to: 'consultations#location'
+      get 'languages', to: 'consultations#languages'
+      get 'language', to: 'consultations#language'
+    end
     resources :lessons, shallow: true do
         get 'enrollment', to: 'lessons#enrollment'
       resources :appointments

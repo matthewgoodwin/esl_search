@@ -1,0 +1,7 @@
+<% @consult_loc_group.each do |clmember| %>
+  <% @clmember = clmember %>
+  <% @clmember_title = clmember.consult_title %>
+  <div>
+    <p><%= link_to @clmember_title, consultation_path(@clmember) %></p>
+  </div>
+<% end %>
