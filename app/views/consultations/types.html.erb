@@ -1,0 +1,3 @@
+<% @consult_type_links.each do |ctype_link| %>
+  <h6><%= link_to ctype_link, type_consultations_path(consult_type: ctype_link) %></h6>
+<% end %>

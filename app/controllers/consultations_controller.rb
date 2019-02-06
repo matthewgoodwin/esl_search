@@ -2,7 +2,9 @@ class ConsultationsController < ApplicationController
   before_action :find_consultation, only: [:show, :edit, :update, :destroy]
   before_action :consultation_params, only: [:create]
   before_action :location_params, only: [:location]
-  skip_after_action :verify_authorized, only: [:locations, :location, :languages]
+  before_action :language_params, only: [:language]
+  before_action :type_params, only: [:type]
+  skip_after_action :verify_authorized, only: [:locations, :location, :languages, :language, :types, :type]
   def index
     #@consultations = Consultation.all
     @consultations = policy_scope(Consultation)
@@ -93,10 +95,6 @@ class ConsultationsController < ApplicationController
     @consultations.each do |c|
      unless @consult_location_links.include? c.consult_location
       @consult_location_links << c.consult_location
-      # @consults << c
-      # @consult_location_links.each do |loc|
-      #   @consults_location = Consultation.where(consult_location: loc)
-      # end
      end
     end
     # raise
@@ -112,13 +110,31 @@ class ConsultationsController < ApplicationController
   def languages
     # skip_authorization
     @consultations = policy_scope(Consultation)
-    @consult_languages = []
-    @consultations.each do |cl|
-     unless @consult_languages.include? cl.consult_language
-      @consult_languages << cl.consult_language
+    @consult_language_links = []
+    @consultations.each do |c|
+     unless @consult_language_links.include? c.consult_language
+      @consult_language_links << c.consult_language
      end
     end
     # raise
+  end
+
+  def language
+    @consult_lang_group = Consultation.where(consult_language: @consult_lang)
+  end
+
+  def types
+    @consultations = policy_scope(Consultation)
+    @consult_type_links = []
+    @consultations.each do |c|
+      unless @consult_type_links.include? c.consult_type
+        @consult_type_links << c.consult_type
+      end
+    end
+  end
+
+  def type
+    @consult_type_group = Consultation.where(consult_type: @consult_type)
   end
 
   private
@@ -131,5 +147,11 @@ class ConsultationsController < ApplicationController
   end
   def location_params
     @consult_loc = params[:consult_location]
+  end
+  def language_params
+    @consult_lang = params[:consult_language]
+  end
+  def type_params
+    @consult_type = params[:consult_type]
   end
 end

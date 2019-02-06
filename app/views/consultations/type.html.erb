@@ -1,0 +1,5 @@
+<% @consult_type_group.each do |ct_member| %>
+<% @ct_member = ct_member %>
+<% @ct_member_title = ct_member.consult_title %>
+  <h6></h6>  <%= link_to @ct_member_title, consultation_path(@ct_member) %>
+<% end %>

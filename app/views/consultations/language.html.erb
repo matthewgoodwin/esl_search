@@ -1,0 +1,7 @@
+<% @consult_lang_group.each do |clmember| %>
+<% @consult_lang_title = clmember.consult_title %>
+<% @clmember = clmember %>
+  <div>
+    <p><%= link_to @consult_lang_title, consultation_path(@clmember) %></p>
+  </div>
+<% end %>
