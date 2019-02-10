@@ -4,7 +4,7 @@
     <!-- cant compare 0 : nil -->
       <h5><%= element.lesson_section %></h5>
       <a href="" data-toggle="modal" data-target="#lesson-form-<%= element.id %>">
-        <h6><b>Sign Up!</b></h6>
+        <h6 style="color: red;"><b>Sign Up!</b></h6>
         <% unless @consultation.consult_period == 'hourly' %>
         <!-- ^executes unless condition is true-->
           <!-- hides lesson capacity if hourly-->
@@ -12,7 +12,7 @@
         <% end %>
       </a><!--end of appointment MODAL link-->
     <% else %>
-      <h6>section closed</h6>
+      <h6 style="color: red;">section closed</h6>
     <% end %><!--end of lesson size vs capacity-->
     <% if policy(@consultation).destroy? %>
       <div class=""><%= link_to lesson_path(element), method: :delete do %>

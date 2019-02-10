@@ -1,7 +1,53 @@
-<% @consult_loc_group.each do |clmember| %>
-  <% @clmember = clmember %>
-  <% @clmember_title = clmember.consult_title %>
-  <div>
-    <p><%= link_to @clmember_title, consultation_path(@clmember) %></p>
-  </div>
-<% end %>
+<div class="content-grid element-index-area padding">
+  <div class="element-index-shell shell-border">
+    <div style="background-color: white;">
+      <div class="flex-center-column text-center div-center green-shell-gradient-header">
+        <div class="flex-center center-div center-text padding-5">
+          <input class="center-text center-div" type="text"  placeholder="search">
+          <div class="btn"><i class="fas fa-search"></i></div>
+        </div>
+      </div>
+      <div class="flex-space-between grey-shell-gradient padding-5">
+        <div class="flex-33 center-div center-text"><h6>INSTRUCTOR</h6></div>
+        <div class="flex-33"><h6>INFO</h6></div>
+        <div class="flex-33 center-text"><h6>RATE</h6></div>
+      </div><!--end of flex-space-between-->
+      <% @consult_loc_group.each do |clmember| %>
+        <% @clmember = clmember %>
+        <% @clmember_title = clmember.consult_title %>
+        <div class="flex-space-between flex-wrap padding-5">
+          <div class="flex-33 flex-center-column">
+            <% avatar_url = clmember.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
+            <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
+            <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 50px; width: 50px; border-radius: 50%; background-position: center;"></div>
+            <div><h6><b><%= clmember.user.fname %></b></h6></div>
+          </div>
+          <div class="flex-33"><!--shell-->
+            <h6 class="brand-green"><b><%= clmember.consult_title %></b></h6>
+            <h6><%= clmember.consult_language %></h6>
+            <h6><%= clmember.consult_location %></h6>
+            <h6><%= clmember.consult_period %></h6>
+            <div>
+              <% @avg_star.to_i.times do %>
+                <i class="fa fa-star yellow-star"></i><!--reference 'components/_reviewstars.scss'-->
+              <% end %><!--end of r.star-->
+                <% (5 - @avg_star.to_i).times do %>
+                <i class="fa fa-star grey-star"></i><!--reference 'components/_reviewstars.scss'-->
+              <% end %><!--end of 5-r.star-->
+            </div>
+          </div><!--shell-->
+
+          <!-- :unit is built into the number_to_currency-->
+          <!-- clmember[:consultfee] -->
+          <div class="flex-33 center-text">
+              <p><%= number_to_currency(clmember[:consultfee], :unit => "₩")%></p>
+              <%= link_to consultation_path(clmember) do %>
+              <div><h6>find lesson</h6></div>
+            <% end %>
+          </div>
+        </div><!--end of index-consult-items-->
+        <hr>
+      <% end %><!--end of @consultations.each do-->
+    </div><!--background color: white-->
+  </div><!-- end of consultations-index-shell-->
+</div><!--end of consult-index-area-->

@@ -10,8 +10,12 @@
     <!-- <a href="" class="navbar-esl-item navbar-esl-link">home</a>
     <a href="" class="navbar-esl-item navbar-esl-link">dashboard</a>
     <a href="" class="navbar-esl-item navbar-esl-link">Messages</a> -->
-    <h6 class="navbar-esl-item navbar-esl-link"><%= link_to "find classes", consultations_path %></h6>
-    <h6 class="navbar-esl-item navbar-esl-link"><%= link_to "dashboard", dashboard_path %></h6>
+    <div>
+      <%= link_to dashboard_path, class: "brand-gray" do %>
+        <h6 class="navbar-esl-item navbar-esl-link">dashboard</h6>
+      <% end %>
+    </div>
+    <div class="navbar-search btn"><%= link_to consultations_path do %><i class="fas fa-search brand-gray"></i><% end %></div>
     <!-- Profile picture with dropdown list -->
     <div class="navbar-esl-item">
       <div class="dropdown">

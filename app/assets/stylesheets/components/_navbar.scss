@@ -11,6 +11,14 @@
   justify-content: space-between;
 }
 
+.navbar-search{
+  border: 1.5px solid $brand-gray;
+  border-radius: 35%;
+}
+
+.brand-gray{
+   color: $brand-gray;
+ }
 /* Logo */
 .navbar-esl-brand img {
   height: 50px;

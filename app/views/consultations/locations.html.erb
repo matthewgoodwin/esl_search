@@ -1,5 +1,13 @@
-<% @consult_location_links.each do |cloc_link| %>
-<h4><%= link_to cloc_link,location_consultations_path(consult_location: cloc_link) %></h4>
-<!-- sent to Consultatios#location controller as param -->
-<% end %>
+<div class="container">
+  <div class="row">
+    <% @consult_location_links.each do |cloc_link| %>
+      <div class="col-xs-6 col-sm-6">
+        <div class="white card1 center-text">
+          <h5><%= link_to cloc_link,location_consultations_path(consult_location: cloc_link) %></h5>
+          <!-- sent to Consultatios#location controller as param -->
+        </div><!--end of card-->
+      </div>
+    <% end %>
+  </div>
+</div>
 

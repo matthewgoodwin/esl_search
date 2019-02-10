@@ -33,7 +33,9 @@ h6{
 p{
   font-size: 10.5px;
 }
-
+.wrapper{
+  text-align: center;
+}
 .inline-list-item{
   padding: 0px 30px;
 }
@@ -165,16 +167,33 @@ p{
   animation-delay: 3s;
   animation-iteration-count: 6;//pulses six times
 }
+.brand-green{
+  color: $brand-green;
+}
+.white{
+  color: $white;
+}
+.white-background{
+  background-color: $white;
+}
+.charcoal{
+  background-color: $charcoal;
+}
+.black{
+  color: $black;
+}
+.black-background{
+  background-color: $black;
+}
 .grey-tab-gradient{
   background-image: -webkit-linear-gradient(275deg, rgba(248,248,248,0.05), rgba(0,0,0,0));
   background-image: -o-linear-gradient(275deg, rgba(248,248,248,0.05), rgba(0,0,0,0));
   background-image: linear-gradient(5deg, rgba(248,248,248,0.05), rgba(0,0,0,0));
 }
-
 .grey-shell-gradient{
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0,0.05), rgba(0,0,0,0));
-  background-image: -o-linear-gradient(rgba(0, 0, 0,0.05), rgba(0,0,0,0));
-  background-image: linear-gradient(rgba(0, 0, 0,0.05), rgba(0,0,0,0));
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0,0.01), rgba(0,0,0,0));
+  background-image: -o-linear-gradient(rgba(0, 0, 0,0.01), rgba(0,0,0,0));
+  background-image: linear-gradient(rgba(0, 0, 0,0.01), rgba(0,0,0,0));
 }
 .blue-shell-gradient{
   background-image: -webkit-linear-gradient(rgba(132,175,255,0.3), rgba(0,0,0,0));
