@@ -5,12 +5,12 @@
   <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
 </div><!--end of icon flex-->
 <div class="flex-33">
-  <h5><%= element.consultation.consult_title %></h5>
-  <h6><%=truncate( element.subject, length: 25)%></h6>
+  <h5 class="blue-text"><%= element.consultation.consult_title %></h5>
+  <h6 class="charcoal-text"><%=truncate( element.subject, length: 25)%></h6>
   <p><%= truncate( element.textmess, length: 25) %></p>
 </div>
 <% if element.created_at.strftime('%b %d %y') == DateTime.now.strftime('%b %d %y')%>
-  <div class="flex-33 center-text"><h6><b><%= element.created_at.strftime('%I:%M %p')%></b></h6></div>
+  <div class="flex-33 center-text"><h6 class="red-text"><b><%= element.created_at.strftime('%I:%M %p')%></b></h6></div>
 <% else %>
-  <div class="flex-33 center-text"><h6><b><%= element.created_at.strftime('%m %d %Y')%></b></h6></div>
+  <div class="flex-33 center-text"><h6 class="red-text"><b><%= element.created_at.strftime('%m %d %Y')%></b></h6></div>
 <% end %><!--end of if statement; if today, then show time-->

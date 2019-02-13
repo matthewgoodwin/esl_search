@@ -13,20 +13,20 @@
     </div><!--end of NESTED icon flex item div-->
       <div class="flex-33"><!--can grow-->
         <%= link_to appointment_path(element) do %>
-          <h6 class=""><b><%= element.consultation.consult_title %></b></h6>
-          <h6 class=""><%= element.consultation.consult_period %></h6>
+          <h6 class="blue-text"><b><%= element.consultation.consult_title %></b></h6>
+          <h6 class="charcoal-text"><%= element.consultation.consult_period %></h6>
           <% if element.consultation.consult_period == 'hourly'%>
-            <h6 class=""><%= element.lesson.lesson_start.strftime('@ %I:%M %p') %></h6>
-            <h6 class=""><%= element.lesson.lesson_max_dur %>&nbsp;minutes max</h6>
+            <h6 class="red-text"><%= element.lesson.lesson_start.strftime('@ %I:%M %p') %></h6>
+            <h6 class="red-text"><%= element.lesson.lesson_max_dur %>&nbsp;minutes max</h6>
             <!-- hourly schedules are set by the appointment -->
           <% else %>
-            <h6 class=""><%= element.lesson.lesson_start.strftime('%I:%M %p') %></h6>
-            <h6 class=""><%= element.lesson.lesson_end.strftime('%I:%M %p') %></h6>
+            <h6 class="green-text"><%= element.lesson.lesson_start.strftime('%I:%M %p') %></h6>
+            <h6 class="red-text"><%= element.lesson.lesson_end.strftime('%I:%M %p') %></h6>
             <!-- classes are set by the lesson schedule -->
           <% end %><!--end of if statement-->
         <% end %><!--end of appointment link-->
       </div><!--end of the flex-item-grow-only-auto-->
-    <div class="flex-33 center-text"><%= link_to appointment_path(element), method: :delete do %>
+    <div class="flex-33 center-text"><%= link_to appointment_path(element), class: "charcoal-text", method: :delete do %>
       <i class="fas fa-trash-alt" aria-hidden="true"></i><% end %>
     </div><!--end of nested trash can-->
   </div><!--end of NESTED detials flex item div-->

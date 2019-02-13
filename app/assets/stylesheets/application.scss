@@ -23,6 +23,10 @@
 li {
   list-style: none;
 }
+a:link{
+  style: none;
+  text-decoration: none;
+}
 // .content-grid{
 //   display: grid;
 //   grid-gap: 10px;
@@ -167,23 +171,35 @@ p{
   animation-delay: 3s;
   animation-iteration-count: 6;//pulses six times
 }
-.brand-green{
-  color: $brand-green;
-}
-.white{
+.white-text{
   color: $white;
 }
 .white-background{
   background-color: $white;
-}
-.charcoal{
-  background-color: $charcoal;
 }
 .black{
   color: $black;
 }
 .black-background{
   background-color: $black;
+}
+.charcoal{
+  background-color: $charcoal;
+}
+.charcoal-text{
+  color: $charcoal;
+}
+.red-text{
+  color: $red;
+}
+.blue-text{
+  color: $brand-blue;
+}
+.green-text{
+  color: $brand-green;
+}
+.brand-green{
+  color: $brand-green;
 }
 .grey-tab-gradient{
   background-image: -webkit-linear-gradient(275deg, rgba(248,248,248,0.05), rgba(0,0,0,0));
