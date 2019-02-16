@@ -1,0 +1,32 @@
+<div class="flex-space-between flex-wrap padding-5">
+  <div class="flex-33 flex-center-column">
+    <% avatar_url = element.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
+    <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
+    <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 50px; width: 50px; border-radius: 50%; background-position: center;"></div>
+    <div><h6><b><%= element.user.fname %></b></h6></div>
+  </div>
+  <div class="flex-33"><!--shell-->
+    <h6 class="brand-green"><%= element.consult_title %></h6>
+    <h6><%= element.consult_language %></h6>
+    <h6><%= element.consult_location %></h6>
+    <h6><%= element.consult_period %></h6>
+    <div>
+      <% @avg_star.to_i.times do %>
+        <i class="fa fa-star yellow-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+      <% end %><!--end of r.star-->
+        <% (5 - @avg_star.to_i).times do %>
+        <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+      <% end %><!--end of 5-r.star-->
+    </div>
+  </div><!--shell-->
+
+  <!-- :unit is built into the number_to_currency-->
+  <!-- element[:consultfee] -->
+  <div class="flex-33 center-text">
+      <p><%= number_to_currency(element[:consultfee], :unit => "₩")%></p>
+      <%= link_to consultation_path(element) do %>
+      <div><h6 class="blue-text">find lesson</h6></div>
+    <% end %>
+  </div>
+</div><!--end of index-element-items-->
+<hr>

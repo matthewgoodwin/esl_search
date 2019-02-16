@@ -1,5 +1,6 @@
-<div class="flex-center-center center-div grey-shell-gradient">
-  <h2><%= @consultation.consult_title %></h2>
+<div class="green-shell-gradient-header padding">
+<div class="flex-center-center center-div">
+  <h2 class="charcoal-text"><%= @consultation.consult_title %></h2>
 </div>
 <div class= "flex-center-center center-div">
   <% @avg_star.to_i.times do %>
@@ -9,7 +10,8 @@
     <i class="fa fa-star grey-star"></i><!--reference 'components/_reviewstars.scss'-->
   <% end %><!--end of 5-r.star-->
 </div><!--end of review-item-->
-<hr>
+
+</div>
 <div class="center-div center-text">
   <% if policy(@consultation).destroy? %>
     <div class="consultation-lesson-form-div">

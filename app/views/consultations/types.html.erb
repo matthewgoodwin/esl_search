@@ -1,3 +1,13 @@
-<% @consult_type_links.each do |ctype_link| %>
-  <h6><%= link_to ctype_link, type_consultations_path(consult_type: ctype_link) %></h6>
-<% end %>
+<div class="container">
+  <div class="row">
+    <% @consult_type_links.each do |ctype_link| %>
+      <div class="col-xs-6 col-sm-6">
+        <div class="white card1 center-text">
+          <%= link_to type_consultations_path(consult_type: ctype_link) do %>
+            <h6><%= ctype_link %></h6>
+          <% end %><!--end of link-->
+        </div><!--end white card1 center-text-->
+      </div><!--col-xs-6 col-sm-6-->
+    <% end %><!--end of ctype_link-->
+  </div><!--row-->
+</div><!--container-->

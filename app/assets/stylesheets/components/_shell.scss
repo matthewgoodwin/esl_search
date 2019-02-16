@@ -70,6 +70,19 @@
   background-color: #FEFEFE;
 }
 
+.counter{
+  border: 1px solid $charcoal;
+  background-color: $white;
+  width: 30px;
+  length: 30px;
+  // box-shadow: 1px 1px 6px #a8a8a8;
+  border-radius: 49%;
+  padding: 3px;
+  margin: 3px;
+  color: $red;
+  text-align: center;
+}
+
 .mw800{
   max-width: 800px;
 }

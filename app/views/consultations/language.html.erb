@@ -1,7 +1,22 @@
-<% @consult_lang_group.each do |clmember| %>
-<% @consult_lang_title = clmember.consult_title %>
-<% @clmember = clmember %>
-  <div>
-    <p><%= link_to @consult_lang_title, consultation_path(@clmember) %></p>
-  </div>
-<% end %>
+<div class="content-grid element-index-area padding">
+  <div class="element-index-shell shell-border">
+    <div style="background-color: white;">
+      <div class="flex-center-column text-center div-center green-shell-gradient-header">
+        <div class="flex-center center-div center-text padding-5">
+          <input class="center-text center-div" type="text"  placeholder="search">
+          <div class="btn"><i class="fas fa-search"></i></div>
+        </div>
+      </div>
+      <div class="flex-space-between grey-shell-gradient padding-5">
+        <div class="flex-33 center-div center-text"><h6><b>INSTRUCTOR</b></h6></div>
+        <div class="flex-33"><h6><b>INFO</b></h6></div>
+        <div class="flex-33 center-text"><h6><b>RATE</b></h6></div>
+      </div><!--end of flex-space-between-->
+      <% @consult_lang_group.each do |clmember| %>
+        <% @clmember = clmember %>
+        <% @clmember_title = clmember.consult_title %>
+        <%= render 'consultations/index', element: clmember %>
+      <% end %><!--end of @consultations.each do-->
+    </div><!--background color: white-->
+  </div><!-- end of consultations-index-shell-->
+</div><!--end of consult-index-area-->
