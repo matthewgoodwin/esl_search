@@ -15,7 +15,7 @@
       <%= f.input :consult_language, label: "primary class language:", default: ["English"] ,collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"] %>
       <%= f.input :consult_sec_lang, label: "secondary class language:", default: [ "none" ], collection: ["none", "English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"]%>
       <%= f.input :consult_demo, label:"group:", default: ["everyone"], collection: ["everyone", "kindergarten", "elementary/primary", "middle school", "high school/secondary", "adult"] %>
-      <%= f.input :consult_type, label: false, collection: ["grammar-based", "verbal-skills", "hobby-based", "trade-based", "proof reading","conversation (only)","voice call", "interview prep", "speech prep", "translation", "exam-prep", "other"], prompt: "-select type-"%>
+      <%= f.input :consult_type, label: false, collection: ["grammar-based", "verbal-skills", "hobby-based", "trade-based", "freelance teacher", "proof reading","conversation (only)","voice call", "interview prep", "speech prep", "translation", "exam-prep", "other"], prompt: "-select type-"%>
       <%= f.input :consult_focus, label: "specific focus", placeholder: "limit 30 characters (optional)!"%>
       <%= f.input :consult_location, label: false, placeholder: "city"%>
       <%= f.input :consult_period, label: "term:", default: ["hourly"], collection: ["hourly", "single-class", "one-week", "one-month", "3 month term"]%>

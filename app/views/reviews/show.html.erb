@@ -1,7 +1,7 @@
-<h6><%= link_to 'dashboard', dashboard_path %></h6>
 <div class="content-grid element-index-area padding">
   <div class="element-index-shell shell-border grey-shell-gradient">
     <hr>
+    <h6><%= link_to 'dashboard', dashboard_path %></h6>
     <div class="user-profile-image-div center-text">
       <% avatar_url = @review.user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
       <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
