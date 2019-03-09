@@ -7,6 +7,17 @@
           <div class="btn"><i class="fas fa-search"></i></div>
         </div>
       </div>
+      <ul>
+        <li style="display: inline-block;" class="inline-list-item"><%= link_to locations_consultations_path, class: "navbar-esl-link brand-green" do %>
+          <h6 class="navbar-esl-link green-text">LOCATIONS</h6><% end %>
+        </li>
+        <li style="display: inline-block;" class="inline-list-item"><%= link_to languages_consultations_path, class: "navbar-esl-link" do %>
+          <h6 class="navbar-esl-link green-text">LANGUAGES</h6><% end %>
+        </li>
+        <li style="display: inline-block;" class="inline-list-item"><%= link_to types_consultations_path, class: "navbar-esl-link" do %>
+          <h6 class="navbar-esl-link green-text">CATEGORY</h6><% end %>
+        </li>
+      </ul>
       <div class="flex-space-between grey-shell-gradient padding-5">
         <div class="flex-33 center-div center-text"><h6><b>INSTRUCTOR</b></h6></div>
         <div class="flex-33"><h6><b>INFO</b></h6></div>

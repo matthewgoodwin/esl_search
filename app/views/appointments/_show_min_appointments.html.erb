@@ -20,8 +20,8 @@
             <h6 class="red-text"><%= element.lesson.lesson_max_dur %>&nbsp;minutes max</h6>
             <!-- hourly schedules are set by the appointment -->
           <% else %>
-            <h6 class="green-text"><%= element.lesson.lesson_start.strftime('%I:%M %p') %></h6>
-            <h6 class="red-text"><%= element.lesson.lesson_end.strftime('%I:%M %p') %></h6>
+            <h6 class="green-text"><%= element.lesson.lesson_start.strftime('start: %I:%M %p') %></h6>
+            <h6 class="red-text"><%= element.lesson.lesson_end.strftime('end: %I:%M %p') %></h6>
             <!-- classes are set by the lesson schedule -->
           <% end %><!--end of if statement-->
         <% end %><!--end of appointment link-->

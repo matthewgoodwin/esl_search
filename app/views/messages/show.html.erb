@@ -14,7 +14,7 @@
         <h6 style="color: red;" class=""><%= @message.created_at.strftime("%B %d %Y") %></h6>
         <h6 style="color: red;" class=""><%= @message.created_at.strftime("%I:%M %P") %></h6>
       </div>
-      <div class="flex-33 message-show-action-div center-text"><%= link_to message_path(@message), method: :delete do %>
+      <div class="flex-33 message-show-action-div center-text "><%= link_to message_path(@message), class: "charcoal-text",method: :delete do %>
         <i class="fas fa-trash-alt" aria-hidden="true"></i><% end %>
       </div>
     </div><!--end of flex-->

@@ -24,7 +24,7 @@
     </div><!--end of user-profile-image-div find: _usericon.scss-->
     <div class="unordered-list">
       <ul class="dashboard-user-panel-links-list">
-        <li class="shell-tab-header-dark charcoal">
+        <li class="shell-tab-header-dark charcoal-background">
           <div class="flex-space-between">
           <!-- <i class="far fa-envelope fa-3x"></i> -->
           <%= link_to user_privatemessages_user_path(current_user.id) do %>
@@ -33,17 +33,17 @@
           <div class="flex-33 white-text"><div class="counter"><%= @privatemessages.size %></div></div>
           </div>
         </li>
-        <li class="shell-tab-header-dark charcoal left-border animated pulse animate-class-btn">
+        <li class="shell-tab-header-dark charcoal-background left-border animated pulse animate-class-btn">
           <a href="" data-toggle="modal" data-target="#create-new-consultation-class">
               <div class="round-div no-decor"><h6 class="white-text">Create a Class</h6></div>
           </a>
         </li>
-        <li class="shell-tab-header-dark charcoal">
+        <li class="shell-tab-header-dark charcoal-background">
           <%= link_to consultations_path, class: "white-text" do %>
             <h6 class="">find classes</h6>
           <% end %>
         </li>
-        <li class="shell-tab-header-dark charcoal">
+        <li class="shell-tab-header-dark charcoal-background">
           <%= link_to locations_consultations_path, class: "white-text" do %>
             <h6 class="">locations</h6>
           <% end %>
@@ -54,10 +54,10 @@
   <div class="dashboard-messages-shell shell-border grey-shell-gradient padding-5">
     <div class="flex-center-center">
       <%= link_to user_messages_user_path(current_user.id) do %>
-        <h5 class="charcoal-text">Class Messages</h5>
+        <div class="flex-67"><h5 class="charcoal-text">Class Messages</h5></div>
       <% end %>
+      <div class="flex-33 center-text"><h6><%= @my_messages_id_array.size %></h6></div>
     </div><!--end of dashboard-message header-items-->
-
       <% @my_messages_array.sort{|x,y| y <=> x}.take(3).each do |m| %>
       <!-- each consultations messages-->
         <%= link_to message_path(m), class: "no-decor" do %>
@@ -67,13 +67,6 @@
           </div><!--end of flexbox shell-tab-->
         <% end %><!--end of link_to message_path-->
       <% end %><!--end of c.messages.each -->
-      <%= link_to user_messages_user_path(current_user.id) do %>
-    <div class="flex-center-center">
-        <i class="fas fa-plus"></i>
-        <h4><%= @my_messages_id_array.size %></h4>
-
-    </div>
-    <% end %>
   </div><!--end of dashboard-messages-shell-->
   <div class="dashboard-consults-shell shell-border grey-shell-gradient">
     <div class="flex-center-center">
