@@ -25,19 +25,24 @@ class AppointmentsController < ApplicationController
     @client = Client.new
     @client.user_id = @lesson.consultation.user_id
     @client.client_id = current_user.id
-    @client.save
+
+    @receipt = Receipt.new
+    @receipt.consultation_id = @lesson.consultation.id
+    @receipt.invoice_num = @appointment.invoice_number
     # raise
     # @appointment.reservation = Random.new_seed
     authorize @appointment # authorize before saving
     if @appointment.valid?
       @appointment.save
+      @client.save
+      @receipt.save
       AppointmentMailer.confirmation(@appointment).deliver_now
       AppointmentMailer.confirmationx(@appointment).deliver_now
       # ^ calls app/mailers/appointment_mailer.rb ; before redirect
       flash[:notice] = 'Your appointment is set! Please check your email for confirmation!'
       redirect_to appointment_path(@appointment)
     else
-      flash[:notice] = 'missing info'
+      flash[:notice] = 'missing important information or already enrolled!'
       redirect_to consultation_path(@lesson.consultation.id)
     end
   end

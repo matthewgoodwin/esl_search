@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181220071303) do
+ActiveRecord::Schema.define(version: 20190310082343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,14 @@ ActiveRecord::Schema.define(version: 20181220071303) do
     t.index ["user_id"], name: "index_privatemessages_on_user_id", using: :btree
   end
 
+  create_table "receipts", force: :cascade do |t|
+    t.string   "invoice_num"
+    t.integer  "consultation_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["consultation_id"], name: "index_receipts_on_consultation_id", using: :btree
+  end
+
   create_table "referrals", force: :cascade do |t|
     t.string   "comment"
     t.integer  "star"
@@ -155,6 +163,7 @@ ActiveRecord::Schema.define(version: 20181220071303) do
   add_foreign_key "messages", "consultations"
   add_foreign_key "messages", "users"
   add_foreign_key "privatemessages", "users"
+  add_foreign_key "receipts", "consultations"
   add_foreign_key "referrals", "users"
   add_foreign_key "reviews", "consultations"
   add_foreign_key "reviews", "users"
