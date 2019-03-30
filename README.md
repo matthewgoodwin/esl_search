@@ -5,6 +5,23 @@ consultation_params[:consult_freq]
   kill -9 $(lsof -i tcp:3000 -t)
 -->
 
+<% @consultations.each do |c| %>
+      <% @consultation_review_star = c.reviews.all.map{|x| [x.star]} %>
+      <% if @consultation_review_star!= [] %>
+        <% @review_stars = @consultation_review_star.sum %>
+      <!-- ^ @total_review_stars produces single array ex: [4,2] not sure why -->
+      <% @total_review_stars = @review_stars.sum %>
+       <!-- ^ SAME as above: @total_review_stars = @review_stars.inject(0){|sum,x| sum + x } -->
+       <!-- ^^ sum of all stars ex[4 + 1] = 5 -->
+      <% @total_reviews = @consultation_review_star.size %>
+       <!-- ^ total number of reviews with stars ex: 2 -->
+      <% @avg_star = (@total_review_stars / @total_reviews) %>
+      <% else %>
+      <% end %>
+      <% end %>
+
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

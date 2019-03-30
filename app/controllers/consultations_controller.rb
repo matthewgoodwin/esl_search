@@ -8,7 +8,17 @@ class ConsultationsController < ApplicationController
   def index
     #@consultations = Consultation.all
     @consultations = policy_scope(Consultation)
-  end
+# @consultations.each do |c|
+# if c.reviews.all.map{|x| [x.star]} == []
+# else
+# @cons_rstars = c.reviews.all.map{|x| [x.star]}
+# @r_stars = @cons_rstars.sum
+# @total_rstars = @r_stars.sum
+# @total_reviews = @cons_rstars.size
+# @avg_star = (@total_rstars / @total_reviews)
+# end
+# end
+  end # end of index
 
   def show
     @appointment = Appointment.new

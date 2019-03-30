@@ -11,15 +11,25 @@
     <h6><%= element.consult_location %></h6>
     <h6><%= element.consult_period %></h6>
     <div>
-      <% @avg_star.to_i.times do %>
-        <i class="fa fa-star yellow-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
-      <% end %><!--end of r.star-->
-        <% (5 - @avg_star.to_i).times do %>
-        <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
-      <% end %><!--end of 5-r.star-->
+      <% if element.reviews.all.map{|x| [x.star]} == [] %>
+        <% 5.to_i.times do %>
+          <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+        <% end %>
+      <% else %>
+        <% @cons_rstars = element.reviews.all.map{|x| [x.star]} %>
+        <% @r_stars = @cons_rstars.sum %>
+        <% @total_rstars = @r_stars.sum %>
+        <% @total_reviews = @cons_rstars.size %>
+        <% @avg_star = (@total_rstars / @total_reviews) %>
+        <% @avg_star.to_i.times do %>
+          <i class="fa fa-star yellow-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+        <% end %><!--end of r.star-->
+          <% (5 - @avg_star.to_i).times do %>
+          <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+        <% end %><!--end of 5-r.star-->
+      <% end %>
     </div>
   </div><!--shell-->
-
   <!-- :unit is built into the number_to_currency-->
   <!-- element[:consultfee] -->
   <div class="flex-33 center-text">
@@ -30,3 +40,4 @@
   </div>
 </div><!--end of index-element-items-->
 <hr>
+

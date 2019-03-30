@@ -98,7 +98,7 @@
         <% @consultation.reviews.each do |r| %>
           <%= link_to review_path(r) do %>
             <div class="shell-tab">
-              <%= render 'reviews/show_min_reviews', element: r %>
+              <%= render 'reviews/show_ext_reviews', element: r %>
             </div>
           <% end %><!--end of link-->
         <% end %><!--end of consult.review.each-->
