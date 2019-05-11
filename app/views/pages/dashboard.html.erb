@@ -1,7 +1,7 @@
 <div class="content-grid dash-area">
   <!-- <h1>Pages#dashboard</h1> -->
-  <div class="dashboard-user-panel-links-shell shell-border-dark black-background">
-    <div class="white-text padding-5 center-text">
+  <div class="dashboard-user-panel-links-shell shell-border-dark black-background white-text">
+    <div class="padding-5 center-text">
       <h5>welcome,</h5>
       <h2><%= current_user.fname %></h2>
       <h6 class=""><%= current_user.email %></h6>
@@ -18,7 +18,7 @@
       <div class="icon-div">
         <% avatar_url = @current_user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
         <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-        <div class="user-large-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
+        <div class="user-large-profile-image-img icon-shell-dark" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
       </div><!--end of icon-div-->
       <!--added -->
     </div><!--end of user-profile-image-div find: _usericon.scss-->

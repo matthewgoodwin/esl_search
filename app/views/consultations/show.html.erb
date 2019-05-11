@@ -1,12 +1,12 @@
 <div class="content-grid consultation-area">
-  <div class="consultation-show-instructor-shell shell-border-dark black-background charcoal white-text">
+  <div class="consultation-show-instructor-shell shell-border-dark black-background white-text">
     <div class="padding-5 center-text">
       <h2><%= @consultation.user.fname %> <%= @consultation.user.lname %></h2>
     </div>
     <div class="user-profile-image-div">
       <% avatar_url = @consultation.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
           <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-      <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
+      <div class="user-large-profile-image-img icon-shell-dark" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
     </div><!--end of user-profile-image-div-->
     <div class="padding-5">
       <div class="flex-space-between">
@@ -91,13 +91,13 @@
   <!--end of consult parital-->
   <div class="consultation-show-reviews-shell">
     <div class="shell-tab">
-      <div class="flex-center-center center-div grey-shell-gradient">
+      <div class="flex-center-center center-div green-shell-gradient-header">
         <h2>Reviews</h2>
       </div><!--end of flex-center-center center-div-->
       <div id="review-min">
         <% @consultation.reviews.each do |r| %>
           <%= link_to review_path(r) do %>
-            <div class="shell-tab">
+            <div class="shell-tab-box">
               <%= render 'reviews/show_ext_reviews', element: r %>
             </div>
           <% end %><!--end of link-->

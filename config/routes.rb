@@ -31,6 +31,8 @@ Rails.application.routes.draw do
       get 'language', to: 'consultations#language'
       get 'types', to: 'consultations#types'
       get 'type', to: 'consultations#type'
+      get 'periods', to: 'consultations#periods'
+      get 'period', to: 'consultations#period'
     end
     resources :lessons, shallow: true do
         get 'enrollment', to: 'lessons#enrollment'

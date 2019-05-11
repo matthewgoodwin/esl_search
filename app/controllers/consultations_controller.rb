@@ -3,8 +3,9 @@ class ConsultationsController < ApplicationController
   before_action :consultation_params, only: [:create]
   before_action :location_params, only: [:location]
   before_action :language_params, only: [:language]
+  before_action :period_params, only: [:period]
   before_action :type_params, only: [:type]
-  skip_after_action :verify_authorized, only: [:locations, :location, :languages, :language, :types, :type]
+  skip_after_action :verify_authorized, only: [:locations, :location, :languages, :language, :types, :type, :periods, :period]
   def index
     #@consultations = Consultation.all
     @consultations = policy_scope(Consultation)
@@ -147,6 +148,20 @@ class ConsultationsController < ApplicationController
     @consult_type_group = Consultation.where(consult_type: @consult_type)
   end
 
+  def periods
+    @consultations = policy_scope(Consultation)
+    @consult_period_links = []
+    @consultations.each do |c|
+      unless @consult_period_links.include? c.consult_period
+        @consult_period_links << c.consult_period
+      end
+    end
+  end
+
+  def period
+    @consult_period_group = Consultation.where(consult_period: @consult_period)
+  end
+
   private
   def find_consultation
     @consultation = Consultation.find(params[:id])
@@ -163,5 +178,8 @@ class ConsultationsController < ApplicationController
   end
   def type_params
     @consult_type = params[:consult_type]
+  end
+  def period_params
+    @consult_period = params[:consult_period]
   end
 end
