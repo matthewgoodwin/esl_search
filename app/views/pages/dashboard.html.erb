@@ -138,9 +138,11 @@
       <div class="flex-33 center-text"><h6><%= @my_clients_array.size %></h6></div>
     </div><!--dashboard-client header-items-->
       <div class="dashboard-clients-div">
+        <% if @all_clients_array != nil %>
         <% @all_clients_array.each do |client| %> <!-- @my_client_array in pages#dashboard-->
           <%= render 'clients/show_min_clients', element: client %>
         <% end %><!--end of @my_clients_array.each-->
+        <% end %>
       </div><!--end of shell-tab flex-space-between dashbaoard-client-list-items-->
     </div><!--end of dashboard-clients-div-->
   </div><!--dashboard-clients-list-shell-->

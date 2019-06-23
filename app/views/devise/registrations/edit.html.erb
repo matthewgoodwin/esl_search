@@ -22,9 +22,14 @@
     <%= f.input :user_kakao_id, label: 'kakao id', error: 'please enter kakao id', required: true, autofocus: true %>
     <%= f.input :subjectmajor, label: 'university major', autofocus: true %>
     <%= f.input :edulevel, label: 'education level', error: 'please specify the highest education attained', autofocus: true %>
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+    <div class="aboutyou">
+      <%= f.input :aboutme, label: "about me", placeholder: "300 character limit!", as: :text %>
+    </div>
+    <div>
+      <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
+      <%= f.input :password_confirmation, required: false %>
+      <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+    </div>
     <div class="shell-tab-header grey-shell-gradient">
       <%= f.input :photo, label: "Upload Photo" %>
       <%= f.input :photo_cache, as: :hidden %>

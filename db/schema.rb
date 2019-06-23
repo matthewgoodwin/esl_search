@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190310082343) do
+ActiveRecord::Schema.define(version: 20190619094057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,13 +45,13 @@ ActiveRecord::Schema.define(version: 20190310082343) do
     t.decimal  "consultfee",       precision: 19, scale: 2
     t.string   "consult_title"
     t.string   "consult_type"
-    t.string   "consult_desc"
     t.string   "consult_focus"
     t.string   "consult_language"
     t.string   "consult_location"
     t.string   "consult_period"
     t.string   "consult_sec_lang"
     t.string   "consult_demo"
+    t.text     "consult_desc"
     t.index ["user_id"], name: "index_consultations_on_user_id", using: :btree
   end
 
@@ -73,22 +73,22 @@ ActiveRecord::Schema.define(version: 20190310082343) do
 
   create_table "messages", force: :cascade do |t|
     t.string   "subject"
-    t.string   "textmess"
     t.integer  "consultation_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "user_id"
+    t.text     "textmess"
     t.index ["consultation_id"], name: "index_messages_on_consultation_id", using: :btree
     t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
   create_table "privatemessages", force: :cascade do |t|
     t.string   "subject"
-    t.string   "pm"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "sender_id"
+    t.text     "pm"
     t.index ["sender_id"], name: "index_privatemessages_on_sender_id", using: :btree
     t.index ["user_id"], name: "index_privatemessages_on_user_id", using: :btree
   end
@@ -102,11 +102,11 @@ ActiveRecord::Schema.define(version: 20190310082343) do
   end
 
   create_table "referrals", force: :cascade do |t|
-    t.string   "comment"
     t.integer  "star"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text     "comment"
     t.index ["user_id"], name: "index_referrals_on_user_id", using: :btree
   end
 
@@ -150,6 +150,7 @@ ActiveRecord::Schema.define(version: 20190310082343) do
     t.string   "user_nation"
     t.string   "user_phone"
     t.string   "user_kakao_id"
+    t.text     "aboutme"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

@@ -56,6 +56,7 @@ class PagesController < ApplicationController
         # ^takes each appointment id and adds it to an empty array
         # ^^array size is called on the dashboard page
       end
+      # ^^ can probably delete the client method above.. below does not depend on appointments;
 
       @all_clients_array = []
       @clients_array2 = []

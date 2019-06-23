@@ -25,6 +25,9 @@
           <%= f.input :subjectmajor, label: 'university major (optional*)', autofocus: true %>
           <%= f.input :edulevel, label: 'education level (optional*)', error: 'please specify the highest education attained', autofocus: true %>
         </div>
+        <div class="aboutyou">
+          <%= f.input :aboutme, label:false, placeholder: "tell us about yourself!", as: :text %>
+        </div>
         <div class="shell-tab-header grey-shell-gradient">
           <%= f.input :photo, label: "Upload Avatar" %>
           <%= f.input :photo_cache, as: :hidden %>
