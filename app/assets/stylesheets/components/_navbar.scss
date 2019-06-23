@@ -11,6 +11,17 @@
   justify-content: space-between;
 }
 
+.navbar-esl2 {
+  // box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  background: white;
+  transition: all 0.3s ease;
+  height: 25px;
+  // padding: 0px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+} //consultaiton navbar mobile only
+
 .navbar-search{
   border: 1.5px solid $brand-gray;
   border-radius: 35%;
