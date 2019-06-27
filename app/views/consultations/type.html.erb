@@ -1,23 +1,53 @@
-<div class="content-grid element-index-area padding">
+<div class="content-grid element-index-area">
   <div class="element-index-shell shell-border">
     <div style="background-color: white;">
-      <div class="flex-center-column text-center div-center green-shell-gradient-header">
+      <div class="flex-center-column text-center div-center grey-shell-gradient">
         <div class="flex-center center-div center-text padding-5">
           <input class="center-text center-div" type="text"  placeholder="search">
           <div class="btn"><i class="fas fa-search"></i></div>
         </div>
       </div>
-      <ul>
-        <li style="display: inline-block;" class="inline-list-item"><%= link_to locations_consultations_path, class: "navbar-esl-link brand-green" do %>
-          <h6 class="navbar-esl-link green-text">LOCATIONS</h6><% end %>
-        </li>
-        <li style="display: inline-block;" class="inline-list-item"><%= link_to languages_consultations_path, class: "navbar-esl-link" do %>
-          <h6 class="navbar-esl-link green-text">LANGUAGES</h6><% end %>
-        </li>
-        <li style="display: inline-block;" class="inline-list-item"><%= link_to types_consultations_path, class: "navbar-esl-link" do %>
-          <h6 class="navbar-esl-link green-text">CATEGORY</h6><% end %>
-        </li>
-      </ul>
+      <div class="hidden-xs hidden-sm">
+        <div class="navbar-esl-2">
+          <ul class="hidden-xs hidden-sm">
+            <li style="display: inline-block;" class="inline-list-item"><%= link_to locations_consultations_path, class: "navbar-esl-link brand-green" do %>
+              <h6 class="navbar-esl-link charcoal-text">LOCATIONS</h6><% end %>
+            </li>
+            <li style="display: inline-block;" class="inline-list-item"><%= link_to languages_consultations_path, class: "navbar-esl-link" do %>
+              <h6 class="navbar-esl-link charcoal-text">LANGUAGES</h6><% end %>
+            </li>
+            <li style="display: inline-block;" class="inline-list-item"><%= link_to types_consultations_path, class: "navbar-esl-link" do %>
+              <h6 class="navbar-esl-link charcoal-text">CATEGORIES</h6><% end %>
+            </li>
+            <li style="display: inline-block;" class="inline-list-item"><%= link_to periods_consultations_path, class: "navbar-esl-link" do %>
+              <h6 class="navbar-esl-link charcoal-text">PERIODS</h6><% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Dropdown appearing on mobile only -->
+      <div class="navbar-esl-item hidden-md hidden-lg">
+        <div class="navbar-esl-3">
+          <div class="home"><%= link_to consultations_path do %><i class="fa fa-home" aria-hidden="true"><% end %></i></div>
+          <div class="dropdown">
+            <i class="fa fa-filter dropdown-toggle" data-toggle="dropdown"></i>
+            <ul class="dropdown-menu dropdown-menu-right navbar-esl-dropdown-menu">
+              <li  class="inline-list-item"><%= link_to locations_consultations_path, class: "navbar-esl-link brand-green" do %>
+                <h6 class="navbar-esl-link charcoal-text">LOCATIONS</h6><% end %>
+              </li>
+              <li  class="inline-list-item"><%= link_to languages_consultations_path, class: "navbar-esl-link" do %>
+                <h6 class="navbar-esl-link charcoal-text">LANGUAGES</h6><% end %>
+              </li>
+              <li  class="inline-list-item"><%= link_to types_consultations_path, class: "navbar-esl-link" do %>
+                <h6 class="navbar-esl-link charcoal-text">CATEGORIES</h6><% end %>
+              </li>
+              <li  class="inline-list-item"><%= link_to periods_consultations_path, class: "navbar-esl-link" do %>
+                <h6 class="navbar-esl-link charcoal-text">PERIODS</h6><% end %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <div class="flex-space-between grey-shell-gradient padding-5">
         <div class="flex-33 center-div center-text"><h6><b>INSTRUCTOR</b></h6></div>
         <div class="flex-33"><h6><b>INFO</b></h6></div>

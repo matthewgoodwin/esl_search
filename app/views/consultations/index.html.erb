@@ -7,45 +7,47 @@
           <div class="btn"><i class="fas fa-search"></i></div>
         </div>
       </div>
-      <div class="navbar-esl-2">
-        <ul class="hidden-xs hidden-sm">
-          <li style="display: inline-block;" class="inline-list-item"><%= link_to locations_consultations_path, class: "navbar-esl-link brand-green" do %>
-            <h6 class="navbar-esl-link charcoal-text">LOCATIONS</h6><% end %>
-          </li>
-          <li style="display: inline-block;" class="inline-list-item"><%= link_to languages_consultations_path, class: "navbar-esl-link" do %>
-            <h6 class="navbar-esl-link charcoal-text">LANGUAGES</h6><% end %>
-          </li>
-          <li style="display: inline-block;" class="inline-list-item"><%= link_to types_consultations_path, class: "navbar-esl-link" do %>
-            <h6 class="navbar-esl-link charcoal-text">CATEGORY</h6><% end %>
-          </li>
-          <li style="display: inline-block;" class="inline-list-item"><%= link_to periods_consultations_path, class: "navbar-esl-link" do %>
-            <h6 class="navbar-esl-link charcoal-text">PERIODS</h6><% end %>
-          </li>
-        </ul>
+      <div class="hidden-xs hidden-sm">
+        <div class="navbar-esl-2">
+          <ul class="hidden-xs hidden-sm">
+            <li style="display: inline-block;" class="inline-list-item"><%= link_to locations_consultations_path, class: "navbar-esl-link brand-green" do %>
+              <h6 class="navbar-esl-link charcoal-text">LOCATIONS</h6><% end %>
+            </li>
+            <li style="display: inline-block;" class="inline-list-item"><%= link_to languages_consultations_path, class: "navbar-esl-link" do %>
+              <h6 class="navbar-esl-link charcoal-text">LANGUAGES</h6><% end %>
+            </li>
+            <li style="display: inline-block;" class="inline-list-item"><%= link_to types_consultations_path, class: "navbar-esl-link" do %>
+              <h6 class="navbar-esl-link charcoal-text">CATEGORIES</h6><% end %>
+            </li>
+            <li style="display: inline-block;" class="inline-list-item"><%= link_to periods_consultations_path, class: "navbar-esl-link" do %>
+              <h6 class="navbar-esl-link charcoal-text">PERIODS</h6><% end %>
+            </li>
+          </ul>
+        </div>
       </div>
       <!-- Dropdown appearing on mobile only -->
-      <div class="navbar-esl-3">
-        <div class="navbar-esl-item hidden-md hidden-lg">
-            <div class="dropdown">
-              <i class="fa fa-filter dropdown-toggle" data-toggle="dropdown"></i>
-              <ul class="dropdown-menu dropdown-menu-right navbar-esl-dropdown-menu">
-                <li  class="inline-list-item"><%= link_to locations_consultations_path, class: "navbar-esl-link brand-green" do %>
-                  <h6 class="navbar-esl-link charcoal-text">LOCATIONS</h6><% end %>
-                </li>
-                <li  class="inline-list-item"><%= link_to languages_consultations_path, class: "navbar-esl-link" do %>
-                  <h6 class="navbar-esl-link charcoal-text">LANGUAGES</h6><% end %>
-                </li>
-                <li  class="inline-list-item"><%= link_to types_consultations_path, class: "navbar-esl-link" do %>
-                  <h6 class="navbar-esl-link charcoal-text">CATEGORY</h6><% end %>
-                </li>
-                <li  class="inline-list-item"><%= link_to periods_consultations_path, class: "navbar-esl-link" do %>
-                  <h6 class="navbar-esl-link charcoal-text">PERIODS</h6><% end %>
-                </li>
-              </ul>
-            </div>
+      <div class="navbar-esl-item hidden-md hidden-lg">
+        <div class="navbar-esl-3">
+          <div class="home"><%= link_to consultations_path do %><i class="fa fa-home" aria-hidden="true"><% end %></i></div>
+          <div class="dropdown">
+            <i class="fa fa-filter dropdown-toggle" data-toggle="dropdown"></i>
+            <ul class="dropdown-menu dropdown-menu-right navbar-esl-dropdown-menu">
+              <li  class="inline-list-item"><%= link_to locations_consultations_path, class: "navbar-esl-link brand-green" do %>
+                <h6 class="navbar-esl-link charcoal-text">LOCATIONS</h6><% end %>
+              </li>
+              <li  class="inline-list-item"><%= link_to languages_consultations_path, class: "navbar-esl-link" do %>
+                <h6 class="navbar-esl-link charcoal-text">LANGUAGES</h6><% end %>
+              </li>
+              <li  class="inline-list-item"><%= link_to types_consultations_path, class: "navbar-esl-link" do %>
+                <h6 class="navbar-esl-link charcoal-text">CATEGORIES</h6><% end %>
+              </li>
+              <li  class="inline-list-item"><%= link_to periods_consultations_path, class: "navbar-esl-link" do %>
+                <h6 class="navbar-esl-link charcoal-text">PERIODS</h6><% end %>
+              </li>
+            </ul>
           </div>
         </div>
-
+      </div>
       <div class="flex-space-between grey-shell-gradient padding-5">
         <div class="flex-33 center-div center-text"><h6><b>INSTRUCTOR</b></h6></div>
         <div class="flex-33"><h6><b>INFO</b></h6></div>
