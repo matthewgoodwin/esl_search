@@ -1,13 +1,48 @@
-<div class="container">
-  <div class="row">
-    <% @consult_location_links.each do |cloc_link| %>
-      <div class="col-xs-6 col-sm-6">
-        <div class="white card1 center-text">
-          <%= link_to location_consultations_path(consult_location: cloc_link) do %>
-            <h6><%= cloc_link %></h6>
-          <% end %><!--end of link-->
-        </div><!--end white card1 center-text-->
-      </div><!--col-xs-6 col-sm-6-->
-    <% end %><!--end of cloc_link-->
-  </div><!--row-->
-</div><!--container-->
+<div class="content-grid element-index-area">
+  <div class="element-index-shell shell-border">
+    <div style="background-color: white;">
+      <div class="flex-center-column text-center div-center grey-shell-gradient">
+        <div class="flex-center center-div center-text padding-5">
+          <input class="center-text center-div" type="text"  placeholder="search">
+          <div class="btn"><i class="fas fa-search"></i></div>
+        </div>
+      </div>
+      <!-- Dropdown appearing on all devices -->
+      <div class="navbar-esl-item">
+        <div class="navbar-esl-3">
+          <div class="home"><%= link_to consultations_path do %><i class="fa fa-home" aria-hidden="true"><% end %></i></div>
+          <div class="dropdown">
+            <i class="fa fa-filter dropdown-toggle" data-toggle="dropdown"></i>
+            <ul class="dropdown-menu dropdown-menu-right navbar-esl-dropdown-menu">
+              <li  class="inline-list-item"><%= link_to locations_consultations_path, class: "navbar-esl-link brand-green" do %>
+                <h6 class="navbar-esl-link charcoal-text">LOCATIONS</h6><% end %>
+              </li>
+              <li  class="inline-list-item"><%= link_to languages_consultations_path, class: "navbar-esl-link" do %>
+                <h6 class="navbar-esl-link charcoal-text">LANGUAGES</h6><% end %>
+              </li>
+              <li  class="inline-list-item"><%= link_to types_consultations_path, class: "navbar-esl-link" do %>
+                <h6 class="navbar-esl-link charcoal-text">CATEGORIES</h6><% end %>
+              </li>
+              <li  class="inline-list-item"><%= link_to periods_consultations_path, class: "navbar-esl-link" do %>
+                <h6 class="navbar-esl-link charcoal-text">PERIODS</h6><% end %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <% @consult_location_links.each do |cloc_link| %>
+            <div class="col-xs-6 col-sm-6">
+              <div class="white-background card1 center-text">
+                <%= link_to location_consultations_path(consult_location: cloc_link) do %>
+                  <h6><%= cloc_link %></h6>
+                <% end %><!--end of link-->
+              </div><!--end white card1 center-text-->
+            </div><!--col-xs-6 col-sm-6-->
+          <% end %><!--end of cloc_link-->
+        </div><!--row-->
+      </div><!--container-->
+    </div>
+  </div>
+</div>

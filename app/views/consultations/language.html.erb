@@ -7,26 +7,8 @@
           <div class="btn"><i class="fas fa-search"></i></div>
         </div>
       </div>
-      <div class="hidden-xs hidden-sm">
-        <div class="navbar-esl-2">
-          <ul class="hidden-xs hidden-sm">
-            <li style="display: inline-block;" class="inline-list-item"><%= link_to locations_consultations_path, class: "navbar-esl-link brand-green" do %>
-              <h6 class="navbar-esl-link charcoal-text">LOCATIONS</h6><% end %>
-            </li>
-            <li style="display: inline-block;" class="inline-list-item"><%= link_to languages_consultations_path, class: "navbar-esl-link" do %>
-              <h6 class="navbar-esl-link charcoal-text">LANGUAGES</h6><% end %>
-            </li>
-            <li style="display: inline-block;" class="inline-list-item"><%= link_to types_consultations_path, class: "navbar-esl-link" do %>
-              <h6 class="navbar-esl-link charcoal-text">CATEGORIES</h6><% end %>
-            </li>
-            <li style="display: inline-block;" class="inline-list-item"><%= link_to periods_consultations_path, class: "navbar-esl-link" do %>
-              <h6 class="navbar-esl-link charcoal-text">PERIODS</h6><% end %>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- Dropdown appearing on mobile only -->
-      <div class="navbar-esl-item hidden-md hidden-lg">
+      <!-- Dropdown appearing on all devices -->
+      <div class="navbar-esl-item">
         <div class="navbar-esl-3">
           <div class="home"><%= link_to consultations_path do %><i class="fa fa-home" aria-hidden="true"><% end %></i></div>
           <div class="dropdown">
