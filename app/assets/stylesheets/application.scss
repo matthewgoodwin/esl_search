@@ -1,3 +1,5 @@
+@import "simple_calendar"; // do not use *= requre simple calendar
+
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
@@ -8,11 +10,14 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+// import bootstrap-sprockets before bootstrap if using bootstrap >= 3.2
+@import 'bootstrap-datetimepicker';
 
 // Your CSS partials
 @import "layouts/index"; // go to 'layouts/index.scss'
 @import "components/index";
 @import "pages/index"; // go to 'pages/index.scss'
+
 
 *{
   margin: 0;

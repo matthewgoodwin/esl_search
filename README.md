@@ -1,4 +1,8 @@
 # README
+_new_lesson_form:
+
+      <%= f.input :lesson_start, as: :time, label: "start" %>
+
 @consultation.consult_freq << consultation_params[:consult_freq]
 consultation_params[:consult_freq]
 <!-- for issues with server :

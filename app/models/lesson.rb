@@ -3,5 +3,5 @@ class Lesson < ApplicationRecord
   has_many :appointments, dependent: :destroy
 
   validates :lesson_level, :lesson_section, :lesson_start, presence: true
-  validates :lesson_capacity, :lesson_dow, presence: true
+  validates :lesson_capacity, presence: true
 end

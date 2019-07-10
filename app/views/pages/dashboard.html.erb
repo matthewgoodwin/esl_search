@@ -50,6 +50,12 @@
         </li>
       </ul><!--end of dashboard-user-panel-links-list -->
     </div><!--end of unordered-list-->
+    <div class="calendar-div shell-tab-header-dark charcoal-text">
+      <!-- https://github.com/excid3/simple_calendar -->
+      <%= week_calendar number_of_weeks: 1 do |d| %>
+        <%= d.day %>
+      <% end %>
+    </div>
   </div><!--end of dashboard-user-panel-links-shell-->
   <div class="dashboard-messages-shell shell-border grey-shell-gradient padding-5">
     <div class="flex-center-center">
@@ -152,7 +158,7 @@
   <div class="modal fade appointment-mod-style" id="create-new-consultation-class">
     <div class="modal-dialog" role="document"><!--aligns the modal document-->
       <div class="modal-content">
-        <div class="modal-header modal-head-grad flex flex-center-center green-shell-gradient-header">
+        <div class="modal-header modal-head-grad flex flex-center-center grey-shell-gradient">
           <h3 class="create-appointment-modal-header text-center">Create New Class</h3>
         </div><!--end of header-->
         <div class="modal-body">

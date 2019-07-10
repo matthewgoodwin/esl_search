@@ -10,8 +10,10 @@
       </ul>
     </div>
   <% end %>
-  <%= f.input :subject, label: "subject:", placeholder: "subject" %>
-  <%= f.input :textmess, label: "message:", placeholder:"100 character limit!", as: :text %>
+  <h6> subject <span class="red-text">&#42;</span></h6>
+  <%= f.input :subject, label: false, placeholder: "re:" %>
+  <h6> message <span class="red-text">&#42;</span></h6>
+  <%= f.input :textmess, label: false, placeholder:"299 character limit!", as: :text %>
   <div class="message-button-div flex flex-center">
     <%= f.button :submit, "send", class: "btn btn-primary no-decor btn-grad-light light-shadow" %>
   </div><!-- end of message-button-div -->

@@ -1,19 +1,42 @@
 <div class="lesson-form-div">
+  <script type="text/javascript">
+    $(function() {
+      const $pickerInput = $('.date_time_picker input.date_time_picker');
+      const initialValue = $pickerInput.val();
+      $('.date_time_picker > .input-group.date').datetimepicker({ format: 'YYYY-MM-DD HH:mm:ss' });
+      return $pickerInput.val(initialValue);
+    });
+  </script>
+  <div >
+    <h5 class="red-text">* = required</h6>
+  </div>
   <%= simple_form_for([consultation, lesson], remote: true) do |f| %>
-    <%= f.input :lesson_section, label: "section number", placeholder:"(ex: 1)"%>
-    <%= f.input :lesson_level, label: false, prompt:"skill level" ,collection: ["everyone","beginner","intermediate","advanced"] %>
+    <h6>section number <span class="red-text">&#42;</span></h6>
+    <%= f.input :lesson_section, label: false, placeholder:"(e.g., 1)"%>
+    <h6>choose a skill level <span class="red-text">&#42;</span></h6>
+    <%= f.input :lesson_level, label: false, prompt:"-select-" ,collection: ["everyone","beginner","intermediate","advanced"] %>
     <% if consultation.consult_period == 'hourly' %>
-      <%= f.input :lesson_start, as: :time, label: "start" %>
-      <%= f.input :lesson_capacity, label:"max capacity", as: :hidden, input_html: {value: 1} %>
+      <!-- :lesson_start, as: :time, label: "start" -->
+      <%= f.input :lesson_start, as: :date_time_picker %>
+      <h6>maximum time <span class="red-text">&#42;</span></h6>
+      <%= f.input :lesson_capacity, label: false, as: :hidden, input_html: {value: 1} %>
       <%= f.input :lesson_max_dur, class: 'flex-center-center', label: false, prompt: "time limit", collection: [[0, 'no limit'],[60, '1 hour'], [120, '2 hours'], [180, '3 hours']], label_method: :second, value_method: :first %>
     <% else  %>
-      <%= f.input :lesson_capacity, label: "max enrollment:" %>
-      <%= f.input :lesson_start, as: :time, label: "start" %>
-      <%= f.input :lesson_end, as: :time, label: "end" %>
+    <h6>maximum student enrollment <span class="red-text">&#42;</span></h6>
+      <%= f.input :lesson_capacity, label: false, placeholder:"(e.g., 1)" %>
+      <div class="lesson-start-time">
+        <h6>start time <span class="red-text">&#42;</span></h6>
+      <%= f.input :lesson_start, as: :date_time_picker %>
+      <h6>end time <span class="red-text">&#42;</span></h6>
+      <%= f.input :lesson_end, as: :date_time_picker %>
+      </div>
     <% end %>
     <div>
+      <h6>available days (optional) :</h6>
       <div class="flex-space-between">
-        <%= f.input :lesson_dow, class: 'flex-center-center', prompt: "available days", label: "available days:", as: :check_boxes, collection: [['monday','monday'], ['tuesday','tuesday'], ['wednesday','wednesday'], ['thurdsay','thurdsay'],['friday','friday'],['saturday','saturday'],['sunday','sunday'],['weekdays','weekdays']], label_method: :second, value_method: :first %>
+        <h6>
+        <%= f.input :lesson_dow, class: 'flex-center-center', prompt: "available days", label: false, as: :check_boxes, collection: [['monday','monday'], ['tuesday','tuesday'], ['wednesday','wednesday'], ['thurdsay','thurdsay'],['friday','friday'],['saturday','saturday'],['sunday','sunday'],['weekdays','weekdays']], label_method: :second, value_method: :first %>
+        </h6>
       </div><!--end of flex-space-between-->
     </div>
     <div class="lesson-button-div flex flex-center">

@@ -20,6 +20,13 @@ gem 'devise'
 
 gem 'pundit'
 
+gem "simple_calendar", "~> 2.0"
+# https://github.com/excid3/simple_calendar
+
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+# https://github.com/TrevorS/bootstrap3-datetimepicker-rails
+
 ruby '2.3.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.4'

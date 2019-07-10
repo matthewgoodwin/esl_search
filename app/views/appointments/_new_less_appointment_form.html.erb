@@ -1,6 +1,7 @@
 <div class="">
   <%= simple_form_for([lesson, appointment]) do |f| %>
-    <%= f.input :pupil, label: false, placeholder: "client name" %>
+  <h6> name <span class="red-text">&#42;</span></h6>
+    <%= f.input :pupil, label: false, placeholder: "-your name-" %>
     <%= f.button :submit, class:"btn btn-primary" %>
   <% end %>
 </div>
