@@ -22,18 +22,20 @@
   </div><!--end of flex 25-->
   <div class="flex-25"><h6><%= element.lesson_level %></h6></div>
   <% if @consultation.consult_period == 'hourly' %>
-    <div class="flex-25"><h6><%= element.lesson_start.strftime('%I:%M %p') %></h6><h6><%= element.lesson_max_dur %>&nbsp;mins max</h6></div>
+    <div class="flex-25"><h6 class=""><%= element.lesson_start.strftime('%m/%d')%></h6><h6 class="green-text"><%= element.lesson_start.strftime('%I:%M %p') %></h6><h6><%= element.lesson_max_dur %>&nbsp;mins max</h6></div>
     <div class="flex-25 center-text"> <!-- lesson info -->
       <div class="center-text">
+        <h6><%= element.lesson_start.strftime('%A')%></h6>
         <%= link_to lesson_path(element) do %>
           <i class="fas fa-info-circle" aria-hidden="true"></i>
         <% end %>
       </div>
     </div><!-- end of lesson info -->
   <% elsif  @consultation.consult_period == 'single-class'  %>
-    <div class="flex-25"><h6><%= element.lesson_start.strftime('%m/%d')%></h6><h6 class="green-text"><%= element.lesson_start.strftime('%I:%M %p')%></h6><h6 class="red-text"><%= element.lesson_end.strftime('%I:%M %p')%></h6></div>
+    <div class="flex-25"><h6 class=""><%= element.lesson_start.strftime('%m/%d')%></h6><h6 class="green-text"><%= element.lesson_start.strftime('%I:%M %p')%></h6><h6 class="red-text"><%= element.lesson_end.strftime('%I:%M %p')%></h6></div>
     <div class="flex-25 center-text"> <!-- lesson info -->
       <div class="center-text">
+        <h6><%= element.lesson_start.strftime('%A')%></h6>
         <%= link_to lesson_path(element) do %>
           <i class="fas fa-info-circle" aria-hidden="true"></i>
         <% end %>
