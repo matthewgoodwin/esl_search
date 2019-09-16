@@ -1,4 +1,5 @@
 class ConsultationsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show, :location, :type, :period, :language, :locations, :types, :periods, :languages]
   before_action :find_consultation, only: [:show, :edit, :update, :destroy]
   before_action :consultation_params, only: [:create]
   before_action :location_params, only: [:location]
