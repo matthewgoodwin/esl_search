@@ -9,6 +9,7 @@
       <div class="user-large-profile-image-img icon-shell-dark" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
     </div><!--end of user-profile-image-div-->
     <div class="padding-5">
+      <% if user_signed_in? %>
       <div class="flex-space-between">
         <h6>Email:</h6>
         <h6><%= @consultation.user.email %></h6>
@@ -33,6 +34,9 @@
         <h6>Major:</h6>
         <h6><%= @consultation.user.subjectmajor %></h6>
       </div>
+      <% else %>
+      <div><h6 class="red-text center-text">sign in for contact details!</h6></div>
+      <% end %>
       <div class="flex-column">
         <h6 class="center-text">About me:</h6>
         <h6 class=""><%= @consultation.user.aboutme %></h6>
