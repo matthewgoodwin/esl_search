@@ -32,6 +32,7 @@
       <h6> specific focus (optional) </h6>
       <%= f.input :consult_focus, label: false, placeholder: "limit 30 characters!"%>
       <div>
+        <h6>200 - 2000 characters <span class="red-text">&#42;</span></h6>
         <%= f.input :consult_desc, label: false, placeholder: "class descriptions, prerequisites and recommendations", as: :text %>
         <div class="consultation-button-div flex flex-center">
         <%= f.button :submit, "create class", class: "btn btn-primary no-decor btn-grad-light light-shadow center-div center-text" %>
