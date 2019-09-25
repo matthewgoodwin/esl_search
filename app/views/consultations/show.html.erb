@@ -73,8 +73,8 @@
           <div class="modal fade lesson-mod-style" id="lesson-form-<%= l.id %>">
             <div class="modal-dialog" role="document"><!--aligns the modal document-->
               <div class="modal-content">
-                <div class="modal-header modal-head-grad flex flex-center">
-                  <h3 class="lesson-modal-header">Booking for section: '<%= l.lesson_section %>'</h3>
+                <div class="modal-header modal-head-grad flex flex-center-center grey-shell-gradient">
+                  <h3 class="lesson-modal-header">Book Section:&nbsp;<%= l.lesson_section %> </h3>
                 </div><!--end of header-->
                 <div class="modal-body flex flex-center-center">
                   <%= render "appointments/new_less_appointment_form", lesson: l, appointment: @appointment %>

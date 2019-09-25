@@ -21,7 +21,7 @@
     <%= f.input :user_phone, label: 'mobile number', error: 'please enter your mobile number', required: true, autofocus: true %>
     <%= f.input :user_kakao_id, label: 'kakao id', error: 'please enter kakao id', required: true, autofocus: true %>
     <%= f.input :subjectmajor, label: 'university major', autofocus: true %>
-    <%= f.input :edulevel, label: 'education level', error: 'please specify the highest education attained', autofocus: true %>
+    <%= f.input :edulevel, label: 'education level', collection: ["associate's","bachelor's","master's","doctoral","professional"], error: 'please specify the highest education attained', autofocus: true %>
     <div class="aboutyou">
       <%= f.input :aboutme, label: "about me", placeholder: "300 character limit!", as: :text %>
     </div>
