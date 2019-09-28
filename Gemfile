@@ -59,6 +59,9 @@ gem "letter_opener", group: :development
 gem 'cloudinary'
 gem 'carrierwave', '~>1.2'
 
+# Gemfile for Rails 3+, Sinatra, or Merb
+gem 'will_paginate', '~> 3.1.1'
+
 group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"

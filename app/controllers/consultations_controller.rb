@@ -9,7 +9,8 @@ class ConsultationsController < ApplicationController
   skip_after_action :verify_authorized, only: [:locations, :location, :languages, :language, :types, :type, :periods, :period]
   def index
     #@consultations = Consultation.all
-    @consultations = policy_scope(Consultation)
+    @consultations = policy_scope(Consultation).paginate(page: params[:page], per_page: 8)
+    # @consultations.paginate(page: params[:pages])
 # @consultations.each do |c|
 # if c.reviews.all.map{|x| [x.star]} == []
 # else
@@ -113,7 +114,7 @@ class ConsultationsController < ApplicationController
   end
 
   def location
-    @consult_loc_group = Consultation.where(consult_location: @consult_loc)
+    @consult_loc_group = Consultation.where(consult_location: @consult_loc).paginate(page: params[:page], per_page: 8)
     # location param from Consultations#locations view as link 'cloc_link'
     # @consult_loc from private
     # raise
@@ -132,7 +133,7 @@ class ConsultationsController < ApplicationController
   end
 
   def language
-    @consult_lang_group = Consultation.where(consult_language: @consult_lang)
+    @consult_lang_group = Consultation.where(consult_language: @consult_lang).paginate(page: params[:page], per_page: 8)
   end
 
   def types
@@ -146,7 +147,7 @@ class ConsultationsController < ApplicationController
   end
 
   def type
-    @consult_type_group = Consultation.where(consult_type: @consult_type)
+    @consult_type_group = Consultation.where(consult_type: @consult_type).paginate(page: params[:page], per_page: 8)
   end
 
   def periods
@@ -160,7 +161,7 @@ class ConsultationsController < ApplicationController
   end
 
   def period
-    @consult_period_group = Consultation.where(consult_period: @consult_period)
+    @consult_period_group = Consultation.where(consult_period: @consult_period).paginate(page: params[:page], per_page: 8)
   end
 
   private

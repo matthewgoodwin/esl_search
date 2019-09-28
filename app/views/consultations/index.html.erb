@@ -39,5 +39,6 @@
         <%= render 'consultations/index', element: consult %>
       <% end %><!--end of @consultations.each do-->
     </div><!--color:white-->
+    <%= will_paginate @consultations %>
   </div><!-- end of consultations-index-shell-->
 </div><!--end of consult-index-area-->
