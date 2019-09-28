@@ -16,9 +16,10 @@
         <%= f.input :user_second_lang, label: 'secondary language', collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"], error: 'your native language is required, please specify one', required: true, autofocus: true %>
         <%= f.input :gender, label: "gender", collection: ["male","female"], error: 'your gender is mandatory, please specify one', required: true, autofocus: true %>
         <%= f.input :email, label: 'email', error: 'an email address is mandatory, please specify one', required: true, autofocus: true %>
-        <%= f.input :address, label: 'address (optional*)', autofocus: true %>
+        <%= f.input :address, label: 'address ( optional *)', autofocus: true %>
         <%= f.input :city, label: 'city', error: 'your city name is mandatory, please specify one', required: true, autofocus: true %>
-        <%= f.input :user_phone, label: 'mobile number', error: 'please enter your mobile number', autofocus: true %>
+        <%= f.input :town, label: 'town ( optional )', autofocus: true %>
+        <%= f.input :user_phone, label: 'mobile number', error: 'mobile number', autofocus: true %>
         <%= f.input :user_kakao_id, label: 'kakao id', error: 'please enter kakao id', autofocus: true %>
         <div class="instructor-registration">
           <%= f.input :edu, label: 'school (optional)', autofocus: true  %>

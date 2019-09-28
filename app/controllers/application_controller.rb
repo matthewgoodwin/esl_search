@@ -24,9 +24,9 @@ class ApplicationController < ActionController::Base
   #end of pun
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :fname, :lname, :user_native_lang, :user_second_lang, :city, :user_phone, :user_kakao_id, :user_nation, :address, :email, :gender, :instructor_reg, :edu, :aboutme, :subjectmajor, :edulevel, :password, :photo, :photo_cache])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :fname, :lname, :user_native_lang, :user_second_lang, :city, :town, :user_phone, :user_kakao_id, :user_nation, :address, :email, :gender, :instructor_reg, :edu, :aboutme, :subjectmajor, :edulevel, :password, :photo, :photo_cache])
 
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :fname, :lname, :user_native_lang, :user_second_lang, :user_phone, :user_kakao_id, :city, :user_nation, :address, :email, :gender, :instructor_reg, :edu, :aboutme, :subjectmajor, :edulevel, :password, :photo, :photo_cache])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :fname, :lname, :user_native_lang, :user_second_lang, :city, :town, :user_phone, :user_kakao_id, :user_nation, :address, :email, :gender, :instructor_reg, :edu, :aboutme, :subjectmajor, :edulevel, :password, :photo, :photo_cache])
   end
 end
