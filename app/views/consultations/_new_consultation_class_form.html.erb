@@ -11,18 +11,19 @@
           </ul>
         </div>
       <% end %>
-      <h6> class title <span class="red-text">&#42;</span></h6>
-      <%= f.input :consult_title, label: false, placeholder: "class title" %>
+      <h6>title <span class="red-text">&#42;</span></h6>
+      <%= f.input :consult_title, label: false, placeholder: "title" %>
       <h6> primary langauage <span class="red-text">&#42;</span></h6>
       <%= f.input :consult_language, label: false, default: ["English"] ,collection: ["English", "Hangul - Korean", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"] %>
       <h6> secondary language (optional) :</h6>
       <%= f.input :consult_sec_lang, label: false, default: [ "none" ], collection: ["none", "English", "Hangul - Korean", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"]%>
       <h6> group <span class="red-text">&#42;</span></h6>
       <%= f.input :consult_demo, label: false, default: ["everyone"], collection: ["everyone", "kindergarten", "elementary-primary", "middle school", "high school-secondary", "adult"] %>
-      <h6> class type <span class="red-text">&#42;</span></h6>
-      <%= f.input :consult_type, label: false, collection: ["grammar-based", "verbal-skills", "hobby-based", "trade-based", "freelance teacher", "proof reading","conversation (only)","voice call", "interview prep", "speech prep", "translation", "exam-prep", "other"], prompt: "-select type-"%>
+      <h6>type <span class="red-text">&#42;</span></h6>
+      <%= f.input :consult_type, label: false, collection: ["camp", "conversation", "education",  "exam-prep", "group / club", "hobby", "interview prep","phone-only", "speech-prep", "trade / industry", "translation", "other"], prompt: "-select type-" %>
         <h6> location <span class="red-text">&#42;</span></h6>
         <%= f.input :consult_location, label: false, placeholder: "city"%>
+        <%= f.input :consult_location_town, label: false, placeholder: "town ( optional )" %>
       <h6> term <span class="red-text">&#42;</span></h6>
       <%= f.input :consult_period, label: false, default: ["hourly"], collection: ["hourly", "single-class", "one-week", "one-month", "3 month term"]%>
       <div>
@@ -34,11 +35,12 @@
       </div>
       <h6> materials included? <span class="red-text">&#42;</span></h6>
       <%= f.input :matincluded, label: false, as: :radio_buttons, collection:[["yes","yes"], ["no","no"]], label_method: :second, value_method: :first, checked: ["no","no"]%>
-      <h6> specific focus (optional) </h6>
-      <h6> max 30 characters</h6>
-      <%= f.input :consult_focus, label: false, placeholder: "limit 30 characters!"%>
+      <h6> specific focus (optional)&nbsp;: </h6>
+      <h6><span class="red-text">max 30 characters</span></h6>
+      <%= f.input :consult_focus, label: false, placeholder: "e.g. grammar"%>
       <div>
-        <h6>200 - 2000 characters <span class="red-text">&#42;</span></h6>
+        <h6>descripton&nbsp;:</h6>
+          <h6><span class="red-text">200 - 2000 characters &#42;</span></h6>
         <%= f.input :consult_desc, label: false, placeholder: "descriptions, prerequisites and recommendations", as: :text %>
         <div class="consultation-button-div flex flex-center">
         <%= f.button :submit, "create class", class: "btn btn-primary no-decor btn-grad-light light-shadow center-div center-text" %>

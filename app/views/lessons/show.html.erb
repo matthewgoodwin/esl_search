@@ -5,7 +5,8 @@
     </div>
     <div style="background-color: #3C3C3C; color: white;" class="padding">
       <h5>Class:&nbsp;<%= @lesson.consultation.consult_title %></h5>
-      <h5>Location:&nbsp;<%= @lesson.consultation.consult_location %></h5>
+      <h5>City:&nbsp;<%= @lesson.consultation.consult_location %></h5>
+      <h5>Town:&nbsp;<%= @lesson.consultation.consult_location_town %></h5>
       <h5 style="color: red;">Class&nbsp;Time:&nbsp;<%= @lesson.lesson_start %></h5>
       <% @lesson.lesson_dow.shift %>
       <!-- ^ 'shift' drops the first default black space in lessons_dow array-->
