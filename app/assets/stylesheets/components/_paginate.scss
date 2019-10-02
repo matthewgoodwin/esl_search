@@ -1,0 +1,33 @@
+.pagination {
+  display: inline-block;
+}
+
+.pagination a{
+  border: .5px solid #a6a6a6;
+  border-radius: 5%;
+  margin: .5px;
+  color: black;
+  // padding: 5px, 5px;
+  text-decoration: none;
+  padding: .6em;
+    height: 4%;
+    overflow: hidden;
+    &:hover, &:focus{
+      text-decoration: underline;
+    }
+}
+.current{
+  border: .6px solid #d9d9d9;
+  background-color: #d9d9d9;
+  color: black;
+  text-align: center;
+  margin: .5px;
+  padding: .6em;
+  height: 4%;
+  cursor: default;
+}
+.disabled{
+  color: #d9d9d9;
+  //at last search page 'Previous' and 'Next' are grey
+}
+

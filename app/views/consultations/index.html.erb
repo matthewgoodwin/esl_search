@@ -39,6 +39,12 @@
         <%= render 'consultations/index', element: consult %>
       <% end %><!--end of @consultations.each do-->
     </div><!--color:white-->
-    <%= will_paginate @consultations %>
+    <div class="center-text center-div">
+      <div class="">
+        <!-- will_pagination (below) is a div w/ class called "pagination"
+          this is refernced in _paginate.scss, but can be overwritten-->
+        <%= will_paginate @consultations %>
+      </div>
+    </div>
   </div><!-- end of consultations-index-shell-->
 </div><!--end of consult-index-area-->
