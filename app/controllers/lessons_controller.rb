@@ -15,6 +15,9 @@ class LessonsController < ApplicationController
   def create
     @lesson = Lesson.new(lesson_params)
     @lesson.consultation = @consultation
+    @i = @consultation.lessons.last.lesson_section.to_i
+    @n = @i +1
+    @lesson.lesson_section = @n
     authorize @lesson
     if @lesson.save
       flash[:notice] = "Your lesson has been added!"

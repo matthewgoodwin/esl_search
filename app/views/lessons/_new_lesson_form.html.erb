@@ -12,7 +12,6 @@
   </div>
   <%= simple_form_for([consultation, lesson], remote: true) do |f| %>
     <h6>section number <span class="red-text">&#42;</span></h6>
-    <%= f.input :lesson_section, label: false, placeholder:"(e.g., 1)"%>
     <h6>choose a skill level <span class="red-text">&#42;</span></h6>
     <%= f.input :lesson_level, label: false, prompt:"-select-" ,collection: ["everyone","beginner","intermediate","advanced"] %>
     <% if consultation.consult_period == 'hourly'%>
@@ -24,7 +23,6 @@
     <% elsif consultation.consult_period == 'single-class' %>
       <div class="lesson-start-time">
         <h6>maximum student enrollment <span class="red-text">&#42;</span></h6>
-        <%= f.input :lesson_capacity, label: false, placeholder:"(e.g., 1)" %>
         <h6>start time <span class="red-text">&#42;</span></h6>
         <%= f.input :lesson_start, as: :date_time_picker %>
         <h6>end time <span class="red-text">&#42;</span></h6>
@@ -33,7 +31,6 @@
       <%= f.input :lesson_capacity, label: false, as: :hidden, input_html: {value: 1} %>
     <% else  %>
     <h6>maximum student enrollment <span class="red-text">&#42;</span></h6>
-      <%= f.input :lesson_capacity, label: false, placeholder:"(e.g., 1)" %>
       <div class="lesson-start-time">
         <h6>start time <span class="red-text">&#42;</span></h6>
       <%= f.input :lesson_start, as: :date_time_picker %>
