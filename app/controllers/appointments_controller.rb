@@ -36,8 +36,8 @@ class AppointmentsController < ApplicationController
       @appointment.save
       @client.save
       @receipt.save
-      AppointmentMailer.confirmation(@appointment).deliver_now
-      AppointmentMailer.confirmationx(@appointment).deliver_now
+      # AppointmentMailer.confirmation(@appointment).deliver_now
+      # AppointmentMailer.confirmationx(@appointment).deliver_now
       # ^ calls app/mailers/appointment_mailer.rb ; before redirect
       flash[:notice] = 'Your appointment is set! Please check your email for confirmation!'
       redirect_to appointment_path(@appointment)

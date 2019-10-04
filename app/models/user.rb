@@ -17,7 +17,7 @@ class User < ApplicationRecord
          validates :fname, :lname, :email, :city, :address, presence: true
          validates :fname, uniqueness: {scope: :email, message: "already a memeber? please log in!"}
   private
-    def anyeong
-      UserMailer.welcome(self).deliver_now
-    end
+    # def anyeong
+    #   UserMailer.welcome(self).deliver_now
+    # end
 end
