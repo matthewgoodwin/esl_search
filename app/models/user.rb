@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  after_create :anyeong
+  # after_create :anyeong
   # ^ sends welcome letter after creation
 
   # Include default devise modules. Others available are:
