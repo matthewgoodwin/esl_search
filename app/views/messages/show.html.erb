@@ -4,7 +4,7 @@
   <div class="message-show-subject-div shell-border-no-pad grey-shell-gradient">
     <div class="flex-space-between padding">
       <div class="flex-33 center-text center-div">
-      <% avatar_url = @message.user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
+      <% avatar_url = @message.user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
           <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
       <div class="user-md-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 50px; width: 50px; border-radius: 50%; background-position: center;"></div>
       </div>

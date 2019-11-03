@@ -2,7 +2,7 @@
 <%= link_to user_path(element) do %>
   <div class="dash-shell-tab flex-space-between dashbaoard-client-list-items grey-tab-gradient">
     <div class="flex-33">
-    <% avatar_url = element.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
+    <% avatar_url = element.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
     <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
     </div><!--end of client-item-->
     <div class="flex-67 center-text charcoal-text"><h6><%= element.fname %></h6></div>

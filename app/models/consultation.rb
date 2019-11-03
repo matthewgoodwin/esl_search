@@ -9,9 +9,9 @@ class Consultation < ApplicationRecord
 
   validates :consult_title, :consult_language, :consult_type, :consult_period, presence: true
   validates :consultfee, :consult_desc, :consult_demo, :consult_location, presence: true
-  validates :consult_focus, length: { maximum: 30, too_long: "%{count} characters is the maximum allowed. Please shorten your description!" }
+  validates :consult_focus, length: { maximum: 100, too_long: "%{count} characters is the maximum allowed. Please shorten your description!" }
   validates :consult_desc, length: { maximum: 2000, too_long: "%{count} characters is the maximum allowed. Please shorten your description!" }
-  validates :consult_desc, length: { minimum: 200, too_short: "%{count} characters is the minimum allowed. Please provide a longer description!" }
+  validates :consult_desc, length: { minimum: 100, too_short: "%{count} characters is the minimum allowed. Please provide a longer description!" }
   #validates :consult_desc, length: { in: 200..2000, wrong_length: "your description must be between 200 and 2000 characters" }
   before_save :proper_format
   private

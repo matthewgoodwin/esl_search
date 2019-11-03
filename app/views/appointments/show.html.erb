@@ -18,7 +18,7 @@
   <div class="appoint-show-instructor-shell shell-border turcoise-shell-gradient" >
     <h3 class="appoint-show-role-head center-text">Instructor</h3>
     <div class="user-profile-image-div">
-      <% avatar_url = @appointment.consultation.user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
+      <% avatar_url = @appointment.consultation.user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
         <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
       <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
     </div><!--end of user-profile-image-div-->
@@ -31,7 +31,7 @@
   <div class="appoint-show-client-shell shell-border green-shell-gradient">
     <h3 class="appoint-show-role-head center-text">Client</h3>
     <div class="user-profile-image-div">
-      <% avatar_url = @appointment.user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
+      <% avatar_url = @appointment.user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
           <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
       <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
     </div><!--end of user-profile-image-div find: _usericon.scss-->

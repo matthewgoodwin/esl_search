@@ -5,6 +5,7 @@
   <div class="flex-25">
     <h6><%= truncate(element.consult_type) %></h6>
     <h6><%= number_to_currency(element[:consultfee], :unit => "₩")%></h6>
+    <h6><%= element.consult_period %></h6>
   </div>
   <div class="flex-25 center-text">
     <%= link_to consultation_path(element) do %>

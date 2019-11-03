@@ -22,6 +22,12 @@ class LessonsController < ApplicationController
       @n = @i +1
       @lesson.lesson_section = @n
     end
+    if @lesson.consultation.consult_period == 'hourly'
+      @max_mins = @lesson.lesson_max_dur * 60
+      @lesson.lesson_end = @lesson.lesson_start + @max_mins
+    else
+    end
+
     authorize @lesson
     if @lesson.save
       flash[:notice] = "Your lesson has been added!"

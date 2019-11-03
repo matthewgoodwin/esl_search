@@ -15,12 +15,12 @@
         <h6 class="navbar-esl-item navbar-esl-link">dashboard</h6>
       <% end %>
     </div>
-    <%= link_to consultations_path do %><div class=""><i class="fas fa-search brand-gray"></i></div><% end %>
+    <%= link_to consultations_path do %><div class=""><i class="fas fa-search fa-lg brand-gray"></i></div><% end %>
     <!-- Profile picture with dropdown list -->
     <div class="navbar-esl-item">
       <div class="dropdown">
         <div class="dropdown-toggle"  id="navbar-esl-menu" data-toggle="dropdown" >
-        <% user_signed_in? ? avatar_url = current_user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" : avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon_arl6kj.png" %>
+        <% user_signed_in? ? avatar_url = current_user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" : avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
         <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
           <div class="user-sm-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 50px; width: 50px; border-radius: 50%; background-position: center;"></div>
         </div><!--end of icon-div-->
