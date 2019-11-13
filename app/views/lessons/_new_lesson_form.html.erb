@@ -1,10 +1,18 @@
 <div class="lesson-form-div">
   <script type="text/javascript">
     $(function() {
+      // date-picker --> date_time_picker.rb
       const $pickerInput = $('.date_time_picker input.date_time_picker');
       const initialValue = $pickerInput.val();
-      $('.date_time_picker > .input-group.date').datetimepicker({ format: 'YYYY-MM-DD HH:mm:ss' });
+      $('.date_time_picker > .input-group.date').datetimepicker({ format: 'YYYY-MM-DD HH:mm' });
+      // time-picker --> time_picker_input.rb
+      // simple: $('.time_picker > .input-group.time').datetimepicker({format: 'LT'});
+      const $timeInput = $('.time_picker input.time_picker');
+      const startValue = $timeInput.val();
+      $('.time_picker > .input-group.time').datetimepicker({ format: 'HH:mm' });
+
       return $pickerInput.val(initialValue);
+      return $timeInput.val(startValue);
     });
   </script>
   <div >
@@ -26,7 +34,7 @@
         <h6>start time <span class="red-text">&#42;</span></h6>
         <%= f.input :lesson_start, as: :date_time_picker %>
         <h6>end time <span class="red-text">&#42;</span></h6>
-        <%= f.input :lesson_end, as: :date_time_picker %>
+        <%= f.input :lesson_end, as: :time_picker %>
       </div>
     <% else  %>
     <h6>maximum student enrollment <span class="red-text">&#42;</span></h6>

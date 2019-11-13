@@ -1,5 +1,5 @@
 .appoint-show-area{
-  grid-gap: 5px 5px;
+  grid-gap: 2px 2px;
   grid-template-areas:
   ". links ."
   ". title ."
@@ -11,7 +11,7 @@
 
 @media (min-width: 850px){
   .appoint-show-area{
-    grid-gap: 10px;
+    grid-gap: 5px;
     grid-template-areas:
   ". links links ."
   ". title title ."
@@ -26,8 +26,8 @@
   .appoint-show-area{
     // display: grid;
     // grid-template: [row-start] repeat(8, 1fr) [row-end] / [col-start] 2% repeat(8, 1fr) 2% [col-end]; // rows/cols
-    grid-template: [row-start] repeat(auto, 1fr) [row-end] / [col-start] 2% repeat(10, 1fr) 2% [col-end]; //rows set to auto; not fits!
-    grid-gap: 5px 5px;
+    grid-template: [row-start] repeat(auto, 1fr) [row-end] / [col-start] 1% repeat(10, 1fr) 1% [col-end]; //rows set to auto; not fits!
+    grid-gap: 2px 2px;
     grid-template-areas:
     ". links links links links links links links links links links ."
     ". title title title title title title title title title title ."

@@ -9,7 +9,7 @@
 @media (min-width: 850px){
   .consult-index-area{
     // background-color: #E5E5E5;
-    grid-gap: 10px;
+    grid-gap: 5px;
     grid-template-areas:
     ". cindex cindex ."
     ;
@@ -21,10 +21,10 @@
     // background-color: #E5E5E5;
     // display: grid;
     // grid-template: [row-start] repeat(8, 1fr) [row-end] / [col-start] 2% repeat(8, 1fr) 2% [col-end]; // rows/cols
-    grid-template: [row-start] repeat(auto, 1fr) [row-end] / [col-start] 2% repeat(8, 1fr) 2% [col-end]; //rows set to automatic; now fits
-    grid-gap: 5px 5px; //row columns
+    grid-template: [row-start] repeat(auto, 1fr) [row-end] / [col-start] 1% repeat(8, 1fr) 1% [col-end]; //rows set to automatic; now fits
+    grid-gap: 2px 2px; //row columns
     grid-template-areas:
-    ". . . cindex cindex cindex cindex . . ."
+    ". . cindex cindex cindex cindex cindex cindex . ."
     ;
   //   /* same as below:
   //   display: grid;
