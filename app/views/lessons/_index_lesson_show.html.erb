@@ -8,15 +8,15 @@
         <% unless @consultation.consult_period == 'hourly' %>
         <!-- ^executes unless condition is true-->
           <!-- hides lesson capacity if hourly-->
-          <h6> seats left: <%= element.lesson_capacity - element.appointments.size %></h6>
+          <h6 style="color: grey;"> seat(s) left: <%= element.lesson_capacity - element.appointments.size %></h6>
         <% end %>
       </a><!--end of appointment MODAL link-->
     <% else %>
       <h6 style="color: red;">section closed</h6>
     <% end %><!--end of lesson size vs capacity-->
     <% if policy(@consultation).destroy? %>
-      <div class=""><%= link_to lesson_path(element), method: :delete do %>
-        <i class="fas fa-trash-alt" aria-hidden="true"></i><% end %>
+      <div><%= link_to lesson_path(element), method: :delete do %>
+        <i class="charcoal-text fas fa-trash-alt" aria-hidden="true"></i><% end %>
       </div>
     <% end %><!--end of policy-->
   </div><!--end of flex 25-->

@@ -1,6 +1,6 @@
 <div class="content-grid consultation-area">
   <div class="consultation-show-instructor-shell shell-border-dark black-background white-text">
-    <div class="padding-5 center-text">
+    <div class="padding-3 center-text">
       <h2><%= @consultation.user.fname %> <%= @consultation.user.lname %></h2>
     </div>
     <div class="user-profile-image-div">
@@ -8,7 +8,7 @@
           <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
       <div class="user-large-profile-image-img icon-shell-dark" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
     </div><!--end of user-profile-image-div-->
-    <div class="padding-5">
+    <div class="padding-3">
       <% if user_signed_in? %>
       <div class="flex-space-between">
         <h6>Email:</h6>
@@ -44,7 +44,7 @@
     </div><!--end of padding div-->
   </div><!--end of consultation-show-instructor-shell shell-border-->
   <div class="consultation-show-details-shell">
-    <div class="shell-border padding-5">
+    <div class="shell-border padding-3">
     <!--consult details partial-->
       <div><!--random-->
         <%= render 'consultations/details_consultation_show', consultation: @consultation %>
@@ -61,15 +61,15 @@
       <hr>
       <% end %><!--end of policy-->
       <div class="flex-space-between black-background white-text shell-tab-header-dark">
-        <div class="flex-25"><h6>status</h6></div>
+        <div class="flex-25"><h6>section</h6></div>
         <div class="flex-25"><h6>level</h6></div>
-        <div class="flex-25"><h6>start/end</h6></div>
+        <div class="flex-25"><h6>start / end</h6></div>
         <div class="flex-25 center-text"><h6><b>day(s)</b></h6></div>
       </div><!--flex-space-between-->
       <div id="lesson-min">
         <% @consultation.lessons.each do |l| %>
           <!-- below should be exported to a partial-->
-          <%= render 'lessons/lesson_show', element: l %>
+          <%= render 'lessons/index_lesson_show', element: l %>
           <div class="modal fade lesson-mod-style" id="lesson-form-<%= l.id %>">
             <div class="modal-dialog" role="document"><!--aligns the modal document-->
               <div class="modal-content">

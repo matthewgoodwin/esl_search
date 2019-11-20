@@ -1,7 +1,7 @@
 <div class="content-grid dash-area">
   <!-- <h1>Pages#dashboard</h1> -->
   <div class="dashboard-user-panel-links-shell shell-border-dark black-background white-text">
-    <div class="padding-5 center-text">
+    <div class="padding-3 center-text">
       <h5>welcome,</h5>
       <h2><%= current_user.fname %></h2>
       <h6 class=""><%= current_user.email %></h6>
@@ -57,7 +57,7 @@
       <% end %>
     </div>
   </div><!--end of dashboard-user-panel-links-shell-->
-  <div class="dashboard-messages-shell shell-border grey-shell-gradient padding-5">
+  <div class="dashboard-messages-shell shell-border grey-shell-gradient padding-3">
     <div class="flex-center-center">
       <%= link_to user_messages_user_path(current_user.id) do %>
         <div class="flex-67"><h5 class="charcoal-text">Class Messages</h5></div>

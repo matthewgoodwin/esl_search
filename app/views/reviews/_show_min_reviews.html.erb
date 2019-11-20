@@ -1,4 +1,4 @@
-<div class= "flex-50 padding">
+<div class= "flex-50 padding-3">
   <% element.star.to_i.times do %>
     <i class="fa fa-star yellow-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
     <% end %><!--end of r.star-->
@@ -6,9 +6,9 @@
     <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
  <% end %><!--end of 5-r.star-->
 </div><!--end of review-item-->
-<div class="flex-50 padding">
+<div class="flex-50 padding-3">
   <p class="charcoal-text">&nbsp;<%= element.user.fname %></p>
   <h6 class="blue-text"><b><%= truncate(element.consultation.consult_title, length: 20)%></b></h6>
-  <h6><%= truncate(element.review_title, length: 20)%></h6>
+  <h6 class="black"><%= truncate(element.review_title, length: 20)%></h6>
 </div><!--end review-item comment-->
 

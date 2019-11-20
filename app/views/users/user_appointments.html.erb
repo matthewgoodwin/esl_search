@@ -1,5 +1,6 @@
 <!--full size consultations-->
-<div class="element-index-area content-grid padding">
+<!--perhaps should alternate the columns (blue / white) for readability-->
+<div class="element-index-area content-grid padding-5">
   <div class="element-index-shell shell-border">
     <div class="center-div center-text">
       <h1 class="center-text">APPOINTMENTS</h1>
@@ -11,7 +12,7 @@
       <div class="flex-33 center-text"><h6><b>VIEW</b></h6></div>
     </div>
   <% @user_appointments.each do |a| %>
-      <div class="flex-space-between padding-5">
+      <div class="flex-space-between user-page-shell padding-3">
         <div class="flex-33">
           <!--icon-->
           <% avatar_url = a.consultation.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
@@ -48,7 +49,6 @@
         </div><!-- end of link-->
           <!--info -con here-->
       </div><!--flex-space-b-->
-      <hr>
     <% end %><!--end of @user_appointments.each-->
   </div> <!--end of shell-border grey-shell-gradient-->
 </div><!--end of element-index-area content-grid-->

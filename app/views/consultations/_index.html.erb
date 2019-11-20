@@ -1,4 +1,4 @@
-<div class="flex-space-between flex-wrap padding-5">
+<div class="flex-space-between flex-wrap padding-3">
   <div class="flex-33 flex-center-column">
     <% avatar_url = element.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
     <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
@@ -6,7 +6,7 @@
     <div><h6><b><%= element.user.fname %></b></h6></div>
   </div>
   <div class="flex-33"><!--shell-->
-    <h6 class="brand-green"><%= element.consult_title %></h6>
+    <h6 class="blue-text"><%= element.consult_title %></h6>
     <h6><%= element.consult_language %></h6>
     <h6><%= element.consult_location %></h6>
     <h6><%= element.consult_period %></h6>

@@ -1,5 +1,5 @@
 <!--private message index from dashboard link -->
-<div class="content-grid element-index-area padding">
+<div class="content-grid element-index-area padding-5">
   <div class="element-index-shell shell-border">
     <div class="center-div center-text">
       <h1 class="center-text">PRIVATE MESSAGES</h1>
@@ -12,7 +12,7 @@
     </div><!--end of flex-space-between-->
     <% @user_privatemessages.each do |pm| %>
       <%= link_to privatemessage_path(pm) do %>
-        <div class="flex-space-between padding-5">
+        <div class="flex-space-between padding-3">
           <div class="flex-33">
             <!--image goes here-->
             <% avatar_url = User.find(pm.sender_id).photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>

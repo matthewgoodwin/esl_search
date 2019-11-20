@@ -1,16 +1,15 @@
 <div class="green-shell-gradient-header padding">
-<div class="flex-center-center center-div">
-  <h2 class="charcoal-text"><%= @consultation.consult_title %></h2>
-</div>
-<div class= "flex-center-center center-div">
-  <% @avg_star.to_i.times do %>
-    <i class="fa fa-star yellow-star"></i><!--reference 'components/_reviewstars.scss'-->
-  <% end %><!--end of r.star-->
-    <% (5 - @avg_star.to_i).times do %>
-    <i class="fa fa-star grey-star"></i><!--reference 'components/_reviewstars.scss'-->
-  <% end %><!--end of 5-r.star-->
-</div><!--end of review-item-->
-
+  <div class="flex-center-center center-div">
+    <h2 class="charcoal-text"><%= @consultation.consult_title %></h2>
+  </div>
+  <div class= "flex-center-center center-div">
+    <% @avg_star.to_i.times do %>
+      <i class="fa fa-star yellow-star"></i><!--reference 'components/_reviewstars.scss'-->
+    <% end %><!--end of r.star-->
+      <% (5 - @avg_star.to_i).times do %>
+      <i class="fa fa-star grey-star"></i><!--reference 'components/_reviewstars.scss'-->
+    <% end %><!--end of 5-r.star-->
+  </div><!--end of review-item-->
 </div>
 <div class="center-div center-text">
   <% if policy(@consultation).destroy? %>
@@ -21,7 +20,7 @@
     </div><!--end of consultation-lesson-form-div-->
   <% end %><!--end of policy-->
 </div>
-<div class="flex-space-between padding center-text 1">
+<div class="flex-space-between padding-5 center-text 1">
   <div class="flex-50">
     <h6><b>Primary Language:</b></h6>
     <p><%= @consultation.consult_language %></p>
@@ -31,7 +30,7 @@
     <p><%= @consultation.consult_sec_lang %></p>
   </div>
 </div><!--end flex 1-->
-<div class="flex-space-between padding center-text 2">
+<div class="flex-space-between padding-5 center-text 2">
   <div class="flex-50">
     <h6><b>Type:</b></h6>
     <p><%= @consultation.consult_type %></p>
@@ -41,7 +40,7 @@
     <p><%= @consultation.consult_demo %></p>
   </div>
 </div><!--end of flex 2-->
-<div class="flex-space-between flex-row padding center-text 3">
+<div class="flex-space-between flex-row padding-5 center-text 3">
   <div class="flex-50">
     <h6><b>Period:</b></h6>
     <p><%= @consultation.consult_period %></p>
@@ -53,7 +52,7 @@
   </div>
   <!-- :unit is built into the number_to_currency-->
 </div><!-- end of flex 3-->
-<div class="flex-space-between flex-row padding center-text 4">
+<div class="flex-space-between flex-row padding-5 center-text 4">
   <div class="flex-50">
     <h6><b>City:</b></h6>
     <p><%= @consultation.consult_location %></p>
@@ -66,7 +65,7 @@
 <div>
   <h4 class="center-text"><b>class description:</b></h4>
 </div>
-<div class="padding">
+<div class="padding-5">
   <p><%= @consultation.consult_desc %></p>
 </div>
 
