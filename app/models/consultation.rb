@@ -8,7 +8,7 @@ class Consultation < ApplicationRecord
   accepts_nested_attributes_for :lessons
 
   validates :consult_title, :consult_language, :consult_type, :consult_period, presence: true
-  validates :consultfee, :consult_desc, :consult_demo, :consult_location, presence: true
+  validates :consultfee, :consult_desc, :consult_demo, :consult_location, :consult_location_add, presence: true
   validates :consult_focus, length: { maximum: 100, too_long: "%{count} characters is the maximum allowed. Please shorten your description!" }
   validates :consult_desc, length: { maximum: 2000, too_long: "%{count} characters is the maximum allowed. Please shorten your description!" }
   validates :consult_desc, length: { minimum: 100, too_short: "%{count} characters is the minimum allowed. Please provide a longer description!" }
@@ -21,7 +21,7 @@ class Consultation < ApplicationRecord
     self.consult_location.downcase!
     self.consult_location.capitalize!
     self.consult_focus.downcase!
-    self.consult_location_town.downcase!
-    self.consult_location_town.capitalize!
+    self.consult_location_add.downcase!
+    self.consult_location_add.capitalize!
   end
 end

@@ -21,9 +21,10 @@
       <%= f.input :consult_demo, label: false, default: ["everyone"], collection: ["everyone", "kindergarten", "elementary-primary", "middle school", "high school-secondary", "adult"] %>
       <h6>type <span class="red-text">&#42;</span></h6>
       <%= f.input :consult_type, label: false, collection: ["camp", "conversation", "education",  "exam-prep", "group / club", "hobby", "interview prep","phone-only", "speech-prep", "trade / industry", "translation", "other"], prompt: "-select type-" %>
-        <h6> location <span class="red-text">&#42;</span></h6>
-        <%= f.input :consult_location, label: false, placeholder: "city"%>
-        <%= f.input :consult_location_town, label: false, placeholder: "town ( optional )" %>
+        <h6> city <span class="red-text">&#42;</span></h6>
+        <%= f.input :consult_location, label: false, placeholder: "(e.g. Seoul)"%>
+        <h6> Address <span class="red-text">&#42;</span></h6>
+        <%= f.input :consult_location_add, label: false, placeholder: "(e.g. 45 Yanghwa-ro, Hapjeong-dong, Mapo-gu, Seoul)" %>
       <h6> term <span class="red-text">&#42;</span></h6>
       <%= f.input :consult_period, label: false, default: ["hourly"], collection: ["hourly", "single-class", "one-week", "one-month", "3 month term"]%>
       <div>
