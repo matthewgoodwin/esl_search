@@ -64,6 +64,8 @@ gem 'will_paginate', '~> 3.1.1'
 
 gem 'geocoder'
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"

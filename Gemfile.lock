@@ -86,6 +86,10 @@ GEM
       warden (~> 1.2.3)
     domain_name (0.5.20161129)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.7.5)
+    dotenv-rails (2.7.5)
+      dotenv (= 2.7.5)
+      railties (>= 3.2, < 6.1)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
@@ -243,6 +247,7 @@ DEPENDENCIES
   cloudinary
   coffee-rails (~> 4.2)
   devise
+  dotenv-rails
   figaro
   font-awesome-sass
   geocoder
