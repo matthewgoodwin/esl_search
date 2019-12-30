@@ -12,10 +12,10 @@ class Consultation < ApplicationRecord
   validates :consult_focus, length: { maximum: 100, too_long: "%{count} characters is the maximum allowed. Please shorten your description!" }
   validates :consult_desc, length: { maximum: 2000, too_long: "%{count} characters is the maximum allowed. Please shorten your description!" }
   validates :consult_desc, length: { minimum: 100, too_short: "%{count} characters is the minimum allowed. Please provide a longer description!" }
-  #validates :consult_desc, length: { in: 200..2000, wrong_length: "your description must be between 200 and 2000 characters" }
+  # validates :consult_desc, length: { in: 200..2000, wrong_length: "your description must be between 200 and 2000 characters" }
   before_save :proper_format
-  geocoded_by: :address
-  after_validation: :geocode, if: :will_save_change_to_address?
+  geocoded_by :consult_location_add
+  after_validation :geocode
 
   private
   def proper_format
