@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "@rails/webpacker": "3.5",
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "mapbox-gl": "^1.6.1",
+    "popper.js": "^1.16.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
+  }
+}

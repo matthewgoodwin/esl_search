@@ -100,6 +100,15 @@ class ConsultationsController < ApplicationController
   end
 
   def locations
+    @consultations = policy_scope(Consultation)
+    @consultations.geocoded #returns consultations with coordinates
+    @markers = @consultations.map do |consult|
+      {
+        lat: consult.latitude,
+        lng: consult.longitude
+      }
+    end
+
     # skip_authorization
     @consultations = policy_scope(Consultation)
     @consult_location_links = []
@@ -111,6 +120,7 @@ class ConsultationsController < ApplicationController
      end
     end
     # raise
+
   end
 
   def location
