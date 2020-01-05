@@ -1,3 +1,5 @@
 $('.modal').modal('hide');
 var add_min_review = $("<%= j render 'reviews/show_min_reviews', consultation: @consultation, element: @review %>");
 $('#review-min').prepend(add_min_review);
+
+

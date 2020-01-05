@@ -24,7 +24,7 @@ class Consultation < ApplicationRecord
     self.consult_location.downcase!
     self.consult_location.capitalize!
     self.consult_focus.downcase!
-    self.consult_location_add.downcase!
-    self.consult_location_add.capitalize!
+    # self.consult_location_add.downcase!
+    # self.consult_location_add.capitalize!
   end
 end

@@ -1,4 +1,4 @@
-<%= simple_form_for([consultation, review], remote: true) do |f| %>
+<%= simple_form_for([ consultation, review ], remote: true) do |f| %>
   <!-- add appoinment reservation number here -->
   <%= f.input :review_title, label: false, placeholder: "title" %>
   <%= f.input :comment, label:false, placeholder: "comments", as: :text %>
