@@ -100,10 +100,9 @@ class ConsultationsController < ApplicationController
   end
 
   def locations
-    @consultations = policy_scope(Consultation)
-    @consultations.geocoded #returns consultations with coordinates
+    @consultations = policy_scope(Consultation.geocoded)
     @markers = @consultations.map do |consult|
-      {
+        {
         lat: consult.latitude,
         lng: consult.longitude
       }

@@ -42,10 +42,12 @@
             </div><!--col-xs-6 col-sm-6-->
           <% end %><!--end of cloc_link-->
         </div><!--row-->
-        <div id="map" class="" style="width: 100%; height: 600px;"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>">
-        </div>
+        <div class="user-page-shell">
+          <div id="map" class="" style="width: 100%; height: 600px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>">
+          </div>
+        </div><!--end of user-page-shell-->
       </div><!--container-->
     </div>
   </div>
