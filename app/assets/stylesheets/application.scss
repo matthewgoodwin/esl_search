@@ -4,7 +4,11 @@
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
-
+@import "config/grids";
+@import "config/animations";
+@import "config/flexbox";
+@import "config/html_tags";
+@import "config/basic_styles";
 // External libraries
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -18,12 +22,14 @@
 @import "components/index";
 @import "pages/index"; // go to 'pages/index.scss'
 
+
 *{
   margin: 0;
   padding: 0;
   border: 0;
   text-decoration: none !important;
 }
+
 li{
   list-style: none;
 }
@@ -31,224 +37,22 @@ a:link{
   style: none;
   text-decoration: none;
 }
-a:hover{
+a {
+  &:hover{
   color: $brand-blue;
+  }
 }
-// .content-grid{
-//   display: grid;
-//   grid-gap: 10px;
-// }
+
 h6{
   font-size: 10.5px;
 }
 p{
   font-size: 10.5px;
 }
-.wrapper{
-  text-align: center;
-}
-.inline-list-item{
-  padding: 0px 30px;
-}
-.form-text{
-  font-size: 11.5px;
-  font-family: arial;
-}
-.center-text{
-  text-align: center;
-}
-.center-div{
-  margin: auto;
-}
-.content-grid{
-  display: grid;
-}
-.flex{
-  display: flex;
-}
-.flex-wrap{
-  flex-wrap: wrap;
-}
-.flex-dir{
-  flex-direction: row;
-}
-.flex-start{
-  justify-content: flex-start;
-}
-.flex-end{
-  justify-content: flex-end;
-}
-.flex-space-between-3item-row{
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-}
-.flex-space-between{
-  display: flex;
-  justify-content: space-between; //aligned on column?
-  align-items: center; //center of row?
-  flex-direction: row;
-}
-.flex-space-between-no-center{
-  display: flex;
-  justify-content: space-between; //aligned on column?
-  // align-items: center; //center of row?
-  flex-direction: row;
-}
-.flex-column{
-  display: flex;
-  flex-direction: column;
-}
-.flex-center-center{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.flex-center-column{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.flex-space-around{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-.header-items{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.flex-33{
-  flex: 0 0 33%;
-}//three items
-.flex-25{
-  flex: 0 0 25%;
-}//four items
-.flex-20{
-  flex:0 0 20%;
-} //five items
-.flex-67{
-  flex: 0 0 67%;
-} //minus 33%
-.flex-50{
-  flex: 0 0 50%;
-}//50/50
-.flex-item-no-grow-shrink-0{
-  flex: 0 0 auto;
-}
-.flex-item-grow-only-auto{
-  flex: 1 0 auto;
-}
-.flex-item-no-grow-shrink-5{
-  flex: 0 0 5%;
-}
-.flex-item-no-grow-shrink-10{
-  flex: 0 0 10%;
-}
-.flex-item-no-grow-shrink-15{
-  flex: 0 0 15%;
-}
-.flex-item-no-grow-shrink-20{
-  flex: 0 0 20%;
-}
-.flex-item-no-grow-shrink-30{
-  flex: 0 0 30%;
-}
-.flex-item-no-grow-shrink-80{
-  flex: 0 0 80%;
-}
 
-.padding{
-  padding: 10px;
-}
 
-.padding-5{
-  padding: 5px;
-}
 
-.padding-3{
-  padding: 3px;
-}
 
-.animate-lesson-btn{
-  animation-duration: 3s;
-  animation-delay: 2.5s;
-  animation-iteration-count: 11;
-}
-.animate-class-btn{
-  animation-duration: 4s;
-  animation-delay: 3s;
-  animation-iteration-count: 6;//pulses six times
-}
-.white-text{
-  color: $white;
-}
-.white-background{
-  background-color: $white;
-}
-.black{
-  color: $black;
-}
-.black-background{
-  background-color: $black;
-}
-.charcoal-background{
-  background-color: $charcoal;
-}
-.charcoal-text{
-  color: $charcoal;
-}
-.red-text{
-  color: $red;
-}
-.blue-text{
-  color: $brand-blue;
-}
-.green-text{
-  color: $brand-green;
-}
-.brand-green{
-  color: $brand-green;
-}
-.grey-tab-gradient{
-  background-image: -webkit-linear-gradient(275deg, rgba(248,248,248,0.05), rgba(0,0,0,0));
-  background-image: -o-linear-gradient(275deg, rgba(248,248,248,0.05), rgba(0,0,0,0));
-  background-image: linear-gradient(5deg, rgba(248,248,248,0.05), rgba(0,0,0,0));
-}
-.grey-shell-gradient{
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0,0.01), rgba(0,0,0,0));
-  background-image: -o-linear-gradient(rgba(0, 0, 0,0.01), rgba(0,0,0,0));
-  background-image: linear-gradient(rgba(0, 0, 0,0.01), rgba(0,0,0,0));
-}
-.blue-shell-gradient{
-  background-image: -webkit-linear-gradient(rgba(132,175,255,0.3), rgba(0,0,0,0));
-  background-image: -o-linear-gradient(rgba(132,175,255,0.3), rgba(0,0,0,0));
-  background-image: linear-gradient(rgba(132,175,255,0.3), rgba(0,0,0,0));
-}
-.turcoise-shell-gradient{
-  background-image: -webkit-linear-gradient(rgba(4,139,168,0.3), rgba(0,0,0,0));
-  background-image: -o-linear-gradient(rgba(4,139,168,0.3), rgba(0,0,0,0));
-  background-image: linear-gradient(rgba(4,139,168,0.3), rgba(0,0,0,0));
-}
-.green-shell-gradient{
-  background-image: -webkit-linear-gradient(rgba(22,219,147,0.3), rgba(0,0,0,0));
-  background-image: -o-linear-gradient(rgba(22,219,147,0.3), rgba(0,0,0,0));
-  background-image: linear-gradient(rgba(22,219,147,0.3), rgba(0,0,0,0));
-}
-.yellow-shell-gradient{
-  background-image: -webkit-linear-gradient(rgba(239,234,90,0.3), rgba(0,0,0,0));
-  background-image: -o-linear-gradient(rgba(239,234,90,0.3), rgba(0,0,0,0));
-  background-image: linear-gradient(rgba(239,234,90,0.3), rgba(0,0,0,0));
-}
-.orange-shell-gradient{
-  background-image: -webkit-linear-gradient(rgba(242,158,76,0.3), rgba(0,0,0,0));
-  background-image: -o-linear-gradient(rgba(242,158,76,0.3), rgba(0,0,0,0));
-  background-image: linear-gradient(rgba(242,158,76,0.3), rgba(0,0,0,0));
-}
-.green-shell-gradient-header{
-  background-image: -webkit-linear-gradient(rgba(22,219,147,0.5), rgba(22,219,147,0.2));
-  background-image: -o-linear-gradient(rgba(22,219,147,0.5), rgba(22,219,147,0.2));
-  background-image: linear-gradient(rgba(22,219,147,0.5), rgba(22,219,147,0.2));
-}
+
+
+
