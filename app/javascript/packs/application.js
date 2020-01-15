@@ -8,9 +8,16 @@
 // layout file, like app/views/layouts/application.html.erb
 // import "core-js/stable";
 // import "regenerator-runtime/runtime";
-console.log('Hello World from Webpacker')
+
 // app/javascript/packs/application.js
+
 import 'bootstrap';
+document.addEventListener("turbolinks:load", () => {
+  $('[data-toggle="tooltip"]').tooltip()
+})
 import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
+// import 'bootstrap-datetimepicker';
 import { initMapbox } from '../plugins/init_mapbox';
+// import { initDateTime } from '../plugins/init_date_time';
 initMapbox();
+// initDateTime();

@@ -9,6 +9,10 @@
 @import "config/flexbox";
 @import "config/html_tags";
 @import "config/basic_styles";
+
+/* picks it up in node_modules! */
+// @import "bootstrap/scss/bootstrap";
+
 // External libraries
 @import "bootstrap-sprockets";
 @import "bootstrap";
