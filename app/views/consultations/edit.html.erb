@@ -11,7 +11,7 @@
     <%= f.input :consult_focus, label: "specific focus", placeholder: "specific focus (optional)"%>
     <%= f.input :consult_location, label: "city", placeholder: "city"%>
     <%= f.input :consult_location_town, label: "district/town", placeholder: "town - optional" %>
-    <%= f.input :consult_location_add, label: "address", placeholder: "address ( e.g. 45 Yanghwa-ro, Hapjeong-dong, Mapo-gu, Seoul)" %>
+    <%= f.input :address, label: "address", placeholder: "address ( e.g. 45 Yanghwa-ro, Hapjeong-dong, Mapo-gu, Seoul)" %>
     <%= f.input :consult_period, label: "contract period:", default: ["hourly"], collection: ["hourly"]%>
     <%= f.input :consultfee, as: :hidden, label: "fee:", placeholder: "fee/term (whole numbers)"%>
     <%= f.input :matincluded, label: 'materials included?', as: :radio_buttons, collection:[["yes","yes"], ["no","no"]], label_method: :second, value_method: :first, checked: ["no","no"]%>
@@ -35,7 +35,7 @@
       <%= f.input :consult_focus, label: "specific focus", placeholder: "specific focus (optional)"%>
       <%= f.input :consult_location, label: "city", placeholder: "city"%>
       <%= f.input :consult_location_town, label: "district/town", placeholder: "town - optional" %>
-      <%= f.input :consult_location_add, label: "address", placeholder: "address ( e.g. 45 Yanghwa-ro, Hapjeong-dong, Mapo-gu, Seoul)" %>
+      <%= f.input :address, label: "address", placeholder: "address ( e.g. 45 Yanghwa-ro, Hapjeong-dong, Mapo-gu, Seoul)" %>
       <%= f.input :consult_period, label: "contract period:", default: ["single-class"], collection: ["single-class", "one-week", "one-month", "3 month term", "6 month term"]%>
       <%= f.input :consultfee, as: :hidden, label: "fee:", placeholder: "fee/term (whole numbers)"%>
       <%= f.input :matincluded, label: 'materials included?', as: :radio_buttons, collection:[["yes","yes"], ["no","no"]], label_method: :second, value_method: :first, checked: ["no","no"]%>
