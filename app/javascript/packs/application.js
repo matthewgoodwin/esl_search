@@ -6,15 +6,14 @@
 //
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
+
 // import "core-js/stable";
 // import "regenerator-runtime/runtime";
 
 // app/javascript/packs/application.js
 
 import 'bootstrap';
-document.addEventListener("turbolinks:load", () => {
-  $('[data-toggle="tooltip"]').tooltip()
-})
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
 // import 'bootstrap-datetimepicker';
 import { initMapbox } from '../plugins/init_mapbox';
