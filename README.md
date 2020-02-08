@@ -10,5 +10,5 @@ This service seeks to shift power from massive corporations, to the individuals 
 
 
 NOTE:
-1) Please use valid addresses for the geocoder!
+1 Please use valid addresses for the geocoder!
 ->Please be aware that the Map Geocoder requires proper address formats to produce coordinates.
