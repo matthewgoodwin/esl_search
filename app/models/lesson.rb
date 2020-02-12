@@ -4,7 +4,7 @@ class Lesson < ApplicationRecord
 
   validates :lesson_level, :lesson_section, :lesson_start, presence: true
   validates :lesson_capacity, presence: true
-  validates :lesson_capacity, inclusion: { in: 1..10 }
+  validates :lesson_capacity, inclusion: { in: 1..15 }
   # validates :start_end_time
   private
   # def self.set_lesson_end_time
