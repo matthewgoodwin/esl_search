@@ -18,3 +18,8 @@
 
 # Ignore application configuration
 /config/application.yml
+.env*
+public/assets
+public/packs
+public/node_modules
+node_modules
