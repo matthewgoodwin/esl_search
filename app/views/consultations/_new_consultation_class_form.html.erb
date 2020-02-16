@@ -22,8 +22,8 @@
       <h6>type <span class="red-text">&#42;</span></h6>
       <%= f.input :consult_type, label: false, collection: ["camp", "conversation", "education",  "exam-prep", "group / club", "hobby", "interview prep","phone-only", "speech-prep", "trade / industry", "translation", "other"], prompt: "-select type-" %>
         <h6> location <span class="red-text">&#42;</span></h6>
-        <%= f.input :consult_location, label: false, placeholder: "city"%>
-        <%= f.input :consult_location_town, label: false, placeholder: "town ( optional )" %>
+        <%= f.input :consult_city, label: false, placeholder: "city"%>
+        <%= f.input :address, label: false, placeholder: "address" %>
       <h6> term <span class="red-text">&#42;</span></h6>
       <%= f.input :consult_period, label: false, default: ["hourly"], collection: ["hourly", "single-class", "one-week", "one-month", "3 month term"]%>
       <div>

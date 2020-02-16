@@ -102,19 +102,19 @@ class ConsultationsController < ApplicationController
   def locations
     # skip_authorization
     @consultations = policy_scope(Consultation)
-    @consult_location_links = []
-    @consults_locations = []
+    @consult_city_links = []
+    @consults_cities = []
 
     @consultations.each do |c|
-     unless @consult_location_links.include? c.consult_location
-      @consult_location_links << c.consult_location
+     unless @consult_city_links.include? c.consult_city
+      @consult_city_links << c.consult_city
      end
     end
     # raise
   end
 
   def location
-    @consult_loc_group = Consultation.where(consult_location: @consult_loc).paginate(page: params[:page], per_page: 8)
+    @consult_city_group = Consultation.where(consult_city: @consult_city).paginate(page: params[:page], per_page: 8)
     # location param from Consultations#locations view as link 'cloc_link'
     # @consult_loc from private
     # raise
@@ -170,10 +170,10 @@ class ConsultationsController < ApplicationController
     authorize @consultation
   end
   def consultation_params
-    params.require(:consultation).permit(:consult_language, :consult_sec_lang, :consult_focus, :consult_period, :consult_type, :consult_demo, :consultfee, :consult_title, :consult_desc, :consult_location, :consult_location_town, :matincluded)
+    params.require(:consultation).permit(:consult_language, :consult_sec_lang, :consult_focus, :consult_period, :consult_type, :consult_demo, :consultfee, :consult_title, :consult_desc, :consult_city, :address, :matincluded)
   end
   def location_params
-    @consult_loc = params[:consult_location]
+    @consult_city = params[:consult_city]
   end
   def language_params
     @consult_lang = params[:consult_language]

@@ -21,7 +21,8 @@
       <%= f.input :consult_demo, label:"demographic:", default: ["everyone"], collection: ["everyone", "kindergarden", "elementary", "middle school", "high school", "adult"] %>
       <%= f.input :consult_type, label: false, collection: ["grammar-based", "verbal-skills", "hobby-based", "trade-based", "conversation (only)","voice call", "interview prep", "translation", "exam-prep"], prompt: "-select type-"%>
       <%= f.input :consult_focus, label: false, placeholder: "specific focus (optional)"%>
-      <%= f.input :consult_location, label: false, placeholder: "city"%>
+      <%= f.input :consult_city, label: false, placeholder: "city"%>
+      <%= f.input :address, label: false, placeholder: "address" %>
       <%= f.input :consult_period, label: "contract period:", default: ["hourly"], collection: ["hourly","single-class", "one-week", "one-month", "3 month term", "6 month term"]%>
       <%= f.input :consultfee, label: "rate:", placeholder: "fee/hour (whole numbers)"%>
       <div>
