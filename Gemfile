@@ -18,7 +18,7 @@ gem "autoprefixer-rails"
 
 gem 'figaro'
 
-gem 'devise'
+gem 'devise', '~>4.4.0'
 
 gem 'pundit'
 
