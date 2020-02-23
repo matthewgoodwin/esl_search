@@ -29,7 +29,7 @@ gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 # https://github.com/TrevorS/bootstrap3-datetimepicker-rails
 
-ruby '2.3.1'
+ruby '2.6.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.4'
 # Use postgresql as the database for Active Record
