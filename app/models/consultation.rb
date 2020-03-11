@@ -14,6 +14,9 @@ class Consultation < ApplicationRecord
   validates :consult_desc, length: { minimum: 100, too_short: "%{count} characters is the minimum allowed. Please provide a longer description!" }
   #validates :consult_desc, length: { in: 200..2000, wrong_length: "your description must be between 200 and 2000 characters" }
   before_save :proper_format
+
+  geocoded_by :address
+
   private
   def proper_format
     # self.consult_title.downcase!
