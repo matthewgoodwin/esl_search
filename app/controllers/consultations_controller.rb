@@ -111,6 +111,17 @@ class ConsultationsController < ApplicationController
      end
     end
     # raise
+    @consultations_address = policy_scope(Consultation.geocoded)
+    @markers = @consultations_address.map do |consult_add|
+      # Brackets below for a new object.
+      # Each set (lng &lat) is placed in the new object, within the mapped array
+      {
+        lng: consult_add.longitude,
+        lat: consult_add.latitude
+      }
+      # => [{:lng=>126.9782914, :lat=>37.5666791},{:lng=>129.8787114, :lat=>40.2632791}]
+    end
+    # raise
   end
 
   def location
