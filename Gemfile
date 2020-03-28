@@ -65,7 +65,7 @@ gem 'carrierwave', '~>1.2'
 
 # Gemfile for Rails 3+, Sinatra, or Merb
 gem 'will_paginate', '~> 3.1.1'
-
+gem 'dotenv-rails', groups: [:development, :test]
 group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
