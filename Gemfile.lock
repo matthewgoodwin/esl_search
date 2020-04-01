@@ -82,10 +82,10 @@ GEM
     concurrent-ruby (1.1.6)
     crass (1.0.6)
     debug_inspector (0.0.3)
-    devise (4.4.3)
+    devise (4.7.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
-      railties (>= 4.1.0, < 6.0)
+      railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
     domain_name (0.5.20190701)
@@ -262,7 +262,7 @@ DEPENDENCIES
   carrierwave (~> 1.2)
   cloudinary
   coffee-rails (~> 4.2)
-  devise (~> 4.4.0)
+  devise (~> 4.7.1)
   dotenv-rails
   figaro
   font-awesome-sass
