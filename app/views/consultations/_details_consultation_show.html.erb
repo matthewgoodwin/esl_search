@@ -46,9 +46,9 @@
     <p><%= @consultation.consult_period %></p>
   </div>
   <div class="flex-50">
-  <!-- <p> @consultation.consultfee </p> -->
+  <!-- <p> @consultation.consult_fee </p> -->
     <h6><b>Rate:</b></h6>
-    <p><%= number_to_currency(@consultation.consultfee, :unit => "₩") %></p>
+    <p><%= number_to_currency(@consultation.consult_fee, :unit => "₩") %></p>
   </div>
   <!-- :unit is built into the number_to_currency-->
 </div><!-- end of flex 3-->

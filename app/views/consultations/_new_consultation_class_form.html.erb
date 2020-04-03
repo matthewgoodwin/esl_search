@@ -30,11 +30,11 @@
         <h6> rate / term <span class="red-text">&#42;</span></h6>
         <div class="flex">
           <h5>&#8361; &nbsp; </h5>
-          <%= f.input :consultfee, label: false, placeholder: "ex: 15000"%>
+          <%= f.input :consult_fee, label: false, placeholder: "ex: 15000"%>
         </div>
       </div>
       <h6> materials included? <span class="red-text">&#42;</span></h6>
-      <%= f.input :matincluded, label: false, as: :radio_buttons, collection:[["yes","yes"], ["no","no"]], label_method: :second, value_method: :first, checked: ["no","no"]%>
+      <%= f.input :consult_mat, label: false, as: :radio_buttons, collection:[["yes","yes"], ["no","no"]], label_method: :second, value_method: :first, checked: ["no","no"]%>
       <h6> specific focus (optional)&nbsp;: </h6>
       <h6><span class="red-text">max 30 characters</span></h6>
       <%= f.input :consult_focus, label: false, placeholder: "e.g. grammar"%>

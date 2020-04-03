@@ -181,7 +181,7 @@ class ConsultationsController < ApplicationController
     authorize @consultation
   end
   def consultation_params
-    params.require(:consultation).permit(:consult_language, :consult_sec_lang, :consult_focus, :consult_period, :consult_type, :consult_demo, :consultfee, :consult_title, :consult_desc, :consult_city, :address, :matincluded)
+    params.require(:consultation).permit(:consult_language, :consult_sec_lang, :consult_focus, :consult_period, :consult_type, :consult_demo, :consult_fee, :consult_title, :consult_desc, :consult_city, :address, :consult_mat)
   end
   def location_params
     @consult_city = params[:consult_city]
