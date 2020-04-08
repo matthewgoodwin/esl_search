@@ -1,18 +1,21 @@
 .wrapper{
   text-align: center;
 }
+.center-text{
+  text-align: center;
+}
+.inline-block{
+  display: inline-block;
+}
+.center-div{
+  margin: auto;
+}
 .inline-list-item{
   padding: 0px 30px;
 }
 .form-text{
   font-size: 11.5px;
   font-family: arial;
-}
-.center-text{
-  text-align: center;
-}
-.center-div{
-  margin: auto;
 }
 .content-grid{
   display: grid;
