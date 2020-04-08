@@ -1,51 +1,59 @@
-<div class="flex-center-center">
-  <div class="shell-border">
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="center-div padding mw350">
+  <div class="shell-sign-in wrapper">
+    <div class="inline-block">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+      <div class="flex-center-center">
+        <div class="shell-border">
+      <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
-    <%= f.input :fname, label: 'first name', error: 'first name is mandatory, please specify one', required: true, autofocus: true %>
-    <%= f.input :lname, label: 'last name', error: 'last name is mandatory, please specify one', required: true, autofocus: true %>
-    <%= f.input :user_native_lang, label: 'native language', collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"], error: 'your native language is required, please specify one', required: true, autofocus: true %>
-    <%= f.input :user_second_lang, label: 'secondary language', collection: ["None","English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"], error: 'your native language is required, please specify one', required: true, autofocus: true %>
-    <%= f.input :gender, collection: ["male","female"], error: 'your gender is mandatory, please specify one', autofocus: true %>
-    <%= f.input :address, label: 'address', error: 'a physical address is mandatory, please specify one', required: true, autofocus: true %>
-    <%= f.input :city, label: 'city', error: 'your city name is mandatory, please specify one', required: true, autofocus: true %>
-    <%= f.input :town, label: 'town ( optional )', autofocus: true %>
-    <%= f.input :user_phone, label: 'mobile number', error: 'please enter your mobile number', required: true, autofocus: true %>
-    <%= f.input :user_kakao_id, label: 'kakao id', error: 'please enter kakao id', required: true, autofocus: true %>
-    <%= f.input :subjectmajor, label: 'university major', autofocus: true %>
-    <%= f.input :edulevel, label: 'education level', collection: ["associate's","bachelor's","master's","doctoral","professional"], error: 'please specify the highest education attained', autofocus: true %>
-    <div class="aboutyou">
-      <%= f.input :aboutme, label: "about me", placeholder: "300 character limit!", as: :text %>
-    </div>
-    <div>
-      <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-      <%= f.input :password_confirmation, required: false %>
-      <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
-    </div>
-    <div class="shell-tab-header grey-shell-gradient">
-      <%= f.input :photo, label: "Upload Photo" %>
-      <%= f.input :photo_cache, as: :hidden %>
+        <div class="form-inputs">
+          <%= f.input :email, required: true, autofocus: true %>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
+          <%= f.input :fname, label: 'first name', error: 'first name is mandatory, please specify one', required: true, autofocus: true %>
+          <%= f.input :lname, label: 'last name', error: 'last name is mandatory, please specify one', required: true, autofocus: true %>
+          <%= f.input :user_native_lang, label: 'native language', collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"], error: 'your native language is required, please specify one', required: true, autofocus: true %>
+          <%= f.input :user_second_lang, label: 'secondary language', collection: ["None","English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"], error: 'your native language is required, please specify one', required: true, autofocus: true %>
+          <%= f.input :gender, collection: ["male","female"], error: 'your gender is mandatory, please specify one', autofocus: true %>
+          <%= f.input :address, label: 'address', error: 'a physical address is mandatory, please specify one', required: true, autofocus: true %>
+          <%= f.input :city, label: 'city', error: 'your city name is mandatory, please specify one', required: true, autofocus: true %>
+          <%= f.input :town, label: 'town ( optional )', autofocus: true %>
+          <%= f.input :user_phone, label: 'mobile number', error: 'please enter your mobile number', required: true, autofocus: true %>
+          <%= f.input :user_kakao_id, label: 'kakao id', error: 'please enter kakao id', required: true, autofocus: true %>
+          <%= f.input :subjectmajor, label: 'university major', autofocus: true %>
+          <%= f.input :edulevel, label: 'education level', collection: ["associate's","bachelor's","master's","doctoral","professional"], error: 'please specify the highest education attained', autofocus: true %>
+          <div class="aboutyou">
+            <%= f.input :aboutme, label: "about me", placeholder: "300 character limit!", as: :text %>
+          </div>
+          <div>
+            <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
+            <%= f.input :password_confirmation, required: false %>
+            <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+          </div>
+          <div class="shell-tab-header grey-shell-gradient">
+            <%= f.input :photo, label: "Upload Photo" %>
+            <%= f.input :photo_cache, as: :hidden %>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Update" %>
+        </div>
+      <% end %>
+
+      <h3>Cancel my account</h3>
+
+      <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+      <%= link_to "Back", :back %>
+      </div>
+      </div>
+
     </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
-</div>
 </div>

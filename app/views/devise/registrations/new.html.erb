@@ -1,50 +1,58 @@
-<div class="flex-center-center">
-  <div class="shell-border padding">
-    <div class="flex-space-between">
-      <div class="flex-50"><%= link_to "home", root_path %></div>
-      <div class="flex-50"><%= render "devise/shared/links" %></div>
-    </div>
-    <h2>Sign up</h2>
+<div class="center-div padding mw350">
+  <div class="shell-sign-in wrapper">
+    <div class="inline-block">
 
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= f.error_notification %>
+      <div class="flex-center-center">
+        <div class="padding">
+          <div class="flex-space-between">
+            <div class="flex-50"><%= link_to "home", root_path %></div>
+            <div class="flex-50"><%= render "devise/shared/links" %></div>
+          </div>
+          <h2>Sign up</h2>
 
-      <div class="form-inputs">
-        <%= f.input :fname, label: 'first name', error: 'first name is mandatory, please specify one', required: true, autofocus: true %>
-        <%= f.input :lname, label: 'last name', error: 'last name is mandatory, please specify one', required: true, autofocus: true %>
-        <%= f.input :user_native_lang, label: 'native language', collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"], error: 'your native language is required, please specify one', required: true, autofocus: true %>
-        <%= f.input :user_second_lang, label: 'secondary language', collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"], error: 'your native language is required, please specify one', required: true, autofocus: true %>
-        <%= f.input :gender, label: "gender", collection: ["male","female"], error: 'your gender is mandatory, please specify one', required: true, autofocus: true %>
-        <%= f.input :email, label: 'email', error: 'an email address is mandatory, please specify one', required: true, autofocus: true %>
-        <%= f.input :address, label: 'address ( optional *)', autofocus: true %>
-        <%= f.input :city, label: 'city', error: 'your city name is mandatory, please specify one', required: true, autofocus: true %>
-        <%= f.input :town, label: 'town ( optional )', autofocus: true %>
-        <%= f.input :user_phone, label: 'mobile number', error: 'mobile number', autofocus: true %>
-        <%= f.input :user_kakao_id, label: 'kakao id', error: 'please enter kakao id', autofocus: true %>
-        <div class="instructor-registration">
-          <%= f.input :edu, label: 'school (optional)', autofocus: true  %>
-          <%= f.input :subjectmajor, label: 'university major (optional)', autofocus: true %>
-          <%= f.input :edulevel, label: 'education level (optional)', collection: ["associate's","bachelor's","master's","doctoral","professional"], error: 'please specify the highest education attained', autofocus: true %>
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= f.error_notification %>
+
+            <div class="form-inputs">
+              <%= f.input :fname, label: 'first name', error: 'first name is mandatory, please specify one', required: true, autofocus: true %>
+              <%= f.input :lname, label: 'last name', error: 'last name is mandatory, please specify one', required: true, autofocus: true %>
+              <%= f.input :user_native_lang, label: 'native language', collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"], error: 'your native language is required, please specify one', required: true, autofocus: true %>
+              <%= f.input :user_second_lang, label: 'secondary language', collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"], error: 'your native language is required, please specify one', required: true, autofocus: true %>
+              <%= f.input :gender, label: "gender", collection: ["male","female"], error: 'your gender is mandatory, please specify one', required: true, autofocus: true %>
+              <%= f.input :email, label: 'email', error: 'an email address is mandatory, please specify one', required: true, autofocus: true %>
+              <%= f.input :address, label: 'address ( optional *)', autofocus: true %>
+              <%= f.input :city, label: 'city', error: 'your city name is mandatory, please specify one', required: true, autofocus: true %>
+              <%= f.input :town, label: 'town ( optional )', autofocus: true %>
+              <%= f.input :user_phone, label: 'mobile number', error: 'mobile number', autofocus: true %>
+              <%= f.input :user_kakao_id, label: 'kakao id', error: 'please enter kakao id', autofocus: true %>
+              <div class="instructor-registration">
+                <%= f.input :edu, label: 'school (optional)', autofocus: true  %>
+                <%= f.input :subjectmajor, label: 'university major (optional)', autofocus: true %>
+                <%= f.input :edulevel, label: 'education level (optional)', collection: ["associate's","bachelor's","master's","doctoral","professional"], error: 'please specify the highest education attained', autofocus: true %>
+              </div>
+              <div class="aboutyou">
+                <%= f.input :aboutme, label:false, placeholder: "tell us about yourself!", as: :text %>
+              </div>
+              <div class="shell-tab-header grey-shell-gradient">
+                <%= f.input :photo, label: "Upload Avatar" %>
+                <%= f.input :photo_cache, as: :hidden %>
+              </div>
+              <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+              <%= f.input :password_confirmation, required: true %>
+            </div>
+            <div class="form-actions flex-space-between">
+              <%= f.button :submit, "Sign up" %>
+          <% end %>
+          </div>
+          <hr>
+          <div class="">
+            <%= link_to new_user_session_path do %>
+              <div class="btn btn-primary"><h6>already a member? sign in</h6></div>
+            <% end %>
+          </div>
         </div>
-        <div class="aboutyou">
-          <%= f.input :aboutme, label:false, placeholder: "tell us about yourself!", as: :text %>
-        </div>
-        <div class="shell-tab-header grey-shell-gradient">
-          <%= f.input :photo, label: "Upload Avatar" %>
-          <%= f.input :photo_cache, as: :hidden %>
-        </div>
-        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-        <%= f.input :password_confirmation, required: true %>
       </div>
-      <div class="form-actions flex-space-between">
-        <%= f.button :submit, "Sign up" %>
-    <% end %>
-    </div>
-    <hr>
-    <div class="">
-      <%= link_to new_user_session_path do %>
-        <div class="btn btn-primary"><h6>already a member? sign in</h6></div>
-      <% end %>
+
     </div>
   </div>
 </div>
