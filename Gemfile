@@ -20,7 +20,7 @@ gem "autoprefixer-rails"
 
 gem 'figaro'
 
-gem 'devise', '~>4.4.0'
+gem 'devise', '~> 4.6'
 
 gem 'pundit'
 
@@ -33,7 +33,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 
 ruby '2.6.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1'
+gem 'rails', '~> 6.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
@@ -84,4 +84,4 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
