@@ -158,6 +158,9 @@ GEM
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     pg (0.21.0)
+    pg_search (2.3.2)
+      activerecord (>= 5.2)
+      activesupport (>= 5.2)
     public_suffix (4.0.4)
     puma (3.12.4)
     pundit (2.1.0)
@@ -289,6 +292,7 @@ DEPENDENCIES
   listen (~> 3.0.5)
   momentjs-rails (>= 2.9.0)
   pg (~> 0.18)
+  pg_search
   puma (~> 3.0)
   pundit
   rails (~> 6.0)
