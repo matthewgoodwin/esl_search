@@ -4,6 +4,10 @@
     <!-- <img src="images/logo.png" alt="logo"> -->
   </a>
 
+<div class="flex-center center-div center-text">
+          <input class="search-shell center-text center-div" type="text"  placeholder="service, city, language">
+          <div class="btn"><i class="fas fa-search"></i></div>
+        </div>
   <!-- Right Navigation -->
   <div class="navbar-esl-right hidden-xs hidden-sm">
 
@@ -18,7 +22,7 @@
     <%= link_to consultations_path do %><div class=""><i class="fas fa-search fa-lg brand-gray"></i></div><% end %>
     <!-- Profile picture with dropdown list -->
     <div class="navbar-esl-item">
-      <div class="dropdown">
+
         <div class="dropdown-toggle"  id="navbar-esl-menu" data-toggle="dropdown" >
         <% user_signed_in? ? avatar_url = current_user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" : avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
         <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
@@ -36,14 +40,14 @@
           <!-- <li><a href="#">Profile</a></li> -->
           <!-- <li><a href="#">Log Out</a></li> -->
         </ul>
-      </div>
+
     </div>
   </div>
 
   <!-- Dropdown appearing on mobile only -->
   <div class="navbar-esl-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+
+      <i class="fas fa-bars fa-lg dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-esl-dropdown-menu">
         <li><%= link_to 'Dasboard', dashboard_path %></li>
           <li><%= link_to "Find a Class", consultations_path %></li>
@@ -53,6 +57,6 @@
           <% end %>
         <!-- <li><a href="#">home</a></li> -->
       </ul>
-    </div>
+
   </div>
 </div>

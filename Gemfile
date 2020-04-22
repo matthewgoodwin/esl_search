@@ -13,7 +13,7 @@ gem 'webpacker', '~> 4.x'
 
 gem 'geocoder'
 
-gem "bootstrap-sass"
+# gem "bootstrap-sass"
 gem "font-awesome-sass"
 gem "simple_form"
 gem "autoprefixer-rails"
