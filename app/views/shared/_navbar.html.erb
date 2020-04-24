@@ -1,25 +1,20 @@
 <div class="navbar-esl">
   <!-- Logo -->
   <a href="/" class="navbar-esl-brand">
-    <!-- <img src="images/logo.png" alt="logo"> -->
+    <img src="images/logo.png" alt="logo">
   </a>
 
-<div class="flex-center center-div center-text">
+<div class="">
           <input class="search-shell center-text center-div" type="text"  placeholder="service, city, language">
           <div class="btn"><i class="fas fa-search"></i></div>
         </div>
-  <!-- Right Navigation -->
+
+
   <div class="navbar-esl-right hidden-xs hidden-sm">
 
     <!-- <a href="" class="navbar-esl-item navbar-esl-link">home</a>
     <a href="" class="navbar-esl-item navbar-esl-link">dashboard</a>
     <a href="" class="navbar-esl-item navbar-esl-link">Messages</a> -->
-    <div>
-      <%= link_to dashboard_path, class: "brand-gray" do %>
-        <h6 class="navbar-esl-item navbar-esl-link">dashboard</h6>
-      <% end %>
-    </div>
-    <%= link_to consultations_path do %><div class=""><i class="fas fa-search fa-lg brand-gray"></i></div><% end %>
     <!-- Profile picture with dropdown list -->
     <div class="navbar-esl-item">
 

@@ -1,38 +1,69 @@
-<div class="container">
-<!-- <div class="cards"> -->
+<!-- <div class="container"> -->
 
-  <div class="card-group">
-    <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
+<div class="content-grid home-area">
+  <div class="home-head">
+    <h1 class="center-text">Hello All</h1>
+  </div>
+  <% image1_url = "https://res.cloudinary.com/mattg/image/upload/v1587752323/visuals-sW_BS0OVgv0-unsplash_p5cqtq.jpg" %>
+  <div class="home-online card-home">
+    <div class="card-bg-image" style="background-image: url('<%= image_path image1_url %>');"></div>
+    <div class="card-body">
+      <h4 class="card-title padding-10">Online SERVICES</h4>
     </div>
-    <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
+    <div class="card-footer">
+      <small class="text-muted padding-5">Last updated 3 mins ago</small>
     </div>
   </div>
-
-<!-- </div>  -->
+  <% image2_url = "https://res.cloudinary.com/mattg/image/upload/v1587751715/brooke-cagle-TxSVqNgnjq4-unsplash_w4c9zy.jpg" %>
+  <div class="home-hourly card-home">
+    <div class="card-bg-image" style="background-image: url('<%= image_path image2_url %>');"></div>
+    <div class="card-body">
+      <h5 class="card-title padding-5">HOURLY SESSIONS</h5>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted padding-5">Last updated 3 mins ago</small>
+    </div>
+  </div>
+  <% image3_url = "https://res.cloudinary.com/mattg/image/upload/v1587745738/helloquence-5fNmWej4tAA-unsplash_imzspt.jpg" %>
+  <div class="home-monthly card-home">
+    <div class="card-bg-image" style="background-image: url('<%= image_path image3_url %>');"></div>
+    <div class="card-body">
+      <h5 class="card-title padding-5">MONTHLY SESSIONS</h5>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted padding-5">Last updated 3 mins ago</small>
+    </div>
+  </div>
+  <% image4_url = "https://res.cloudinary.com/mattg/image/upload/v1587746400/anupam-mahapatra-Vz0RbclzG_w-unsplash_cclr5h.jpg" %>
+  <div class="home-hobby card-home">
+    <div class="card-bg-image" style="background-image: url('<%= image_path image4_url %>');"></div>
+    <div class="card-body">
+      <h5 class="card-title padding-5">Hobby</h5>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted padding-5">Last updated 3 mins ago</small>
+    </div>
+  </div>
+<!-- eliminated 5 home-ex -->
+  <% image6_url = "https://res.cloudinary.com/mattg/image/upload/v1587745860/element5-digital-OyCl7Y4y0Bk-unsplash_vxripr.jpg" %>
+  <div class="home-edu card-home">
+    <div class="card-bg-image" style="background-image: url('<%= image_path image6_url %>');"></div>
+    <div class="card-body">
+      <h5 class="card-title padding-5">Education</h5>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted padding-5">Last updated 3 mins ago</small>
+    </div>
+  </div>
+  <% image7_url = "https://res.cloudinary.com/mattg/image/upload/v1587745749/ilya-pavlov-OqtafYT5kTw-unsplash_sejyh2.jpg" %>
+  <div class="home-train card-home">
+    <div class="card-bg-image" style="background-image: url('<%= image_path image7_url %>');"></div>
+    <div class="card-body">
+      <h5 class="card-title padding-5">Training</h5>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted padding-5">Last updated 3 mins ago</small>
+    </div>
+  </div>
 </div>
+<!-- </div> -->

@@ -9,9 +9,9 @@
 @import "config/animations";
 
 // External libraries
-// @import "bootstrap-sprockets";
-// @import "bootstrap";
-@import "bootstrap/scss/bootstrap.scss";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+// @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 // import bootstrap-sprockets before bootstrap if using bootstrap >= 3.2

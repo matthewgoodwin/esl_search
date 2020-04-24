@@ -1,0 +1,71 @@
+.home-area {
+  grid-gap: 2px;
+  grid-template-areas:
+  "elementa"
+  "elementb"
+  "elementc"
+  "elementd"
+  "elemente"
+  "elementf"
+  "elementg" //this can be the base of the page
+  "elementh"
+  ;
+}
+
+@media (min-width: 850px){
+  .home-area{
+    // background-color: #E5E5E5;
+    grid-gap: 4px;
+    grid-template-areas:
+    ". elementa elementa ."
+    ". elementb elementb ."
+    ". elementc elementc ."
+    ". elementd elementd ."
+    ". elemente elemente ."
+    ". elementf elementf ."
+    ". elementg elementg ."
+    ". elementh elementh ."
+
+    ;
+  }
+}
+
+
+@media (min-width: 850px){
+  .home-area{
+    // background-color: #E5E5E5;
+
+    grid-template: [row-start] repeat(auto, 1fr) [row-end] / [col-start] 1% repeat(9, 1fr) 1% [col-end]; //rows set to automatic; now fits
+    grid-gap: 6px 6px; //row columns
+    grid-template-areas:
+    ". elementa elementa elementa elementa elementa elementa elementa elementa elementa ."
+    ". elementb elementb elementb elementc elementc elementc elementd elementd elementd ."
+    ". elemente elemente elemente elementg elementg elementg elementh elementh elementh ."
+    ;
+  }
+}
+
+.home-head{
+grid-area: elementa;
+}
+.home-online{
+grid-area: elementb;
+}
+.home-hourly{
+grid-area: elementc;
+}
+.home-monthly{
+grid-area: elementd;
+}
+.home-hobby{
+grid-area: elemente;
+}
+// .home-ex{
+// grid-area: elementf;
+// }
+.home-edu{
+grid-area: elementg;
+}
+.home-train{
+grid-area: elementh;
+}

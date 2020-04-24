@@ -13,8 +13,9 @@ gem 'webpacker', '~> 4.x'
 
 gem 'geocoder'
 
-# gem "bootstrap-sass"
-gem "font-awesome-sass"
+gem "bootstrap-sass"
+# gem 'bootstrap', '~> 4.4.1'
+gem 'font-awesome-sass', '~> 5.6.1'
 gem "simple_form"
 gem "autoprefixer-rails"
 
