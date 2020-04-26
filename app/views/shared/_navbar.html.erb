@@ -1,57 +1,58 @@
-<div class="navbar-esl">
+<div class="navbar-esl flex-space-between">
   <!-- Logo -->
-  <a href="/" class="navbar-esl-brand">
-    <img src="images/logo.png" alt="logo">
-  </a>
-
-<div class="">
-          <input class="search-shell center-text center-div" type="text"  placeholder="service, city, language">
-          <div class="btn"><i class="fas fa-search"></i></div>
-        </div>
-
-
-  <div class="navbar-esl-right hidden-xs hidden-sm">
-
-    <!-- <a href="" class="navbar-esl-item navbar-esl-link">home</a>
-    <a href="" class="navbar-esl-item navbar-esl-link">dashboard</a>
-    <a href="" class="navbar-esl-item navbar-esl-link">Messages</a> -->
-    <!-- Profile picture with dropdown list -->
-    <div class="navbar-esl-item">
-
-        <div class="dropdown-toggle"  id="navbar-esl-menu" data-toggle="dropdown" >
-        <% user_signed_in? ? avatar_url = current_user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" : avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
-        <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-          <div class="user-sm-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 50px; width: 50px; border-radius: 50%; background-position: center;"></div>
-        </div><!--end of icon-div-->
-        <ul class="dropdown-menu dropdown-menu-right navbar-esl-dropdown-menu">
-          <li><%= link_to 'Dashboard', dashboard_path %></li>
-          <li><%= link_to "Find a Class", consultations_path %></li>
-          <li><%= link_to 'Edit Profile', edit_user_registration_path(current_user) %></li>
-          <% if user_signed_in? %>
-            <li> <%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
-          <% end %>
-
-          <!-- <li><a href="#">home</a></li> -->
-          <!-- <li><a href="#">Profile</a></li> -->
-          <!-- <li><a href="#">Log Out</a></li> -->
-        </ul>
-
+  <div class="flex-25">
+    <div class="navbar-brand-link">
+      <a href="/" class="navbar-esl-brand">
+        <img src="images/logo.png" alt="logo">
+      </a>
     </div>
   </div>
 
-  <!-- Dropdown appearing on mobile only -->
-  <div class="navbar-esl-item hidden-md hidden-lg">
-
-      <i class="fas fa-bars fa-lg dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-esl-dropdown-menu">
-        <li><%= link_to 'Dasboard', dashboard_path %></li>
-          <li><%= link_to "Find a Class", consultations_path %></li>
-          <li><%= link_to 'Edit Profile', edit_user_registration_path(current_user) %></li>
-          <% if user_signed_in? %>
-            <li> <%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
-          <% end %>
-        <!-- <li><a href="#">home</a></li> -->
-      </ul>
-
+  <div class="flex-50">
+    <div class="flex-space-between shell-search center-text padding-10">
+      <!-- ^ flex-sp-betwee for the items inside the searchbox-->
+      <input class="navbar-search-input center-text center-div" type="text" placeholder="service, city, language">
+      <div class="btn"><i class="fas fa-search"></i></div>
+    </div>
   </div>
-</div>
+  <div class="flex-25">
+    <div class="navbar-esl-right hidden-xs hidden-sm">
+    <!-- <a href="" class="navbar-esl-cursor navbar-esl-link">home</a>
+    <a href="" class="navbar-esl-cursor navbar-esl-link">dashboard</a>
+    <a href="" class="navbar-esl-cursor navbar-esl-link">Messages</a> -->
+    <!-- Profile picture with dropdown list -->
+      <div class="navbar-esl-cursor">
+          <div class="dropdown-toggle"  id="navbar-esl-menu" data-toggle="dropdown" >
+          <% user_signed_in? ? avatar_url = current_user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" : avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
+          <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
+            <div class="user-sm-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 50px; width: 50px; border-radius: 50%; background-position: center;"></div>
+          </div><!--end of icon-div-->
+          <ul class="dropdown-menu dropdown-menu-right navbar-esl-dropdown-menu">
+            <li><%= link_to 'Dashboard', dashboard_path %></li>
+            <li><%= link_to "Find a Class", consultations_path %></li>
+            <li><%= link_to 'Edit Profile', edit_user_registration_path(current_user) %></li>
+            <% if user_signed_in? %>
+              <li> <%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+            <% end %>
+            <!-- <li><a href="#">home</a></li> -->
+            <!-- <li><a href="#">Profile</a></li> -->
+            <!-- <li><a href="#">Log Out</a></li> -->
+          </ul>
+      </div>
+    </div>
+
+  <!-- Dropdown appearing on mobile only -->
+    <div class="navbar-esl-cursor hidden-md hidden-lg">
+        <i class="fas fa-bars fa-lg dropdown-toggle" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu dropdown-menu-right navbar-esl-dropdown-menu">
+          <li><%= link_to 'Dasboard', dashboard_path %></li>
+            <li><%= link_to "Find a Class", consultations_path %></li>
+            <li><%= link_to 'Edit Profile', edit_user_registration_path(current_user) %></li>
+            <% if user_signed_in? %>
+              <li> <%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+            <% end %>
+          <!-- <li><a href="#">home</a></li> -->
+        </ul>
+    </div>
+  </div><!--end of flex-25-->
+</div><!--end of esl-navbar-->

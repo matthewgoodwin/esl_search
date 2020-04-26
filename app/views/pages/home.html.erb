@@ -4,19 +4,50 @@
   <div class="home-head">
     <h1 class="center-text">Hello All</h1>
   </div>
-  <% image1_url = "https://res.cloudinary.com/mattg/image/upload/v1587752323/visuals-sW_BS0OVgv0-unsplash_p5cqtq.jpg" %>
-  <div class="home-online card-home">
-    <div class="card-bg-image" style="background-image: url('<%= image_path image1_url %>');"></div>
+    <% image_lang_url = "https://res.cloudinary.com/mattg/image/upload/v1587894481/edu.jpg" %>
+  <div class="home-lang card-home">
+    <div class="card-bg-image" style="background-image: url('<%= image_path image_lang_url %>');"></div>
     <div class="card-body">
-      <h4 class="card-title padding-10">Online SERVICES</h4>
+      <h5 class="card-title padding-5">Langauge</h5>
     </div>
     <div class="card-footer">
       <small class="text-muted padding-5">Last updated 3 mins ago</small>
     </div>
   </div>
-  <% image2_url = "https://res.cloudinary.com/mattg/image/upload/v1587751715/brooke-cagle-TxSVqNgnjq4-unsplash_w4c9zy.jpg" %>
+  <% image_city_url = "https://res.cloudinary.com/mattg/image/upload/v1587894460/city1.jpg" %>
+  <div class="home-city card-home">
+    <div class="card-bg-image" style="background-image: url('<%= image_path image_city_url %>');"></div>
+    <div class="card-body">
+      <h5 class="card-title padding-5">City</h5>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted padding-5">Last updated 3 mins ago</small>
+    </div>
+  </div>
+  <% image_cat_url = "https://res.cloudinary.com/mattg/image/upload/v1587752333/hobby2.jpg" %>
+  <div class="home-cat card-home">
+    <div class="card-bg-image" style="background-image: url('<%= image_path image_cat_url %>');"></div>
+    <div class="card-body">
+      <h5 class="card-title padding-5">Category</h5>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted padding-5">Last updated 3 mins ago</small>
+    </div>
+  </div>
+
+  <% image_online_url = "https://res.cloudinary.com/mattg/image/upload/v1587752323/online1.jpg" %>
+  <div class="home-online card-home">
+    <div class="card-bg-image" style="background-image: url('<%= image_path image_online_url %>');"></div>
+    <div class="card-body">
+      <h4 class="card-title padding-10">ONLINE SERVICES</h4>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted padding-5">Last updated 3 mins ago</small>
+    </div>
+  </div>
+  <% image_hour_url = "https://res.cloudinary.com/mattg/image/upload/v1587751715/hourly.jpg" %>
   <div class="home-hourly card-home">
-    <div class="card-bg-image" style="background-image: url('<%= image_path image2_url %>');"></div>
+    <div class="card-bg-image" style="background-image: url('<%= image_path image_hour_url %>');"></div>
     <div class="card-body">
       <h5 class="card-title padding-5">HOURLY SESSIONS</h5>
     </div>
@@ -24,9 +55,9 @@
       <small class="text-muted padding-5">Last updated 3 mins ago</small>
     </div>
   </div>
-  <% image3_url = "https://res.cloudinary.com/mattg/image/upload/v1587745738/helloquence-5fNmWej4tAA-unsplash_imzspt.jpg" %>
+  <% image_month_url = "https://res.cloudinary.com/mattg/image/upload/v1587745738/month.jpg" %>
   <div class="home-monthly card-home">
-    <div class="card-bg-image" style="background-image: url('<%= image_path image3_url %>');"></div>
+    <div class="card-bg-image" style="background-image: url('<%= image_path image_month_url %>');"></div>
     <div class="card-body">
       <h5 class="card-title padding-5">MONTHLY SESSIONS</h5>
     </div>
@@ -34,20 +65,21 @@
       <small class="text-muted padding-5">Last updated 3 mins ago</small>
     </div>
   </div>
-  <% image4_url = "https://res.cloudinary.com/mattg/image/upload/v1587746400/anupam-mahapatra-Vz0RbclzG_w-unsplash_cclr5h.jpg" %>
+
+  <% image_hobby_url = "https://res.cloudinary.com/mattg/image/upload/v1587746400/hobby.jpg" %>
   <div class="home-hobby card-home">
-    <div class="card-bg-image" style="background-image: url('<%= image_path image4_url %>');"></div>
+    <div class="card-bg-image" style="background-image: url('<%= image_path image_hobby_url %>');"></div>
     <div class="card-body">
-      <h5 class="card-title padding-5">Hobby</h5>
+      <h5 class="card-title padding-5">HOBBY</h5>
     </div>
     <div class="card-footer">
       <small class="text-muted padding-5">Last updated 3 mins ago</small>
     </div>
   </div>
 <!-- eliminated 5 home-ex -->
-  <% image6_url = "https://res.cloudinary.com/mattg/image/upload/v1587745860/element5-digital-OyCl7Y4y0Bk-unsplash_vxripr.jpg" %>
+  <% image_edu_url = "https://res.cloudinary.com/mattg/image/upload/v1587925305/whiteboard_tjewmy.jpg" %>
   <div class="home-edu card-home">
-    <div class="card-bg-image" style="background-image: url('<%= image_path image6_url %>');"></div>
+    <div class="card-bg-image" style="background-image: url('<%= image_path image_edu_url %>');"></div>
     <div class="card-body">
       <h5 class="card-title padding-5">Education</h5>
     </div>
@@ -55,9 +87,9 @@
       <small class="text-muted padding-5">Last updated 3 mins ago</small>
     </div>
   </div>
-  <% image7_url = "https://res.cloudinary.com/mattg/image/upload/v1587745749/ilya-pavlov-OqtafYT5kTw-unsplash_sejyh2.jpg" %>
+  <% image_train_url = "https://res.cloudinary.com/mattg/image/upload/v1587745749/train.jpg" %>
   <div class="home-train card-home">
-    <div class="card-bg-image" style="background-image: url('<%= image_path image7_url %>');"></div>
+    <div class="card-bg-image" style="background-image: url('<%= image_path image_train_url %>');"></div>
     <div class="card-body">
       <h5 class="card-title padding-5">Training</h5>
     </div>

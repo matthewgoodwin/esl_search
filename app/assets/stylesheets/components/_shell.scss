@@ -63,9 +63,10 @@
   //same as shell-tab-header; delete one
 }
 
-.search-shell {
-  border-radius: 35px;
-  color: #DCDCDC;
+.shell-search {
+  border-radius: 20px;
+  // width: 100%;
+  color: $black;
   padding: 4px;
   box-shadow: 1px 1px 6px #a8a8a8;
 }

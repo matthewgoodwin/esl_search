@@ -9,10 +9,14 @@
   "elementf"
   "elementg" //this can be the base of the page
   "elementh"
+  "elementi"
+  "elementj"
+  "elementk"
+
   ;
 }
 
-@media (min-width: 850px){
+@media (min-width: 768px){
   .home-area{
     // background-color: #E5E5E5;
     grid-gap: 4px;
@@ -25,13 +29,16 @@
     ". elementf elementf ."
     ". elementg elementg ."
     ". elementh elementh ."
+    ". elementh elementi ."
+    ". elementh elementj ."
+    ". elementh elementk ."
 
     ;
   }
 }
 
 
-@media (min-width: 850px){
+@media (min-width: 950px){
   .home-area{
     // background-color: #E5E5E5;
 
@@ -40,32 +47,43 @@
     grid-template-areas:
     ". elementa elementa elementa elementa elementa elementa elementa elementa elementa ."
     ". elementb elementb elementb elementc elementc elementc elementd elementd elementd ."
-    ". elemente elemente elemente elementg elementg elementg elementh elementh elementh ."
+    ". elemente elemente elemente elementf elementf elementf elementg elementg elementg ."
+    ". elementh elementh elementh elementi elementi elementi elementj elementj elementj ."
+
     ;
   }
 }
 
 .home-head{
-grid-area: elementa;
+  grid-area: elementa;
 }
 .home-online{
-grid-area: elementb;
+  grid-area: elemente;
 }
 .home-hourly{
-grid-area: elementc;
+  grid-area: elementf;
 }
 .home-monthly{
-grid-area: elementd;
+  grid-area: elementg;
 }
 .home-hobby{
-grid-area: elemente;
+  grid-area: elementh;
 }
 // .home-ex{
 // grid-area: elementf;
 // }
 .home-edu{
-grid-area: elementg;
+  grid-area: elementi;
 }
 .home-train{
-grid-area: elementh;
+  grid-area: elementj;
+}
+.home-lang{
+  grid-area: elementb;
+}
+.home-city{
+  grid-area: elementc;
+}
+.home-cat{
+  grid-area: elementd;
 }

@@ -6,9 +6,6 @@
   transition: all 0.3s ease;
   height: 70px;
   padding: 0px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .navbar-esl-2 {
@@ -31,14 +28,19 @@
   justify-content: space-between;
 } //consultaiton#index navbar ( mobile only )
 
-.navbar-search{
-  padding: 5px;
-  border: 1.5px solid $brand-gray;
-  border-radius: 35%;
+.navbar-search-input{
+  // 60% of the flex-50 - 'shell-search' area
+  width: 60%;
+  border: none !important;
 }
 
 .brand-gray{
    color: $brand-gray;
+ }
+ .navbar-brand-link{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
  }
 /* Logo */
 .navbar-esl-brand img {
@@ -56,11 +58,11 @@
 .navbar-esl-right {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 /* Basic navbar item */
-.navbar-esl-item {
+.navbar-esl-cursor {
   cursor: pointer;
   padding: 0 20px;
 }
