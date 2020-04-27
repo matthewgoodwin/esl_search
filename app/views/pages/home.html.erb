@@ -45,20 +45,25 @@
 </div><!--content-grid home-area-->
 
 <div class="home-style">
-  <h1 class="session padding-5 center-text">sessions</h1>
+  <div class="session-text session padding-5 center-text">
+    <h1 class="">sessions</h1>
+    <h4 style="color: white;">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+    </h4>
+  </div>
   <div class="content-grid home-area">
     <% image_online_url = "https://res.cloudinary.com/mattg/image/upload/v1587752323/online1.jpg" %>
-    <div class="home-online card-home">
+    <div class="home-online card-hm-drk">
       <div class="card-bg-image" style="background-image: url('<%= image_path image_online_url %>');"></div>
       <div class="card-body">
-        <h4 class="card-title padding-10">ONLINE SERVICES</h4>
+        <h5 class="card-title padding-10">ONLINE SERVICES</h5>
       </div>
       <div class="card-footer">
         <small class="text-muted padding-5">Last updated 3 mins ago</small>
       </div>
     </div>
     <% image_hour_url = "https://res.cloudinary.com/mattg/image/upload/v1587751715/hourly.jpg" %>
-    <div class="home-hourly card-home">
+    <div class="home-hourly card-hm-drk">
       <div class="card-bg-image" style="background-image: url('<%= image_path image_hour_url %>');"></div>
       <div class="card-body">
         <h5 class="card-title padding-5">HOURLY SESSIONS</h5>
@@ -68,7 +73,7 @@
       </div>
     </div>
     <% image_month_url = "https://res.cloudinary.com/mattg/image/upload/v1587745738/month.jpg" %>
-    <div class="home-monthly card-home">
+    <div class="home-monthly card-hm-drk">
       <div class="card-bg-image" style="background-image: url('<%= image_path image_month_url %>');"></div>
       <div class="card-body">
         <h5 class="card-title padding-5">MONTHLY SESSIONS</h5>
