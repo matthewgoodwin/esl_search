@@ -32,13 +32,38 @@
   box-shadow: 1px 1px 10px #a8a8a8;
   background-color: white;
 }
-
 .card-bg-image{
   background-size: cover;
   height: 250px;
   width: 100%;
   background-position: center;
+  border-radius: 20px 20px 20px 20px;
+  }
+
+@media (min-width: 768px){
+  .card-bg-image{
+  background-size: cover;
+  height: 250px;
+  width: 100%;
+  background-position: center;
   border-radius: 20px 20px 0px 0px;
+  }
+}
+@media (min-width: 950px){
+    // background-color: #E5E5E5;
+  .card-home{
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px #a8a8a8;
+    background-color: white;
+  }
+  .card-bg-image{
+  background-size: cover;
+  height: 250px;
+  width: 100%;
+  background-position: center;
+  border-radius: 20px 20px 0px 0px;
+  }
 }
 
 .card-body{

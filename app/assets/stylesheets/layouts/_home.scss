@@ -42,6 +42,12 @@
   .home-area{
     // background-color: #E5E5E5;
     margin: 10px 0px 10px 0px;
+  .card-home{
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px #a8a8a8;
+    background-color: white;
+  }
     grid-template: [row-start] repeat(auto, 1fr) [row-end] / [col-start] 1% repeat(9, 1fr) 1% [col-end]; //rows set to automatic; now fits
     grid-gap: 10px 10px; //row columns
     grid-template-areas:
