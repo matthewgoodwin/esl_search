@@ -2,7 +2,7 @@
   // border: 0.5px solid white;
   // padding: 1px;
   margin-bottom: 5px;
-  border-radius: 20px;
+  border-radius: 5px;
   box-shadow: 1px 1px 10px #a8a8a8;
   background-color: white;
 }
@@ -10,9 +10,9 @@
   // border: 0.5px solid white;
   // padding: 1px;
   margin-bottom: 5px;
-  border-radius: 20px;
+  border-radius: 5px;
   box-shadow: 1px 1px 10px $black;
-  background-color: white;
+
 }
 
 .card1{
@@ -37,7 +37,7 @@
   height: 250px;
   width: 100%;
   background-position: center;
-  border-radius: 20px 20px 20px 20px;
+  border-radius: 5px 5px 0px 0px;
   }
 
 @media (min-width: 768px){
@@ -56,6 +56,11 @@
     border-radius: 20px;
     box-shadow: 1px 1px 10px #a8a8a8;
     background-color: white;
+  }
+  .card-hm-drk{
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px;
   }
   .card-bg-image{
   background-size: cover;
