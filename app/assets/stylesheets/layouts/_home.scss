@@ -1,18 +1,16 @@
-.home-area {
+.home-area{
   grid-gap: 5px;
   grid-template-areas:
-  "elementa"
-  "elementb"
-  "elementc"
-  "elementd"
-  "elemente"
-  "elementf"
-  "elementg" //this can be the base of the page
-  "elementh"
-  "elementi"
-  "elementj"
-  "elementk"
-
+  ". elA ."
+  ". elB ."
+  ". elC ."
+  ". elD ."
+  ". elE ."
+  ". elF ."
+  ". elG ."
+  ". elH ."
+  ". elI ."
+  ". elJ ."
   ;
 }
 
@@ -21,17 +19,16 @@
     // background-color: #E5E5E5;
     grid-gap: 6px;
     grid-template-areas:
-    ". elementa elementa ."
-    ". elementb elementb ."
-    ". elementc elementc ."
-    ". elementd elementd ."
-    ". elemente elemente ."
-    ". elementf elementf ."
-    ". elementg elementg ."
-    ". elementh elementh ."
-    ". elementh elementi ."
-    ". elementh elementj ."
-    ". elementh elementk ."
+    ". elA elA ."
+    ". elB elB ."
+    ". elC elC ."
+    ". elD elD ."
+    ". elE elE ."
+    ". elF elF ."
+    ". elG elG ."
+    ". elH elH ."
+    ". elI elI ."
+    ". elJ elJ ."
 
     ;
   }
@@ -51,45 +48,42 @@
     grid-template: [row-start] repeat(auto, 1fr) [row-end] / [col-start] 1% repeat(9, 1fr) 1% [col-end]; //rows set to automatic; now fits
     grid-gap: 10px 10px; //row columns
     grid-template-areas:
-    ". elementa elementa elementa elementa elementa elementa elementa elementa elementa ."
-    ". elementb elementb elementb elementc elementc elementc elementd elementd elementd ."
-    ". elemente elemente elemente elementf elementf elementf elementg elementg elementg ."
-    ". elementh elementh elementh elementi elementi elementi elementj elementj elementj ."
-
+    ". elA elA elA elA elA elA elA elA elA ."
+    ". elB elB elB elC elC elC elD elD elD ."
+    ". elE elE elE elF elF elF elG elG elG ."
+    ". elH elH elH elI elI elI elJ elJ elJ ."
     ;
   }
 }
 
+
 .home-head{
-  grid-area: elementa;
-}
-.home-online{
-  grid-area: elemente;
-}
-.home-hourly{
-  grid-area: elementf;
-}
-.home-monthly{
-  grid-area: elementg;
-}
-.home-hobby{
-  grid-area: elementh;
-}
-// .home-ex{
-// grid-area: elementf;
-// }
-.home-edu{
-  grid-area: elementi;
-}
-.home-train{
-  grid-area: elementj;
+  grid-area: elA;
 }
 .home-lang{
-  grid-area: elementb;
+  grid-area: elB;
 }
 .home-city{
-  grid-area: elementc;
+  grid-area: elC;
 }
 .home-cat{
-  grid-area: elementd;
+  grid-area: elD;
+}
+.home-online{
+  grid-area: elE;
+}
+.home-hourly{
+  grid-area: elF;
+}
+.home-monthly{
+  grid-area: elG;
+}
+.home-hobby{
+  grid-area: elH;
+}
+.home-edu{
+  grid-area: elI;
+}
+.home-train{
+  grid-area: elJ;
 }
