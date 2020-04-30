@@ -1,12 +1,13 @@
 class ConsultationsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show, :location, :type, :period, :language, :locations, :types, :periods, :languages]
+  skip_before_action :authenticate_user!, only: [:index, :show, :hourly, :online, :single, :location, :type, :period, :language, :locations, :types, :periods, :languages]
   before_action :find_consultation, only: [:show, :edit, :update, :destroy]
   before_action :consultation_params, only: [:create]
+  # before_action :period_params, only: [:hourly]
   before_action :location_params, only: [:location]
   before_action :language_params, only: [:language]
   before_action :period_params, only: [:period]
   before_action :type_params, only: [:type]
-  skip_after_action :verify_authorized, only: [:locations, :location, :languages, :language, :types, :type, :periods, :period]
+  skip_after_action :verify_authorized, only: [:online, :hourly, :single, :locations, :location, :languages, :language, :types, :type, :periods, :period]
   def index
     #@consultations = Consultation.all
     @consultations = policy_scope(Consultation).paginate(page: params[:page], per_page: 8)
@@ -98,7 +99,15 @@ class ConsultationsController < ApplicationController
     flash[:notice] = "Your class has been destroyed!"
     redirect_to dashboard_path
   end
-
+  def online
+    @consultation_online = Consultation.where(consult_type: 'online - remote').paginate(page: params[:page], per_page: 8)
+  end
+  def hourly
+    @consultation_hourly = Consultation.where(consult_period: 'hourly').paginate(page: params[:page], per_page: 8)
+  end
+  def single
+    @consultation_single = Consultation.where(consult_period: 'single-session').paginate(page: params[:page], per_page: 8)
+  end
   def locations
     # skip_authorization
     @consultations = policy_scope(Consultation)

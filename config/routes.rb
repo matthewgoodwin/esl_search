@@ -25,6 +25,11 @@ Rails.application.routes.draw do
   end
   resources :consultations, shallow: true do
     collection do
+      # get 'hourly', to: 'consultations#hourly'
+      get :hourly
+      get :single
+      get :online
+      # ^ this is the new way
       get 'locations', to: 'consultations#locations'
       get 'location', to: 'consultations#location'
       get 'languages', to: 'consultations#languages'

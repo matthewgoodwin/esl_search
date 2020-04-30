@@ -16,28 +16,28 @@
       <h6> primary langauage <span class="red-text">&#42;</span></h6>
       <%= f.input :consult_language, label: false, default: ["English"] ,collection: ["English", "Hangul - Korean", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"] %>
       <h6> secondary language (optional) :</h6>
-      <%= f.input :consult_sec_lang, label: false, default: [ "none" ], collection: ["none", "English", "Hangul - Korean", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"]%>
+      <%= f.input :consult_sec_lang, label: false, default: [ "none" ], collection: ["none", "English", "Hangul - Korean", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"] %>
       <h6> group <span class="red-text">&#42;</span></h6>
       <%= f.input :consult_demo, label: false, default: ["everyone"], collection: ["everyone", "kindergarten", "elementary-primary", "middle school", "high school-secondary", "adult"] %>
       <h6>type <span class="red-text">&#42;</span></h6>
-      <%= f.input :consult_type, label: false, collection: ["camp", "conversation", "education",  "exam-prep", "group / club", "hobby", "interview prep","phone-only", "speech-prep", "trade / industry", "translation", "other"], prompt: "-select type-" %>
+      <%= f.input :consult_type, label: false, collection: ["camp", "conversation", "education",  "exam-prep", "club", "interview-prep", "online - remote", "speech", "industry", "translation", "other"], prompt: "-select type-" %>
         <h6> location <span class="red-text">&#42;</span></h6>
-        <%= f.input :consult_city, label: false, placeholder: "city"%>
+        <%= f.input :consult_city, label: false, placeholder: "city" %>
         <%= f.input :address, label: false, placeholder: "address" %>
       <h6> term <span class="red-text">&#42;</span></h6>
-      <%= f.input :consult_period, label: false, default: ["hourly"], collection: ["hourly", "single-class", "one-week", "one-month", "3 month term"]%>
+      <%= f.input :consult_period, label: false, default: ["hourly"], collection: ["hourly", "single-session", "series"] %>
       <div>
-        <h6> rate / term <span class="red-text">&#42;</span></h6>
+        <h6> rate <span class="red-text">&#42;</span></h6>
         <div class="flex">
           <h5>&#8361; &nbsp; </h5>
-          <%= f.input :consult_fee, label: false, placeholder: "ex: 15000"%>
+          <%= f.input :consult_fee, label: false, placeholder: "ex: 15000" %>
         </div>
       </div>
       <h6> materials included? <span class="red-text">&#42;</span></h6>
       <%= f.input :consult_mat, label: false, as: :radio_buttons, collection:[["yes","yes"], ["no","no"]], label_method: :second, value_method: :first, checked: ["no","no"]%>
       <h6> specific focus (optional)&nbsp;: </h6>
       <h6><span class="red-text">max 30 characters</span></h6>
-      <%= f.input :consult_focus, label: false, placeholder: "e.g. grammar"%>
+      <%= f.input :consult_focus, label: false, placeholder: "e.g. grammar" %>
       <div>
         <h6>descripton&nbsp;:</h6>
           <h6><span class="red-text">200 - 2000 characters &#42;</span></h6>

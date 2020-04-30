@@ -4,15 +4,15 @@
 
   <%= simple_form_for(@consultation) do |f| %>
     <%= f.input :consult_title, label: "Session title:", placeholder: "session title" %>
-    <%= f.input :consult_language, label: "primary class language:", default: ["English"] ,collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"]%>
-    <%= f.input :consult_sec_lang, label: "secondary class language:", default: [ "None" ], collection: ["None", "English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"]%>
-    <%= f.input :consult_demo, label:"class demographic:", collection: ["everyone", "kindergarden", "elementary", "middle school", "high school", "adult"] %>
-    <%= f.input :consult_type, label: false, collection: ["camp", "conversation", "education",  "exam-prep", "group / club", "hobby", "interview prep","phone-only", "speech-prep", "trade / industry", "translation", "other"], prompt: "-select type-" %>
+    <%= f.input :consult_language, label: "primary language:", default: ["English"] ,collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"]%>
+    <%= f.input :consult_sec_lang, label: "secondary language:", default: [ "None" ], collection: ["None", "English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"]%>
+    <%= f.input :consult_demo, label:"demographic:", collection: ["everyone", "kindergarden", "elementary", "middle school", "high school", "adult"] %>
+    <%= f.input :consult_type, label: false, collection: ["camp", "conversation", "education",  "exam-prep", "club", "interview prep","online - remote", "speech-prep", "industry", "translation", "other"], prompt: "-select type-" %>
     <%= f.input :consult_focus, label: "specific focus", placeholder: "specific focus (optional)"%>
     <%= f.input :consult_city, label: false, placeholder: "city"%>
     <%= f.input :address, label: false, placeholder: "address" %>
     <%= f.input :consult_period, label: "contract period:", default: ["hourly"], collection: ["hourly"]%>
-    <%= f.input :consult_fee, as: :hidden, label: "fee:", placeholder: "fee/term (whole numbers)"%>
+    <%= f.input :consult_fee, as: :hidden, label: "fee:", placeholder: "fee (whole numbers)"%>
     <%= f.input :consult_mat, label: 'materials included?', as: :radio_buttons, collection:[["yes","yes"], ["no","no"]], label_method: :second, value_method: :first, checked: ["no","no"]%>
     <h5><b>descripton&nbsp;:</b></h5>
     <h6><span class="red-text">200 - 2000 characters &#42;</span></h6>
@@ -26,16 +26,16 @@
   <!--this should be in a partial-->
 
     <%= simple_form_for(@consultation) do |f| %>
-      <%= f.input :consult_title, label: "Class title:", placeholder: "class title" %>
-      <%= f.input :consult_language, label: "primary class language:", default: ["English"] ,collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"]%>
-      <%= f.input :consult_sec_lang, label: "secondary class language:", default: [ "None" ], collection: ["None", "English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"]%>
-      <%= f.input :consult_demo, label:"class demographic:", collection: ["everyone", "kindergarden", "elementary", "middle school", "high school", "adult"] %>
-      <%= f.input :consult_type, label: false, collection: ["camp", "conversation", "education",  "exam-prep", "group / club", "hobby", "interview prep","phone-only", "speech-prep", "trade / industry", "translation", "other"], prompt: "-select type-" %>
+      <%= f.input :consult_title, label: "Session title:", placeholder: "session title" %>
+      <%= f.input :consult_language, label: "primary language:", default: ["English"] ,collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"]%>
+      <%= f.input :consult_sec_lang, label: "secondary language:", default: [ "None" ], collection: ["None", "English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"]%>
+      <%= f.input :consult_demo, label:"demographic:", collection: ["everyone", "kindergarden", "elementary", "middle school", "high school", "adult"] %>
+      <%= f.input :consult_type, label: false, collection: ["camp", "conversation", "education",  "exam-prep", "club", "interview prep","online - remote", "speech-prep", "industry", "translation", "other"], prompt: "-select type-" %>
       <%= f.input :consult_focus, label: "specific focus", placeholder: "specific focus (optional)"%>
       <%= f.input :consult_city, label: false, placeholder: "city"%>
       <%= f.input :address, label: false, placeholder: "address" %>
-      <%= f.input :consult_period, label: "contract period:", default: ["single-class"], collection: ["single-class", "one-week", "one-month", "3 month term", "6 month term"]%>
-      <%= f.input :consult_fee, as: :hidden, label: "fee:", placeholder: "fee/term (whole numbers)"%>
+      <%= f.input :consult_period, label: "contract period:", default: ["single-session"], collection: ["single-session", "series"]%>
+      <%= f.input :consult_fee, as: :hidden, label: "fee:", placeholder: "fee (whole numbers)"%>
       <%= f.input :consult_mat, label: 'materials included?', as: :radio_buttons, collection:[["yes","yes"], ["no","no"]], label_method: :second, value_method: :first, checked: ["no","no"]%>
       <h5><b>descripton&nbsp;:</b></h5>
       <h6><span class="red-text">200 - 2000 characters &#42;</span></h6>
