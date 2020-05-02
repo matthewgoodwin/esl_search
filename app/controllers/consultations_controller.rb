@@ -1,13 +1,13 @@
 class ConsultationsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show, :hourly, :online, :single, :location, :type, :period, :language, :locations, :types, :periods, :languages]
+  skip_before_action :authenticate_user!, only: [:index, :show, :hourly, :online, :single, :langs_locs, :lang_locs, :lang_loc, :location, :type, :period, :language, :locations, :types, :periods, :languages]
   before_action :find_consultation, only: [:show, :edit, :update, :destroy]
   before_action :consultation_params, only: [:create]
   # before_action :period_params, only: [:hourly]
-  before_action :location_params, only: [:location]
-  before_action :language_params, only: [:language]
+  before_action :location_params, only: [:location, :lang_loc]
+  before_action :language_params, only: [:language, :lang_locs, :lang_loc]
   before_action :period_params, only: [:period]
   before_action :type_params, only: [:type]
-  skip_after_action :verify_authorized, only: [:online, :hourly, :single, :locations, :location, :languages, :language, :types, :type, :periods, :period]
+  skip_after_action :verify_authorized, only: [:online, :hourly, :single, :langs_locs, :lang_locs, :lang_loc, :locations, :location, :languages, :language, :types, :type, :periods, :period]
   def index
     #@consultations = Consultation.all
     @consultations = policy_scope(Consultation).paginate(page: params[:page], per_page: 8)
@@ -108,11 +108,36 @@ class ConsultationsController < ApplicationController
   def single
     @consultation_single = Consultation.where(consult_period: 'single-session').paginate(page: params[:page], per_page: 8)
   end
+  def langs_locs
+    @consultations = policy_scope(Consultation)
+    @consult_language_links = []
+    @consultations.each do |c|
+     unless @consult_language_links.include? c.consult_language
+      @consult_language_links << c.consult_language
+     end
+    end
+  end
+  def lang_locs
+    @consult_lang_group = Consultation.where(consult_language: @consult_lang)
+    # @consult_lang is defined in before_action :language_params, only: [:lang_locs]
+    @consult_city_links = []
+    @consult_lang_group.each do |c|
+      unless @consult_city_links.include? c.consult_city
+        @consult_city_links << c.consult_city
+      end
+    end
+    # raise
+  end
+  def lang_loc
+    @consult_lang_loc_group = Consultation.where(consult_language: @consult_lang, consult_city: @consult_city).paginate(page: params[:page], per_page: 8)
+    # @consult_lang is defined in before_action :language_params, only: [:lang_loc]
+    # @consult_city is defined in before_action :location_params, only: [:lang_loc]
+# raise
+  end
   def locations
     # skip_authorization
     @consultations = policy_scope(Consultation)
     @consult_city_links = []
-    @consults_cities = []
 
     @consultations.each do |c|
      unless @consult_city_links.include? c.consult_city

@@ -30,6 +30,9 @@ Rails.application.routes.draw do
       get :single
       get :online
       # ^ this is the new way
+      get :langs_locs
+      get :lang_locs
+      get :lang_loc
       get 'locations', to: 'consultations#locations'
       get 'location', to: 'consultations#location'
       get 'languages', to: 'consultations#languages'

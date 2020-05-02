@@ -1,13 +1,13 @@
 <div class="content-grid element-index-area">
   <div class="element-index-shell shell-border">
     <div style="background-color: white;">
-      <!-- <div class="flex-center-column text-center div-center grey-shell-gradient">
+      <div class="flex-center-column text-center div-center grey-shell-gradient">
         <div class="flex-center center-div center-text padding-5">
           <input class="center-text center-div" type="text"  placeholder="search">
           <div class="btn"><i class="fas fa-search"></i></div>
         </div>
-      </div> -->
-      <!-- Dropdown appearing on mobile only -->
+      </div>
+      <!-- Dropdown appearing on all devices -->
       <div class="navbar-esl-item">
         <div class="navbar-esl-3">
           <div class="home"><%= link_to consultations_path do %><i class="fa fa-home fa-lg" aria-hidden="true"></i><% end %></div>
@@ -30,21 +30,20 @@
           </div>
         </div>
       </div>
-      <div class="flex-space-between grey-shell-gradient padding-5">
-        <div class="flex-33 center-div center-text"><h6><b>INSTRUCTOR</b></h6></div>
-        <div class="flex-33"><h6><b>INFO</b></h6></div>
-        <div class="flex-33 center-text"><h6><b>RATE</b></h6></div>
-      </div><!--end of flex-space-between-->
-      <% @consultations.each do |consult| %>
-        <%= render 'consultations/index', element: consult %>
-      <% end %><!--end of @consultations.each do-->
-    </div><!--color:white-->
-    <div class="center-text center-div">
-      <div class="">
-        <!-- will_pagination (below) is a div w/ class called "pagination"
-          this is refernced in _paginate.scss, but can be overwritten-->
-        <%= will_paginate @consultations %>
-      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <% @consult_language_links.each do |clang_link|%>
+            <div class="col-xs-6 col-sm-6">
+              <div class="white-background card1 center-text">
+                <%= link_to lang_locs_consultations_path(consult_language: clang_link) do %>
+                <!-- http://localhost:3000/consultations/lang_loc?consult_language=English -->
+                  <h6><%= clang_link %></h6>
+                <% end %><!--end of link-->
+              </div><!--end white card1 center-text-->
+            </div><!--col-xs-6 col-sm-6-->
+          <% end %><!--end of clang_link-->
+        </div><!--row-->
+      </div><!--container-->
     </div>
-  </div><!-- end of consultations-index-shell-->
-</div><!--end of consult-index-area-->
+  </div>
+</div>
