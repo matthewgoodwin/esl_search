@@ -1,40 +1,10 @@
 <div class="content-grid element-index-area">
   <div class="element-index-shell shell-border">
     <div style="background-color: white;">
-      <div class="flex-center-column text-center div-center grey-shell-gradient">
-        <div class="flex-center center-div center-text padding-5">
-          <input class="center-text center-div" type="text"  placeholder="search">
-          <div class="btn"><i class="fas fa-search"></i></div>
-        </div>
-      </div>
-      <!-- Dropdown appearing on all devices -->
       <div class="navbar-esl-item">
-        <div class="navbar-esl-3">
-          <div class="home"><%= link_to consultations_path do %><i class="fa fa-home fa-lg" aria-hidden="true"></i><% end %></div>
-          <div class="dropdown">
-            <i class="fa fa-filter fa-lg dropdown-toggle" data-toggle="dropdown"></i>
-            <ul class="dropdown-menu dropdown-menu-right navbar-esl-dropdown-menu">
-              <li  class="inline-list-item"><%= link_to locations_consultations_path, class: "navbar-esl-link brand-green" do %>
-                <h6 class="navbar-esl-link charcoal-text">CITY</h6><% end %>
-              </li>
-              <li  class="inline-list-item"><%= link_to languages_consultations_path, class: "navbar-esl-link" do %>
-                <h6 class="navbar-esl-link charcoal-text">LANGUAGE</h6><% end %>
-              </li>
-              <li  class="inline-list-item"><%= link_to types_consultations_path, class: "navbar-esl-link" do %>
-                <h6 class="navbar-esl-link charcoal-text">CATEGORY</h6><% end %>
-              </li>
-              <li  class="inline-list-item"><%= link_to periods_consultations_path, class: "navbar-esl-link" do %>
-                <h6 class="navbar-esl-link charcoal-text">PERIOD</h6><% end %>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <%= render 'consultations/index_menu' %>
       </div>
-      <div class="flex-space-between grey-shell-gradient padding-5">
-        <div class="flex-33 center-div center-text"><h6><b>INSTRUCTOR</b></h6></div>
-        <div class="flex-33"><h6><b>INFO</b></h6></div>
-        <div class="flex-33 center-text"><h6><b>RATE</b></h6></div>
-      </div><!--end of flex-space-between-->
+      <%= render 'consultations/index_table_header' %>
       <% @consult_lang_loc_group.each do |clangloc_member| %>
         <% @clangloc_member = clangloc_member %>
         <% @clangloc_member_title = clangloc_member.consult_title %>

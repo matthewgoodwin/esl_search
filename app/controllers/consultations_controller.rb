@@ -1,13 +1,14 @@
 class ConsultationsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show, :hourly, :online, :single, :langs_locs, :lang_locs, :lang_loc, :location, :type, :period, :language, :locations, :types, :periods, :languages]
+  skip_before_action :authenticate_user!, only: [:index, :show, :hourly, :online, :single, :langs_locs, :lang_locs, :lang_loc,
+  :langs_types, :lang_types, :lang_type, :langs_onlines, :lang_online, :langs_hourlies, :lang_hourly, :location, :type, :period, :language, :locations, :types, :periods, :languages]
   before_action :find_consultation, only: [:show, :edit, :update, :destroy]
   before_action :consultation_params, only: [:create]
   # before_action :period_params, only: [:hourly]
   before_action :location_params, only: [:location, :lang_loc]
-  before_action :language_params, only: [:language, :lang_locs, :lang_loc]
+  before_action :language_params, only: [:language, :lang_locs, :lang_loc, :lang_types, :lang_type, :lang_online, :lang_hourly]
   before_action :period_params, only: [:period]
-  before_action :type_params, only: [:type]
-  skip_after_action :verify_authorized, only: [:online, :hourly, :single, :langs_locs, :lang_locs, :lang_loc, :locations, :location, :languages, :language, :types, :type, :periods, :period]
+  before_action :type_params, only: [:type, :lang_type]
+  skip_after_action :verify_authorized, only: [:online, :hourly, :single, :langs_locs, :lang_locs, :lang_loc, :langs_types, :lang_types, :lang_type,:langs_onlines, :lang_online, :langs_hourlies, :lang_hourly, :locations, :location, :languages, :language, :types, :type, :periods, :period]
   def index
     #@consultations = Consultation.all
     @consultations = policy_scope(Consultation).paginate(page: params[:page], per_page: 8)
@@ -99,6 +100,7 @@ class ConsultationsController < ApplicationController
     flash[:notice] = "Your class has been destroyed!"
     redirect_to dashboard_path
   end
+
   def online
     @consultation_online = Consultation.where(consult_type: 'online - remote').paginate(page: params[:page], per_page: 8)
   end
@@ -108,6 +110,7 @@ class ConsultationsController < ApplicationController
   def single
     @consultation_single = Consultation.where(consult_period: 'single-session').paginate(page: params[:page], per_page: 8)
   end
+
   def langs_locs
     @consultations = policy_scope(Consultation)
     @consult_language_links = []
@@ -134,6 +137,57 @@ class ConsultationsController < ApplicationController
     # @consult_city is defined in before_action :location_params, only: [:lang_loc]
 # raise
   end
+
+  def langs_types
+    @consultations = policy_scope(Consultation)
+    @consult_language_links = []
+    @consultations.each do |c|
+      unless @consult_language_links.include? c.consult_language
+        @consult_language_links << c.consult_language
+      end
+    end
+  end
+  def lang_types
+    @consult_lang_group = Consultation.where(consult_language: @consult_lang)
+    @consult_type_links = []
+    @consult_lang_group.each do |c|
+      unless @consult_type_links.include? c.consult_type
+        @consult_type_links << c.consult_type
+      end
+    end
+    # raise
+  end
+  def lang_type
+    @consult_lang_type_group = Consultation.where(consult_language: @consult_lang, consult_type: @consult_type).paginate(page: params[:page], per_page: 8)
+    # raise
+  end
+
+def langs_onlines
+  @consultations = Consultation.where(consult_type: "online - remote")
+  @consult_language_links = []
+  @consultations.each do |c|
+    unless @consult_language_links.include? c.consult_language
+      @consult_language_links << c.consult_language
+    end
+  end
+end
+def lang_online
+  @consult_lang_online_group = Consultation.where(consult_language: @consult_lang, consult_type: "online - remote").paginate(page: params[:page], per_page: 8)
+  # raise
+end
+
+def langs_hourlies
+  @consultations = Consultation.where(consult_period: "hourly")
+  @consult_language_links = []
+  @consultations.each do |c|
+    unless @consult_language_links.include? c.consult_language
+      @consult_language_links << c.consult_language
+    end
+  end
+end
+def lang_hourly
+  @consult_lang_hourly_group = Consultation.where(consult_language: @consult_lang, consult_period:"hourly").paginate(page: params[:page], per_page: 8)
+end
   def locations
     # skip_authorization
     @consultations = policy_scope(Consultation)
@@ -157,7 +211,6 @@ class ConsultationsController < ApplicationController
     end
     # raise
   end
-
   def location
     @consult_city_group = Consultation.where(consult_city: @consult_city).paginate(page: params[:page], per_page: 8)
     # location param from Consultations#locations view as link 'cloc_link'
@@ -176,7 +229,6 @@ class ConsultationsController < ApplicationController
     end
     # raise
   end
-
   def language
     @consult_lang_group = Consultation.where(consult_language: @consult_lang).paginate(page: params[:page], per_page: 8)
   end
@@ -190,7 +242,6 @@ class ConsultationsController < ApplicationController
       end
     end
   end
-
   def type
     @consult_type_group = Consultation.where(consult_type: @consult_type).paginate(page: params[:page], per_page: 8)
   end
@@ -204,7 +255,6 @@ class ConsultationsController < ApplicationController
       end
     end
   end
-
   def period
     @consult_period_group = Consultation.where(consult_period: @consult_period).paginate(page: params[:page], per_page: 8)
   end

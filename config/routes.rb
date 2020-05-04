@@ -29,10 +29,17 @@ Rails.application.routes.draw do
       get :hourly
       get :single
       get :online
-      # ^ this is the new way
       get :langs_locs
       get :lang_locs
       get :lang_loc
+      get :langs_types
+      get :lang_types
+      get :lang_type
+      get :langs_onlines
+      get :lang_online
+      get :langs_hourlies
+      get :lang_hourly
+      # ^ this is the new way
       get 'locations', to: 'consultations#locations'
       get 'location', to: 'consultations#location'
       get 'languages', to: 'consultations#languages'

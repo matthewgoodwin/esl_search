@@ -10,7 +10,7 @@
       <h4 class="blue-text"><%= truncate(element.consult_title) %></h4>
       <h5 class="charcoal-text"><%= element.consult_language %></h5>
       <h5 class="charcoal-text"><%= element.consult_city %></h5>
-      <h6 class="charcoal-text"><%= element.consult_period %></h6>
+      <h6 class="charcoal-text"><%= element.consult_type %></h6>
       <div>
         <% if element.reviews.all.map{|x| [x.star]} == [] %>
           <% 5.to_i.times do %>
@@ -35,8 +35,8 @@
     <!-- :unit is built into the number_to_currency-->
     <!-- element[:consult_fee] -->
     <div class="flex-33 center-text">
+      <div><h6 class="charcoal-text"><%= element.consult_period %></h6></div>
       <p class="charcoal-text"><%= number_to_currency(element[:consult_fee], :unit => "₩")%></p>
-      <div><h6 class="blue-text">find lesson</h6></div>
     </div>
   </div><!--end of index-element-items-->
 <% end %>

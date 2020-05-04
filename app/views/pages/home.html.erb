@@ -32,7 +32,7 @@
   </div>
   <% image_cat_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,h_500,q_59/v1587752333/hobby2.jpg" %>
   <div class="home-cat card-home">
-    <%= link_to types_consultations_path do %>
+    <%= link_to langs_types_consultations_path do %>
     <div class="card-bg-image" style="background-image: url('<%= image_path image_cat_url %>');"></div>
     <div class="card-body charcoal-text">
       <h5 class="card-title">CATEGORY</h5>
@@ -50,7 +50,7 @@
 
     <% image_online_url = "https://res.cloudinary.com/mattg/image/upload/v1587752323/online1.jpg" %>
     <div class="home-online card-hm-drk charcoal-background">
-      <%= link_to online_consultations_path do %>
+      <%= link_to langs_onlines_consultations_path do %>
       <div class="card-bg-image" style="background-image: url('<%= image_path image_online_url %>');"></div>
       <div class="card-body white-text">
         <h5 class="card-title">ONLINE SERVICES</h5>
@@ -63,7 +63,7 @@
     </div>
     <% image_hour_url = "https://res.cloudinary.com/mattg/image/upload/v1587751715/hourly.jpg" %>
     <div class="home-hourly card-hm-drk charcoal-background">
-      <%= link_to hourly_consultations_path do %>
+      <%= link_to langs_hourlies_consultations_path do %>
       <div class="card-bg-image" style="background-image: url('<%= image_path image_hour_url %>');"></div>
       <div class="card-body white-text">
         <h5 class="card-title">HOURLY SESSIONS</h5>
