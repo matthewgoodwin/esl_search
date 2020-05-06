@@ -1,0 +1,22 @@
+<div class="content-grid element-index-area">
+  <div class="element-index-shell shell-border">
+    <div style="background-color: white;">
+      <div class="navbar-esl-item">
+        <%= render 'consultations/index_menu' %>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <% @consult_language_links.each do |clang_link|%>
+            <div class="col-xs-6 col-sm-6">
+              <%= link_to lang_single_consultations_path(consult_language: clang_link) do %>
+                <div class="white-background card1 center-text">
+                  <h3><%= clang_link %></h3>
+                </div><!--end white card1 center-text-->
+              <% end %><!--end of link-->
+            </div><!--col-xs-6 col-sm-6-->
+          <% end %><!--end of clang_link-->
+        </div><!--row-->
+      </div><!--container-->
+    </div>
+  </div>
+</div>
