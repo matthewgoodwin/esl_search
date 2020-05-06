@@ -41,6 +41,12 @@ Rails.application.routes.draw do
       get :lang_hourly
       get :langs_singles
       get :lang_single
+      get :langs_edus
+      get :lang_edu
+      get :langs_tests
+      get :lang_test
+      get :langs_acts
+      get :lang_act
       # ^ this is the new way
       get 'locations', to: 'consultations#locations'
       get 'location', to: 'consultations#location'

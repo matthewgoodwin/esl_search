@@ -94,6 +94,7 @@
 
   <% image_hobby_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,h_500,q_59/v1587746400/hobby.jpg" %>
   <div class="home-hobby card-home">
+    <%= link_to langs_acts_consultations_path do %>
     <div class="card-bg-image" style="background-image: url('<%= image_path image_hobby_url %>');"></div>
     <div class="card-body charcoal-text">
       <h5 class="card-title">EXPERIENCES</h5>
@@ -102,18 +103,21 @@
     <div class="card-footer">
       <!-- <small class="text-muted padding-5">Last updated 3 mins ago</small> -->
     </div>
+    <% end %>
   </div>
 <!-- eliminated 5 home-ex -->
   <% image_edu_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,h_500,q_59/v1587925305/whiteboard_tjewmy.jpg" %>
   <div class="home-edu card-home">
-    <div class="card-bg-image" style="background-image: url('<%= image_path image_edu_url %>');"></div>
-    <div class="card-body charcoal-text">
-      <h5 class="card-title">EDUCATION</h5>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-    </div>
-    <div class="card-footer">
-      <!-- <small class="text-muted padding-5">Last updated 3 mins ago</small> -->
-    </div>
+    <%= link_to langs_edus_consultations_path do %>
+      <div class="card-bg-image" style="background-image: url('<%= image_path image_edu_url %>');"></div>
+      <div class="card-body charcoal-text">
+        <h5 class="card-title">EDUCATION</h5>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+      </div>
+      <div class="card-footer">
+        <!-- <small class="text-muted padding-5">Last updated 3 mins ago</small> -->
+      </div>
+    <% end %>
   </div>
   <% image_train_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,h_500,q_59/v1587745749/train.jpg" %>
   <div class="home-train card-home">

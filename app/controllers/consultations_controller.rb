@@ -1,15 +1,15 @@
 class ConsultationsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :hourly, :online, :single, :langs_locs, :lang_locs, :lang_loc,
-  :langs_types, :lang_types, :lang_type, :langs_onlines, :lang_online, :langs_hourlies, :lang_hourly, :langs_singles, :lang_single, :location, :type, :period, :language, :locations, :types, :periods, :languages]
+  :langs_types, :lang_types, :lang_type, :langs_onlines, :lang_online, :langs_hourlies, :lang_hourly, :langs_singles, :lang_single, :langs_edus, :lang_edu, :langs_acts, :lang_act, :location, :type, :period, :language, :locations, :types, :periods, :languages]
   before_action :find_consultation, only: [:show, :edit, :update, :destroy]
   before_action :consultation_params, only: [:create]
   # before_action :period_params, only: [:hourly]
   before_action :location_params, only: [:location, :lang_loc]
-  before_action :language_params, only: [:language, :lang_locs, :lang_loc, :lang_types, :lang_type, :lang_online, :lang_hourly,:lang_single]
+  before_action :language_params, only: [:language, :lang_locs, :lang_loc, :lang_types, :lang_type, :lang_online, :lang_hourly,:lang_single, :lang_edu, :lang_act]
   before_action :period_params, only: [:period]
   before_action :type_params, only: [:type, :lang_type]
   skip_after_action :verify_authorized, only: [:online, :hourly, :single, :langs_locs, :lang_locs, :lang_loc, :langs_types, :lang_types, :lang_type,:langs_onlines, :lang_online,
-    :langs_hourlies, :lang_hourly, :langs_singles, :lang_single, :locations, :location, :languages, :language, :types, :type, :periods, :period]
+    :langs_hourlies, :lang_hourly, :langs_singles, :lang_single, :langs_edus, :lang_edu, :langs_acts, :lang_act, :locations, :location, :languages, :language, :types, :type, :periods, :period]
   def index
     #@consultations = Consultation.all
     @consultations = policy_scope(Consultation).paginate(page: params[:page], per_page: 8)
@@ -202,6 +202,33 @@ end
 def lang_single
   @consult_lang_single_group = Consultation.where(consult_language: @consult_lang, consult_period: "single-session").paginate(page: params[:page], per_page: 8)
 end
+
+def langs_edus
+  @consultations = Consultation.where(consult_type: "education")
+  @consult_language_links = []
+  @consultations.each do |c|
+    unless @consult_language_links.include? c.consult_language
+      @consult_language_links << c.consult_language
+    end
+  end
+end
+def lang_edu
+  @consult_lang_edu_group = Consultation.where(consult_language: @consult_lang, consult_type: "education").paginate(page: params[:page], per_page: 8)
+end
+
+def langs_acts
+  @consultations = Consultation.where(consult_type: "club")
+  @consult_language_links = []
+  @consultations.each do |c|
+    unless @consult_language_links.include? c.consult_language
+      @consult_language_links << c.consult_language
+    end
+  end
+end
+def lang_act
+  @consult_lang_act_group = Consultation.where(consult_language: @consult_lang, consult_type: "club").paginate(page: params[:page], per_page: 8)
+end
+
   def locations
     # skip_authorization
     @consultations = policy_scope(Consultation)
