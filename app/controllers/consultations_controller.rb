@@ -163,7 +163,7 @@ class ConsultationsController < ApplicationController
   end
 
 def langs_onlines
-  @consultations = Consultation.where(consult_type: "online - remote")
+  @consultations = Consultation.where(consult_env: "online - remote")
   @consult_language_links = []
   @consultations.each do |c|
     unless @consult_language_links.include? c.consult_language
@@ -172,7 +172,7 @@ def langs_onlines
   end
 end
 def lang_online
-  @consult_lang_online_group = Consultation.where(consult_language: @consult_lang, consult_type: "online - remote").paginate(page: params[:page], per_page: 8)
+  @consult_lang_online_group = Consultation.where(consult_language: @consult_lang, consult_env: "online - remote").paginate(page: params[:page], per_page: 8)
   # raise
 end
 
@@ -265,7 +265,7 @@ end
     authorize @consultation
   end
   def consultation_params
-    params.require(:consultation).permit(:consult_language, :consult_sec_lang, :consult_focus, :consult_period, :consult_type, :consult_demo, :consult_fee, :consult_title, :consult_desc, :consult_city, :address, :consult_mat)
+    params.require(:consultation).permit(:consult_language, :consult_sec_lang, :consult_focus, :consult_period, :consult_type, :consult_demo, :consult_fee, :consult_title, :consult_desc, :consult_city, :address, :consult_mat, :consult_env)
   end
   def location_params
     @consult_city = params[:consult_city]

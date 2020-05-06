@@ -20,7 +20,9 @@
       <h6> group <span class="red-text">&#42;</span></h6>
       <%= f.input :consult_demo, label: false, default: ["everyone"], collection: ["everyone", "kindergarten", "elementary-primary", "middle school", "high school-secondary", "adult"] %>
       <h6>type <span class="red-text">&#42;</span></h6>
-      <%= f.input :consult_type, label: false, collection: ["camp", "conversation", "education",  "exam-prep", "club", "interview-prep", "online - remote", "speech", "industry", "translation", "other"], prompt: "-select type-" %>
+      <%= f.input :consult_type, label: false, collection: ["camp", "conversation", "education",  "exam-prep", "club", "interview-prep", "speech", "industry", "translation", "other"], prompt: "-select type-" %>
+      <h6>Environment <span class="red-text">&#42;</span></h6>
+      <%= f.input :consult_env, label: false, collection: ["online - remote", "face-to-face"], prompt: "-select environment-" %>
         <h6> location <span class="red-text">&#42;</span></h6>
         <%= f.input :consult_city, label: false, placeholder: "city" %>
         <%= f.input :address, label: false, placeholder: "address" %>
