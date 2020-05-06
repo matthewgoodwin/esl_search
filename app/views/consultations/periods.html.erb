@@ -8,13 +8,13 @@
       <div class="container-fluid">
         <div class="row">
           <% @consult_period_links.each do |cper_link| %>
-            <div class="col-xs-6 col-sm-6">
+            <div class="col-md-6">
               <%= link_to period_consultations_path(consult_period: cper_link) do %>
                 <div class="white-background card1 center-text">
                   <h3><%= cper_link %></h3>
                 </div><!--end white card1 center-text-->
               <% end %><!--end of link-->
-            </div><!--col-xs-6 col-sm-6-->
+            </div><!--col-md-6-->
           <% end %><!--end of cloc_link-->
         </div><!--row-->
       </div><!--container-->
