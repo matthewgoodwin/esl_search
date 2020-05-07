@@ -49,6 +49,15 @@
       <div><!--random-->
         <%= render 'consultations/details_consultation_show', consultation: @consultation %>
       </div><!--end of random-->
+      <% unless policy(@consultation).destroy? %>
+        <div class="flex-center-center padding">
+          <div class="consultation-message-form-div">
+            <a href="" data-toggle="modal" data-target="#create-message">
+              <div class="round-div no-decor btn btn-primary">send a message</div>
+            </a><!-- end of consult-message modal-->
+          </div><!--end of consultation-message-form-div-->
+        </div><!--flex-center-center padding-->
+      <% end %>
       <hr>
       <!-- lessons here-->
       <% if policy(@consultation).destroy? %>
@@ -61,10 +70,9 @@
       <hr>
       <% end %><!--end of policy-->
       <div class="flex-space-between black-background white-text shell-tab-header-dark">
-        <div class="flex-25"><h6>section</h6></div>
-        <div class="flex-25"><h6>level</h6></div>
-        <div class="flex-25"><h6>start / end</h6></div>
-        <div class="flex-25 center-text"><h6><b>day(s)</b></h6></div>
+        <div class="flex-33 center-text"><h5>SECTION</h5></div>
+        <div class="flex-33"><h5>DETAILS</h5></div>
+        <div class="flex-33 center-text"><h5>ACTION</h5></div>
       </div><!--flex-space-between-->
       <div id="lesson-min">
         <% @consultation.lessons.each do |l| %>
@@ -84,15 +92,6 @@
           </div><!--end of modal-->
         <% end %><!--end consultation.lessons.each-->
       </div><!--end lesson-min-->
-      <% unless policy(@consultation).destroy? %>
-        <div class="flex-center-center padding">
-          <div class="consultation-message-form-div">
-            <a href="" data-toggle="modal" data-target="#create-message">
-              <div class="round-div no-decor btn btn-primary">send a message</div>
-            </a><!-- end of consult-message modal-->
-          </div><!--end of consultation-message-form-div-->
-        </div><!--flex-center-center padding-->
-      <% end %>
     </div><!--end of shell-border-->
   </div><!--end of consultation-show-details-shell-->
 

@@ -15,12 +15,12 @@
         <h6 class="charcoal-text"><%= element.lesson.lesson_start.strftime('%m/%d') %></h6>
         <h6 class="green-text"><%= element.lesson.lesson_start.strftime('@ %I:%M %p') %></h6>
         <h6 class="red-text"><%= element.lesson.lesson_max_dur %>&nbsp;minute max</h6>
-      <% elsif element.consultation.consult_period == 'single-class' %>
+      <% elsif element.consultation.consult_period == 'single-session' %>
         <h6 class="charcoal-text"><%= element.lesson.lesson_start.strftime('%m/%d') %></h6>
         <h6 class="green-text"><%= element.lesson.lesson_start.strftime('%I:%M %p') %></h6>
         <h6 class="red-text"><%= element.lesson.lesson_end.strftime('%I:%M %p') %></h6>
       <% else %>
-        <h6 class="red-text">ongoing</h6>
+        <h6 class="red-text">series</h6>
         <h6 class="green-text"><%= element.lesson.lesson_start.strftime('start: %I:%M %p') %></h6>
         <h6 class="red-text"><%= element.lesson.lesson_end.strftime('end: %I:%M %p') %></h6>
       <% end %><!---end of if statement-->

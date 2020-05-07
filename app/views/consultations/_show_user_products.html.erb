@@ -2,20 +2,20 @@
 <!--perhaps I should alternate row colors blue/white (for readability)-->
 <div class="flex-space-between user-page-shell padding-3">
   <!--product data-->
-  <div class="flex-25"><h6><%= truncate( element.consult_title, length: 45) %></h6></div>
+  <div class="flex-25"><h5><%= truncate( element.consult_title, length: 45) %></h5></div>
   <div class="flex-25">
-    <h6><%= truncate(element.consult_type) %></h6>
-    <h6><%= number_to_currency(element[:consult_fee], :unit => "₩")%></h6>
-    <h6><%= element.consult_period %></h6>
+    <h5><%= truncate(element.consult_type) %></h5>
+    <h5><%= number_to_currency(element[:consult_fee], :unit => "₩")%></h5>
+    <h5><%= element.consult_period %></h5>
   </div>
   <div class="flex-25 center-text">
     <%= link_to consultation_path(element) do %>
-      <i class="fas fa-info-circle" aria-hidden="true"></i>
+      <i class="fas fa-lg fa-info-circle" aria-hidden="true"></i>
     <% end %>
   </div>
   <div class="flex-25 center-text">
     <%= link_to consultation_path(element), method: :delete do %>
-      <i class="fas fa-trash-alt" aria-hidden="true"></i>
+      <i class="fas fa-lg fa-trash-alt" aria-hidden="true"></i>
     <% end %>
   </div><!-- end of trash can-->
 </div><!--end of flex-space-between dashboard-consults-product-items shell-border shell-tab-->

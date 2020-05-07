@@ -1,73 +1,79 @@
-<div class="flex-space-between shell-tab-header">
-  <div class="flex-25">
-    <% if element.appointments.size < element.lesson_capacity %>
-    <!-- cant compare 0 : nil -->
+<!-- the other half of the case is here: _index_single_lesson_show.html.erb -->
+<% if @consultation.consult_period == "hourly" %>
+  <div class="flex-space-between flex-wrap shell-tab-header padding-3">
+    <div class="flex-33 center-text">
       <h5><%= element.lesson_section %></h5>
-      <a href="" data-toggle="modal" data-target="#lesson-form-<%= element.id %>">
-        <h6 style="color: red;"><b>Sign Up!</b></h6>
-        <% unless @consultation.consult_period == 'hourly' %>
-        <!-- ^executes unless condition is true-->
-          <!-- hides lesson capacity if hourly-->
-          <h6 style="color: grey;"> seat(s) left: <%= element.lesson_capacity - element.appointments.size %></h6>
-        <% end %>
-      </a><!--end of appointment MODAL link-->
-    <% else %>
-      <h6 style="color: red;">section closed</h6>
-    <% end %><!--end of lesson size vs capacity-->
-    <% if policy(@consultation).destroy? %>
-      <div><%= link_to lesson_path(element), method: :delete do %>
-        <i class="charcoal-text fas fa-trash-alt" aria-hidden="true"></i><% end %>
-      </div>
-    <% end %><!--end of policy-->
-  </div><!--end of flex 25-->
-  <div class="flex-25"><h6><%= element.lesson_level %></h6></div>
-  <% if @consultation.consult_period == 'hourly' %>
-    <div class="flex-25">
+      <% if policy(@consultation).destroy? %>
+        <div>
+          <!--delete other links to create clickable divs-->
+          <%= link_to lesson_path(element), method: :delete do %>
+            <i class="charcoal-text fas fa-trash-alt" aria-hidden="true"></i>
+          <% end %>
+        </div>
+      <% end %><!--end of policy-->
+    </div>
+    <div class="flex-33">
+      <h5 class=""><%= element.lesson_start.strftime('%A')%>&nbsp;<%= element.lesson_start.strftime('%m/%d')%></h5>
+      <h5 class="green-text"><%= element.lesson_start.strftime('%I:%M %p') %></h5>
+      <h5><%= element.lesson_max_dur %>&nbsp;mins max</h5>
+      <h5><%= element.lesson_level %></h5>
+      <!--delete other links to create clickable divs-->
+      <%= link_to lesson_path(element) do %>
+        <i class="fas fa-lg fa-info-circle" aria-hidden="true"></i>
+      <% end %>
+    </div>
+    <div class="flex-33 center-text"> <!-- lesson sign-up -->
+      <!-- <a href="" data-toggle="modal" data-target="#lesson-form-<%= element.id %>"> -->
+      <% if element.appointments.size < element.lesson_capacity %>
+        <!-- cant compare 0 : nil -->
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#lesson-form-<%= element.id %>">
+            Sign Up!
+          </button>
+      <% else %>
+        <h5 style="color: red;">section closed</h5>
+      <% end %><!--end of lesson size vs capacity-->
+      <!-- </a> -->
+    </div><!-- end of lesson sign-up -->
+  </div>
+
+<% else %>
+
+  <div class="flex-space-between flex-wrap shell-tab-header padding-3">
+    <div class="flex-33 center-text">
+      <h5><%= element.lesson_section %></h5>
+      <% if policy(@consultation).destroy? %>
+        <div>
+          <!--delete other links to create clickable divs-->
+          <%= link_to lesson_path(element), method: :delete do %>
+            <i class="charcoal-text fas fa-trash-alt" aria-hidden="true"></i>
+          <% end %>
+        </div>
+      <% end %><!--end of policy-->
+    </div>
+    <div class="flex-33">
+      <h6 class=""><%= element.lesson_start.strftime('%A')%>&nbsp;<%= element.lesson_start.strftime('%m/%d')%></h6>
       <h6 class="green-text"><%= element.lesson_start.strftime('%I:%M %p') %></h6>
+      <h6 class="red-text"><%= element.lesson_end.strftime('%I:%M %p')%></h6>
       <h6><%= element.lesson_max_dur %>&nbsp;mins max</h6>
+      <h6><%= element.lesson_level %></h6>
+      <!--delete other links to create clickable divs-->
+      <%= link_to lesson_path(element) do %>
+        <i class="fas fa-lg fa-info-circle" aria-hidden="true"></i>
+      <% end %>
     </div>
-    <div class="flex-25 center-text"> <!-- lesson info -->
-      <div class="center-text">
-        <h6 class=""><%= element.lesson_start.strftime('%m/%d')%></h6>
-        <h6><%= element.lesson_start.strftime('%a')%></h6>
-        <%= link_to lesson_path(element) do %>
-          <i class="fas fa-info-circle" aria-hidden="true"></i>
-        <% end %>
-      </div>
-    </div><!-- end of lesson info -->
-  <% elsif  @consultation.consult_period == 'single-class'  %>
-    <div class="flex-25">
-      <h6 class="green-text"><%= element.lesson_start.strftime('%I:%M %p')%></h6>
-      <h6 class="red-text"><%= element.lesson_end.strftime('%I:%M %p')%></h6>
-    </div>
-    <div class="flex-25 center-text"> <!-- lesson info -->
-      <div class="center-text">
-        <h6 class=""><%= element.lesson_start.strftime('%m/%d')%></h6>
-        <h6><%= element.lesson_start.strftime('%a')%></h6>
-        <%= link_to lesson_path(element) do %>
-          <i class="fas fa-info-circle" aria-hidden="true"></i>
-        <% end %>
-      </div>
-    </div><!-- end of lesson info -->
-  <% else %>
-    <div class="flex-25">
-      <h6><%= element.lesson_start.strftime('%m/%d') %></h6>
-      <h6 class="green-text"><%= element.lesson_start.strftime('%I:%M %p')%></h6>
-      <h6><%= element.lesson_end.strftime('%m/%d') %></h6>
-      <h6 class="red-text"><%= element.lesson_end.strftime('%I:%M %p')%></h6>
-    </div>
-    <div class="flex-25 center-text"> <!-- lesson days -->
-      <% element.lesson_dow.shift %>
-      <!-- ^ 'shift' drops the first default black space in lessons_dow array-->
-      <% element.lesson_dow.each do |d| %>
-        <div class="center-text"><h6><%= d %>&nbsp;</h6></div>
-      <% end %><!--end lesson_dow.each-->
-      <div class="center-text">
-        <%= link_to lesson_path(element) do %>
-          <i class="fas fa-info-circle" aria-hidden="true"></i>
-        <% end %>
-      </div>
-    </div><!-- end of lesson days -->
-  <% end %>
-</div><!--end of flex-space-between shell-tab shell-border-->
+    <div class="flex-33 center-text"> <!-- lesson sign-up -->
+      <!-- <a href="" data-toggle="modal" data-target="#lesson-form-<%= element.id %>"> -->
+        <% if element.appointments.size < element.lesson_capacity %>
+          <!-- cant compare 0 : nil -->
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#lesson-form-<%= element.id %>">
+            Sign Up!
+          </button>
+            <h6 style="color: grey;"> seat(s) left: <%= element.lesson_capacity - element.appointments.size %></h6>
+        <% else %>
+          <h6 style="color: red;">section closed</h6>
+        <% end %><!--end of lesson size vs capacity-->
+      <!-- </a> -->
+    </div><!-- end of lesson sign-up -->
+  </div>
+<% end %>
 
