@@ -1,4 +1,20 @@
 // Specific CSS for your home-page
 .home-style{
-padding: 10px 0px 10px 0px;
+padding: 15px 0px 15px 0px;
+margin: 15px 0px 15px 0px;
+}
+@media (min-width: 768px){
+  .home-area{
+    margin: 10px 0px 10px 0px;
+  }
+}
+
+
+
+@media (min-width: 950px){
+  .home-area{
+    .home-head{
+      margin: 10px 0px 10px 0px;
+    }
+  }
 }

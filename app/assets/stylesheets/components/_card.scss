@@ -42,11 +42,11 @@
 
 @media (min-width: 768px){
   .card-bg-image{
-  background-size: cover;
-  height: 250px;
-  width: 100%;
-  background-position: center;
-  border-radius: 5px 5px 0px 0px;
+    background-size: cover;
+    height: 250px;
+    width: 100%;
+    background-position: center;
+    border-radius: 5px 5px 0px 0px;
   }
 }
 @media (min-width: 950px){
@@ -60,14 +60,14 @@
   .card-hm-drk{
     margin: 10px;
     border-radius: 20px;
-    box-shadow: 1px 1px 10px;
+    box-shadow: 1px 1px 10px $black;
   }
   .card-bg-image{
-  background-size: cover;
-  height: 250px;
-  width: 100%;
-  background-position: center;
-  border-radius: 20px 20px 0px 0px;
+    background-size: cover;
+    height: 250px;
+    width: 100%;
+    background-position: center;
+    border-radius: 20px 20px 0px 0px;
   }
 }
 
