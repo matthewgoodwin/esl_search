@@ -306,7 +306,7 @@ end
     authorize @consultation
   end
   def consultation_params
-    params.require(:consultation).permit(:consult_language, :consult_sec_lang, :consult_focus, :consult_period, :consult_type, :consult_demo, :consult_fee, :consult_title, :consult_desc, :consult_city, :address, :consult_mat, :consult_env)
+    params.require(:consultation).permit(:consult_language, :consult_sec_lang, :consult_focus, :consult_period, :consult_type, :consult_demo, :consult_fee, :consult_title, :consult_desc, :consult_city, :address, :consult_mat, :consult_env, :consult_zoom_link)
   end
   def location_params
     @consult_city = params[:consult_city]

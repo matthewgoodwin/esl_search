@@ -4,12 +4,27 @@
       <h1>Class Roster:</h1>
     </div>
     <div style="background-color: #3C3C3C; color: white;" class="padding-5">
-      <h5>Class:&nbsp;<%= @lesson.consultation.consult_title %></h5>
-      <h5>City:&nbsp;<%= @lesson.consultation.consult_city %></h5>
-      <h5>Address:&nbsp;<%= @lesson.consultation.address %></h5>
-      <h5 style="color: red;">Class&nbsp;Time:&nbsp;<%= @lesson.lesson_start %></h5>
-      <% @lesson.lesson_dow.shift %>
+      <div class="flex-space-between">
+        <h5 class="flex-50">Class:</h5>
+        <h5 class="flex-50"><%= @lesson.consultation.consult_title %> </h5>
+      </div>
+      <div class="flex-space-between">
+        <h5 class="flex-50">City:</h5>
+        <h5 class="flex-50"><%= @lesson.consultation.consult_city %> </h5>
+      </div>
+      <div class="flex-space-between">
+        <h5 class="flex-50">Address:</h5>
+        <h5 class="flex-50"><%= @lesson.consultation.address %> </h5>
+      </div>
+      <div class="flex-space-between">
+        <h5 class="flex-50">Class&nbsp;Time:&nbsp;</h5>
+        <h5 class="flex-50" style="color: red;"><%= @lesson.lesson_start%> <%=@lesson.lesson_dow.shift%></h5>
+      </div>
       <!-- ^ 'shift' drops the first default black space in lessons_dow array-->
+      <div class="flex-space-between">
+        <h5 class="flex-50">Online Link:</h5>
+        <h5 class="flex-50"><%= @lesson.consultation.consult_zoom_link %> </h5>
+      </div>
       <div class="flex">
         <h5 class="">Day(s):</h5>
         <% @lesson.lesson_dow.each do |d| %>
@@ -20,21 +35,25 @@
     <hr>
     <div class="padding-5">
     <div class="flex-center-center">
-      <div class="flex-33"><b>student</b></div>
-      <div class="flex-33"><b>contact info</b></div>
-      <div class="flex-33"><b>enrollment date</b></div>
+      <div class="flex-25"><b>student</b></div>
+      <div class="flex-25"><b>student</b></div>
+      <div class="flex-25"><b>contact info</b></div>
+      <div class="flex-25"><b>enrollment date</b></div>
     </div>
     <hr>
     <% num = 1 %>
     <% @lesson.appointments.each do |a| %>
       <div class="flex-center-center">
-        <div class="flex-33">
+        <div class="flex-25">
+         <%= num %>
+        </div>
+        <div class="flex-25">
         <% avatar_url = a.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
           <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
           <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
-          <h6><%= num %>&nbsp;<%= a.pupil %></h6>
-        </div><!--end of icon-div flex-33-->
-        <div class="flex-33">
+          <h6><%= a.pupil %></h6>
+        </div><!--end of icon-div flex-25-->
+        <div class="flex-25">
           <% if policy(@lesson).destroy? %>
             <h6>email:&nbsp;<%= a.user.email %></h6>
             <h6>mobile:&nbsp;<%= a.user.user_phone %></h6>
@@ -42,10 +61,10 @@
           <% else %>
             <h6>Instructors Only</h6>
           <% end %>
-        </div><!--end of name flex-33-->
-        <div class="flex-33">
+        </div><!--end of name flex-25-->
+        <div class="flex-25">
           <h6><%= a.created_at %></h6>
-        </div><!--end of name flex-33-->
+        </div><!--end of name flex-25-->
         <% num +=1 %>
       </div><!--end of flex-center-center-->
       <hr>

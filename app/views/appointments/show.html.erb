@@ -72,6 +72,10 @@
         <h6 class="flex-50"><%= @appointment.consultation.consult_env %> </h6>
       </div>
       <div class="flex-space-between">
+        <h6 class="flex-50">online meeting link</h6>
+        <h6 class="flex-50"><%= @appointment.consultation.consult_zoom_link %> </h6>
+      </div>
+      <div class="flex-space-between">
         <h6 class="flex-50">fee</h6>
         <h6 class="flex-50"><%= number_to_currency(@appointment.consultation.consult_fee, :unit => "₩") %></h6>
       </div>

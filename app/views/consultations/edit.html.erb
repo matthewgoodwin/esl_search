@@ -9,6 +9,8 @@
     <%= f.input :consult_demo, label:"demographic:", collection: ["everyone", "kindergarden", "elementary", "middle school", "high school", "adult"] %>
     <%= f.input :consult_type, label: false, collection: ["camp", "conversation", "education",  "exam-prep", "club", "hobby", "interview prep", "speech", "industry", "translation", "other"], prompt: "-select type-" %>
     <%= f.input :consult_env, label: false, collection: ["online - remote", "face-to-face"], prompt: "-select environment-" %>
+    <h6>Online Meeting Link</h6>
+    <%= f.input :consult_zoom_link, label: false, placeholder: "https://zoom.us/j/12345678" %>
     <%= f.input :consult_focus, label: "specific focus", placeholder: "specific focus (optional)"%>
     <%= f.input :consult_city, label: false, placeholder: "city"%>
     <%= f.input :address, label: false, placeholder: "address" %>
@@ -33,6 +35,8 @@
       <%= f.input :consult_demo, label:"demographic:", collection: ["everyone", "kindergarden", "elementary", "middle school", "high school", "adult"] %>
       <%= f.input :consult_type, label: false, collection: ["camp", "conversation", "education",  "exam-prep", "club", "hobby", "interview prep", "speech", "industry", "translation", "other"], prompt: "-select type-" %>
       <%= f.input :consult_env, label: false, collection: ["online - remote", "face-to-face"], prompt: "-select environment-" %>
+      <h6>Online Meeting Link</h6>
+      <%= f.input :consult_zoom_link, label: false, placeholder: "https://zoom.us/j/12345678" %>
       <%= f.input :consult_focus, label: "specific focus", placeholder: "specific focus (optional)"%>
       <%= f.input :consult_city, label: false, placeholder: "city"%>
       <%= f.input :address, label: false, placeholder: "address" %>

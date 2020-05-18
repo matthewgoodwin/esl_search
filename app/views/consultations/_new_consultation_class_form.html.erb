@@ -23,9 +23,11 @@
       <%= f.input :consult_type, label: false, collection: ["language camp", "conversation", "education", "exam-prep", "club", "hobby", "interview-prep", "speech", "industry", "translation", "other"], prompt: "-select type-" %>
       <h6>Environment <span class="red-text">&#42;</span></h6>
       <%= f.input :consult_env, label: false, collection: ["online - remote", "face-to-face"], prompt: "-select environment-" %>
-        <h6> location <span class="red-text">&#42;</span></h6>
-        <%= f.input :consult_city, label: false, placeholder: "city" %>
-        <%= f.input :address, label: false, placeholder: "address" %>
+      <h6>Online Meeting Link</h6>
+      <%= f.input :consult_zoom_link, label: false, placeholder: "https://zoom.us/j/12345678" %>
+      <h6> location <span class="red-text">&#42;</span></h6>
+      <%= f.input :consult_city, label: false, placeholder: "city" %>
+      <%= f.input :address, label: false, placeholder: "address" %>
       <h6> term <span class="red-text">&#42;</span></h6>
       <%= f.input :consult_period, label: false, default: ["hourly"], collection: ["hourly", "single-session", "series"] %>
       <div>
