@@ -25,13 +25,12 @@
     <div class="unordered-list">
       <ul class="dashboard-user-panel-links-list">
         <li class="shell-tab-header-dark charcoal-background">
-          <div class="flex-space-between">
-          <!-- <i class="far fa-envelope fa-3x"></i> -->
-          <%= link_to user_privatemessages_user_path(current_user.id) do %>
-            <h6 class="flex-67 white-text">Private Messages</h6>
+          <%= link_to user_privatemessages_user_path(current_user.id), class: "white-text" do %>
+            <div class="flex-space-between">
+              <h6 class="flex-67">Private Messages</h6>
+            <div class="flex-33 white-text"><div class="counter"><%= @privatemessages.size %></div></div>
+            </div>
           <% end %>
-          <div class="flex-33 white-text"><div class="counter"><%= @privatemessages.size %></div></div>
-          </div>
         </li>
         <li class="shell-tab-header-dark charcoal-background left-border animated pulse animate-class-btn">
           <a href="" data-toggle="modal" data-target="#create-new-consultation-class">

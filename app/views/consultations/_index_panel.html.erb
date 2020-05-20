@@ -1,0 +1,39 @@
+<div class="unordered-list">
+  <ul class="dashboard-user-panel-links-list">
+    <li class="shell-tab-header-dark charcoal-background">
+      <%= link_to root_path, class: "white-text" do %>
+        <h4 class="navbar-esl-link">HOME</h4>
+      <% end %>
+    </li>
+    <li class="shell-tab-header-dark charcoal-background">
+      <%= link_to consultations_path, class: "white-text" do %>
+        <h4 class="navbar-esl-link">DIRECTORY</h4>
+      <% end %>
+    </li>
+    <li class="shell-tab-header-dark charcoal-background">
+      <%= link_to dashboard_path, class: "white-text" do %>
+        <h4 class="navbar-esl-link">DASHBOARD</h4>
+      <% end %>
+    </li>
+    <li  class="shell-tab-header-dark charcoal-background left-border">
+      <%= link_to langs_locs_consultations_path, class: "white-text" do %>
+      <h4 class="navbar-esl-link">LANGUAGE</h4>
+      <% end %>
+    </li>
+    <li  class="shell-tab-header-dark charcoal-background left-border">
+      <%= link_to locations_consultations_path, class: "white-text" do %>
+        <h4 class="navbar-esl-link">CITY</h4>
+      <% end %>
+    </li>
+    <li class="shell-tab-header-dark charcoal-background">
+      <%= link_to periods_consultations_path, class: "white-text" do %>
+        <h4 class="navbar-esl-link">PERIOD</h4>
+      <% end %>
+    </li>
+    <li class="shell-tab-header-dark charcoal-background">
+      <%= link_to langs_types_consultations_path, class: "white-text" do %>
+        <h4 class="navbar-esl-link">CATEGORY</h4>
+      <% end %>
+    </li>
+  </ul><!--end of dashboard-user-panel-links-list -->
+</div><!--end of unordered-list-->
