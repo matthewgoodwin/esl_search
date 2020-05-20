@@ -29,22 +29,34 @@ Rails.application.routes.draw do
       get :hourly
       get :single
       get :online
+
       get :langs_locs
       get :lang_locs
       get :lang_loc
+
       get :langs_types
       get :lang_types
       get :lang_type
+
+      get :langs_periods
+      get :lang_periods
+      get :lang_period
+
       get :langs_onlines
       get :lang_online
+
       get :langs_hourlies
       get :lang_hourly
+
       get :langs_singles
       get :lang_single
+
       get :langs_edus
       get :lang_edu
+
       get :langs_tests
       get :lang_test
+
       get :langs_acts
       get :lang_act
       # ^ this is the new way

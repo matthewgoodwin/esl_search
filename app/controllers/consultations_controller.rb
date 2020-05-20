@@ -1,14 +1,14 @@
 class ConsultationsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :hourly, :online, :single, :langs_locs, :lang_locs, :lang_loc,
-  :langs_types, :lang_types, :lang_type, :langs_onlines, :lang_online, :langs_hourlies, :lang_hourly, :langs_singles, :lang_single, :langs_edus, :lang_edu, :langs_acts, :lang_act, :location, :type, :period, :language, :locations, :types, :periods, :languages]
+  :langs_types, :lang_types, :lang_type, :langs_periods, :lang_periods, :lang_period, :langs_onlines, :lang_online, :langs_hourlies, :lang_hourly, :langs_singles, :lang_single, :langs_edus, :lang_edu, :langs_acts, :lang_act, :location, :type, :period, :language, :locations, :types, :periods, :languages]
   before_action :find_consultation, only: [:show, :edit, :update, :destroy]
   before_action :consultation_params, only: [:create]
   # before_action :period_params, only: [:hourly]
   before_action :location_params, only: [:location, :lang_loc]
-  before_action :language_params, only: [:language, :lang_locs, :lang_loc, :lang_types, :lang_type, :lang_online, :lang_hourly,:lang_single, :lang_edu, :lang_act]
-  before_action :period_params, only: [:period]
+  before_action :language_params, only: [:language, :lang_locs, :lang_loc, :lang_types, :lang_type,:lang_period, :lang_periods, :lang_online, :lang_hourly,:lang_single, :lang_edu, :lang_act]
+  before_action :period_params, only: [:period, :lang_period]
   before_action :type_params, only: [:type, :lang_type]
-  skip_after_action :verify_authorized, only: [:online, :hourly, :single, :langs_locs, :lang_locs, :lang_loc, :langs_types, :lang_types, :lang_type,:langs_onlines, :lang_online,
+  skip_after_action :verify_authorized, only: [:online, :hourly, :single, :langs_locs, :lang_locs, :lang_loc, :langs_types, :lang_types, :lang_type, :langs_periods, :lang_periods, :lang_period, :langs_onlines, :lang_online,
     :langs_hourlies, :lang_hourly, :langs_singles, :lang_single, :langs_edus, :lang_edu, :langs_acts, :lang_act, :locations, :location, :languages, :language, :types, :type, :periods, :period]
   def index
     #@consultations = Consultation.all
@@ -163,6 +163,28 @@ class ConsultationsController < ApplicationController
     # raise
   end
 
+  def langs_periods
+    @consultations = policy_scope(Consultation)
+    @consult_language_links = []
+    @consultations.each do |c|
+      unless @consult_language_links.include? c.consult_language
+        @consult_language_links << c.consult_language
+      end
+    end
+  end
+  def lang_periods
+    @consult_lang_group = Consultation.where(consult_language: @consult_lang)
+    @consult_period_links = []
+    @consult_lang_group.each do |c|
+      unless @consult_period_links.include? c.consult_period
+        @consult_period_links << c.consult_period
+      end
+  end
+  # raise
+  end
+  def lang_period
+    @consult_period_group = Consultation.where(consult_language: @consult_lang, consult_period: @consult_period).paginate(page: params[:page], per_page: 8)
+  end
 def langs_onlines
   @consultations = Consultation.where(consult_env: "online - remote")
   @consult_language_links = []
@@ -172,6 +194,7 @@ def langs_onlines
     end
   end
 end
+
 def lang_online
   @consult_lang_online_group = Consultation.where(consult_language: @consult_lang, consult_env: "online - remote").paginate(page: params[:page], per_page: 8)
   # raise

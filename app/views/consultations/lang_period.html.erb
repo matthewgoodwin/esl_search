@@ -1,27 +1,27 @@
 <div class="content-grid element-index-area">
   <div class="element-index-header">
     <h1>hi from header</h1>
-  </div>
+  </div><!--end of index-header-->
   <div class="element-index-panel dashboard-user-panel-links-shell shell-border-dark black-background white-text">
     <%= render "consultations/index_panel" %>
-  </div><!--end of element-panel-->
+  </div><!--end of index-panel-->
   <div class="element-index-shell shell-border">
     <div style="background-color: white;">
+      <!-- Dropdown appearing on all devices -->
       <div class="navbar-esl-item">
-        <%= render 'consultations/index_menu' %>
       </div>
       <%= render 'consultations/index_table_header' %>
-      <% @consult_lang_online_group.each.each do |clangonline_member| %>
-        <% @clangonline_member = clangonline_member %>
-        <% @clangonline_member_title = clangonline_member.consult_title %>
-        <%= render 'consultations/index', element: clangonline_member %>
+      <% @consult_period_group.each do |clangperiod_member| %>
+        <% @clangperiod_member = clangperiod_member %>
+        <% @clangperiod_member_title = clangperiod_member.consult_title %>
+        <%= render 'consultations/index', element: clangperiod_member %>
       <% end %><!--end of @consultations.each do-->
     </div><!--background color: white-->
     <div class="center-text center-div">
       <div class="">
         <!-- will_pagination (below) is a div w/ class called "pagination"
           this is refernced in _paginate.scss, but can be overwritten-->
-        <h6><%= will_paginate @consult_lang_online_group %></h6>
+        <%= will_paginate @consult_period_group %>
       </div>
     </div>
   </div><!-- end of consultations-index-shell-->

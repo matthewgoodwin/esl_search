@@ -1,26 +1,26 @@
 <div class="content-grid element-index-area">
   <div class="element-index-header">
     <h1>hi from header</h1>
-  </div>
+  </div><!--end of index-header-->
   <div class="element-index-panel dashboard-user-panel-links-shell shell-border-dark black-background white-text">
     <%= render "consultations/index_panel" %>
-  </div><!--end of element-panel-->
+  </div><!--end of index-panel-->
   <div class="element-index-shell shell-border">
     <div style="background-color: white;">
       <div class="navbar-esl-item">
       </div>
       <div class="container-fluid">
         <div class="row">
-          <% @consult_language_links.each do |clang_link|%>
+          <% @consult_period_links.each do |c_period_link| %>
             <div class="col-md-6">
-              <%= link_to lang_locs_consultations_path(consult_language: clang_link) do %>
+              <%= link_to lang_period_consultations_path(consult_language: @consult_lang, consult_period: c_period_link ) do %>
+              <!-- http://localhost:3000/consultations/lang_loc?consult_language=English&consult_city=Seoul-->
                 <div class="white-background card1 center-text">
-                  <!-- http://localhost:3000/consultations/lang_loc?consult_language=English -->
-                  <h3><%= clang_link %></h3>
+                  <h3><%= c_period_link %></h3>
                 </div><!--end white card1 center-text-->
               <% end %><!--end of link-->
             </div><!--col-md-6-->
-          <% end %><!--end of clang_link-->
+          <% end %><!--end of cloc_link-->
         </div><!--row-->
       </div><!--container-->
     </div>
