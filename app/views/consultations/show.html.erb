@@ -1,5 +1,8 @@
 <div class="content-grid consultation-area">
-  <div class="consultation-show-instructor-shell shell-border-dark black-background white-text">
+  <div class="element-cshow-head">
+    <h1>Delete ME!</h1>
+  </div>
+  <div class="element-cshow-inst shell-border-dark black-background white-text">
     <div class="padding-3 center-text">
       <h2><%= @consultation.user.fname %> <%= @consultation.user.lname %></h2>
     </div>
@@ -42,8 +45,8 @@
         <h6 class=""><%= @consultation.user.aboutme %></h6>
       </div>
     </div><!--end of padding div-->
-  </div><!--end of consultation-show-instructor-shell shell-border-->
-  <div class="consultation-show-details-shell">
+  </div><!--end of element-cshow-inst shell-border-->
+  <div class="element-cshow-det">
     <div class="shell-border padding-3">
     <!--consult details partial-->
       <div><!--random-->
@@ -93,10 +96,10 @@
         <% end %><!--end consultation.lessons.each-->
       </div><!--end lesson-min-->
     </div><!--end of shell-border-->
-  </div><!--end of consultation-show-details-shell-->
+  </div><!--end of element-cshow-det-->
 
   <!--end of consult parital-->
-  <div class="consultation-show-reviews-shell">
+  <div class="element-cshow-revs">
     <div class="shell-tab">
       <div class="flex-center-center center-div green-shell-gradient-header">
         <h1>Reviews</h1>
@@ -119,6 +122,9 @@
       <% end %>
     </div><!--id="review-min"-->
   </div><!--end of consultation-show-review-shell-->
+  <div class="element-cshow-base">
+    <h1>this is the base</h1>
+  </div>
 </div> <!--end content-grid consultation-area-->
 <!--modals below-->
 

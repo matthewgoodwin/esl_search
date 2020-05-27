@@ -26,9 +26,6 @@ Rails.application.routes.draw do
   resources :consultations, shallow: true do
     collection do
       # get 'hourly', to: 'consultations#hourly'
-      get :hourly
-      get :single
-      get :online
 
       get :langs_locs
       get :lang_locs
@@ -62,12 +59,6 @@ Rails.application.routes.draw do
       # ^ this is the new way
       get 'locations', to: 'consultations#locations'
       get 'location', to: 'consultations#location'
-      get 'languages', to: 'consultations#languages'
-      get 'language', to: 'consultations#language'
-      get 'types', to: 'consultations#types'
-      get 'type', to: 'consultations#type'
-      get 'periods', to: 'consultations#periods'
-      get 'period', to: 'consultations#period'
     end
     resources :lessons, shallow: true do
         get 'enrollment', to: 'lessons#enrollment'

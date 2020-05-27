@@ -6,18 +6,20 @@
   ". instructor ."
   ". client ."
   ". details ."
+  ". base ."
 ;
 }
 
-@media (min-width: 850px){
+@media (min-width: 768px){
   .appoint-show-area{
     grid-gap: 5px;
     grid-template-areas:
-  ". links links ."
-  ". title title ."
-  ". instructor instructor ."
-  ". client client ."
-  ". details details ."
+  ". links ."
+  ". title ."
+  ". instructor ."
+  ". client ."
+  ". details ."
+  ". base ."
   ;
   }
 }
@@ -26,34 +28,32 @@
   .appoint-show-area{
     // display: grid;
     // grid-template: [row-start] repeat(8, 1fr) [row-end] / [col-start] 2% repeat(8, 1fr) 2% [col-end]; // rows/cols
-    grid-template: [row-start] repeat(auto, 1fr) [row-end] / [col-start] 1% repeat(10, 1fr) 1% [col-end]; //rows set to auto; not fits!
+    grid-template: [row-start] repeat(auto, 1fr) [row-end] / [col-start] 1% repeat(5, 1fr) 1% [col-end]; //rows set to auto; not fits!
     grid-gap: 2px 2px;
     grid-template-areas:
-    ". links links links links links links links links links links ."
-    ". title title title title title title title title title title ."
-    ". instructor instructor instructor instructor details details client client client client ."
-    ". . . . . . . . . . . ."
+    ". links links links links links."
+    ". title title title title title ."
+    ". instructor instructor details client client ."
+    ". base base base base base ."
     ;
   }
 }
-.appoint-show-role-head{
-  // color: white;
-  // -webkit-text-stroke: 1px grey;
-}
-.appoint-show-links-shell{
+
+.element-ashow-links{
   grid-area: links;
 }
-.appoint-show-title-shell{
+.element-ashow-title{
   grid-area: title;
 }
-.appoint-show-instructor-shell{
+.element-ashow-inst{
   grid-area: instructor;
 }
-
-.appoint-show-client-shell{
+.element-ashow-client{
   grid-area: client;
 }
-
-.appoint-show-details-shell{
+.element-ashow-det{
   grid-area: details;
+}
+.element-ashow-base{
+  grid-area: base;
 }

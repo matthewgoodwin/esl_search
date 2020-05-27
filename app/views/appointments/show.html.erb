@@ -1,11 +1,12 @@
 <div class="content-grid appoint-show-area">
-  <div class="appoint-show-links-shell">
+  <div class="element-ashow-links">
+    <h1>here</h1>
     <!--empty-->
-  </div><!--end apppointment-show-links-shell-->
-    <div class="appoint-show-title-shell center-text">
+  </div><!--end element-ashow-links-->
+    <div class="element-ashow-title center-text">
       <h1><%= link_to @appointment.consultation.consult_title, consultation_path(@appointment.consultation.id) %></h1>
-    </div><!--end of appoint-show-title-shell center-text-->
-  <div class="appoint-show-instructor-shell shell-border turcoise-shell-gradient" >
+    </div><!--end of element-ashow-title center-text-->
+  <div class="element-ashow-inst shell-border turcoise-shell-gradient" >
     <h3 class="appoint-show-role-head center-text">Instructor</h3>
     <div class="user-profile-image-div">
       <% avatar_url = @appointment.consultation.user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
@@ -16,9 +17,9 @@
     <h6 class="center-text">email:&nbsp;<%= @appointment.consultation.user.email %></h6>
     <h6 class="center-text">mobile:&nbsp;<%= @appointment.consultation.user.user_phone %></h6>
     <h6 class="center-text">kakao:&nbsp;<%= @appointment.consultation.user.user_kakao_id %></h6>
-  </div><!--end appointment-show-instructor-shell-->
+  </div><!--end element-ashow-inst-->
 
-  <div class="appoint-show-client-shell shell-border green-shell-gradient">
+  <div class="element-ashow-client shell-border green-shell-gradient">
     <h3 class="appoint-show-role-head center-text">Client</h3>
     <div class="user-profile-image-div">
       <% avatar_url = @appointment.user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
@@ -29,88 +30,14 @@
     <h6 class="center-text">email:&nbsp;<%= @appointment.user.email %></h6>
     <h6 class="center-text">mobile:&nbsp;<%= @appointment.user.user_phone %></h6>
     <h6 class="center-text">kakao:&nbsp;<%= @appointment.user.user_kakao_id %></h6>
-  </div><!--end appointment-show-client-shell-->
+  </div><!--end element-ashow-client-->
 
-  <div class="appoint-show-details-shell shell-border grey-shell-gradient">
-    <div class="padding-5">
-      <h3 class="appoint-show-role-head center-text black">Detail</h3>
-      <h4 class="center-text"><%= @appointment.consultation.consult_title %></h4>
-      <div class="center-text">
-      <% if @appointment.user == current_user || policy(@appointment).destroy? %>
-        <!-- need real security here. use policy-->
-        <a href="" data-toggle="modal" data-target="#edit-appointment">
-          <div class="round-div no-decor"><h5><b>EDIT</b></h5></div>
-        </a>
-        <% end %><!--end of edit-->
-      </div>
-      <div class="flex-space-between">
-        <h6 class="flex-50">primary language</h6>
-        <h6 class="flex-50"><%= @appointment.consultation.consult_language %></h6>
-      </div>
-      <div class="flex-space-between">
-        <h6 class="flex-50">secondary language</h6>
-        <h6 class="flex-50"><%= @appointment.consultation.consult_sec_lang %></h6>
-      </div>
-      <div class="flex-space-between">
-        <h6 class="flex-50">city</h6>
-        <h6 class="flex-50"><%= @appointment.consultation.consult_city %></h6>
-      </div>
-      <div class="flex-space-between">
-        <h6 class="flex-50">type</h6>
-        <h6 class="flex-50"><%= @appointment.consultation.consult_type %></h6>
-      </div>
-      <div class="flex-space-between">
-        <h6 class="flex-50">focus</h6>
-        <h6 class="flex-50"><%= @appointment.consultation.consult_focus %> </h6>
-      </div>
-      <div class="flex-space-between">
-        <h6 class="flex-50">period</h6>
-        <h6 class="flex-50"><%= @appointment.consultation.consult_period %> </h6>
-      </div>
-      <div class="flex-space-between">
-        <h6 class="flex-50">location</h6>
-        <h6 class="flex-50"><%= @appointment.consultation.consult_env %> </h6>
-      </div>
-      <div class="flex-space-between">
-        <h6 class="flex-50">online meeting link</h6>
-        <h6 class="flex-50"><%= @appointment.consultation.consult_zoom_link %> </h6>
-      </div>
-      <div class="flex-space-between">
-        <h6 class="flex-50">fee</h6>
-        <h6 class="flex-50"><%= number_to_currency(@appointment.consultation.consult_fee, :unit => "₩") %></h6>
-      </div>
-      <!--start-->
-      <% if @appointment.consultation.consult_period == 'hourly'%>
-        <div class="flex-space-between">
-          <h6 class="flex-50">start</h6>
-          <h6 class="flex-50"><%= @appointment.lesson.lesson_start.strftime('%B %d, %Y @ %I:%M%p') %></h6>
-        </div>
-        <div class="flex-space-between">
-          <h6 class="flex-50">maximum duration</h6>
-          <h6 class="flex-50"><%= @appointment.lesson.lesson_max_dur %>&nbsp;minutes</h6>
-        </div>
-      <% else %>
-        <div class="flex-space-between">
-          <h6 class="flex-50">start</h6>
-          <h6 class="flex-50 green-text"><%= @appointment.lesson.lesson_start.strftime('%I:%M%p') %></h6>
-        </div>
-        <div class="flex-space-between">
-          <h6 class="flex-50">end</h6>
-          <h6 class="flex-50 red-text"><%= @appointment.lesson.lesson_end.strftime('%I:%M%p') %></h6>
-        </div>
-        <div class="flex-space-between flex-row flex-wrap">
-          <h6 class="flex-50">Days</h6>
-          <div class="flex-50">
-          <% @appointment_dow.each do |dow| %>
-          <!-- ^ in controller-->
-            <h6><%= dow %></h6>
-          <% end %><!--end of DOW array-->
-          </div>
-        </div>
-      <% end %><!--end of if statement-->
-    </div><!--end of padding-->
-  </div><!--end appointment-show-details-shell-->
-
+  <div class="element-ashow-det shell-border grey-shell-gradient">
+    <%= render "appointments/app_show_details" %>
+  </div><!--end element-ashow-det-->
+  <div class="element-ashow-base">
+    <h1>here is the base</h1>
+  </div>
 </div><!--end content-grid appoint-show-area-->
 
 <!--modal-->

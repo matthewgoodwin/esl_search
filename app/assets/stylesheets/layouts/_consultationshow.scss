@@ -6,50 +6,56 @@
   // background-color: #E5E5E5;
   grid-gap: 2px;
   grid-template-areas:
-  "consultinstr"
-  "details"
-  "userreview"
+  "chead"
+  "cinstr"
+  "cdet"
+  "cuserrev"
+  "cbase"
 ;
 }
 
-@media (min-width: 850px){
+@media (min-width: 768px){
   .consultation-area{
     // background-color: #E5E5E5;
     grid-gap: 5px;
     grid-template-areas:
-    ". consultinstr consultinstr ."
-    ". details details ."
-    ". userreview userreview ."
+    ". chead ."
+    ". cinstr ."
+    ". cdet ."
+    ". cuserrev ."
+    ". cbase ."
     ;
   }
 }
 @media (min-width: 950px){
-.consultation-area{
-  // display: grid;
-  // grid-template: [row-start] repeat(8, 1fr) [row-end] / [col-start] 2% repeat(8, 1fr) 2% [col-end];
-    grid-template: [row-start] repeat(auto, 1fr) [row-end] / [col-start] 1% repeat(8, 1fr) 1% [col-end]; //rows set to automatic; now fits
-    grid-gap: 2px 2px; //row columns
-    grid-template-areas:
-  ". consultinstr consultinstr details details details details details details ."
-  ". consultinstr consultinstr userreview userreview userreview userreview userreview userreview ."
-  ;
-}
-}
-.consultation-show-instructor-shell{
-  grid-area: consultinstr;
-}
-.consultation-show-details-shell{
-  grid-area: details;
+  .consultation-area{
+    // display: grid;
+    // grid-template: [row-start] repeat(8, 1fr) [row-end] / [col-start] 2% repeat(7, 1fr) 2% [col-end];
+      grid-template: [row-start] repeat(auto, 1fr) [row-end] / [col-start] 1% repeat(4, 1fr) 1% [col-end]; //rows set to automatic; now fits
+      grid-gap: 2px 2px; //row columns
+      grid-template-areas:
+    ". chead chead chead chead ."
+    ". cinstr cdet cdet cdet ."
+    ". cinstr cuserrev cuserrev cuserrev ."
+    ". cbase cbase cbase cbase ."
+    ;
+  }
 }
 
-.consultation-show-reviews-shell{
-  grid-area: userreview;
+.element-cshow-head{
+  grid-area: chead;
+}
+.element-cshow-inst{
+  grid-area: cinstr;
+}
+.element-cshow-det{
+  grid-area: cdet;
 }
 
-.appointment-show-form-div{
-  grid-area: app;
+.element-cshow-revs{
+  grid-area: cuserrev;
 }
 
-.consultation-review-form-div{
-  grid-area: reviewform;
+.element-cshow-base{
+  grid-area: cbase;
 }
