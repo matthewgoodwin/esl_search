@@ -14,6 +14,25 @@ class Consultation < ApplicationRecord
   validates :consult_desc, length: { in: 200..2000, wrong_length: "Your description must be between 200 and 2000 characters" }
   before_save :proper_format
 
+  include PgSearch::Model
+
+  pg_search_scope :search_by_x,
+  against: [
+    # https://github.com/Casecommons/pg_search#weighting
+    [:consult_title, 'A'],
+    [:consult_language, 'B'],
+    [:consult_city, 'C'],
+    [:consult_type, 'D'], # end of weighting
+    :consult_focus,
+    :consult_env,
+    :consult_desc,
+    :consult_period
+  ], # end of against
+  using: {
+    tsearch: { prefix: true }
+
+  } # end of using
+
   geocoded_by :address
   after_validation :geocode
 
