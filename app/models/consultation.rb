@@ -29,7 +29,19 @@ class Consultation < ApplicationRecord
     :consult_period
   ], # end of against
   using: {
-    tsearch: { prefix: true }
+    tsearch: {
+      prefix: true,
+      highlight: {
+        StartSel: '<b>',
+        StopSel: '</b>',
+        MaxWords: 5,
+        MinWords: 1,
+        ShortWord: 4,
+        highlightAll: true,
+        Maxfragments: 3,
+        FragmentDelimiter: '&hellip;'
+      }
+    }
 
   } # end of using
 
