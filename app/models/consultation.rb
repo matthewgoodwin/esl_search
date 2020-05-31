@@ -32,13 +32,13 @@ class Consultation < ApplicationRecord
     tsearch: {
       prefix: true,
       highlight: {
-        StartSel: '<b>',
-        StopSel: '</b>',
-        MaxWords: 5,
-        MinWords: 1,
+        StartSel: '<h1>',
+        StopSel: '</h1>',
+        MaxWords: 123,
+        MinWords: 456,
         ShortWord: 4,
-        highlightAll: true,
-        Maxfragments: 3,
+        HighlightAll: true,
+        MaxFragments: 3,
         FragmentDelimiter: '&hellip;'
       }
     }

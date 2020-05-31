@@ -12,7 +12,14 @@ class ConsultationsController < ApplicationController
     :langs_hourlies, :lang_hourly, :langs_singles, :lang_single, :langs_edus, :lang_edu, :langs_acts, :lang_act, :locations, :location]
   def index
     #@consultations = Consultation.all
-    @consultations = policy_scope(Consultation).paginate(page: params[:page], per_page: 8)
+    if params[:query].present?
+      # if search request; search_by_x("english") found in MODEL
+      @consultations = policy_scope(Consultation.search_by_x(params[:query]).paginate(page: params[:page], per_page: 8) )
+    else
+      # if no search request; show all consultations
+      @consultations = policy_scope(Consultation).paginate(page: params[:page], per_page: 8)
+    end
+
     # @consultations.paginate(page: params[:pages])
 # @consultations.each do |c|
 # if c.reviews.all.map{|x| [x.star]} == []
