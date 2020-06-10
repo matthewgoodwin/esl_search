@@ -1,8 +1,10 @@
-<div class="navbar-search-input center-text center-div">
-<%= form_tag consultations_path, method: :get do %>
-  <%= text_field_tag :query, params[:query], class: "navbar-search-input center-text center-div", placeholder: "Language, City, Keyword" %>
-  <button type="submit" class="btn btn-primary">
-    <i class="fas fa-search"></i>
-  </button>
-<% end %>
+<div class="flex-80">
+  <%= form_tag consultations_path, method: :get do %>
+    <%= text_field_tag :query, params[:query], class: "mw navbar-search-input center-text center-div", placeholder: "Language, City, Keyword" %>
+</div>
+<div class="flex-20">
+    <button type="submit" class="btn btn-light">
+      <i class="fas fa-search"></i>
+    </button>
+  <% end %>
 </div>

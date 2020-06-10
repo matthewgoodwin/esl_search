@@ -65,9 +65,9 @@
 
 .shell-search {
   border-radius: 20px;
-  // width: 100%;
+  width: 70%;
   color: $black;
-  padding: 4px;
+  padding: 5px;
   box-shadow: 1px 1px 6px #a8a8a8;
 }
 
@@ -133,5 +133,8 @@
 
 .mw800{
   max-width: 800px;
+}
+.mw{
+  max-width: 100%;
 }
 

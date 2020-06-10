@@ -29,8 +29,7 @@
 } //consultaiton#index navbar ( mobile only )
 
 .navbar-search-input{
-  // 60% of the flex-50 - 'shell-search' area
-  width: 60%;
+  width: 85%;
   border: none !important;
 }
 
@@ -108,6 +107,9 @@
   border-top: 1px solid #E6E6E6;
 }
 
+.search-button{
+  border-radius: 20%;
+}
 
 .search-form-control {
   position: relative;
