@@ -3,8 +3,8 @@
   grid-gap: 2px;
   grid-template-areas:
   "eheader"
-  "epanel"
   "eindex"
+  "epanel"
   "ebase"
 ;
 }
@@ -15,8 +15,8 @@
     grid-gap: 5px;
     grid-template-areas:
     "eheader eheader"
-    "epanel epanel"
     "eindex eindex"
+    "epanel epanel"
     "ebase ebase"
     ;
   }

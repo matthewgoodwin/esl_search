@@ -1,7 +1,12 @@
 <div class="content-grid element-index-area">
-  <div class="element-index-header ">
-    <h1>hi from header</h1>
-  </div>
+  <div class="element-index-header">
+    <div class="flex-center-column">
+      <div class="flex-center-center shell-search center-text padding-10 hidden-md hidden-lg">
+        <%= render "consultations/search_form" %>
+      </div><!--end of shell-search-div-->
+      <h1>hi from header</h1>
+    </div><!--end of flex-column-->
+  </div><!--end of index-header-->
   <div class="element-index-panel dashboard-user-panel-links-shell shell-border-dark black-background white-text">
     <%= render "consultations/index_panel" %>
   </div>
