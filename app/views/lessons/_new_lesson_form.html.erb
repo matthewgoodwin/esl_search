@@ -21,6 +21,7 @@
         <%= f.input :lesson_end, as: :time_picker %>
       </div>
     <% else  %>
+    <!-- series is devalued -->
     <h6>maximum student enrollment <span class="red-text">&#42;</span></h6>
     <%= f.input :lesson_capacity, label: false %>
       <div class="lesson-start-time">

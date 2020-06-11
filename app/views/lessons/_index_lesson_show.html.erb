@@ -1,4 +1,5 @@
 <!-- the other half of the case is here: _index_single_lesson_show.html.erb -->
+<!-- however, I think the _index_single_lesson_show  can be deleted -->
 <% if @consultation.consult_period == "hourly" %>
   <div class="flex-space-between flex-wrap shell-tab-header padding-3">
     <div class="flex-33 center-text">
@@ -54,7 +55,7 @@
       <h6 class=""><%= element.lesson_start.strftime('%A')%>&nbsp;<%= element.lesson_start.strftime('%m/%d')%></h6>
       <h6 class="green-text"><%= element.lesson_start.strftime('%I:%M %p') %></h6>
       <h6 class="red-text"><%= element.lesson_end.strftime('%I:%M %p')%></h6>
-      <h6><%= element.lesson_max_dur %>&nbsp;mins max</h6>
+
       <h6><%= element.lesson_level %></h6>
       <!--delete other links to create clickable divs-->
       <%= link_to lesson_path(element) do %>

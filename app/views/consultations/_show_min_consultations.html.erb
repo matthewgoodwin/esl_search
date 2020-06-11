@@ -20,6 +20,7 @@
         <h6 class="green-text"><%= element.lesson.lesson_start.strftime('%I:%M %p') %></h6>
         <h6 class="red-text"><%= element.lesson.lesson_end.strftime('%I:%M %p') %></h6>
       <% else %>
+      <!-- devalued -->
         <h6 class="red-text">series</h6>
         <h6 class="green-text"><%= element.lesson.lesson_start.strftime('start: %I:%M %p') %></h6>
         <h6 class="red-text"><%= element.lesson.lesson_end.strftime('end: %I:%M %p') %></h6>
