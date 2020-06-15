@@ -9,7 +9,7 @@
   <div class="home-lang card-home">
     <%= link_to langs_locs_consultations_path do %>
       <div class="card-bg-image" style="background-image: url('<%= image_path image_lang_url %>');"></div>
-      <div class="card-body charcoal-text">
+      <div class="card-body black">
         <h5 class="card-title">LANGUAGE</h5>
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
       </div>
@@ -22,7 +22,7 @@
   <div class="home-city card-home">
     <%= link_to locations_consultations_path do %>
       <div class="card-bg-image" style="background-image: url('<%= image_path image_city_url %>');"></div>
-      <div class="card-body charcoal-text">
+      <div class="card-body black">
         <h5 class="card-title">CITY</h5>
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
       </div>
@@ -35,7 +35,7 @@
   <div class="home-cat card-home">
     <%= link_to langs_types_consultations_path do %>
       <div class="card-bg-image" style="background-image: url('<%= image_path image_cat_url %>');"></div>
-      <div class="card-body charcoal-text">
+      <div class="card-body black">
         <h5 class="card-title">CATEGORY</h5>
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
       </div>
@@ -103,7 +103,7 @@
   <div class="home-hobby card-home">
     <%= link_to langs_acts_consultations_path do %>
       <div class="card-bg-image" style="background-image: url('<%= image_path image_hobby_url %>');"></div>
-      <div class="card-body charcoal-text">
+      <div class="card-body black">
         <h5 class="card-title">EXPERIENCES</h5>
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
       </div>
@@ -117,7 +117,7 @@
   <div class="home-edu card-home">
     <%= link_to langs_edus_consultations_path do %>
       <div class="card-bg-image" style="background-image: url('<%= image_path image_edu_url %>');"></div>
-      <div class="card-body charcoal-text">
+      <div class="card-body black">
         <h5 class="card-title">EDUCATION</h5>
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
       </div>
@@ -129,13 +129,20 @@
   <% image_train_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,h_500,q_59/v1587925320/edutr2.jpg" %>
   <div class="home-train card-home">
     <div class="card-bg-image" style="background-image: url('<%= image_path image_train_url %>');"></div>
-    <div class="card-body charcoal-text">
+    <div class="card-body black">
       <h5 class="card-title">TRAINING</h5>
       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
     </div>
     <div class="card-footer">
       <!-- <small class="text-muted padding-5">Last updated 3 mins ago</small> -->
     </div>
+  </div>
+  <div class="home-base">
+    <div class="flex-center-center">
+      <h1>hellow from base</h1>
+    </div>
+    <hr>
+    <%= render "shared/app_base" %>
   </div>
 </div>
 <!-- </div> -->

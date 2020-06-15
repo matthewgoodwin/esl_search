@@ -13,6 +13,7 @@
   ". elJ ."
   ". elK ."
   ". elL ."
+  ". elM ."
   ;
 }
 
@@ -27,12 +28,7 @@
     ". elG elH ."
     ". elI elJ ."
     ". elK elL ."
-    // ". elG elG ."
-    // ". elH elH ."
-    // ". elI elI ."
-    // ". elJ elJ ."
-    // ". elK elK ."
-    // ". elL elL ."
+    ". elM elM ."
     ;
   }
 }
@@ -49,6 +45,7 @@
     ". elF elF elF elG elG elG elH elH elH ."
     ". elI elI elI elI elI elI elI elI elI ."
     ". elJ elJ elJ elK elK elK elL elL elL ."
+    ". elM elM elM elM elM elM elM elM elM ."
     ;
   }
 }
@@ -89,4 +86,7 @@
 }
 .home-train{
   grid-area: elL;
+}
+.home-base{
+  grid-area: elM;
 }
