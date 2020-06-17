@@ -1,19 +1,19 @@
 .home-area{
   grid-gap: 5px;
   grid-template-areas:
+  ". elHEAD ."
   ". elA ."
   ". elB ."
   ". elC ."
+  ". elHEADTWO ."
   ". elD ."
   ". elE ."
   ". elF ."
+  ". elHEADTHREE ."
   ". elG ."
   ". elH ."
   ". elI ."
-  ". elJ ."
-  ". elK ."
-  ". elL ."
-  ". elM ."
+  ". elBASE ."
   ;
 }
 
@@ -22,13 +22,13 @@
     // background-color: #E5E5E5;
     grid-gap: 6px;
     grid-template-areas:
-    ". elA elB ."
-    ". elC elD ."
+    ". elHEAD elA ."
+    ". elB elC ."
+    ". elHEADTWO elD ."
     ". elE elF ."
-    ". elG elH ."
-    ". elI elJ ."
-    ". elK elL ."
-    ". elM elM ."
+    ". elHEADTHREE elG ."
+    ". elH elI ."
+    ". elBASE elBASE ."
     ;
   }
 }
@@ -39,54 +39,54 @@
     grid-template: [row-start] repeat(auto, 1fr) [row-end] / [col-start] 1% repeat(9, 1fr) 1% [col-end]; //rows set to automatic; now fits
     grid-gap: 10px 10px; //row columns
     grid-template-areas:
-    ". elA elA elA elA elA elA elA elA elA ."
-    ". elB elB elB elC elC elC elD elD elD ."
-    ". elE elE elE elE elE elE elE elE elE ."
-    ". elF elF elF elG elG elG elH elH elH ."
-    ". elI elI elI elI elI elI elI elI elI ."
-    ". elJ elJ elJ elK elK elK elL elL elL ."
-    ". elM elM elM elM elM elM elM elM elM ."
+    ". elHEAD elHEAD elHEAD elHEAD elHEAD elHEAD elHEAD elHEAD elHEAD ."
+    ". elA elA elA elB elB elB elC elC elC ."
+    ". elHEADTWO elHEADTWO elHEADTWO elHEADTWO elHEADTWO elHEADTWO elHEADTWO elHEADTWO elHEADTWO ."
+    ". elD elD elD elE elE elE elF elF elF ."
+    ". elHEADTHREE elHEADTHREE elHEADTHREE elHEADTHREE elHEADTHREE elHEADTHREE elHEADTHREE elHEADTHREE elHEADTHREE ."
+    ". elG elG elG elH elH elH elI elI elI ."
+    ". elBASE elBASE elBASE elBASE elBASE elBASE elBASE elBASE elBASE ."
     ;
   }
 }
 
 
 .home-head{
+  grid-area: elHEAD;
+}
+.home-a{
   grid-area: elA;
 }
-.home-lang{
+.home-b{
   grid-area: elB;
 }
-.home-city{
+.home-c{
   grid-area: elC;
 }
-.home-cat{
+.home-head-two{
+  grid-area: elHEADTWO;
+}
+.home-d{
   grid-area: elD;
 }
-.home-head-two{
+.home-e{
   grid-area: elE;
 }
-.home-online{
+.home-f{
   grid-area: elF;
 }
-.home-hourly{
+.home-head-three{
+  grid-area: elHEADTHREE;
+}
+.home-g{
   grid-area: elG;
 }
-.home-single{
+.home-h{
   grid-area: elH;
 }
-.home-head-three{
+.home-i{
   grid-area: elI;
 }
-.home-hobby{
-  grid-area: elJ;
-}
-.home-edu{
-  grid-area: elK;
-}
-.home-train{
-  grid-area: elL;
-}
 .home-base{
-  grid-area: elM;
+  grid-area: elBASE;
 }
