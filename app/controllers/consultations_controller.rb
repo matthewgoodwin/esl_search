@@ -252,6 +252,13 @@ class ConsultationsController < ApplicationController
   def locations
     # skip_authorization
     @consultations = policy_scope(Consultation)
+    @consult_language_links = []
+    @consultations.each do |c|
+      unless @consult_language_links.include? c.consult_language
+        @consult_language_links << c.consult_language
+      end
+    end
+
     @consult_city_links = []
 
     @consultations.each do |c|
