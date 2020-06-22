@@ -277,6 +277,8 @@ raise
         lng: consult_add.longitude,
         lat: consult_add.latitude,
         infoWindow: render_to_string(partial: 'info_window', locals: { element: consult_add })
+        image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+
       }
       # => [{:lng=>126.9782914, :lat=>37.5666791},{:lng=>129.8787114, :lat=>40.2632791}]
     end
