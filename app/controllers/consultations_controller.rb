@@ -5,7 +5,7 @@ class ConsultationsController < ApplicationController
   before_action :consultation_params, only: [:create]
   # before_action :period_params, only: [:hourly]
   before_action :location_params, only: [:location, :lang_loc]
-  before_action :language_params, only: [:lang_locs, :lang_loc, :lang_types, :lang_type,:lang_period, :lang_periods, :lang_online, :lang_hourly,:lang_single, :lang_edu, :lang_act]
+  before_action :language_params, only: [:lang_locs, :lang_loc, :lang_types, :lang_type,:lang_period, :lang_periods, :lang_online, :lang_hourly,:lang_single, :lang_edu, :lang_act, :location]
   before_action :period_params, only: [:lang_period]
   before_action :type_params, only: [:lang_type]
   skip_after_action :verify_authorized, only: [:langs_locs, :lang_locs, :lang_loc, :langs_types, :lang_types, :lang_type, :langs_periods, :lang_periods, :lang_period, :langs_onlines, :lang_online,
@@ -133,7 +133,7 @@ class ConsultationsController < ApplicationController
     @consult_lang_loc_group = Consultation.where(consult_language: @consult_lang, consult_city: @consult_city).paginate(page: params[:page], per_page: 8)
     # @consult_lang is defined in before_action :language_params, only: [:lang_loc]
     # @consult_city is defined in before_action :location_params, only: [:lang_loc]
-# raise
+raise
   end
 
   def langs_types
@@ -258,29 +258,29 @@ class ConsultationsController < ApplicationController
         @consult_language_links << c.consult_language
       end
     end
+# >>>>
 
-    @consult_city_links = []
-
-    @consultations.each do |c|
-     unless @consult_city_links.include? c.consult_city
-      @consult_city_links << c.consult_city
-     end
-    end
+  # <<<<<<
     # raise
-    @consultations_address = policy_scope(Consultation.geocoded)
-    @markers = @consultations_address.map do |consult_add|
+  end
+  def location
+    @consult_lang_group = Consultation.where(consult_language: @consult_lang).geocoded
+    @consult_city_links = []
+    # raise Test Geocoded
+    @markers = @consult_lang_group.map do |consult_add|
+    # raise Test Markers
+    # @consultations_address = policy_scope(Consultation.geocoded)
+    # @markers = @consultations_address.map do |consult_add|
       # Brackets below for a new object.
       # Each set (lng &lat) is placed in the new object, within the mapped array
       {
         lng: consult_add.longitude,
-        lat: consult_add.latitude
+        lat: consult_add.latitude,
+        infoWindow: render_to_string(partial: 'info_window', locals: { element: consult_add })
       }
       # => [{:lng=>126.9782914, :lat=>37.5666791},{:lng=>129.8787114, :lat=>40.2632791}]
     end
-    # raise
-  end
-  def location
-    @consult_city_group = Consultation.where(consult_city: @consult_city).paginate(page: params[:page], per_page: 8)
+    # @consult_city_group = Consultation.where(consult_city: @consult_city).paginate(page: params[:page], per_page: 8)
     # location param from Consultations#locations view as link 'cloc_link'
     # @consult_loc from private
     # raise

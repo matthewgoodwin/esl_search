@@ -4,19 +4,25 @@
   </div><!--end of index-header-->
   <div class="element-index-panel dashboard-user-panel-links-shell shell-border-dark black-background white-text">
     <%= render "consultations/index_panel" %>
-  </div><!--end of index-panel-->
+  </div><!--end of element-panel-->
   <div class="element-index-shell shell-border">
     <div style="background-color: white;">
-      <!-- Dropdown appearing on all devices -->
       <div class="navbar-esl-item">
       </div>
-      <% if @markers !=nil %>
-      <div id="map"
-     style="width: 100%;
-     height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-     <% end %>
+      <div class="container-fluid">
+        <div class="row">
+          <% @consult_language_links.each do |clang_link|%>
+            <div class="col-md-6">
+              <%= link_to location_consultations_path(consult_language: clang_link) do %>
+                <div class="white-background card1 center-text">
+                  <!-- http://localhost:3000/consultations/lang_loc?consult_language=English -->
+                  <h3><%= clang_link %></h3>
+                </div><!--end white card1 center-text-->
+              <% end %><!--end of link-->
+            </div><!--col-md-6-->
+          <% end %><!--end of clang_link-->
+        </div><!--row-->
+      </div><!--container-->
     </div>
   </div>
   <div class="element-index-base">

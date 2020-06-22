@@ -10,21 +10,15 @@
       <!-- Dropdown appearing on all devices -->
       <div class="navbar-esl-item">
       </div>
-      <%= render 'consultations/index_table_header' %>
-      <% @consult_city_group.each do |clmember| %>
-        <% @clmember = clmember %>
-        <% @clmember_title = clmember.consult_title %>
-        <%= render 'consultations/index', element: clmember %>
-      <% end %><!--end of @consultations.each do-->
-    </div><!--background color: white-->
-    <div class="center-text center-div">
-      <div class="">
-        <!-- will_pagination (below) is a div w/ class called "pagination"
-          this is refernced in _paginate.scss, but can be overwritten-->
-        <%= will_paginate @consult_city_group %>
-      </div>
+      <% if @markers !=nil %>
+      <div id="map"
+     style="width: 100%;
+     height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+     <% end %>
     </div>
-  </div><!-- end of consultations-index-shell-->
+  </div>
   <div class="element-index-base">
     <div class="flex-center-center">
       <h1>hellow from base</h1>
@@ -32,4 +26,4 @@
     <hr>
     <%= render "shared/app_base" %>
   </div><!--end of index-base-->
-</div><!--end of consult-index-area-->
+</div>
