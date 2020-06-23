@@ -40,6 +40,8 @@ const addMarkersToMap = (map, markers) => {
   element.style.borderRadius = '50%';
   element.style.width = '25px';
   element.style.height = '25px';
+  element.style.border = '1px solid';
+  element.style.borderColor = '#D0D0D0';
     new mapboxgl.Marker(element)
       .setLngLat([ marker.lng, marker.lat ])
       // below added to set popups

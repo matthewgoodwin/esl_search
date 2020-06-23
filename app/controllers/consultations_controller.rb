@@ -265,9 +265,8 @@ raise
   end
   def location
     @consult_lang_group = Consultation.where(consult_language: @consult_lang).geocoded
-    @consult_city_links = []
     # raise Test Geocoded
-    @markers = @consult_lang_group.map do |consult_add|
+    @markers = @consult_lang_group.map do |consult_inst|
       # raise
     # raise Test Markers
     # @consultations_address = policy_scope(Consultation.geocoded)
@@ -275,10 +274,10 @@ raise
       # Brackets below for a new object.
       # Each set (lng &lat) is placed in the new object, within the mapped array
       {
-        lng: consult_add.longitude,
-        lat: consult_add.latitude,
-        infoWindow: render_to_string(partial: 'info_window', locals: { element: consult_add }),
-        image_url: consult_add.user.photo.url || 'https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png'
+        lng: consult_inst.longitude,
+        lat: consult_inst.latitude,
+        infoWindow: render_to_string(partial: 'info_window', locals: { element: consult_inst }),
+        image_url: consult_inst.user.photo.url || 'https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png'
       }
       # => [{:lng=>126.9782914, :lat=>37.5666791},{:lng=>129.8787114, :lat=>40.2632791}]
     end

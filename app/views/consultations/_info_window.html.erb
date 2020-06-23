@@ -1,1 +1,14 @@
-<h1><%= element.consult_title %></h1>
+<!--'element' from consultation#location is the language filtered group member -- { element: consult_add } -->
+<% avatar_url = element.user.photo || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
+<div class="flex-space-between">
+  <div class="flex-33">
+  <div class="" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; height: 40px; width: 40px; border-radius: 50%; background-position: center;"></div>
+  </div>
+  <div class="flex-67">
+    <h4><%= element.consult_title %></h4>
+    <p><%= element.consult_language %></p>
+    <p><%= element.address %></p>
+    <p><%= number_to_currency(element.consult_fee, :unit => "₩") %></p>
+
+  </div>
+</div>
