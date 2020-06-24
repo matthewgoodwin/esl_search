@@ -31,6 +31,22 @@ class ConsultationsController < ApplicationController
 # @avg_star = (@total_rstars / @total_reviews)
 # end
 # end
+# raise
+
+    @consultations.each do |consult|
+      @cons_rstars = consult.reviews.all.map{|x| [x.star]}
+      # ^ creates and array of review stars ex: [[4],[1]]
+      unless @cons_rstars == []
+        @r_stars = @cons_rstars.sum
+        # ^ produces single array ex: [4,1] not sure why
+        @total_rstars = @r_stars.sum
+        # ^ SAME as above: @total_rstars = @r_stars.inject(0){|sum,x| sum + x }
+        # ^^ sum of all stars ex[4 + 1] = 5
+        @total_reviews = @cons_rstars.size
+        # total number of reviews
+        @avg_star = (@total_rstars / @total_reviews)
+      end
+    end # end of consultations.each
   end # end of index
 
   def show
@@ -43,17 +59,16 @@ class ConsultationsController < ApplicationController
     @lesson_op = @consultation.lessons.all.map{|x| [x.lesson_section]}
     @lesson_dow_array = @consultation.lessons.all.map{|x| [x.lesson_dow]}
     @consultation_review_star = @consultation.reviews.all.map{|x| [x.star]}
-    if @consultation_review_star != []
-      # ^ creates and array of review stars ex: [[4],[1]]
+    # ^ creates and array of review stars ex: [[4],[1]]
+    unless @consultation_review_star == []
       @review_stars = @consultation_review_star.sum
-      # ^ @total_review_stars produces single array ex: [4,2] not sure why
+      # ^ @total_review_stars produces single array ex: [4,1] not sure why
       @total_review_stars = @review_stars.sum
       # ^ SAME as above: @total_review_stars = @review_stars.inject(0){|sum,x| sum + x }
       # ^^ sum of all stars ex[4 + 1] = 5
       @total_reviews = @consultation_review_star.size
       # ^ total number of reviews with stars ex: 2
       @avg_star = (@total_review_stars / @total_reviews)
-    else
     end
     # raise
     # authorize @appointment
@@ -266,6 +281,20 @@ raise
   def location
     @consult_lang_group = Consultation.where(consult_language: @consult_lang).geocoded
     # raise Test Geocoded
+    @consult_lang_group.each do |consult|
+      @cons_rstars = consult.reviews.all.map{|x| [x.star]}
+      # ^ creates and array of arrays of review stars ex: [[4],[1]]
+      unless @cons_rstars == []
+        @r_stars = @cons_rstars.sum
+        # ^ produces single array ex: [4,1] not sure why
+        @total_rstars = @r_stars.sum
+        # ^ SAME as above: @total_rstars = @r_stars.inject(0){|sum,x| sum + x }
+        # ^^ sum of all stars ex[4 + 1] = 5
+        @total_reviews = @cons_rstars.size
+        # ^total number of reviews
+        @avg_star = (@total_rstars / @total_reviews)
+      end
+    end # end of @consult_lang_group.each
     @markers = @consult_lang_group.map do |consult_inst|
       # raise
     # raise Test Markers
@@ -284,7 +313,7 @@ raise
     # @consult_city_group = Consultation.where(consult_city: @consult_city).paginate(page: params[:page], per_page: 8)
     # location param from Consultations#locations view as link 'cloc_link'
     # @consult_loc from private
-    # raise
+
   end
 
 

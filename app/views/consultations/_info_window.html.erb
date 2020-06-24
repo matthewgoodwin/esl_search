@@ -6,9 +6,31 @@
   </div>
   <div class="flex-67">
     <h4><%= element.consult_title %></h4>
+    <div>
+      <% if element.reviews.all.map{|x| [x.star]} == [] %>
+        <% 5.to_i.times do %>
+          <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+        <% end %>
+        <p class="charcoal-text">&nbsp;no reviews&nbsp;</p>
+      <% else %>
+        <% @avg_star.to_i.times do %> <!-- @avg_star is from the controller -->
+          <i class="fa fa-star yellow-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+        <% end %><!--end of r.star-->
+          <% (5 - @avg_star.to_i).times do %>
+          <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+        <% end %><!--end of 5-r.star-->
+        <h6><%= @total_reviews %>&nbsp;review</h6>
+      <% end %>
+    </div>
+    <hr>
     <p><%= element.consult_language %></p>
-    <p><%= element.address %></p>
+    <p><%= element.consult_city %></p>
     <p><%= number_to_currency(element.consult_fee, :unit => "₩") %></p>
-
   </div>
 </div>
+<%= link_to consultation_path(element), class: 'flex-center-center padding-3' do %>
+<div class="btn btn-primary">
+  view lessons
+  </div>
+<% end %>
+

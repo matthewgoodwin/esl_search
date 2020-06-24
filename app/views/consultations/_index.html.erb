@@ -19,12 +19,7 @@
             <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
           <% end %>
         <% else %>
-          <% @cons_rstars = element.reviews.all.map{|x| [x.star]} %>
-          <% @r_stars = @cons_rstars.sum %>
-          <% @total_rstars = @r_stars.sum %>
-          <% @total_reviews = @cons_rstars.size %>
-          <% @avg_star = (@total_rstars / @total_reviews) %>
-          <% @avg_star.to_i.times do %>
+          <% @avg_star.to_i.times do %> <!-- @avg_star is from the controller -->
             <i class="fa fa-star yellow-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
           <% end %><!--end of r.star-->
             <% (5 - @avg_star.to_i).times do %>

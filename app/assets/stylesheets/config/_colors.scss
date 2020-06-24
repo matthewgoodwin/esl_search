@@ -48,6 +48,9 @@ $white: #FEFEFE;
 .brand-green{
   color: $brand-green;
 }
+.grey-text{
+  color: $gray;
+}
 .grey-tab-gradient{
   background-image: -webkit-linear-gradient(275deg, rgba(248,248,248,0.05), rgba(0,0,0,0));
   background-image: -o-linear-gradient(275deg, rgba(248,248,248,0.05), rgba(0,0,0,0));
