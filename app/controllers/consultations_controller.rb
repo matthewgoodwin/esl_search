@@ -145,10 +145,39 @@ class ConsultationsController < ApplicationController
     # raise
   end
   def lang_loc
-    @consult_lang_loc_group = Consultation.where(consult_language: @consult_lang, consult_city: @consult_city).paginate(page: params[:page], per_page: 8)
+    @consult_lang_loc_group = Consultation.where(consult_language: @consult_lang, consult_city: @consult_city).paginate(page: params[:page], per_page: 8).geocoded
     # @consult_lang is defined in before_action :language_params, only: [:lang_loc]
     # @consult_city is defined in before_action :location_params, only: [:lang_loc]
-raise
+    @consult_lang_loc_group.each do |consult|
+      @cons_rstars = consult.reviews.all.map{|x| [x.star]}
+      # ^ creates and array of arrays of review stars ex: [[4],[1]]
+      unless @cons_rstars == []
+        @r_stars = @cons_rstars.sum
+        # ^ produces single array ex: [4,1] not sure why
+        @total_rstars = @r_stars.sum
+        # ^ SAME as above: @total_rstars = @r_stars.inject(0){|sum,x| sum + x }
+        # ^^ sum of all stars ex[4 + 1] = 5
+        @total_reviews = @cons_rstars.size
+        # ^total number of reviews
+        @avg_star = (@total_rstars / @total_reviews)
+      end
+    end # end of @consult_lang_group.each
+    @markers = @consult_lang_loc_group.map do |consult_inst|
+      # raise
+    # raise Test Markers
+    # @consultations_address = policy_scope(Consultation.geocoded)
+    # @markers = @consultations_address.map do |consult_add|
+      # Brackets below for a new object.
+      # Each set (lng &lat) is placed in the new object, within the mapped array
+      {
+        lng: consult_inst.longitude,
+        lat: consult_inst.latitude,
+        infoWindow: render_to_string(partial: 'info_window', locals: { element: consult_inst }),
+        image_url: consult_inst.user.photo.url || 'https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png'
+      }
+      # => [{:lng=>126.9782914, :lat=>37.5666791},{:lng=>129.8787114, :lat=>40.2632791}]
+    end
+# raise
   end
 
   def langs_types
