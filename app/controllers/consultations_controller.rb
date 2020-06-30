@@ -145,7 +145,7 @@ class ConsultationsController < ApplicationController
         # @top_rated = @avg_star
       end
     end
-    raise
+    # raise
   end
 
   def langs_locs
