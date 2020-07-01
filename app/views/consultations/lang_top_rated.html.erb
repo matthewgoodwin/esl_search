@@ -1,0 +1,86 @@
+<div class="content-grid element-index-area">
+  <div class="element-index-header">
+    <%= render "shared/app_header" %>
+  </div><!--end of index-header-->
+  <div class="element-index-panel dashboard-user-panel-links-shell shell-border-dark black-background white-text">
+    <%= render "consultations/index_panel" %>
+  </div><!--end of element-panel-->
+  <div class="element-index-shell shell-border">
+    <div style="background-color: white;">
+      <div class="navbar-esl-item">
+        <%= render 'consultations/index_menu' %>
+      </div>
+      <%= render 'consultations/index_table_header' %>
+      <% @consult_lang_group.each do |c| %>
+      <% @top_rated = [] %>
+      <% if c.reviews.all.map{|x| [x.star]} == [] %>
+      <% else %>
+        <% @cons_rstars = c.reviews.all.map{|x| [x.star]} %>
+        <!-- creates and array of review stars ex: [[4],[1]] -->
+        <% unless @cons_rstars == [] %>
+          <% @r_stars = @cons_rstars.sum %>
+          <!--# ^ produces single array ex: [4,1] not sure why-->
+          <% @total_rstars = @r_stars.sum %>
+          <!-- # ^ SAME as above: @total_rstars = @r_stars.inject(0){|sum,x| sum + x }
+          # ^^ sum of all stars ex[4 + 1] = 5 -->
+          <% @total_reviews = @cons_rstars.size %>
+          <!-- # total number of reviews -->
+          <% @avg_star = (@total_rstars / @total_reviews) %>
+
+          <% unless @top_rated.include?(c) || @avg_star.to_i < 2 %>
+            <% @top_rated << c %>
+            <% @weight = @avg_star.to_i * (@total_reviews * 0.15) %>
+            <% @top_rated.each do |element| %>
+              <%= link_to consultation_path(element) do %>
+                <div class="flex-space-between">
+                  <div class="flex-33 flex-center-column"><!--icon-cant grow or shrink-->
+                    <% avatar_url = element.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
+                    <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
+                    <div class="user-sm-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
+                  </div><!--end of NESTED icon flex item div-->
+                  <div class="flex-33">
+                  <h4 class="blue-text"><%= truncate(element.consult_title) %></h4>
+                  <h5 class="charcoal-text"><%= element.consult_language %></h5>
+                  <h5 class="charcoal-text"><%= element.consult_city %></h5>
+                  <h5 class="charcoal-text"><%= element.consult_env %></h5>
+                  <h6 class="charcoal-text"><%= element.consult_type %></h6>
+                  <% @avg_star.to_i.times do %> <!-- @avg_star is from the controller -->
+                    <i class="fa fa-star yellow-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+                  <% end %><!--end of r.star-->
+                  <% (5 - @avg_star.to_i).times do %>
+                    <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+                  <% end %><!--end of 5-r.star-->
+                  <h6><%= @total_reviews %>&nbsp;review</h6>
+                  <h6><%= @weight %></h6>
+                </div><!-- details-->
+                <div class="flex-33 center-text">
+                  <div><h6 class="charcoal-text"><%= element.consult_period %></h6></div>
+                  <p><%= number_to_currency(element[:consult_fee], :unit=> "₩") %></p>
+                </div><!-- stars-->
+                </div><!--end of flex-box shell-tab-box-->
+              <% end %><!--end of consultation_path(c)-->
+              <hr>
+            <% end %> <!-- end unless include-->
+          <% end %> <!--end of unless top_rated.each-->
+        <% end %> <!-- end of unless @cons_rstars-->
+      <% end %><!--end of if consult.reviews.all.map -->
+    <% end %>
+    </div><!--background color: white-->
+    <div class="center-text center-div">
+      <div class="">
+        <!-- will_pagination (below) is a div w/ class called "pagination"
+          this is refernced in _paginate.scss, but can be overwritten-->
+      </div>
+    </div>
+  </div><!-- end of consultations-index-shell-->
+  <div class="element-index-base">
+    <div class="flex-center-center">
+      <!--PAGE SPECIFIC BASE INFO-->
+    </div>
+    <hr>
+    <%= render "shared/app_base" %>
+  </div><!--end of index-base-->
+</div><!--end of consult-index-area-->
+
+
+

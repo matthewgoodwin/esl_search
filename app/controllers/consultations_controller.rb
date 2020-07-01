@@ -19,34 +19,6 @@ class ConsultationsController < ApplicationController
       # if no search request; show all consultations
       @consultations = policy_scope(Consultation).paginate(page: params[:page], per_page: 8)
     end
-
-    # @consultations.paginate(page: params[:pages])
-# @consultations.each do |c|
-# if c.reviews.all.map{|x| [x.star]} == []
-# else
-# @cons_rstars = c.reviews.all.map{|x| [x.star]}
-# @r_stars = @cons_rstars.sum
-# @total_rstars = @r_stars.sum
-# @total_reviews = @cons_rstars.size
-# @avg_star = (@total_rstars / @total_reviews)
-# end
-# end
-# raise
-
-    @consultations.each do |consult|
-      @cons_rstars = consult.reviews.all.map{|x| [x.star]}
-      # ^ creates and array of review stars ex: [[4],[1]]
-      unless @cons_rstars == []
-        @r_stars = @cons_rstars.sum
-        # ^ produces single array ex: [4,1] not sure why
-        @total_rstars = @r_stars.sum
-        # ^ SAME as above: @total_rstars = @r_stars.inject(0){|sum,x| sum + x }
-        # ^^ sum of all stars ex[4 + 1] = 5
-        @total_reviews = @cons_rstars.size
-        # total number of reviews
-        @avg_star = (@total_rstars / @total_reviews)
-      end
-    end # end of consultations.each
   end # end of index
 
   def show
@@ -135,16 +107,20 @@ class ConsultationsController < ApplicationController
   end
   def lang_top_rated
     @top_rated = []
-    @consult_lang_group = Consultation.where(consult_language: @consult_lang)
-    @consult_lang_group.each do |consult|
-      @cons_rstars = consult.reviews.all.map{|x| x.star}
-      unless @cons_rstars == []
-        @total_rstars = @cons_rstars.sum
-        @total_reviews = @cons_rstars.size
-        @avg_star = (@total_rstars / @total_reviews)
-        # @top_rated = @avg_star
-      end
-    end
+    @consult_lang_group = policy_scope(Consultation.where(consult_language: @consult_lang))
+    # @consult_lang_group.each do |consult|
+    #   @cons_rstars = consult.reviews.all.map{|x| x.star}
+    #   unless @cons_rstars == []
+    #     @total_rstars = @cons_rstars.sum
+    #     @total_reviews = @cons_rstars.size
+    #     @avg_star = (@total_rstars / @total_reviews)
+    #     if @avg_star.to_i >= 3
+    #       @weight = @avg_star * (@total_reviews * 1.5)
+    #       # ^ 9 = 3(3*1.5)
+    #       @top_rated << consult
+    #     end
+    #   end
+    # end
     # raise
   end
 
