@@ -27,9 +27,9 @@
           <!-- # total number of reviews -->
           <% @avg_star = (@total_rstars / @total_reviews) %>
 
-          <% unless @top_rated.include?(c) || @avg_star.to_i < 2 %>
+          <% unless @top_rated.include?(c) || @avg_star < 2 %>
             <% @top_rated << c %>
-            <% @weight = @avg_star.to_i * (@total_reviews * 0.15) %>
+            <% @weight = @avg_star * (@total_reviews * 0.0001) %>
             <% @top_rated.each do |element| %>
               <%= link_to consultation_path(element) do %>
                 <div class="flex-space-between">
