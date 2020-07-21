@@ -108,19 +108,30 @@ class ConsultationsController < ApplicationController
   def lang_top_rated
     @top_rated = []
     @consult_lang_group = policy_scope(Consultation.where(consult_language: @consult_lang))
-    # @consult_lang_group.each do |consult|
-    #   @cons_rstars = consult.reviews.all.map{|x| x.star}
-    #   unless @cons_rstars == []
-    #     @total_rstars = @cons_rstars.sum
-    #     @total_reviews = @cons_rstars.size
-    #     @avg_star = (@total_rstars / @total_reviews)
-    #     if @avg_star.to_i >= 3
-    #       @weight = @avg_star * (@total_reviews * 1.5)
-    #       # ^ 9 = 3(3*1.5)
-    #       @top_rated << consult
-    #     end
-    #   end
-    # end
+    @consult_lang_group.each do |consult|
+      @cons_rstars = consult.reviews.all.map{|x| x.star}
+      unless @cons_rstars == []
+        @sorted_rstars = @cons_rstars.group_by{|x| x}.values
+        # loop through nested arrays
+        @wtf = @sorted_rstars.each do |element|
+          @element = element
+          # raise
+        end
+        # ^ sorts star arrays by values. groups all like values in array
+        # >> @sorted_rstars #=> [[3, 3, 3], [4]]
+        # @ind_array = @sorted_rstars.map{|s| s.inject{ |sum,x| sum + x }}
+
+
+        @total_rstars = @cons_rstars.sum
+        @total_reviews = @cons_rstars.size
+        @avg_star = (@total_rstars / @total_reviews)
+        if @avg_star.to_i >= 3
+          @weight = @avg_star * (@total_reviews * 1.5)
+          # ^ 9 = 3(3*1.5)
+          @top_rated << consult
+        end
+      end
+    end
     # raise
   end
 
