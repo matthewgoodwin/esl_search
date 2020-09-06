@@ -6,20 +6,17 @@
     <%= render "consultations/index_panel" %>
   </div><!--end of element-panel-->
   <div class="element-index-shell shell-border">
-    <div class="element-index-shell shell-border">
     <div style="background-color: white;">
       <!-- Dropdown appearing on all devices -->
-      <div class="navbar-esl-item">
-      </div>
       <% if @markers != nil %>
       <div id="map"
      style="width: 100%;
-     height: 600px;"
+     height: 700px;"
      data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+     </div>
      <% end %>
     </div>
-  </div>
     <div style="background-color: white;">
       <div class="navbar-esl-item">
         <%= render 'consultations/index_menu' %>
@@ -38,7 +35,7 @@
         <%= will_paginate @consult_lang_loc_group %>
       </div>
     </div>
-  </div><!-- end of consultations-index-shell-->
+  </div><!--end of element-index-shell-->
   <div class="element-index-base">
     <div class="flex-center-center">
       <!--PAGE SPECIFIC BASE INFO-->
@@ -47,3 +44,4 @@
     <%= render "shared/app_base" %>
   </div><!--end of index-base-->
 </div><!--end of consult-index-area-->
+
