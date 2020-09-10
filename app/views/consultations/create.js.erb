@@ -1,3 +1,9 @@
-$('.modal').modal('hide');
-var add_product = $("<%= j render 'consultations/show_min_products', element: @consultation %>");
-$('#products').prepend(add_product);
+<% if @consultation.errors.any? %>
+  <% @consultation.errors.each do |key, value| %>
+  $('#errorBlock').append("<div class='report'><%= escape_javascript(value) %></div>");
+  <% end %>
+<% else %>
+  $('.modal').modal('hide');
+  var add_product = $("<%= j render 'consultations/show_min_products', element: @consultation %>");
+  $('#products').prepend(add_product);
+<% end %>

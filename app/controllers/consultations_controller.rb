@@ -72,7 +72,6 @@ class ConsultationsController < ApplicationController
       end
     end
     # redirect_to dashboard_path
-
   end # end of create
 
   def edit
