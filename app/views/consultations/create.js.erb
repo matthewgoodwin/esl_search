@@ -1,6 +1,7 @@
 <% if @consultation.errors.any? %>
-  <% @consultation.errors.each do |key, value| %>
-  $('#errorBlock').append("<div class='report'><%= escape_javascript(value) %></div>");
+  $('#errorBlock').empty();
+  <% @consultation.errors.each_with_index do |message, i| %>
+  $('#errorBlock').append("<div class='report'><h6 class='red-text'> - <%= escape_javascript(message[1]) %></h6></div>");
   <% end %>
 <% else %>
   $('.modal').modal('hide');

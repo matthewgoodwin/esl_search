@@ -8,10 +8,21 @@ class Consultation < ApplicationRecord
   accepts_nested_attributes_for :lessons
 
   # validates :consult_title, :address, presence: true # uncomment to test geocoder in rails console
-  validates :consult_title, :consult_language, :consult_type, :consult_env, :consult_period, presence: true
-  validates :consult_fee, :consult_desc, :consult_demo, :address, :consult_city, presence: true
-  validates :consult_focus, length: { maximum: 100, too_long: "%{count} characters is the maximum allowed. Please shorten your description!" }
-  validates :consult_desc, length: { in: 200..2000, wrong_length: "Your description must be between 200 and 2000 characters" }
+  validates :consult_title, presence: { message: "Please give your session a TITLE ! "}
+  validates :consult_language, presence: { message: "Please enter a primary LANGUAGE ! "}
+  validates :consult_type, presence: { message: "Please select a session TYPE ! "}
+  validates :consult_env, presence: { message: "Please select your session ENVIRONMENT ! "}
+  validates :consult_period, presence: { message: "Please select a session TERM ! "}
+  validates :consult_fee, presence: { message: "Please enter a RATE / PRICE ! "}
+  validates :consult_desc, presence: { message: "Please enter a DESCRIPTION ! "}
+  validates :consult_demo, presence: { message: "Please enter a TARGET AUDIENCE ! "}
+  validates :consult_city, presence: { message: "Please enter a LOCATION CITY ! "}
+  validates :address, presence: { message: "Please enter a LOCATION ADDRESS ! "}
+
+  # validates :consult_fee, :consult_desc, :consult_demo, :address, :consult_city, presence: { message: "Please enter all required information! "}
+
+  validates :consult_focus, length: { maximum: 100, too_long: "%{count} characters is the maximum allowed. Please shorten your 'FOCUS' description!" }
+  validates :consult_desc, length: { in: 200..2000, message: "Your `DESCRIPTION` must be between 200 and 2000 characters ! " }
   before_save :proper_format
 
   include PgSearch::Model
