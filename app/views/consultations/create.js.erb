@@ -1,7 +1,7 @@
 <% if @consultation.errors.any? %>
   $('#errorBlock').empty();
-  <% @consultation.errors.each_with_index do |message, i| %>
-  $('#errorBlock').append("<div class='report'><h6 class='red-text'> - <%= escape_javascript(message[1]) %></h6></div>");
+  <% @consultation.errors.each_with_index do |message, index| %>
+  $('#errorBlock').append("<div class='report'><h6 class='red-text'> <%= escape_javascript(index +1) %> - <%= escape_javascript(message[1]) %></h6></div>");
   <% end %>
 <% else %>
   $('.modal').modal('hide');

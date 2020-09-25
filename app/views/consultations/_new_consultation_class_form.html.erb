@@ -27,7 +27,7 @@
       <%= f.input :consult_zoom_link, label: false, placeholder: "https://zoom.us/j/12345678" %>
       <h6>Location<span class="red-text">&#42;</span></h6>
       <%= f.input :consult_city, label: false, placeholder: "City" %>
-      <%= f.input :address, label: false, placeholder: "Address" %>
+      <%= f.input :address, label: false, placeholder: "Address ( e.g.; '마포구 와우산로 147-1' or '6, Buljeong-ro, Bundang-gu, Seongnam-si')" %>
       <h6>Term <span class="red-text">&#42;</span></h6>
       <%= f.input :consult_period, label: false, default: ["hourly"], collection: ["hourly", "single-session"] %>
       <div>
