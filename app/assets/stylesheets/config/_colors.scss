@@ -9,6 +9,8 @@ $brand-blue: #4FC1DA;
 $base-app-color: #FEFEFE;
 $red: #DE4743;
 $blue: #2B8DDF;
+$blue-45: #094cdc;
+$dark-blue-25: #042261;
 $yellow: #FFB221;
 $orange: #E67E22;
 $green: #1CD1A4;
@@ -17,6 +19,7 @@ $light-gray: #F4F4F4;
 $charcoal: #3E3E3E;
 $black: #202020;
 $white: #FEFEFE;
+$navy: #031b4d;
 
 .white-text{
   color: $white;
@@ -30,6 +33,12 @@ $white: #FEFEFE;
 .black-background{
   background-color: $black;
 }
+.navy-background{
+  background-color: $navy;
+}
+.blue-background{
+  background-color: $dark-blue-25;
+}
 .charcoal-background{
   background-color: $charcoal;
 }
@@ -40,7 +49,7 @@ $white: #FEFEFE;
   color: $red;
 }
 .blue-text{
-  color: $brand-blue;
+  color: $blue-45;
 }
 .green-text{
   color: $brand-green;
@@ -90,4 +99,9 @@ $white: #FEFEFE;
   background-image: -webkit-linear-gradient(rgba(22,219,147,0.5), rgba(22,219,147,0.2));
   background-image: -o-linear-gradient(rgba(22,219,147,0.5), rgba(22,219,147,0.2));
   background-image: linear-gradient(rgba(22,219,147,0.5), rgba(22,219,147,0.2));
+}
+.blue-shell-gradient-header{
+  background-image: -webkit-linear-gradient(rgba(132,175,255,0.6), rgba(132,175,255,0.3));
+  background-image: -o-linear-gradient(rgba(132,175,255,0.6), rgba(132,175,255,0.3));
+  background-image: linear-gradient(rgba(132,175,255,0.6), rgba(132,175,255,0.3));
 }

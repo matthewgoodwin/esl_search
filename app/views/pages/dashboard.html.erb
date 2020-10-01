@@ -1,6 +1,6 @@
 <div class="content-grid dash-area">
   <!-- <h1>Pages#dashboard</h1> -->
-  <div class="dashboard-user-panel-links-shell shell-border-dark black-background white-text">
+  <div class="dashboard-user-panel-links-shell shell-border-dark navy-background white-text">
     <div class="padding-3 center-text">
       <h5>welcome,</h5>
       <h2><%= current_user.fname %></h2>
@@ -24,7 +24,7 @@
     </div><!--end of user-profile-image-div find: _usericon.scss-->
     <div class="unordered-list">
       <ul class="dashboard-user-panel-links-list">
-        <li class="shell-tab-header-dark charcoal-background">
+        <li class="shell-tab-header-dark blue-background">
           <%= link_to user_privatemessages_user_path(current_user.id), class: "white-text" do %>
             <div class="flex-space-between">
               <h6 class="flex-67">Private Messages</h6>
@@ -32,17 +32,17 @@
             </div>
           <% end %>
         </li>
-        <li class="shell-tab-header-dark charcoal-background left-border animated pulse animate-class-btn">
+        <li class="shell-tab-header-dark blue-background left-border animated pulse animate-class-btn">
           <a href="" data-toggle="modal" data-target="#create-new-consultation-class">
               <div class="round-div no-decor"><h6 class="green-text">Create Class</h6></div>
           </a>
         </li>
-        <li class="shell-tab-header-dark charcoal-background">
+        <li class="shell-tab-header-dark blue-background">
           <%= link_to consultations_path, class: "white-text" do %>
             <h6 class="">find a class</h6>
           <% end %>
         </li>
-        <li class="shell-tab-header-dark charcoal-background">
+        <li class="shell-tab-header-dark blue-background">
           <%= link_to locations_consultations_path, class: "white-text" do %>
             <h6 class="">locations</h6>
           <% end %>
