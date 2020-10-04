@@ -1,5 +1,5 @@
 <!--'element' from consultation#location is the language filtered group member -- { element: consult_add } -->
-<% avatar_url = element.user.photo(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
+<% avatar_url = element.user.photo || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
 <div class="flex-space-between">
   <div class="flex-33">
     <div class="" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; height: 40px; width: 40px; border-radius: 50%; background-position: center;"></div>
