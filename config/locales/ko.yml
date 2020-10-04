@@ -1,0 +1,64 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+ko:
+  global:
+    menu:
+      homepage: "HOMEPAGE"
+      directory: "DIRECTORY"
+      dashboard: "DASHBOARD"
+      edit_profile: "EDIT PROFILE"
+      sign_in: "SIGN IN"
+      sign_out: "SIGN OUT"
+
+  pages:
+    home:
+      welcome_1: "Hangul header 1"
+      description_1: "Korean 웹 페이지의 샘플 텍스트입니다."
+      card_1_title: "한국어 제목 LOC"
+      card_1_desc: "Korean 웹 페이지의 샘플 텍스트입니다."
+      card_2_title: "한국어 제목 CAT"
+      card_2_desc: "Korean 웹 페이지의 샘플 텍스트입니다."
+      card_3_title: "한국어 제목 TOP"
+      card_3_desc: "Korean 웹 페이지의 샘플 텍스트입니다."
+      welcome_2: "Hangul header 2 "
+      description_2: "Korean 웹 페이지의 샘플 텍스트입니다."
+      card_4_title: "한국어 제목 ON SESS"
+      card_4_desc: "Korean 웹 페이지의 샘플 텍스트입니다."
+      card_5_title: "HRLY-SESS"
+      card_5_desc: "Korean 웹 페이지의 샘플 텍스트입니다."
+      card_6_title: "한국어 제목 SNGL-SESS"
+      card_6_desc: "Korean 웹 페이지의 샘플 텍스트입니다."
+      welcome_3: "Hangul header 3"
+      description_3: "Korean 웹 페이지의 샘플 텍스트입니다."
+      card_7_title: "한국어 제목 EXP"
+      card_7_desc: "Korean 웹 페이지의 샘플 텍스트입니다."
+      card_8_title: "한국어 제목 EDU"
+      card_8_desc: "Korean 웹 페이지의 샘플 텍스트입니다."
+      card_9_title: "한국어 제목 TRAIN"
+      card_9_desc: "Korean 웹 페이지의 샘플 텍스트입니다."
+    dashboard:
+      welcome_1: "Hangul welcome"
+      private_messages: "Private Messages"
+      create_class: "Create Class"
+      find_class: "find class"
+      edit_profile: "edit profile"
+      class_messages: "class messages"
