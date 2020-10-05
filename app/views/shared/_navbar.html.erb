@@ -37,7 +37,8 @@
             <% if user_signed_in? %>
               <li> <%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
             <% end %>
-            <!-- <li><a href="#">home</a></li> -->
+            <li><%= link_to "Korean", root_path(locale: :ko)%></li>
+            <li><%= link_to "English", root_path(locale: :en)%></li>
             <!-- <li><a href="#">Profile</a></li> -->
             <!-- <li><a href="#">Log Out</a></li> -->
           </ul>

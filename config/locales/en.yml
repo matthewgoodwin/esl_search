@@ -32,7 +32,7 @@ en:
   pages:
     home:
       welcome_1: "ENGLISH header 1"
-      description_1: "ENGLISH is simply dummy text of the printing and typesetting industry"
+      desc_1: "ENGLISH is simply dummy text of the printing and typesetting industry"
       card_1_title: "LOCATION"
       card_1_desc: "ENGLISH is simply dummy text of the printing and typesetting industry"
       card_2_title: "CATEGORY"
@@ -40,7 +40,7 @@ en:
       card_3_title: "TOP-RATED"
       card_3_desc: "ENGLISH is simply dummy text of the printing and typesetting industry"
       welcome_2: "ENGLISH SESSIONS HEADER"
-      description_2: "ENGLISH is simply dummy text of the printing and typesetting industry"
+      desc_2: "ENGLISH is simply dummy text of the printing and typesetting industry"
       card_4_title: "ONLINE SERVICES"
       card_4_desc: "ENGLISH is simply dummy text of the printing and typesetting industry"
       card_5_title: "HOURLY-SESSIONS"
@@ -48,7 +48,7 @@ en:
       card_6_title: "SINGLE-SESSIONS"
       card_6_desc: "ENGLISH is simply dummy text of the printing and typesetting industry"
       welcome_3: "ENGLISH header 3"
-      description_3: "ENGLISH is simply dummy text of the printing and typesetting industry"
+      desc_3: "ENGLISH is simply dummy text of the printing and typesetting industry"
       card_7_title: "EXPERIENCES"
       card_7_desc: "ENGLISH is simply dummy text of the printing and typesetting industry"
       card_8_title: "EDUCATION"

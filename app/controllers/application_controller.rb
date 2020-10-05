@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   #before_action :authenticate_user!
+  before_action :set_locale
   include Pundit
 
   # Pundit: white-list approach.
@@ -28,5 +29,21 @@ class ApplicationController < ActionController::Base
 
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:username, :fname, :lname, :user_native_lang, :user_second_lang, :city, :town, :user_phone, :user_kakao_id, :user_nation, :address, :email, :gender, :instructor_reg, :edu, :aboutme, :subjectmajor, :edulevel, :password, :photo, :photo_cache])
+  end
+
+  # define default URL option method
+  # this will include the locale param into every link generated with rails helpers
+  def default_url_options
+    {locale: I18n.locale}
+  end
+  # call and set local using extract local method or use default language & locale
+  def set_locale
+    I18n.locale = extract_locale || I18n.default_locale
+  end
+  def extract_locale
+    parsed_locale = params[:locale]
+    # check to make sure the parse_locale is supported or not
+    I18n.available_locales.map(&:to_s).include?(parsed_locale)?
+    parsed_locale.to_sym : nil
   end
 end
