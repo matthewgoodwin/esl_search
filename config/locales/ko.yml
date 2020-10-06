@@ -20,6 +20,20 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ko:
+  appointment_save: "Your appointment is complete ! Please check your email for confirmation!"
+  appointment_error: "Missing important information or already enrolled!"
+  appointment_update: "Your appointment has been updated!"
+  appointment_destroy: "Your appointment has been deleted!"
+  consultation_save: "Your meeting has been created!"
+  consultation_error: "Your meeting was not created. Please try again!"
+  consultation_update: "Your meeting has been updated!"
+  consultation_destroy: "Your meeting has been deleted!"
+  lesson_save: "Your lesson has been created!"
+  lesson_error: "Your lesson could not be saved.. Please try again!"
+  lesson_destroy: "Your lesson has been deleted!"
+  message_save: "Message Sent!"
+  message_error: "your message is too long.. try again!"
+  message_destroy: "Message Deleted"
   global:
     menu:
       homepage: "HOMEPAGE"
@@ -58,13 +72,13 @@ ko:
     dashboard:
       welcome_1: "환영해요"
       private_messages: "쪽지"
-      create_class: "미팅 만들기"
-      find_class: "미팅 찾기"
+      create_meeting: "미팅 만들기"
+      find_meeting: "미팅 찾기"
       edit_profile: "EDIT PROFILE"
       messages: "MESSAGES"
       host_sessions: "미팅 주관"
       att_session: "SESSION ATTENDEE"
-      class_list: "미팅 리스트"
+      meeting_list: "미팅 리스트"
       recent_reviews: "후기"
       clients: "CLIENTS"
 

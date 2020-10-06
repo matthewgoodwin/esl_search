@@ -39,10 +39,12 @@ class AppointmentsController < ApplicationController
       # AppointmentMailer.confirmation(@appointment).deliver_now
       # AppointmentMailer.confirmationx(@appointment).deliver_now
       # ^ calls app/mailers/appointment_mailer.rb ; before redirect
-      flash[:notice] = 'Your appointment is set! Please check your email for confirmation!'
+      # flash[:notice] = 'Your appointment is set! Please check your email for confirmation!'
+      flash[:notice] = t(:appointment_save)
       redirect_to appointment_path(@appointment)
     else
-      flash[:notice] = 'missing important information or already enrolled!'
+      # flash[:notice] = 'missing important information or already enrolled!'
+      flash[:notice] = t(:appointment_error)
       redirect_to consultation_path(@lesson.consultation.id)
     end
   end
@@ -52,7 +54,8 @@ class AppointmentsController < ApplicationController
 
   def update
     if @appointment.update(appointment_params)
-      flash[:notice] = "Your appointment has been updated!"
+      # flash[:notice] = "Your appointment has been updated!"
+      flash[:notice] = t(:appointment_update)
       redirect_to appointment_path(@appointment)
     else
       render :edit
@@ -61,7 +64,8 @@ class AppointmentsController < ApplicationController
 
   def destroy
     @appointment.destroy
-    flash[:notice] = "Your appointment has been dropped!"
+    # flash[:notice] = "Your appointment has been dropped!"
+    flash[:notice] = t(:appointment_destroy)
     redirect_to dashboard_path
   end
 

@@ -24,10 +24,12 @@ class PrivatemessagesController < ApplicationController
     authorize @privatemessage
     # raise
     if @privatemessage.save
-      flash[:notice] = "Your personal message has been sent!"
+      # flash[:notice] = "Your personal message has been sent!"
+      flash[:notice] = t(:message_save)
       redirect_to user_path(@user.id)
     else
-      flash[:alert] = "your message is too long.. try again!"
+      # flash[:alert] = "your message is too long.. try again!"
+      flash[:notice] = t(:message_error)
       redirect_to user_path(@user.id)
     end
   end
@@ -40,7 +42,8 @@ class PrivatemessagesController < ApplicationController
 
   def destroy
     @privatemessage.destroy
-    flash[:notice] = "your message was deleted!"
+    # flash[:notice] = "your message was deleted!"
+    flash[:notice] = t(:message_destroy)
     redirect_to user_privatemessages_user_path(@current_user)
   end
   private

@@ -2,7 +2,7 @@
   <!-- <h1>Pages#dashboard</h1> -->
   <div class="dashboard-user-panel-links-shell shell-border-dark navy-background white-text">
     <div class="padding-3 center-text">
-      <h5>welcome,</h5>
+      <h5><%= t '.welcome_1' %></h5>
       <h2><%= current_user.fname %></h2>
       <h6 class=""><%= current_user.email %></h6>
       <h6 class="">Kakao:&nbsp;<%= current_user.user_kakao_id %></h6>
@@ -27,24 +27,24 @@
         <li class="shell-tab-header-dark blue-background">
           <%= link_to user_privatemessages_user_path(current_user.id), class: "white-text" do %>
             <div class="flex-space-between">
-              <h6 class="flex-67">Private Messages</h6>
+              <h6 class="flex-67"><%= t '.private_messages' %></h6>
             <div class="flex-33 white-text"><div class="counter"><%= @privatemessages.size %></div></div>
             </div>
           <% end %>
         </li>
         <li class="shell-tab-header-dark blue-background left-border animated pulse animate-class-btn">
           <a href="" data-toggle="modal" data-target="#create-new-consultation-class">
-              <div class="round-div no-decor"><h6 class="green-text">Create Class</h6></div>
+              <div class="round-div no-decor"><h6 class="green-text"><%= t '.create_meeting' %></h6></div>
           </a>
         </li>
         <li class="shell-tab-header-dark blue-background">
           <%= link_to consultations_path, class: "white-text" do %>
-            <h6 class="">find a class</h6>
+            <h6 class=""><%= t '.find_meeting' %></h6>
           <% end %>
         </li>
         <li class="shell-tab-header-dark blue-background">
           <%= link_to edit_user_registration_path(current_user.id), class: "white-text" do %>
-            <h6 class="">edit profile</h6>
+            <h6 class=""><%= t '.edit_profile' %></h6>
             <!-- change to 'edit profile' -->
           <% end %>
         </li>
@@ -60,7 +60,7 @@
   <div class="dashboard-messages-shell shell-border grey-shell-gradient padding-3">
     <div class="flex-center-center">
       <%= link_to user_messages_user_path(current_user.id) do %>
-        <div class="flex-67"><h5 class="charcoal-text">Class Messages</h5></div>
+        <div class="flex-67"><h5 class="charcoal-text"><%= t '.messages' %></h5></div>
       <% end %>
       <div class="flex-33 center-text"><h6><%= @my_messages_id_array.size %></h6></div>
     </div><!--end of dashboard-message header-items-->
@@ -77,7 +77,7 @@
   <div class="dashboard-consults-shell shell-border grey-shell-gradient">
     <div class="flex-center-center">
       <%= link_to user_consultations_user_path(current_user.id) do %>
-        <div class="flex-67"><h5 class="charcoal-text">HOSTED SESSIONS</h5></div>
+        <div class="flex-67"><h5 class="charcoal-text"><%= t '.host_sessions' %></h5></div>
       <% end %>
       <div class="flex-33 center-text"><h6><%= @my_cons_appointments_array.size %></h6></div>
     </div><!--end of dashboard-consult header-items-->
@@ -93,7 +93,7 @@
   <div class="dashboard-appointments-shell shell-border grey-shell-gradient">
     <div class="flex-center-center">
       <%= link_to user_appointments_user_path(current_user.id) do %>
-      <div class="flex-67"><h5 class="charcoal-text">SESSION ATTENDEE</h5></div>
+      <div class="flex-67"><h5 class="charcoal-text"><%= t '.att_session' %></h5></div>
       <% end %>
       <div class="flex-33 center-text"><h6><%= @appointments.size %></h6></div>
     </div><!--dashboard-appointment header-items-->
@@ -106,7 +106,7 @@
   <div class="dashboard-consults-product-shell shell-border grey-shell-gradient">
     <div class="flex-center-center">
       <%= link_to user_products_user_path(current_user.id) do %>
-        <div class="flex-67"><h5 class="charcoal-text">CLASS LIST</h5></div>
+        <div class="flex-67"><h5 class="charcoal-text"><%= t '.meeting_list' %></h5></div>
       <% end %>
       <div class="flex-33 center-text"><h6><%= @consultations.size %></h6></div>
     </div><!--end of dashboard-product header-items-->
@@ -121,7 +121,7 @@
   <div class="dashboard-consults-reviews-shell shell-border grey-shell-gradient">
     <div class="flex-center-center">
       <%= link_to user_reviews_user_path(current_user.id) do %>
-        <div class="flex-67"><h5 class="charcoal-text">Recent Reviews</h5></div>
+        <div class="flex-67"><h5 class="charcoal-text"><%= t '.recent_reviews' %></h5></div>
       <% end %><!--end of user_review_path-->
       <div class="flex-33 center-text"><h6><%= @my_reviews_array.size %></h6></div>
     </div><!--end of dashboard-review header-items-->
@@ -139,7 +139,7 @@
   <div class="dashboard-clients-list-shell shell-border grey-shell-gradient">
     <div class="flex-center-center">
       <%= link_to user_clients_user_path(current_user.id) do %>
-        <div class="flex-67"><h5 class="charcoal-text">Clients</h5></div>
+        <div class="flex-67"><h5 class="charcoal-text"><%= t '.clients' %></h5></div>
       <% end %>
       <div class="flex-33 center-text"><h6><%= @my_clients_array.size %></h6></div>
     </div><!--dashboard-client header-items-->
@@ -159,7 +159,7 @@
     <div class="modal-dialog" role="document"><!--aligns the modal document-->
       <div class="modal-content">
         <div class="modal-header modal-head-grad flex flex-center-center grey-shell-gradient">
-          <h3 class="create-appointment-modal-header text-center">Create New Class</h3>
+          <h3 class="create-appointment-modal-header text-center"><%= t '.create_meeting' %></h3>
         </div><!--end of header-->
         <div class="modal-body">
           <%= render "consultations/new_consultation_class_form", consultation: @consultation %>

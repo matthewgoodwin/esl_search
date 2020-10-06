@@ -18,7 +18,8 @@ class MessagesController < ApplicationController
     # raise
     authorize @message
     if @message.save
-      flash[:notice] = "message sent!"
+      # flash[:notice] = "message sent!"
+      flash[:notice] = t(:message_save)
       redirect_to consultation_path(@consultation)
     else
       render :new, consultation: @consultation, message: @message
@@ -33,7 +34,8 @@ class MessagesController < ApplicationController
 
   def destroy
     @message.destroy
-    flash[:notice] = 'message has been destroyed!'
+    # flash[:notice] = 'message deleted!'
+    flash[:notice] = t(:message_destroy)
     redirect_to dashboard_path
   end
 

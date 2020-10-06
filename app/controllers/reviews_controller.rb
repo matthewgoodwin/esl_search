@@ -18,13 +18,15 @@ class ReviewsController < ApplicationController
     @review.consultation = @consultation
     authorize @review
     if @review.save
-      flash[:notice] = "Your review has been added!"
+      # flash[:notice] = "Your review has been added!"
+      flash[:notice] = t(:review_save)
       respond_to do |format|
         format.html { redirect_to consultation_path(@consultation) }
         format.js
       end
     else
-      flash[:alert] = "Your review is too long or missing information. Try again!"
+      # flash[:alert] = "Your review is too long or missing information. Try again!"
+      flash[:notice] = t(:review_error)
       respond_to do |format|
         format.html { redirect_to consultation_path(@consultation) }
         format.js
@@ -38,7 +40,8 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
-    flash[:notice] = "Your review has been updated!"
+    # flash[:notice] = "Your review has been updated!"
+    flash[:notice] = t(:review_update)
     redirect_to consultation_path(@consultation)
     else
     render :edit
