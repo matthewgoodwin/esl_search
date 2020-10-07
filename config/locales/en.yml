@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  # homepage: "homepage"
   appointment_save: "Your appointment is complete ! Please check your email for confirmation!"
   appointment_error: "Missing important information or already enrolled!"
   appointment_update: "Your appointment has been updated!"
@@ -38,11 +39,12 @@ en:
   global:
     menu:
       homepage: "HOMEPAGE"
-      directory: "DIRECTORY"
-      dashboard: "DASHBOARD"
-      edit_profile: "EDIT PROFILE"
+      dir: "DIRECTORY"
+      dash: "DASHBOARD"
+      edit_pro: "EDIT PROFILE"
       sign_in: "SIGN IN"
       sign_out: "SIGN OUT"
+      search: "Language, City, Keyword"
 
   pages:
     home:

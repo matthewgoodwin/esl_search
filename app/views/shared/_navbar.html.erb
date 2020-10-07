@@ -23,41 +23,75 @@
     <a href="" class="navbar-esl-cursor navbar-esl-link">dashboard</a>
     <a href="" class="navbar-esl-cursor navbar-esl-link">Messages</a> -->
     <!-- Profile picture with dropdown list -->
-      <div class="navbar-esl-cursor">
+    <div class="flex-space-between"> <!--nested flex-box-->
+      <div class="flex-25">
+        <% korea_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,q_auto:eco,w_100/v1602068229/001-south-korea_square.png" %>
+        <%= link_to root_path(locale: :ko) do %>
+          <div class="icon-shell" style="background-image: url('<%= image_path korea_url %>');background-size: cover; height: 30px; width: 30px; background-position: center;">
+          </div>
+        <% end %>
+      </div> <!--end of korea-->
+      <div class="flex-25">
+        <% english_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,q_auto:eco,w_100/v1602071464/002-united-states-of-america_square.png" %>
+        <%= link_to root_path(locale: :en) do %>
+          <div class="icon-shell" style="background-image: url('<%= image_path english_url %>'); background-size: cover; height: 30px; width: 30px; background-position: center;">
+          </div>
+        <% end %>
+      </div> <!--end of america -->
+      <div class="navbar-esl-cursor flex-50">
           <div class="dropdown-toggle"  id="navbar-esl-menu" data-toggle="dropdown" >
           <% user_signed_in? ? avatar_url = current_user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" : avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
           <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
             <div class="user-sm-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 50px; width: 50px; border-radius: 50%; background-position: center;"></div>
           </div><!--end of icon-div-->
           <ul class="dropdown-menu dropdown-menu-right navbar-esl-dropdown-menu">
-            <li><%= link_to 'Homepage', root_path %></li>
-            <li><%= link_to "Directory", consultations_path %></li>
-            <li><%= link_to 'Dashboard', dashboard_path %></li>
-            <li><%= link_to 'Edit Profile', edit_user_registration_path(current_user) %></li>
+            <li><%= link_to t('global.menu.homepage'), root_path %></li>
+            <li><%= link_to t('global.menu.dir'), consultations_path %></li>
+            <li><%= link_to t('global.menu.dash'), dashboard_path %></li>
             <% if user_signed_in? %>
-              <li> <%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+              <li> <%= link_to t('global.menu.sign_out'), destroy_user_session_path, method: :delete %></li>
+              <% else %>
+              <li><%= link_to t('global.menu.sign_in'), new_user_session_path %></li>
             <% end %>
-            <li><%= link_to "Korean", root_path(locale: :ko)%></li>
+            <li><%= link_to t('global.menu.edit_pro'), edit_user_registration_path(current_user) %></li>
+            <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
+            <% korea_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,q_auto:eco,w_100/v1602068229/001-south-korea_square.png" %>
+            <% english_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,q_auto:eco,w_100/v1602071464/002-united-states-of-america_square.png" %>
+
+            <li><%= link_to "한국어", root_path(locale: :ko)%></li>
+
+            </li>
             <li><%= link_to "English", root_path(locale: :en)%></li>
+
+            </li>
             <!-- <li><a href="#">Profile</a></li> -->
             <!-- <li><a href="#">Log Out</a></li> -->
           </ul>
-      </div>
-    </div>
+        </div><!--end of navbar-cursor flex-50-->
+      </div><!--end of nested flexbox-space-between 25 25 50-->
+    </div><!-- end of navbar-esl-right hidden-xs hidden-sm-->
 
   <!-- Dropdown appearing on mobile only -->
     <div class="navbar-esl-cursor hidden-md hidden-lg">
         <i class="fas fa-bars fa-lg dropdown-toggle" data-toggle="dropdown"></i>
         <ul class="dropdown-menu dropdown-menu-right navbar-esl-dropdown-menu">
-          <li><%= link_to 'Homepage', root_path %></li>
-          <li><%= link_to "Directory", consultations_path %></li>
-          <li><%= link_to 'Dashboard', dashboard_path %></li>
-          <li><%= link_to 'Edit Profile', edit_user_registration_path(current_user) %></li>
-          <% if user_signed_in? %>
-            <li> <%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
-          <% end %>
+            <li><%= link_to t('global.menu.homepage'), root_path %></li>
+            <li><%= link_to t('global.menu.dir'), consultations_path %></li>
+            <li><%= link_to t('global.menu.dash'), dashboard_path %></li>
+            <% if user_signed_in? %>
+              <li> <%= link_to t('global.menu.sign_out'), destroy_user_session_path, method: :delete %></li>
+              <% else %>
+              <li><%= link_to t('global.menu.sign_in'), edit_user_registration_path(current_user) %></li>
+            <% end %>
+            <li><%= link_to t('global.menu.edit_pro'), edit_user_registration_path(current_user) %></li>
+            <li><%= link_to root_path(locale: :ko) do %>
+              <div class="icon-shell" style="background-image: url('<%= image_path korea_url %>'); background-size: cover;  height: 35px; width: 35px; border-radius: 50%; background-position: center;"></div>
+            <% end %>
+            <li><%= link_to root_path(locale: :en) do %>
+              <div class="icon-shell" style="background-image: url('<%= image_path english_url %>'); background-size: cover;  height: 35px; width: 35px; border-radius: 50%; background-position: center;"></div>
+            <% end %>
           <!-- <li><a href="#">home</a></li> -->
         </ul>
-    </div>
-  </div><!--end of flex-25-->
+    </div> <!-- end of navbar-esl-cursor hidden-md hidden-lg-->
+  </div><!--end of flex-33-->
 </div><!--end of esl-navbar-->
