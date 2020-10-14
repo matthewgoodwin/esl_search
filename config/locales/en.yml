@@ -21,6 +21,31 @@
 
 en:
   # homepage: "homepage"
+  activerecord:
+    errors:
+      models:
+        consultation:
+          attributes:
+            consult_title:
+              bad_title: "Please create a title! "
+            consult_lang:
+              bad_lang: "Please enter a primary language ! "
+            consult_type:
+              bad_type: "Please select a session type ! "
+            consult_env:
+              bad_env: "Please select your session environment ! "
+            consult_period:
+              bad_period: "Please select a session term ! "
+            consult_fee:
+              bad_fee: "Please enter a rate - price ! "
+            consult_desc:
+              bad_desc: "please provide a description between 200 and 2000 characters ! "
+            consult_demo:
+              bad_demo: "Please enter a target audience ! "
+            consult_city:
+              bad_city: "Please enter a location city ! "
+            address:
+              bad_address: "Please enter a location address ! "
   appointment_save: "Your appointment is complete ! Please check your email for confirmation!"
   appointment_error: "Missing important information or already enrolled!"
   appointment_update: "Your appointment has been updated!"
@@ -35,7 +60,12 @@ en:
   message_save: "Message Sent!"
   message_error: "your message is too long.. try again!"
   message_destroy: "Message Deleted"
-
+  simple_form:
+    options:
+      consultation:
+        consult_env:
+          online: "online-remote"
+          face: "face-to-face"
   global:
     menu:
       homepage: "HOMEPAGE"
@@ -45,6 +75,7 @@ en:
       sign_in: "SIGN IN"
       sign_out: "SIGN OUT"
       search: "Language, City, Keyword"
+
 
   pages:
     home:

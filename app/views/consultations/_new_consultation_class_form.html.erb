@@ -22,7 +22,7 @@
       <h6>Type<span class="red-text">&#42;</span></h6>
       <%= f.input :consult_type, label: false, collection: ["language camp", "conversation", "education", "exam-prep", "club", "hobby", "interview-prep", "speech", "industry", "translation", "other"], prompt: "-select type-" %>
       <h6>Environment<span class="red-text">&#42;</span></h6>
-      <%= f.input :consult_env, label: false, collection: ["online - remote", "face-to-face"], prompt: "-select environment-" %>
+      <%= f.input :consult_env, label: false, collection: [:online, :face], prompt: "-select environment-" %>
       <h6>Online Meeting Link</h6>
       <%= f.input :consult_zoom_link, label: false, placeholder: "https://zoom.us/j/12345678" %>
       <h6>Location<span class="red-text">&#42;</span></h6>
