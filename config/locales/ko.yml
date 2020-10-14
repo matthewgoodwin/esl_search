@@ -62,6 +62,8 @@ ko:
   simple_form:
     options:
       consultation:
+        consult_title:
+          title: "제목"
         consult_language:
           eng: ""
           ko: ""
@@ -91,7 +93,7 @@ ko:
           translation: ""
           other: ""
         consult_env:
-          online: "online-remote"
+          online: "온라인"
           face: "face-to-face"
         consult_city:
           city: ""
@@ -108,24 +110,23 @@ ko:
       sign_out: "SIGN OUT"
       search: "Language, City, Keyword"
 
-
-
     info:
-      title: ""
-      primary_lang: ""
-      secondary_lang: ""
-      target_aud: ""
-      type: ""
-      environment: ""
-      online_meeting_link: ""
-      city: ""
-      address: ""
-      term: ""
-      rate: ""
-      materials_included: ""
-      specific_focus: ""
+      title: "제목"
+      primary_lang: "주 언어"
+      sec_lang: "보조 언어"
+      target_aud: "이용대상"
+      type: "수업 타입"
+      env: "수업 환경"
+      online_meeting_link: "온라인 링크"
+      loc: "위치"
+      city: "시"
+      address: "주소"
+      term: "기간"
+      rate: "요금 / 금액"
+      mat_incl: "수업 자료포함"
+      specific_focus: "집중 수업 영역 선택"
       specific_focus2: "max 30 characters"
-      description: ""
+      description: "설명"
       desc2: "200 - 2000 characters"
 
   pages:

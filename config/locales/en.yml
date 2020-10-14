@@ -63,9 +63,43 @@ en:
   simple_form:
     options:
       consultation:
+        consult_title:
+          title: "Title"
+        consult_language:
+          eng: ""
+          ko: ""
+          jp: ""
+          sp: ""
+          fr: ""
+          ch: ""
+          vit: ""
+          ru: ""
+        consult_demo:
+          everyone: ""
+          kindergarten: ""
+          elementary: ""
+          middle: ""
+          high-school: ""
+          adult: ""
+        consult_type:
+          language_camp: ""
+          conversation: ""
+          education: ""
+          exam-prep: ""
+          club: ""
+          hobby: ""
+          interview-prep: ""
+          speech: ""
+          industry: ""
+          translation: ""
+          other: ""
         consult_env:
           online: "online-remote"
           face: "face-to-face"
+        consult_city:
+          city: ""
+        address:
+          address: ""
   global:
     menu:
       homepage: "HOMEPAGE"
@@ -76,7 +110,24 @@ en:
       sign_out: "SIGN OUT"
       search: "Language, City, Keyword"
 
-
+    info:
+      title: "TITLE"
+      primary_lang: "PRIMARY LANGUAGE"
+      sec_lang: "SECONDARY LANGUAGE"
+      target_aud: "TARGET AUDIENCE"
+      type: "SESSION TYPE"
+      env: "SESSION ENVIRONMENT"
+      online_meeting_link: "ONLINE SESSION LINK"
+      loc: "LOCATION"
+      city: "CITY"
+      address: "ADDRESS"
+      term: "TERM"
+      rate: "PRICE / RATE"
+      mat_incl: "MATERIALS INCLUDED?"
+      specific_focus: "SPECIFIC FOCUS"
+      specific_focus2: "max 30 characters"
+      description: "DESCRIPTION"
+      desc2: "200 - 2000 characters"
   pages:
     home:
       head_1: "ENGLISH header 1"
