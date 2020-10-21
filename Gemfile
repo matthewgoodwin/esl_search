@@ -22,7 +22,7 @@ gem "autoprefixer-rails"
 gem 'figaro'
 
 gem 'devise', '~> 4.6'
-
+gem 'devise-i18n'
 gem 'pundit'
 
 gem "simple_calendar", "~> 2.0"
