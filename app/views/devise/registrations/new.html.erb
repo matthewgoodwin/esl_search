@@ -14,24 +14,24 @@
             <%= f.error_notification %>
 
             <div class="form-inputs">
-              <%= f.input :fname, label: 'first name', error: 'first name is mandatory, please specify one', required: true, autofocus: true %>
-              <%= f.input :lname, label: 'last name', error: 'last name is mandatory, please specify one', required: true, autofocus: true %>
-              <%= f.input :user_native_lang, label: 'native language', collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"], error: 'your native language is required, please specify one', required: true, autofocus: true %>
-              <%= f.input :user_second_lang, label: 'secondary language', collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"], error: 'your native language is required, please specify one', required: true, autofocus: true %>
-              <%= f.input :gender, label: "gender", collection: ["male","female"], error: 'your gender is mandatory, please specify one', required: true, autofocus: true %>
+              <%= f.input :fname, error: 'first name is mandatory, please specify one', required: true, autofocus: true %>
+              <%= f.input :lname, error: 'last name is mandatory, please specify one', required: true, autofocus: true %>
+              <%= f.input :user_native_lang, collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"], error: 'your native language is required, please specify one', required: true, autofocus: true %>
+              <%= f.input :user_second_lang, collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"], error: 'your native language is required, please specify one', required: true, autofocus: true %>
+              <%= f.input :gender, collection: ["male","female"], error: 'your gender is mandatory, please specify one', required: true, autofocus: true %>
               <%= f.input :email, error: 'an email address is mandatory, please specify one', required: true, autofocus: true %>
-              <%= f.input :address, label: 'address ( optional *)', autofocus: true %>
+              <%= f.input :address, autofocus: true %>
               <%= f.input :city, label: 'city', error: 'your city name is mandatory, please specify one', required: true, autofocus: true %>
               <%= f.input :town, label: 'town ( optional )', autofocus: true %>
               <%= f.input :user_phone, label: 'mobile number', error: 'mobile number', autofocus: true %>
               <%= f.input :user_kakao_id, label: 'kakao id', error: 'please enter kakao id', autofocus: true %>
               <div class="instructor-registration">
-                <%= f.input :edu, label: 'school (optional)', autofocus: true  %>
-                <%= f.input :subjectmajor, label: 'university major (optional)', autofocus: true %>
-                <%= f.input :edulevel, label: 'education level (optional)', collection: ["associate's","bachelor's","master's","doctoral","professional"], error: 'please specify the highest education attained', autofocus: true %>
+                <%= f.input :edu, autofocus: true  %>
+                <%= f.input :subjectmajor, autofocus: true %>
+                <%= f.input :edulevel, collection: ["associate's","bachelor's","master's","doctoral","professional"], error: 'please specify the highest education attained', autofocus: true %>
               </div>
               <div class="aboutyou">
-                <%= f.input :aboutme, label:false, placeholder: "tell us about yourself!", as: :text %>
+                <%= f.input :aboutme, placeholder: "tell us about yourself!", as: :text %>
               </div>
               <div class="shell-tab-header grey-shell-gradient">
                 <%= f.input :photo, label: "Upload Avatar" %>
