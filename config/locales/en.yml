@@ -63,28 +63,37 @@ en:
   simple_form:
     labels:
       user:
-        fname: "first name"
-        lname: "last name"
-        user_native_lang: "native language"
-        user_second_lang: "second language"
-        gender: "gender"
-        email: "email"
-        address: "address (optional*)"
-        city: "city"
-        town: "town"
-        user_phone: "mobile phone"
-        user_kakao_id: "kakao ID"
-        edu: "Education Level"
-        subjectmajor: "University Major"
-        edulevel: "교육 수준 (선택사항)"
-        aboutme: "About Me"
-        photo: "Photo"
-        submit: "Submit"
+        fname: "FIRST NAME"
+        lname: "LAST NAME"
+        user_native_lang: "NATIVE LANGUAGE"
+        user_second_lang: "SECOND LANGUAGE"
+        gender: "GENDER"
+        email: "EMAIL"
+        address: "ADDRESS (optional)"
+        city: "CITY"
+        town: "TOWN"
+        user_phone: "MOBILE PHONE"
+        user_kakao_id: "KAKAO ID"
+        edu: "UNIVERSITY"
+        subjectmajor: "UNIVERSITY MAJOR"
+        edulevel: "EDUCATION LEVEL"
+        aboutme: "ABOUT ME"
+        photo: "PHOTO"
+        submit: "SUBMIT"
+      consultation:
+        consult_title: "Title"
     options:
       consultation:
-        consult_title:
-          title: "Title"
         consult_language:
+          en: "ENGLISH"
+          ko: "KOREAN"
+          jp: "JAPANESE"
+          sp: "SPANISH"
+          fr: "FRENCH"
+          ch: "CHINESE"
+          vit: "VIETNAMESE"
+          ru: "RUSSIAN"
+        consult_sec_lang:
           en: "ENGLISH"
           ko: "KOREAN"
           jp: "JAPANESE"
@@ -95,29 +104,27 @@ en:
           ru: "RUSSIAN"
         consult_demo:
           everyone: "everyone"
+          youth: "elementary, middle, high-school"
           elementary: "elementary"
           middle: "middle school"
           high-school: "high school"
+          university: "university student"
           adult: "adult"
         consult_type:
           language_camp: "language camp"
           conversation: "conversation"
-          education: "education"
+          education: "tutor"
           exam-prep: "exam-prep"
           club: "club / hobby"
           hobby: "club / hobby"
           interview-prep: "interview-prep"
           speech: "speech-prep"
           industry: "business"
-          translation: "translation"
+          translation: "translation / editing"
           other: "other"
         consult_env:
           online: "online-remote"
           face: "face-to-face"
-        consult_city:
-          city: "city"
-        address:
-          address: "address"
   global:
     menu:
       homepage: "HOMEPAGE"

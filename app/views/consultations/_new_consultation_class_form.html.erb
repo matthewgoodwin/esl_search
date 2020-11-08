@@ -14,11 +14,11 @@
       <h5><%= t('global.info.title') %><span class="red-text">&#42;</span></h5>
       <%= f.input :consult_title, label: false, placeholder: [:title] %>
       <h5><%= t('global.info.primary_lang') %><span class="red-text">&#42;</span></h5>
-      <%= f.input :consult_language, label: false, default: ["English"] ,collection: ["English", "Hangul - Korean", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"] %>
+      <%= f.input :consult_language, label: false, default: [:en], collection: [:en, :ko, :jp, :sp, :fr, :ch, :vit, :ru] %>
       <h5> <%= t('global.info.sec_lang') %> (optional) :</h5>
-      <%= f.input :consult_sec_lang, label: false, default: [ "none" ], collection: ["none", "English", "Hangul - Korean", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"] %>
+      <%= f.input :consult_sec_lang, label: false, default: [:en], collection: [:en, :ko, :jp, :sp, :fr, :ch, :vit, :ru] %>
       <h5><%= t('global.info.target_aud') %><span class="red-text">&#42;</span></h5>
-      <%= f.input :consult_demo, label: false, default: ["everyone"], collection: ["everyone", "kindergarten", "elementary - primary", "middle school", "high school - secondary", "adult"] %>
+      <%= f.input :consult_demo, label: false, default: [:everyone], collection: [:everyone, :youth, :university, :adult] %>
       <h5><%= t('global.info.type') %><span class="red-text">&#42;</span></h5>
       <%= f.input :consult_type, label: false, collection: ["language camp", "conversation", "education", "exam-prep", "club", "hobby", "interview-prep", "speech", "industry", "translation", "other"], prompt: "-select type-" %>
       <h5><%= t('global.info.env') %><span class="red-text">&#42;</span></h5>

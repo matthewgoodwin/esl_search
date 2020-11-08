@@ -107,11 +107,22 @@ ko:
           ch: "중국어"
           vit: "베트남어"
           ru: "러시아어"
+        consult_sec_lang:
+          en: "영어"
+          ko: "한국어"
+          jp: "일본어"
+          sp: "스페인어"
+          fr: "프랑스어"
+          ch: "중국어"
+          vit: "베트남어"
+          ru: "러시아어"
         consult_demo:
           everyone: "연령구분 없음"
+          youth: "초등학교 / 중학교 / 고등학교"
           elementary: "초등학교"
           middle: "중학교"
           high-school: "고등학교"
+          university: "university student"
           adult: "성인"
         consult_type:
           language_camp: "언어 캠프"
