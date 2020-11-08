@@ -9,7 +9,7 @@
   </div>
 
   <div class="flex-33">
-    <div class="flex-space-between shell-search center-text padding-10 hidden-xs hidden-sm">
+    <div class="flex-space-between shell-search white-background center-text padding-10 hidden-xs hidden-sm">
       <!-- ^ flex-sp-betwee for the items inside the searchbox-->
       <!-- <input class="navbar-search-input center-text center-div" type="text" placeholder="service, city, language">
       <div class="btn"><i class="fas fa-search"></i></div> -->
@@ -27,14 +27,14 @@
       <div class="flex-25">
         <% korea_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,q_auto:eco,w_100/v1602068229/001-south-korea_square.png" %>
         <%= link_to root_path(locale: :ko) do %>
-          <div class="icon-shell" style="background-image: url('<%= image_path korea_url %>');background-size: cover; height: 30px; width: 30px; background-position: center;">
+          <div class="" style="background-image: url('<%= image_path korea_url %>');background-size: cover; height: 30px; width: 30px; background-position: center;">
           </div>
         <% end %>
       </div> <!--end of korea-->
       <div class="flex-25">
         <% english_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,q_auto:eco,w_100/v1602071464/002-united-states-of-america_square.png" %>
         <%= link_to root_path(locale: :en) do %>
-          <div class="icon-shell" style="background-image: url('<%= image_path english_url %>'); background-size: cover; height: 30px; width: 30px; background-position: center;">
+          <div class="" style="background-image: url('<%= image_path english_url %>'); background-size: cover; height: 30px; width: 30px; background-position: center;">
           </div>
         <% end %>
       </div> <!--end of america -->
@@ -42,7 +42,7 @@
           <div class="dropdown-toggle"  id="navbar-esl-menu" data-toggle="dropdown" >
           <% user_signed_in? ? avatar_url = current_user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" : avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
           <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-            <div class="user-sm-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 50px; width: 50px; border-radius: 50%; background-position: center;"></div>
+            <div class="user-sm-profile-image-img" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 50px; width: 50px; border-radius: 50%; background-position: center;"></div>
           </div><!--end of icon-div-->
           <ul class="dropdown-menu dropdown-menu-right navbar-esl-dropdown-menu">
             <li><%= link_to t('global.menu.homepage'), root_path %></li>

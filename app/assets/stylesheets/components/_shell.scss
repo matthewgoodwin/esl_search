@@ -68,7 +68,7 @@
   width: 80%;
   color: $black;
   padding: 5px;
-  box-shadow: 1px 1px 6px #a8a8a8;
+  // box-shadow: 1px 1px 6px #a8a8a8;
 }
 
 .shell-sign-in{
@@ -105,6 +105,17 @@
   background-color: white;
   //same as shell-tab-box; delete one
 }
+
+.icon-shell{
+  box-shadow: 1px 1px 10px #808080;
+  background-color: #F5F5F5;
+}
+
+.icon-shell-dark{
+  box-shadow: 1px 1px 10px #303030;
+  background-color: #F5F5F5;
+}
+
 
 .counter{
   border: 1px solid $charcoal;

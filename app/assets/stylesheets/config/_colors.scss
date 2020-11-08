@@ -6,6 +6,7 @@ $brand-green: #16db93;
 $brand-purple: #132ABC;
 $brand-gray: #AFAFAF;
 $brand-blue: #4FC1DA;
+$brand-red: #B22E25;
 $base-app-color: #FEFEFE;
 $red: #DE4743;
 $blue: #2B8DDF;
@@ -44,6 +45,12 @@ $navy: #031b4d;
 }
 .charcoal-text{
   color: $charcoal;
+}
+.brand-red-background{
+  background-color: $brand-red;
+}
+.brand-red-text{
+  color: $brand-red;
 }
 .red-text{
   color: $red;

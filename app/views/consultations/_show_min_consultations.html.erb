@@ -13,12 +13,12 @@
       <h6 class="charcoal-text"><%= element.consultation.consult_period %></h6>
       <% if element.consultation.consult_period == 'hourly'%>
         <h6 class="charcoal-text"><%= element.lesson.lesson_start.strftime('%m/%d') %></h6>
-        <h6 class="green-text"><%= element.lesson.lesson_start.strftime('@ %I:%M %p') %></h6>
-        <h6 class="red-text"><%= element.lesson.lesson_max_dur %>&nbsp;minute max</h6>
+        <h6 class="brand-red-text"><%= element.lesson.lesson_start.strftime('@ %I:%M %p') %></h6>
+        <h6 class="charcoal-text"><%= element.lesson.lesson_max_dur %>&nbsp;minute max</h6>
       <% elsif element.consultation.consult_period == 'single-session' %>
         <h6 class="charcoal-text"><%= element.lesson.lesson_start.strftime('%m/%d') %></h6>
-        <h6 class="green-text"><%= element.lesson.lesson_start.strftime('%I:%M %p') %></h6>
-        <h6 class="red-text"><%= element.lesson.lesson_end.strftime('%I:%M %p') %></h6>
+        <h6 class="brand-red-text"><%= element.lesson.lesson_start.strftime('%I:%M %p') %></h6>
+        <h6 class="charcoal-text"><%= element.lesson.lesson_end.strftime('%I:%M %p') %></h6>
       <% else %>
       <!-- devalued -->
         <h6 class="red-text">series</h6>
