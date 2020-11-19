@@ -3,7 +3,7 @@
   border: 1px solid white;
   padding: 4px;
   margin: 4px;
-  box-shadow: 2px 2px 9px #a8a8a8;
+  box-shadow: 1px 1px 5px #a8a8a8;
   // box-shadow: 0.5px 0.5px 4px #a8a8a8;
   // background-color: #F8F8F8;
 }
@@ -12,7 +12,7 @@
   border: 1px solid charcoal;
   padding: 4px;
   margin: 4px;
-  box-shadow: 2px 2px 9px #a8a8a8;
+  box-shadow: 1px 1px 5px #a8a8a8;
   // box-shadow: 0.5px 0.5px 4px #a8a8a8;
   // background-color: #F8F8F8;
 }
@@ -20,7 +20,7 @@
   border-radius: 5px;
   border: 1px solid white;
   margin: 4px;
-  box-shadow: 2px 2px 9px #a8a8a8;
+  box-shadow: 1px 1px 5px #a8a8a8;
   // box-shadow: 0.5px 0.5px 4px #a8a8a8;
   // background-color: #F8F8F8;
 }
@@ -30,7 +30,7 @@
   padding: 4px;
   margin: 4px;
   // box-shadow: 2px 2px 9px #a8a8a8;
-  box-shadow: 1px 1px 10px #a8a8a8;
+  box-shadow: 1px 1px 6px #a8a8a8;
   background-color: #F8F8F8;
 }
 
@@ -39,7 +39,7 @@
   padding: 3px;
   margin: 4px;
   // box-shadow: 2px 2px 9px #a8a8a8;
-  box-shadow: 1px 1px 10px #a8a8a8;
+  box-shadow: 1px 1px 6px #a8a8a8;
   background-color: #F8F8F8;
   //same as shell-tab-box; delete one
 }
@@ -49,7 +49,7 @@
   padding: 4px;
   margin: 4px;
   // box-shadow: 2px 2px 9px #a8a8a8;
-  box-shadow: 1px 1px 10px charcoal;
+  box-shadow: 1px 1px 6px charcoal;
   background-color: charcoal;
 }
 
@@ -58,7 +58,7 @@
   padding: 3px;
   margin: 4px;
   // box-shadow: 2px 2px 9px #a8a8a8;
-  box-shadow: 1px 1px 10px #a8a8a8;
+  box-shadow: 1px 1px 6px #a8a8a8;
   background-color: #F8F8F8;
   //same as shell-tab-header; delete one
 }
@@ -76,7 +76,7 @@
   border: 1px solid white;
   padding: 3px;
   // box-shadow: 2px 2px 9px #a8a8a8;
-  box-shadow: 1px 1px 10px #a8a8a8;
+  box-shadow: 1px 1px 6px #a8a8a8;
   background-color: #F8F8F8;
   //same as shell-tab-header; delete one
 }
@@ -108,12 +108,12 @@
 }
 
 .icon-shell{
-  box-shadow: 1px 1px 10px #808080;
+  box-shadow: 1px 1px 6px #808080;
   background-color: #F5F5F5;
 }
 
 .icon-shell-dark{
-  box-shadow: 1px 1px 10px #303030;
+  box-shadow: 1px 1px 6px #303030;
   background-color: #F5F5F5;
 }
 
