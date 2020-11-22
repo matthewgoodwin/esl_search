@@ -11,40 +11,40 @@
           </ul>
         </div>
       <% end %>
-      <h5><%= t('global.info.title') %><span class="red-text">&#42;</span></h5>
+      <h5><%= t('global.label.title') %><span class="red-text">&#42;</span></h5>
       <%= f.input :consult_title, label: false, placeholder: [:title] %>
-      <h5><%= t('global.info.primary_lang') %><span class="red-text">&#42;</span></h5>
+      <h5><%= t('global.label.primary_lang') %><span class="red-text">&#42;</span></h5>
       <%= f.input :consult_language, label: false, default: [:en], collection: [:en, :ko, :jp, :sp, :fr, :ch, :vit, :ru] %>
-      <h5> <%= t('global.info.sec_lang') %> (optional) :</h5>
+      <h5> <%= t('global.label.sec_lang') %> (optional) :</h5>
       <%= f.input :consult_sec_lang, label: false, default: [:en], collection: [:en, :ko, :jp, :sp, :fr, :ch, :vit, :ru] %>
-      <h5><%= t('global.info.target_aud') %><span class="red-text">&#42;</span></h5>
+      <h5><%= t('global.label.target_aud') %><span class="red-text">&#42;</span></h5>
       <%= f.input :consult_demo, label: false, default: [:everyone], collection: [:everyone, :youth, :university, :adult] %>
-      <h5><%= t('global.info.type') %><span class="red-text">&#42;</span></h5>
+      <h5><%= t('global.label.type') %><span class="red-text">&#42;</span></h5>
       <%= f.input :consult_type, label: false, collection: ["language camp", "conversation", "education", "exam-prep", "club", "hobby", "interview-prep", "speech", "industry", "translation", "other"], prompt: "-select type-" %>
-      <h5><%= t('global.info.env') %><span class="red-text">&#42;</span></h5>
+      <h5><%= t('global.label.env') %><span class="red-text">&#42;</span></h5>
       <%= f.input :consult_env, label: false, collection: [:online, :face], prompt: "-select environment-" %>
-      <h5><%= t('global.info.online_meeting_link') %></h5>
+      <h5><%= t('global.label.online_meeting_link') %></h5>
       <%= f.input :consult_zoom_link, label: false, placeholder: "https://zoom.us/j/12345678" %>
-      <h5><%= t('global.info.loc') %>:<span class="red-text">&#42;</span></h5>
+      <h5><%= t('global.label.loc') %>:<span class="red-text">&#42;</span></h5>
       <%= f.input :consult_city, label: false, placeholder: "City" %>
       <%= f.input :address, label: false, placeholder: "Address ( e.g.; '마포구 와우산로 147-1' or '6, Buljeong-ro, Bundang-gu, Seongnam-si')" %>
-      <h5><%= t('global.info.term') %><span class="red-text">&#42;</span></h5>
+      <h5><%= t('global.label.term') %><span class="red-text">&#42;</span></h5>
       <%= f.input :consult_period, label: false, default: ["hourly"], collection: ["hourly", "single-session"] %>
       <div>
-        <h5><%= t('global.info.rate') %><span class="red-text">&#42;</span></h5>
+        <h5><%= t('global.label.rate') %><span class="red-text">&#42;</span></h5>
         <div class="flex">
           <h5>&#8361; &nbsp; </h5>
           <%= f.input :consult_fee, label: false, placeholder: "ex: 15000" %>
         </div>
       </div>
-      <h5><%= t('global.info.mat_incl') %><span class="red-text">&#42;</span></h5>
+      <h5><%= t('global.label.mat_incl') %><span class="red-text">&#42;</span></h5>
       <%= f.input :consult_mat, label: false, as: :radio_buttons, collection:[["yes","yes"], ["no","no"]], label_method: :second, value_method: :first, checked: ["no","no"]%>
-      <h5><%= t('global.info.specific_focus') %> (optional)&nbsp;:</h5>
-      <h5><span class="red-text"><%= t('global.info.specific_focus2') %></span></h5>
+      <h5><%= t('global.label.specific_focus') %> (optional)&nbsp;:</h5>
+      <h5><span class="red-text"><%= t('global.label.specific_focus2') %></span></h5>
       <%= f.input :consult_focus, label: false, placeholder: "e.g. grammar" %>
       <div>
-        <h5><%= t('global.info.description') %>&nbsp;:</h5>
-          <h5><span class="red-text"><%= t('global.info.desc2') %>&#42;</span></h5>
+        <h5><%= t('global.label.description') %>&nbsp;:</h5>
+          <h5><span class="red-text"><%= t('global.label.desc2') %>&#42;</span></h5>
         <%= f.input :consult_desc, label: false, placeholder: "descriptions, prerequisites and recommendations", as: :text %>
         <span id="errorBlock" class="error-block"></span>
         <div class="consultation-button-div flex flex-center">

@@ -143,7 +143,7 @@ ko:
 
   global:
     menu:
-      homepage: "홈페이지"
+      home: "홈페이지"
       dir: "디렉토리"
       dash: "게시판"
       edit_pro: "프로필 편집"
@@ -151,9 +151,29 @@ ko:
       sign_out: "회원탈퇴"
       search: "언어, 지역, 키워드"
 
-    info:
-      instructor: “강사”
-      information:  “정보”
+    label:
+      fname: "이름"
+      lname: "kor last name"
+      user_native_lang: "모국어"
+      user_second_lang: "보조 언어"
+      gender: "성별"
+      email: "이메일"
+      address: "주소 ( 선택사항l *)"
+      city: "도시"
+      town: "도"
+      user_phone: "휴대폰 번호"
+      user_kakao_id: "카카오 아이디"
+      edu: "학교(선택사항)"
+      subjectmajor: "전공 (선택사항)"
+      edulevel: "교육 수준 (선택사항)"
+      aboutme: "자기소개"
+
+      create_meeting: "모임 만들기"
+      create_lesson: "CREATE A LESSON"
+      find_meeting: "모임 찾기"
+
+      instructor: "강사"
+      information: "정보"
       title: "제목"
       primary_lang: "주 언어"
       sec_lang: "보조 언어"
@@ -171,6 +191,7 @@ ko:
       specific_focus2: "max 30 characters"
       description: "설명"
       desc2: "200 - 2000 characters"
+      review: "후기"
 
   pages:
     home:
@@ -184,11 +205,11 @@ ko:
       card_3_desc: "Korean 웹 페이지의 샘플 텍스트입니다."
       head_2: "Hangul header 2 "
       sub_head_2: "Korean 웹 페이지의 샘플 텍스트입니다."
-      card_4_title: "온라인 미팅"
+      card_4_title: "온라인 모임"
       card_4_desc: "Korean 웹 페이지의 샘플 텍스트입니다."
-      card_5_title: "시간당 미팅"
+      card_5_title: "시간당 모임"
       card_5_desc: "Korean 웹 페이지의 샘플 텍스트입니다."
-      card_6_title: "1회 미팅"
+      card_6_title: "1회 모임"
       card_6_desc: "Korean 웹 페이지의 샘플 텍스트입니다."
       head_3: "Hangul header 3"
       sub_head_3: "Korean 웹 페이지의 샘플 텍스트입니다."
@@ -201,13 +222,13 @@ ko:
     dashboard:
       welcome_1: "환영해요"
       private_messages: "쪽지"
-      create_meeting: "미팅 만들기"
-      find_meeting: "미팅 찾기"
+      create_meeting: "모임 만들기"
+      find_meeting: "모임 찾기"
       edit_profile: "프로필 편집"
-      messages: "미팅 쪽지"
-      host_sessions: "미팅 주관"
+      messages: "모임 쪽지"
+      host_sessions: "모임 주관"
       att_session: "약속 (일정)"
-      meeting_list: "미팅 리스트"
+      meeting_list: "모임 리스트"
       recent_reviews: "후기"
       clients: "CLIENTS"
 

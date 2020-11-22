@@ -127,7 +127,7 @@ en:
           face: "face-to-face"
   global:
     menu:
-      homepage: "HOMEPAGE"
+      home: "HOMEPAGE"
       dir: "DIRECTORY"
       dash: "DASHBOARD"
       edit_pro: "EDIT PROFILE"
@@ -135,7 +135,30 @@ en:
       sign_out: "SIGN OUT"
       search: "Language, City, Keyword"
 
-    info:
+    label:
+      fname: "FIRST NAME"
+      lname: "LAST NAME"
+      user_native_lang: "NATIVE LANGUAGE"
+      user_second_lang: "SECOND LANGUAGE"
+      gender: "GENDER"
+      email: "EMAIL"
+      address: "ADDRESS (optional)"
+      city: "CITY"
+      town: "TOWN"
+      user_phone: "MOBILE PHONE"
+      user_kakao_id: "KAKAO ID"
+      edu: "UNIVERSITY"
+      subjectmajor: "UNIVERSITY MAJOR"
+      edulevel: "EDUCATION LEVEL"
+      aboutme: "ABOUT ME"
+      instructor: "INSTRUCTOR"
+      information: "INFORMATION"
+
+      create_meeting: "CREATE MEETING"
+      create_lesson: "CREATE A LESSON"
+      find_meeting: "FIND A MEETING"
+
+
       title: "TITLE"
       primary_lang: "PRIMARY LANGUAGE"
       sec_lang: "SECONDARY LANGUAGE"
@@ -153,6 +176,7 @@ en:
       specific_focus2: "max 30 characters"
       description: "DESCRIPTION"
       desc2: "200 - 2000 characters"
+      review: "Reviews"
   pages:
     home:
       head_1: "ENGLISH header 1"

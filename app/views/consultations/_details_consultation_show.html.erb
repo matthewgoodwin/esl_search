@@ -22,48 +22,48 @@
 </div>
 <div class="flex-space-between padding-5 center-text 1">
   <div class="flex-50">
-    <h6><b>Primary Language:</b></h6>
+    <h6><b><%= t('global.label.primary_lang') %>:</b></h6>
     <p><%= @consultation.consult_language %></p>
   </div>
   <div class="flex-50">
-    <h6 class=""><b>Secondary Language:</b></h6>
+    <h6 class=""><b><%= t('global.label.sec_lang') %>:</b></h6>
     <p><%= @consultation.consult_sec_lang %></p>
   </div>
 </div><!--end flex 1-->
 <div class="flex-space-between padding-5 center-text 2">
   <div class="flex-50">
-    <h6><b>Type:</b></h6>
+    <h6><b><%= t('global.label.type') %>:</b></h6>
     <p><%= @consultation.consult_type %></p>
   </div>
   <div class="flex-50">
-    <h6><b>Group:</b></h6>
+    <h6><b><%= t('global.label.target_aud') %>:</b></h6>
     <p><%= @consultation.consult_demo %></p>
   </div>
 </div><!--end of flex 2-->
 <div class="flex-space-between flex-row padding-5 center-text 3">
   <div class="flex-50">
-    <h6><b>Period:</b></h6>
+    <h6><b><%= t('global.label.term') %>:</b></h6>
     <p><%= @consultation.consult_period %></p>
   </div>
   <div class="flex-50">
   <!-- <p> @consultation.consult_fee </p> -->
-    <h6><b>Rate:</b></h6>
+    <h6><b><%= t('global.label.rate') %>:</b></h6>
     <p><%= number_to_currency(@consultation.consult_fee, :unit => "₩") %></p>
   </div>
   <!-- :unit is built into the number_to_currency-->
 </div><!-- end of flex 3-->
 <div class="flex-space-between flex-row padding-5 center-text 4">
   <div class="flex-50">
-    <h6><b>City:</b></h6>
+    <h6><b><%= t('global.label.city') %>:</b></h6>
     <p><%= @consultation.consult_city %></p>
   </div>
   <div class="flex-50">
-    <h6><b>Address:</b></h6>
+    <h6><b><%= t('global.label.address') %>:</b></h6>
     <p><%= @consultation.address %></p>
   </div>
 </div><!--end of flex 4-->
 <div>
-  <h4 class="center-text"><b>description:</b></h4>
+  <h4 class="center-text"><b><%= t('global.label.description') %>:</b></h4>
 </div>
 <div class="padding-5">
   <p><%= @consultation.consult_desc %></p>

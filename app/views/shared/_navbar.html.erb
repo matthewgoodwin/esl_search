@@ -45,7 +45,7 @@
             <div class="user-sm-profile-image-img" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 50px; width: 50px; border-radius: 50%; background-position: center;"></div>
           </div><!--end of icon-div-->
           <ul class="dropdown-menu dropdown-menu-right navbar-esl-dropdown-menu">
-            <li><%= link_to t('global.menu.homepage'), root_path %></li>
+            <li><%= link_to t('global.menu.home'), root_path %></li>
             <li><%= link_to t('global.menu.dir'), consultations_path %></li>
             <li><%= link_to t('global.menu.dash'), dashboard_path %></li>
             <% if user_signed_in? %>
@@ -71,13 +71,13 @@
     <div class="navbar-esl-cursor hidden-md hidden-lg">
         <i class="fas fa-bars fa-lg dropdown-toggle" data-toggle="dropdown"></i>
         <ul class="dropdown-menu dropdown-menu-right navbar-esl-dropdown-menu">
-            <li><%= link_to t('global.menu.homepage'), root_path %></li>
+            <li><%= link_to t('global.menu.home'), root_path %></li>
             <li><%= link_to t('global.menu.dir'), consultations_path %></li>
             <li><%= link_to t('global.menu.dash'), dashboard_path %></li>
             <% if user_signed_in? %>
               <li> <%= link_to t('global.menu.sign_out'), destroy_user_session_path, method: :delete %></li>
               <% else %>
-              <li><%= link_to t('global.menu.sign_in'), edit_user_registration_path(current_user) %></li>
+              <li><%= link_to t('global.menu.sign_in'), new_user_session_path %></li>
             <% end %>
             <li><%= link_to t('global.menu.edit_pro'), edit_user_registration_path(current_user) %></li>
             <li><%= link_to "한국어", root_path(locale: :ko) %></li>

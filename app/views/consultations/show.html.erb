@@ -14,34 +14,34 @@
     <div class="padding-3">
       <% if user_signed_in? %>
       <div class="flex-space-between">
-        <h6>Email:</h6>
+        <h6><%= t('global.label.email') %>:</h6>
         <h6><%= @consultation.user.email %></h6>
       </div>
       <div class="flex-space-between">
-        <h6>mobile:</h6>
+        <h6><%= t('global.label.user_phone') %>:</h6>
         <h6><%= @consultation.user.user_phone %></h6>
       </div>
       <div class="flex-space-between">
-        <h6>kakao id:</h6>
+        <h6><%= t('global.label.user_kakao_id') %>:</h6>
         <h6><%= @consultation.user.user_kakao_id %></h6>
       </div>
       <div class="flex-space-between">
-        <h6>Gender:</h6>
+        <h6><%= t('global.label.gender') %>:</h6>
         <h6><%= @consultation.user.gender %></h6>
       </div>
       <div class="flex-space-between">
-        <h6>Education:</h6>
+        <h6><%= t('global.label.edulevel') %>:</h6>
         <h6><%= @consultation.user.edulevel %></h6>
       </div>
       <div class="flex-space-between">
-        <h6>Major:</h6>
+        <h6><%= t('global.label.subjectmajor') %>:</h6>
         <h6><%= @consultation.user.subjectmajor %></h6>
       </div>
       <% else %>
       <div><h6 class="red-text center-text">sign in for contact details!</h6></div>
       <% end %>
       <div class="flex-column">
-        <h6 class="center-text">About Us:</h6>
+        <h6 class="center-text"><%= t('global.label.aboutme') %>:</h6>
         <p class=""><%= @consultation.user.aboutme %></p>
       </div>
     </div><!--end of padding div-->
@@ -66,7 +66,7 @@
       <% if policy(@consultation).destroy? %>
         <div class="flex-center-column consultation-lesson-form-div text-center div-center">
           <a href="" data-toggle="modal" data-target="#create-lesson">
-            <div class="animated pulse animate-lesson-btn btn btn-primary no-decor center-text">Create a Lesson</div>
+            <div class="animated pulse animate-lesson-btn btn btn-primary no-decor center-text"><%= t('global.label.create_lesson') %></div>
             <p class="">create a lesson so users can join your class!</p>
           </a>
         </div><!--end of consultation-lesson-form-div-->
@@ -74,7 +74,7 @@
       <% end %><!--end of policy-->
       <div class="flex-space-between black-background white-text shell-tab-header-dark">
         <div class="flex-33 center-text"><h5>SECTION</h5></div>
-        <div class="flex-33"><h5>DETAILS</h5></div>
+        <div class="flex-33"><h5><%= t('global.label.information') %></h5></div>
         <div class="flex-33 center-text"><h5>ACTION</h5></div>
       </div><!--flex-space-between-->
       <div id="lesson-min">
@@ -102,7 +102,7 @@
   <div class="element-cshow-revs">
     <div class="shell-tab">
       <div class="flex-center-center center-div blue-shell-gradient-header">
-        <h1>Reviews</h1>
+        <h1><%= t('global.label.review') %></h1>
       </div><!--end of flex-center-center center-div-->
       <div id="review-min">
         <% @consultation.reviews.each do |r| %>

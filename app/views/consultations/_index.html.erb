@@ -37,7 +37,7 @@
             <% (5 - @avg_star.to_i).times do %>
             <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
           <% end %><!--end of 5-r.star-->
-          <h6><%= @total_reviews %>&nbsp;review</h6>
+          <h6><%= @total_reviews %>&nbsp;<%= t('global.label.review') %></h6>
         <% end %><!--end of element.reviews.all.map -->
       </div>
     </div><!--shell-->
