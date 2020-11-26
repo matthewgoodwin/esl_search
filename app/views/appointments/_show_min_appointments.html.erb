@@ -13,7 +13,7 @@
     </div><!--end of NESTED icon flex item div-->
       <div class="flex-33"><!--can grow-->
         <%= link_to appointment_path(element) do %>
-          <h6 class="blue-text"><b><%= element.consultation.consult_title %></b></h6>
+          <h6 class="navy-text"><b><%= element.consultation.consult_title %></b></h6>
           <h6 class="charcoal-text"><%= element.consultation.consult_period %></h6>
           <% if element.consultation.consult_period == 'hourly' %>
             <h6 class="charcoal-text"><%= element.lesson.lesson_start.strftime('%m/%d') %></h6>
@@ -22,11 +22,11 @@
             <!-- hourly schedules are set by the appointment -->
           <% elsif element.consultation.consult_period == 'single-session' %>
             <h6 class="charcoal-text"><%= element.lesson.lesson_start.strftime('%m/%d') %></h6>
-            <h6 class="green-text"><%= element.lesson.lesson_start.strftime('%I:%M %p') %></h6>
+            <h6 class="navy-text"><%= element.lesson.lesson_start.strftime('%I:%M %p') %></h6>
             <h6 class="red-text"><%= element.lesson.lesson_end.strftime('%I:%M %p') %></h6>
             <!-- hourly schedules are set by the appointment -->
           <% else %>
-            <h6 class="green-text"><%= element.lesson.lesson_start.strftime('start: %I:%M %p') %></h6>
+            <h6 class="charcoal-text"><%= element.lesson.lesson_start.strftime('start: %I:%M %p') %></h6>
             <h6 class="red-text"><%= element.lesson.lesson_end.strftime('end: %I:%M %p') %></h6>
             <!-- classes are set by the lesson schedule -->
           <% end %><!--end of if statement-->

@@ -1,13 +1,13 @@
-<div class="blue-shell-gradient-header padding">
+<div class="navy-background padding">
   <div class="flex-center-center center-div">
-    <h1 class="charcoal-text center-text"><%= @consultation.consult_title %></h1>
+    <h1 class="white-text center-text"><%= @consultation.consult_title %></h1>
   </div>
   <div class= "flex-center-center center-div">
     <% @avg_star.to_i.times do %>
       <i class="fa fa-star yellow-star"></i><!--reference 'components/_reviewstars.scss'-->
     <% end %><!--end of r.star-->
       <% (5 - @avg_star.to_i).times do %>
-      <i class="fa fa-star grey-star"></i><!--reference 'components/_reviewstars.scss'-->
+      <i class="fa fa-star white-star"></i><!--reference 'components/_reviewstars.scss'-->
     <% end %><!--end of 5-r.star-->
   </div><!--end of review-item-->
 </div>

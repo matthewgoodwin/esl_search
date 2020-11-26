@@ -12,15 +12,22 @@ $red: #DE4743;
 $blue: #2B8DDF;
 $blue-45: #094cdc;
 $dark-blue-25: #042261;
+$dark-navy: #000030;
+$dark-purple: #1D0E2F;
+// $dark-purple: #160A1F;
+// $dark-purple: #190A1F;
+$xiketic: #13091F;
 $yellow: #FFB221;
 $orange: #E67E22;
 $green: #1CD1A4;
 $gray: #010101; //for text
 $light-gray: #F4F4F4;
-$charcoal: #3E3E3E;
+$light-charcoal: #3E3E3E; //too light
+$charcoal: #333333;
 $black: #202020;
 $white: #FEFEFE;
 $navy: #031b4d;
+
 
 .white-text{
   color: $white;
@@ -34,11 +41,32 @@ $navy: #031b4d;
 .black-background{
   background-color: $black;
 }
+.navy-text{
+  color: $navy;
+}
 .navy-background{
   background-color: $navy;
 }
 .blue-background{
   background-color: $dark-blue-25;
+}
+.dark-navy-text{
+  color: $dark-navy;
+}
+.dark-navy-background{
+  background-color: $dark-navy;
+}
+.dark-purple-text{
+  color: $dark-purple;
+}
+.dark-purple-background{
+  background-color: $dark-purple;
+}
+.x-purple-text{
+  color: $xiketic;
+}
+.x-purple-background{
+  background-color: $xiketic;
 }
 .charcoal-background{
   background-color: $charcoal;
@@ -53,7 +81,7 @@ $navy: #031b4d;
   color: $brand-red;
 }
 .red-text{
-  color: $red;
+  color: $brand-red;
 }
 .blue-text{
   color: $blue-45;

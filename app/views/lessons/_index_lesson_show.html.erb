@@ -15,7 +15,7 @@
     </div>
     <div class="flex-33">
       <h5 class=""><%= element.lesson_start.strftime('%A')%>&nbsp;<%= element.lesson_start.strftime('%m/%d')%></h5>
-      <h5 class="green-text"><%= element.lesson_start.strftime('%I:%M %p') %></h5>
+      <h5 class="navy-text"><%= element.lesson_start.strftime('%I:%M %p') %></h5>
       <h5><%= element.lesson_max_dur %>&nbsp;mins max</h5>
       <h5><%= element.lesson_level %></h5>
       <!--delete other links to create clickable divs-->
@@ -31,7 +31,7 @@
             Sign Up!
           </button>
       <% else %>
-        <h5 style="color: red;">section closed</h5>
+        <h5 class="red-text">section closed</h5>
       <% end %><!--end of lesson size vs capacity-->
       <!-- </a> -->
     </div><!-- end of lesson sign-up -->
@@ -53,7 +53,7 @@
     </div>
     <div class="flex-33">
       <h6 class=""><%= element.lesson_start.strftime('%A')%>&nbsp;<%= element.lesson_start.strftime('%m/%d')%></h6>
-      <h6 class="green-text"><%= element.lesson_start.strftime('%I:%M %p') %></h6>
+      <h6 class="navy-text"><%= element.lesson_start.strftime('%I:%M %p') %></h6>
       <h6 class="red-text"><%= element.lesson_end.strftime('%I:%M %p')%></h6>
 
       <h6><%= element.lesson_level %></h6>
@@ -69,9 +69,9 @@
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#lesson-form-<%= element.id %>">
             Sign Up!
           </button>
-            <h6 style="color: grey;"> seat(s) left: <%= element.lesson_capacity - element.appointments.size %></h6>
+            <h6 class="charcoal-text"> seat(s) left: <%= element.lesson_capacity - element.appointments.size %></h6>
         <% else %>
-          <h6 style="color: red;">section closed</h6>
+          <h6 class="red-text">section closed</h6>
         <% end %><!--end of lesson size vs capacity-->
       <!-- </a> -->
     </div><!-- end of lesson sign-up -->
