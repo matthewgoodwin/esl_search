@@ -24,6 +24,10 @@
       <h5><%= t('global.label.env') %><span class="red-text">&#42;</span></h5>
       <%= f.input :consult_env, label: false, collection: [:online, :face], prompt: "-select environment-" %>
       <h5><%= t('global.label.online_meeting_link') %></h5>
+
+      <%= f.input :consult_ratio, label: false, collection: [:one, :many], prompt: "-group ratio-" %>
+      <h5><%= t('global.label.ratio') %></h5>
+
       <%= f.input :consult_zoom_link, label: false, placeholder: "https://zoom.us/j/12345678" %>
       <h5><%= t('global.label.loc') %>:<span class="red-text">&#42;</span></h5>
       <%= f.input :consult_city, label: false, placeholder: "City" %>

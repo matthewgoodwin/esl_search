@@ -82,6 +82,7 @@ en:
         submit: "SUBMIT"
       consultation:
         consult_title: "Title"
+        consult_ratio: "Consultation Ratio"
     options:
       consultation:
         consult_language:
@@ -125,6 +126,9 @@ en:
         consult_env:
           online: "online-remote"
           face: "face-to-face"
+        consult_ratio:
+          one: "1:1"
+          many: "1:N"
   global:
     menu:
       home: "HOMEPAGE"
@@ -164,6 +168,7 @@ en:
       sec_lang: "SECONDARY LANGUAGE"
       target_aud: "TARGET AUDIENCE"
       type: "SESSION TYPE"
+      ratio: "GROUP RATIO"
       env: "SESSION ENVIRONMENT"
       online_meeting_link: "ONLINE SESSION LINK"
       loc: "LOCATION"

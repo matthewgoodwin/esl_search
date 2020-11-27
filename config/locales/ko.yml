@@ -84,6 +84,7 @@ ko:
         consult_language: "주 언어"
         consult_sec_lang: "보조 언어"
         consult_demo: "이용대상"
+        consult_ratio: "consultations ratio"
         consult_type: "모임 타입"
         consult_env: "모임 환경"
         consult_zoom_link: "수업 온라인 링크"
@@ -139,6 +140,9 @@ ko:
         consult_env:
           online: "온라인"
           face: "대면수업"
+        consult_ratio:
+          one: "1:1"
+          many: "1:N"
 
 
   global:

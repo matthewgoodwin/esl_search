@@ -17,6 +17,7 @@ class Consultation < ApplicationRecord
   validates :consult_desc, presence: { message: :bad_desc }
   validates :consult_demo, presence: { message: :bad_demo }
   validates :consult_city, presence: { message: :bad_city }
+  validates :consult_ratio, presence: true
   validates :address, presence: { message: :bad_address}
 
   # validates :consult_fee, :consult_desc, :consult_demo, :address, :consult_city, presence: { message: "Please enter all required information! "}
@@ -37,7 +38,8 @@ class Consultation < ApplicationRecord
     :consult_focus,
     :consult_env,
     :consult_desc,
-    :consult_period
+    :consult_period,
+    :consult_ratio
   ], # end of against
   using: {
     tsearch: {
