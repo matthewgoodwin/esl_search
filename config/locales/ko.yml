@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ko:
+  # homepage: "homepage"
   activerecord:
     errors:
       models:
@@ -27,7 +28,7 @@ ko:
           attributes:
             consult_title:
               bad_title: "수업 제목을 지정해주세요!"
-            consult_lang:
+            consult_language:
               bad_lang: "Please enter a primary language ! "
             consult_type:
               bad_type: "수업 종류를 선택해 주세요!"
@@ -101,39 +102,39 @@ ko:
       consultation:
         consult_language:
           en: "영어"
-          ko: "한국어"
+          kr: "한국어"
           jp: "일본어"
           sp: "스페인어"
           fr: "프랑스어"
           ch: "중국어"
-          vit: "베트남어"
-          ru: "러시아어"
+          vt: "베트남어"
+          rus: "러시아어"
         consult_sec_lang:
           en: "영어"
-          ko: "한국어"
+          kr: "한국어"
           jp: "일본어"
           sp: "스페인어"
           fr: "프랑스어"
           ch: "중국어"
-          vit: "베트남어"
-          ru: "러시아어"
+          vt: "베트남어"
+          rus: "러시아어"
+          none: "None"
         consult_demo:
           everyone: "연령구분 없음"
-          youth: "초등학교 / 중학교 / 고등학교"
-          elementary: "초등학교"
-          middle: "중학교"
-          high-school: "고등학교"
-          university: "university student"
+          youth: "초등학교 / 중학교"
+          hs: "고등학교"
+          univ_student: "university student"
           adult: "성인"
         consult_type:
-          language_camp: "언어 캠프"
-          conversation: "회화"
-          education: "교육"
-          exam-prep: "시험 준비"
-          club: "동아리"
-          hobby: "취미 / 동아리"
-          interview-prep: "인터뷰 준비"
-          speech: "발표준비"
+          lang_camp: "언어 캠프"
+          conv: "회화"
+          edu: "교육"
+          univ_study: "university studies"
+          tutor: "tutor"
+          exam_prep: "시험 준비"
+          club_hobby: "동아리 / 취미"
+          interview_prep: "인터뷰 준비"
+          speech_interview: "발표준비 / 인터뷰 준비"
           industry: "비지니스"
           translation: "번역"
           other: "기타"
@@ -141,11 +142,45 @@ ko:
           online: "온라인"
           face: "대면수업"
         consult_ratio:
-          one: "1:1"
-          many: "1:N"
-
+          one: "1 : 1"
+          many: "1 : N"
 
   global:
+    en: "영어"
+    kr: "한국어"
+    jp: "일본어"
+    sp: "스페인어"
+    fr: "프랑스어"
+    ch: "중국어"
+    vt: "베트남어"
+    rus: "러시아어"
+    none: "NONE"
+    everyone: "연령구분 없음"
+    youth: "초등학교 / 중학교"
+    hs: "고등학교"
+    univ_student: "university student"
+    adult: "성인"
+    lang_camp: "언어 캠프"
+    conv: "회화"
+    edu: "교육"
+    univ_study: "university studies"
+    tutor: "tutor"
+    exam_prep: "시험 준비"
+    club_hobby: "동아리 / 취미"
+    interview_prep: "인터뷰 준비"
+    speech_interview: "발표준비 / 인터뷰 준비"
+    industry: "비지니스"
+    translation: "번역"
+    other: "기타"
+    online: "온라인"
+    face: "대면수업"
+    one: "1 : 1"
+    many: "1 : N"
+    hourly: ""
+    single: ""
+    t: ""
+    f: ""
+
     menu:
       home: "홈페이지"
       dir: "디렉토리"
@@ -154,7 +189,6 @@ ko:
       sign_in: "회원가입"
       sign_out: "회원탈퇴"
       search: "언어, 지역, 키워드"
-
     label:
       fname: "이름"
       lname: "kor last name"

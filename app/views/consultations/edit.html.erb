@@ -3,51 +3,101 @@
   <!--this should be in a partial-->
 
   <%= simple_form_for(@consultation) do |f| %>
-    <%= f.input :consult_title, label: "Session Title:", placeholder: "session title" %>
-    <%= f.input :consult_language, label: "Primary Language:", default: ["English"] ,collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"]%>
-    <%= f.input :consult_sec_lang, label: "Secondary Language:", default: [ "None" ], collection: ["None", "English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"]%>
-    <%= f.input :consult_demo, label:"Demographic:", collection: ["everyone", "kindergarden", "elementary", "middle school", "high school", "adult"] %>
-    <%= f.input :consult_type, label: false, collection: ["camp", "conversation", "education",  "exam-prep", "club", "hobby", "interview prep", "speech", "industry", "translation", "other"], prompt: "-select type-" %>
-    <%= f.input :consult_env, label: false, collection: ["online - remote", "face-to-face"], prompt: "-select environment-" %>
-    <h6>Online Meeting Link</h6>
+    <h5><%= t('global.label.title') %><span class="red-text">&#42;</span></h5>
+    <%= f.input :consult_title, label: false, placeholder: [:title] %>
+    <h5><%= t('global.label.primary_lang') %><span class="red-text">&#42;</span></h5>
+    <%= f.input :consult_language, label: false, default: [[t('global.en'), t('global.en')]], collection: [[t('global.en'), t('global.en')], [t('global.kr'), t('global.kr')], [t('global.jp'), t('global.jp')],[t('global.sp'), t('global.sp')], [t('global.fr'), t('global.fr')], [t('global.ch'), t('global.ch')], [t('global.vt'), t('global.vt')], [t('global.rus'), t('global.rus')]] %>
+    <h5> <%= t('global.label.sec_lang') %> (optional) :</h5>
+    <%= f.input :consult_sec_lang, label: false, default: [[t('global.none'), t('global.none')]], collection: [[t('global.none'), t('global.none')], [t('global.en'), t('global.en')], [t('global.kr'), t('global.kr')], [t('global.jp'), t('global.jp')],[t('global.sp'), t('global.sp')], [t('global.fr'), t('global.fr')], [t('global.ch'), t('global.ch')], [t('global.vt'), t('global.vt')], [t('global.rus'), t('global.rus')]] %>
+    <h5><%= t('global.label.target_aud') %><span class="red-text">&#42;</span></h5>
+    <%= f.input :consult_demo, label: false, default: [[t('global.everyone'), t('global.everyone')]], collection: [[t('global.everyone'), t('global.everyone')], [t('global.youth'), t('global.youth')], [t('global.hs'), t('global.hs')], [t('global.univ_student'), t('global.univ_student')], [t('global.adult'), t('global.adult')]] %>
+    <h5><%= t('global.label.type') %><span class="red-text">&#42;</span></h5>
+    <%= f.input :consult_type, label: false, collection: [[t('global.lang_camp'), t('global.lang_camp')], [t('global.conv'), t('global.conv')], [t('global.edu'), t('global.edu')], [t('global.univ_study'), t('global.univ_study')], [t('global.tutor'), t('global.tutor')], [t('global.exam_prep'), t('global.exam_prep')], [t('global.club_hobby'), t('global.club_hobby')], [t('global.speech_interview'), t('global.speech_interview')], [t('global.industry'), t('global.industry')], [t('global.translation'), t('global.translation')], [t('global.other'), t('global.other')]], prompt: "-select type-" %>
+    <h5><%= t('global.label.env') %><span class="red-text">&#42;</span></h5>
+    <%= f.input :consult_env, label: false, collection: [[t('global.online'), t('global.online')], [t('global.face'), t('global.face')]], prompt: "-select environment-" %>
+
+    <h5><%= t('global.label.ratio') %></h5>
+    <%= f.input :consult_ratio, label: false, collection: [[t('global.one'), t('global.one')],[t('global.many'), t('global.many')]], prompt: "-group ratio-" %>
+
+    <h5><%= t('global.label.online_meeting_link') %></h5>
     <%= f.input :consult_zoom_link, label: false, placeholder: "https://zoom.us/j/12345678" %>
-    <%= f.input :consult_focus, label: "specific focus", placeholder: "specific focus (optional)"%>
-    <%= f.input :consult_city, label: false, placeholder: "city"%>
-    <%= f.input :address, label: false, placeholder: "address" %>
-    <%= f.input :consult_period, label: "contract period:", default: ["hourly"], collection: ["hourly"]%>
-    <%= f.input :consult_fee, as: :hidden, label: "Fee:", placeholder: "Fee (whole numbers)"%>
-    <%= f.input :consult_mat, label: 'materials included?', as: :radio_buttons, collection:[["yes","yes"], ["no","no"]], label_method: :second, value_method: :first, checked: ["no","no"]%>
-    <h5><b>Descripton&nbsp;:</b></h5>
-    <h6><span class="red-text">200 - 2000 characters &#42;</span></h6>
-    <%= f.input :consult_desc, label: false, placeholder: "Description", as: :text%>
-    <div class="consultation-button-div flex flex-center">
-      <%= f.button :submit, "update", class: "btn btn-primary no-decor btn-grad-light light-shadow" %>
-    </div><!-- end of consultation-button-div -->
+    <h5><%= t('global.label.loc') %>:<span class="red-text">&#42;</span></h5>
+    <%= f.input :consult_city, label: false, placeholder: "City" %>
+    <%= f.input :address, label: false, placeholder: "Address ( e.g.; '마포구 와우산로 147-1' or '6, Buljeong-ro, Bundang-gu, Seongnam-si')" %>
+    <h5><%= t('global.label.term') %><span class="red-text">&#42;</span></h5>
+    <%= f.input :consult_period, label: false, default: ["hourly"], collection: ["hourly"] %>
+    <div>
+      <h5><%= t('global.label.rate') %><span class="red-text">&#42;</span></h5>
+      <div class="flex">
+        <h5>&#8361; &nbsp; </h5>
+        <%= f.input :consult_fee, label: false, placeholder: "ex: 15000" %>
+      </div>
+    </div>
+    <h5><%= t('global.label.mat_incl') %><span class="red-text">&#42;</span></h5>
+    <%= f.input :consult_mat, label: false, as: :radio_buttons, collection:[["yes","yes"], ["no","no"]], label_method: :second, value_method: :first, checked: ["no","no"]%>
+    <h5><%= t('global.label.specific_focus') %> (optional)&nbsp;:</h5>
+    <h5><span class="red-text"><%= t('global.label.specific_focus2') %></span></h5>
+    <%= f.input :consult_focus, label: false, placeholder: "e.g. grammar" %>
+    <div>
+      <h5><%= t('global.label.description') %>&nbsp;:</h5>
+      <h5><span class="red-text"><%= t('global.label.desc2') %>&#42;</span></h5>
+      <%= f.input :consult_desc, label: false, placeholder: "descriptions, prerequisites and recommendations", as: :text %>
+      <span id="errorBlock" class="error-block"></span>
+      <div class="consultation-button-div flex flex-center">
+        <%= f.button :submit, "create class", class: "btn btn-primary no-decor btn-grad-light light-shadow center-div center-text" %>
+      </div><!-- end of consultation-button-div -->
+      <!-- display the errors here-->
+    </div><!--end of consultaiton-form-div-->
   <% end %><!--end of form-->
 
 <% else %>
   <!--this should be in a partial-->
 
     <%= simple_form_for(@consultation) do |f| %>
-      <%= f.input :consult_title, label: "Session title:", placeholder: "Session Title" %>
-      <%= f.input :consult_language, label: "Primary Language:", default: ["English"] ,collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"]%>
-      <%= f.input :consult_sec_lang, label: "Secondary Language:", default: [ "None" ], collection: ["None", "English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese"]%>
-      <%= f.input :consult_demo, label:"Demographic:", collection: ["everyone", "kindergarden", "elementary", "middle school", "high school", "adult"] %>
-      <%= f.input :consult_type, label: false, collection: ["camp", "conversation", "education",  "exam-prep", "club", "hobby", "interview prep", "speech", "industry", "translation", "other"], prompt: "-select type-" %>
-      <%= f.input :consult_env, label: false, collection: ["online - remote", "face-to-face"], prompt: "-select environment-" %>
-      <h6>Online Meeting Link</h6>
-      <%= f.input :consult_zoom_link, label: false, placeholder: "https://zoom.us/j/12345678" %>
-      <%= f.input :consult_focus, label: "Specific Focus", placeholder: "specific focus (optional)"%>
-      <%= f.input :consult_city, label: false, placeholder: "City"%>
-      <%= f.input :address, label: false, placeholder: "Address" %>
-      <%= f.input :consult_period, label: "Contract Period:", default: ["single-session"], collection: ["single-session"]%>
-      <%= f.input :consult_fee, as: :hidden, label: "Fee:", placeholder: "Fee (whole numbers)"%>
-      <%= f.input :consult_mat, label: 'materials included?', as: :radio_buttons, collection:[["yes","yes"], ["no","no"]], label_method: :second, value_method: :first, checked: ["no","no"]%>
-      <h5><b>Descripton&nbsp;:</b></h5>
-      <h6><span class="red-text">200 - 2000 characters &#42;</span></h6>
-      <%= f.input :consult_desc, label: false, placeholder: "descriptions, prerequisites and recommendations", as: :text%>
+    <h5><%= t('global.label.title') %><span class="red-text">&#42;</span></h5>
+    <%= f.input :consult_title, label: false, placeholder: [:title] %>
+    <h5><%= t('global.label.primary_lang') %><span class="red-text">&#42;</span></h5>
+    <%= f.input :consult_language, label: false, default: [[t('global.en'), t('global.en')]], collection: [[t('global.en'), t('global.en')], [t('global.kr'), t('global.kr')], [t('global.jp'), t('global.jp')],[t('global.sp'), t('global.sp')], [t('global.fr'), t('global.fr')], [t('global.ch'), t('global.ch')], [t('global.vt'), t('global.vt')], [t('global.rus'), t('global.rus')]] %>
+    <h5> <%= t('global.label.sec_lang') %> (optional) :</h5>
+    <%= f.input :consult_sec_lang, label: false, default: [[t('global.none'), t('global.none')]], collection: [[t('global.none'), t('global.none')], [t('global.en'), t('global.en')], [t('global.kr'), t('global.kr')], [t('global.jp'), t('global.jp')],[t('global.sp'), t('global.sp')], [t('global.fr'), t('global.fr')], [t('global.ch'), t('global.ch')], [t('global.vt'), t('global.vt')], [t('global.rus'), t('global.rus')]] %>
+    <h5><%= t('global.label.target_aud') %><span class="red-text">&#42;</span></h5>
+    <%= f.input :consult_demo, label: false, default: [[t('global.everyone'), t('global.everyone')]], collection: [[t('global.everyone'), t('global.everyone')], [t('global.youth'), t('global.youth')], [t('global.hs'), t('global.hs')], [t('global.univ_student'), t('global.univ_student')], [t('global.adult'), t('global.adult')]] %>
+    <h5><%= t('global.label.type') %><span class="red-text">&#42;</span></h5>
+    <%= f.input :consult_type, label: false, collection: [[t('global.lang_camp'), t('global.lang_camp')], [t('global.conv'), t('global.conv')], [t('global.edu'), t('global.edu')], [t('global.univ_study'), t('global.univ_study')], [t('global.tutor'), t('global.tutor')], [t('global.exam_prep'), t('global.exam_prep')], [t('global.club_hobby'), t('global.club_hobby')], [t('global.speech_interview'), t('global.speech_interview')], [t('global.industry'), t('global.industry')], [t('global.translation'), t('global.translation')], [t('global.other'), t('global.other')]], prompt: "-select type-" %>
+    <h5><%= t('global.label.env') %><span class="red-text">&#42;</span></h5>
+    <%= f.input :consult_env, label: false, collection: [[t('global.online'), t('global.online')], [t('global.face'), t('global.face')]], prompt: "-select environment-" %>
+
+    <h5><%= t('global.label.ratio') %></h5>
+    <%= f.input :consult_ratio, label: false, collection: [[t('global.one'), t('global.one')],[t('global.many'), t('global.many')]], prompt: "-group ratio-" %>
+
+    <h5><%= t('global.label.online_meeting_link') %></h5>
+    <%= f.input :consult_zoom_link, label: false, placeholder: "https://zoom.us/j/12345678" %>
+    <h5><%= t('global.label.loc') %>:<span class="red-text">&#42;</span></h5>
+    <%= f.input :consult_city, label: false, placeholder: "City" %>
+    <%= f.input :address, label: false, placeholder: "Address ( e.g.; '마포구 와우산로 147-1' or '6, Buljeong-ro, Bundang-gu, Seongnam-si')" %>
+    <h5><%= t('global.label.term') %><span class="red-text">&#42;</span></h5>
+    <%= f.input :consult_period, label: false, default: ["hourly"], collection: ["single-session"] %>
+    <div>
+      <h5><%= t('global.label.rate') %><span class="red-text">&#42;</span></h5>
+      <div class="flex">
+        <h5>&#8361; &nbsp; </h5>
+        <%= f.input :consult_fee, label: false, placeholder: "ex: 15000" %>
+      </div>
+    </div>
+    <h5><%= t('global.label.mat_incl') %><span class="red-text">&#42;</span></h5>
+    <%= f.input :consult_mat, label: false, as: :radio_buttons, collection:[["yes","yes"], ["no","no"]], label_method: :second, value_method: :first, checked: ["no","no"]%>
+    <h5><%= t('global.label.specific_focus') %> (optional)&nbsp;:</h5>
+    <h5><span class="red-text"><%= t('global.label.specific_focus2') %></span></h5>
+    <%= f.input :consult_focus, label: false, placeholder: "e.g. grammar" %>
+    <div>
+      <h5><%= t('global.label.description') %>&nbsp;:</h5>
+      <h5><span class="red-text"><%= t('global.label.desc2') %>&#42;</span></h5>
+      <%= f.input :consult_desc, label: false, placeholder: "descriptions, prerequisites and recommendations", as: :text %>
+      <span id="errorBlock" class="error-block"></span>
       <div class="consultation-button-div flex flex-center">
-        <%= f.button :submit, "update", class: "btn btn-primary no-decor btn-grad-light light-shadow" %>
+        <%= f.button :submit, "create class", class: "btn btn-primary no-decor btn-grad-light light-shadow center-div center-text" %>
       </div><!-- end of consultation-button-div -->
+      <!-- display the errors here-->
+    </div><!--end of consultaiton-form-div-->
   <% end %><!--end of form-->
 <% end %>
