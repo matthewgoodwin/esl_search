@@ -1,0 +1,39 @@
+<div class="unordered-list">
+  <ul class="dashboard-user-panel-links-list">
+    <li class="shell-tab-header-dark charcoal-background">
+      <%= link_to root_path, class: "white-text" do %>
+        <h3 class="navbar-esl-link"><%= t('global.menu.home')%></h3>
+      <% end %>
+    </li>
+    <li class="shell-tab-header-dark charcoal-background">
+      <%= link_to dashboard_path, class: "white-text" do %>
+        <h3 class="navbar-esl-link"><%= t('global.menu.dash') %></h3>
+      <% end %>
+    </li>
+    <li class="shell-tab-header-dark charcoal-background">
+      <%= link_to consultations_path, class: "white-text" do %>
+        <h3 class="navbar-esl-link"><%= t 'global.menu.dir' %></h3>
+      <% end %>
+    </li>
+    <li  class="shell-tab-header-dark charcoal-background left-border">
+      <%= link_to langs_locs_consultations_path, class: "white-text" do %>
+      <h3 class="navbar-esl-link"><%= t('global.label.loc') %></h3>
+      <% end %>
+    </li>
+    <li  class="shell-tab-header-dark charcoal-background left-border">
+      <%= link_to locations_consultations_path, class: "white-text" do %>
+        <h3 class="navbar-esl-link">ALL LOCATIONS</h3>
+      <% end %>
+    </li>
+    <li class="shell-tab-header-dark charcoal-background">
+      <%= link_to langs_periods_consultations_path, class: "white-text" do %>
+        <h3 class="navbar-esl-link"><%= t('global.label.term') %></h3>
+      <% end %>
+    </li>
+    <li class="shell-tab-header-dark charcoal-background">
+      <%= link_to langs_types_consultations_path, class: "white-text" do %>
+        <h3 class="navbar-esl-link"><%= t('global.label.type')%></h3>
+      <% end %>
+    </li>
+  </ul><!--end of dashboard-user-panel-links-list -->
+</div><!--end of unordered-list-->

@@ -48,11 +48,6 @@
             <li><%= link_to t('global.menu.home'), root_path %></li>
             <li><%= link_to t('global.menu.dir'), consultations_path %></li>
             <li><%= link_to t('global.menu.dash'), dashboard_path %></li>
-            <% if user_signed_in? %>
-              <li> <%= link_to t('global.menu.sign_out'), destroy_user_session_path, method: :delete %></li>
-              <% else %>
-              <li><%= link_to t('global.menu.sign_in'), new_user_session_path %></li>
-            <% end %>
             <li><%= link_to t('global.menu.edit_pro'), edit_user_registration_path(current_user) %></li>
             <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
             <% korea_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,q_auto:eco,w_100/v1602068229/001-south-korea_square.png" %>
@@ -60,6 +55,11 @@
 
             <li><%= link_to "한국어", root_path(locale: :ko)%></li>
             <li><%= link_to "English", root_path(locale: :en)%></li>
+            <% if user_signed_in? %>
+              <li> <%= link_to t('global.menu.sign_out'), destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to t('global.menu.sign_in'), new_user_session_path %></li>
+            <% end %>
             <!-- <li><a href="#">Profile</a></li> -->
             <!-- <li><a href="#">Log Out</a></li> -->
           </ul>

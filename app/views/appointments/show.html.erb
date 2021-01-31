@@ -1,42 +1,46 @@
 <div class="content-grid appoint-show-area">
-  <div class="element-ashow-links">
-    <h1>here</h1>
+  <div class="element-ashow-title flex-center-center center-text">
+    <h1><%= link_to @appointment.consultation.consult_title, consultation_path(@appointment.consultation.id) %></h1>
     <!--empty-->
   </div><!--end element-ashow-links-->
-    <div class="element-ashow-title center-text">
-      <h1><%= link_to @appointment.consultation.consult_title, consultation_path(@appointment.consultation.id) %></h1>
-    </div><!--end of element-ashow-title center-text-->
-  <div class="element-ashow-inst shell-border turcoise-shell-gradient" >
-    <h3 class="appoint-show-role-head center-text">Instructor</h3>
-    <div class="user-profile-image-div">
-      <% avatar_url = @appointment.consultation.user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
-        <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-      <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
-    </div><!--end of user-profile-image-div-->
-    <h4 class="center-text"><b><%= @appointment.consultation.user.fname %></b></h4>
-    <h6 class="center-text">email:&nbsp;<%= @appointment.consultation.user.email %></h6>
-    <h6 class="center-text">mobile:&nbsp;<%= @appointment.consultation.user.user_phone %></h6>
-    <h6 class="center-text">kakao:&nbsp;<%= @appointment.consultation.user.user_kakao_id %></h6>
-  </div><!--end element-ashow-inst-->
+  <div class="element-ashow-links center-text">
 
-  <div class="element-ashow-client shell-border green-shell-gradient">
-    <h3 class="appoint-show-role-head center-text">Client</h3>
-    <div class="user-profile-image-div">
-      <% avatar_url = @appointment.user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
+  </div><!--end of element-ashow-title center-text-->
+  <div class="element-ashow-inst_client shell-border flex grey-shell-gradient">
+    <div class="flex-50">
+      <h1 class="appoint-show-role-head center-text">Instructor</h1>
+      <div class="user-profile-image-div">
+        <% avatar_url = @appointment.consultation.user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
           <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-      <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
-    </div><!--end of user-profile-image-div find: _usericon.scss-->
-    <h4 class="center-text"><b><%= @appointment.pupil %></b></h4>
-    <h6 class="center-text">email:&nbsp;<%= @appointment.user.email %></h6>
-    <h6 class="center-text">mobile:&nbsp;<%= @appointment.user.user_phone %></h6>
-    <h6 class="center-text">kakao:&nbsp;<%= @appointment.user.user_kakao_id %></h6>
-  </div><!--end element-ashow-client-->
-
+        <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
+      </div><!--end of user-profile-image-div-->
+      <h4 class="center-text"><b><%= @appointment.consultation.user.fname %></b></h4>
+      <h6 class="center-text">email:&nbsp;<%= @appointment.consultation.user.email %></h6>
+      <h6 class="center-text">mobile:&nbsp;<%= @appointment.consultation.user.user_phone %></h6>
+      <h6 class="center-text">kakao:&nbsp;<%= @appointment.consultation.user.user_kakao_id %></h6>
+    </div>
+    <div class="flex-50">
+      <h1 class="appoint-show-role-head center-text">Client</h1>
+      <div class="user-profile-image-div">
+        <% avatar_url = @appointment.user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
+            <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
+        <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
+      </div><!--end of user-profile-image-div find: _usericon.scss-->
+      <h4 class="center-text"><b><%= @appointment.pupil %></b></h4>
+      <h6 class="center-text">email:&nbsp;<%= @appointment.user.email %></h6>
+      <h6 class="center-text">mobile:&nbsp;<%= @appointment.user.user_phone %></h6>
+      <h6 class="center-text">kakao:&nbsp;<%= @appointment.user.user_kakao_id %></h6>
+    </div>
+  </div><!--end element-ashow-inst_client-->
+  <div class="element-ashow-epanel dashboard-user-panel-links-shell shell-border-dark black-background white-text">
+    <%= render "shared/menu_panel" %>
+  </div>
   <div class="element-ashow-det shell-border grey-shell-gradient">
     <%= render "appointments/app_show_details" %>
   </div><!--end element-ashow-det-->
   <div class="element-ashow-base">
-    <h1>here is the base</h1>
+    <hr>
+    <%= render "shared/app_base" %>
   </div>
 </div><!--end content-grid appoint-show-area-->
 
