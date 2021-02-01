@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_27_053805) do
+ActiveRecord::Schema.define(version: 2021_02_01_183552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2020_11_27_053805) do
     t.datetime "lesson_end"
     t.integer "lesson_max_dur"
     t.bigint "consultation_id"
+    t.string "remote_link"
     t.index ["consultation_id"], name: "index_lessons_on_consultation_id"
   end
 

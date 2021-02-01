@@ -52,7 +52,7 @@
   <div class="flex-space-between">
     <span class="flex-item-shrink-only-10"></span>
     <h4 class="flex-40"><%= t('global.label.online_meeting_link') %></h4>
-    <h6 class="flex-50"><%= @appointment.consultation.consult_zoom_link %> </h6>
+    <h6 class="flex-50"><%= link_to @appointment.consultation.consult_zoom_link, "http://#{@appointment.consultation.consult_zoom_link}", target: "_blank", rel: "nofollow" %></a></h6>
   </div>
   <div class="flex-space-between">
     <span class="flex-item-shrink-only-10"></span>

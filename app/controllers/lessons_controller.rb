@@ -69,6 +69,6 @@ class LessonsController < ApplicationController
     @consult_lesson = @lesson.consultation_id
   end
   def lesson_params
-    params.require(:lesson).permit(:lesson_level, :lesson_section, :lesson_capacity, :lesson_start, :lesson_end, :lesson_terminate, :lesson_max_dur, :lesson_dow=>[])
+    params.require(:lesson).permit(:lesson_level, :lesson_section, :lesson_capacity, :lesson_start, :lesson_end, :lesson_terminate, :lesson_max_dur, :remote_link, :lesson_dow=>[])
   end
 end
