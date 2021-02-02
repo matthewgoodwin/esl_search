@@ -97,6 +97,8 @@ ko:
         consult_focus: "집중 수업 영역 선택"
         consult_desc: "설명"
         submit: "제출"
+      lesson:
+        remote_link: "수업 온라인 링크 working?"
 
     options:
       consultation:
@@ -230,7 +232,8 @@ ko:
       description: "설명"
       desc2: "200 - 2000 characters"
       review: "후기"
-
+      start: "START"
+      end: "FINISH"
   pages:
     home:
       head_1: "Hangul header 1"
