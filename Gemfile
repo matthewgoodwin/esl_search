@@ -63,7 +63,7 @@ gem "letter_opener", group: :development
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'cloudinary'
-gem 'carrierwave', '~>1.2'
+gem 'carrierwave', '~>1.3'
 
 # Gemfile for Rails 3+, Sinatra, or Merb
 gem 'will_paginate', '~> 3.1.1'
