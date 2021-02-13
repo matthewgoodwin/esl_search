@@ -1,12 +1,12 @@
 .appoint-show-area{
   grid-gap: 2px 2px;
   grid-template-areas:
-  ". title ."
-  ". links ."
-  ". ic ."
-  ". details ."
-  ". epanel ."
-  ". base ."
+  "title"
+  "links"
+  "ic"
+  "details"
+  "epanel"
+  "base"
 ;
 }
 
@@ -14,12 +14,12 @@
   .appoint-show-area{
     grid-gap: 5px;
     grid-template-areas:
-  ". title ."
-  ". links ."
-  ". ic ."
-  ". details ."
-  ". epanel ."
-  ". base ."
+  "title title"
+  "links links"
+  "ic ic"
+  "details details"
+  "epanel epanel"
+  "base base"
   ;
   }
 }
@@ -31,8 +31,8 @@
     grid-template: [row-start] repeat(auto, 1fr) [row-end] / [col-start] 1% repeat(5, 1fr) 1% [col-end]; //rows set to auto; not fits!
     grid-gap: 2px 2px;
     grid-template-areas:
-    ". . title title title title ."
-    ". links links links links links."
+    ". title title title title title ."
+    ". links links links links links ."
     ". epanel ic ic ic ic ."
     ". epanel details details details details ."
     ". base base base base base ."

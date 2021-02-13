@@ -1,0 +1,29 @@
+<div class="flex-space-between">
+  <h5 class="flex-50">primary language:</h5>
+  <h5 class="flex-50"><%= @user.user_native_lang %></h5>
+</div><!--end of prim_lang-->
+<div class="flex-space-between">
+  <h5 class="flex-50">second language:</h5>
+  <h5 class="flex-50"><%= @user.user_second_lang %></h5>
+</div><!--end of sec_lang-->
+<div class="flex-center-center">
+  <h5 class="flex-50">City:</h5>
+  <h5 class="flex-50"><%= @user.city %></h5>
+</div><!--end of city-div-->
+<div class="flex-space-between">
+  <h5 class="flex-50">University Major:</h5>
+  <h5 class="flex-50"><%= @user.subjectmajor %></h5>
+</div><!--end of major-div-->
+<div class="flex-space-between">
+  <h5 class="flex-50">Education:</h5>
+  <h5 class="flex-50"><%= @user.edulevel %></h5>
+</div><!--end of Edu-div-->
+<div class="flex-space-between">
+  <h5 class="flex-50">Gender:</h5>
+  <h5 class="flex-50"><%= @user.gender %></h5>
+</div><!--end of gender-div-->
+<div class="flex-space-between">
+  <h5 class="flex-50">classes</h5>
+  <h5 class="flex-50"><%= link_to "view complete list", user_products_user_path %></h5>
+</div>
+<hr>

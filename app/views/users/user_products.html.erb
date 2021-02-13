@@ -1,9 +1,14 @@
 <div class="content-grid element-index-area paddin-5">
-  <div class="element-index-shell shell-border">
+  <div class="element-index-header">
+    <%= render "shared/app_header" %>
     <div class="center-div center-text">
-      <h1 class="center-text">PRODUCTS</h1>
-      <h6 class="center-text"><%= link_to 'dashboard', dashboard_path %></h6>
+      <h1 class="center-text">CLASS INDEX</h1>
     </div>
+  </div>
+  <div class="element-index-panel shell-border-dark black-background">
+    <%= render "shared/menu_panel" %>
+  </div>
+  <div class="element-index-shell shell-border">
     <div class="flex-space-between grey-shell-gradient padding-5">
       <!--header work-->
       <div class="flex-25"><h6>CLASS</h6></div>
@@ -16,5 +21,8 @@
           <%= render 'consultations/show_user_products', element: consultation %> <!--c(generic local used in partial) : |consultation|-->
       <% end %><!-- end of current_user.consultations.each do-->
     </div><!-- end of dashboard-consults-product-div -->
+  </div>
+  <div class="element-index-base">
+    <%= render "shared/app_base" %>
   </div>
 </div><!--end of user-shell grey-gradient-->
