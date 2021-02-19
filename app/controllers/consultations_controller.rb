@@ -291,11 +291,11 @@ class ConsultationsController < ApplicationController
     end
   end
   def lang_edu
-    @consult_lang_edu_group = policy_scope(Consultation.where(consult_language: @consult_lang, consult_type: "education")).paginate(page: params[:page], per_page: 8)
+    @consult_lang_edu_group = policy_scope(Consultation.where(consult_language: @consult_lang, consult_type: "education").paginate(page: params[:page], per_page: 8)
   end
 
   def langs_acts
-    @consultations = policy_scope(Consultation.where(consult_type: "club"))
+    @consultations = policy_scope(Consultation).where(consult_type: "club")
     @consult_language_links = []
     @consultations.each do |c|
       unless @consult_language_links.include? c.consult_language
