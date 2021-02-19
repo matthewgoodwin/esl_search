@@ -148,7 +148,7 @@ class ConsultationsController < ApplicationController
     end
   end
   def lang_locs
-    @consult_lang_group = Consultation.where(consult_language: @consult_lang)
+    @consult_lang_group = policy_scope(Consultation.where(consult_language: @consult_lang))
     # @consult_lang is defined in before_action :language_params, only: [:lang_locs]
     @consult_city_links = []
     @consult_lang_group.each do |c|
@@ -159,7 +159,7 @@ class ConsultationsController < ApplicationController
     # raise
   end
   def lang_loc
-    @consult_lang_loc_group = Consultation.where(consult_language: @consult_lang, consult_city: @consult_city).paginate(page: params[:page], per_page: 8).geocoded
+    @consult_lang_loc_group = policy_scope(Consultation.where(consult_language: @consult_lang, consult_city: @consult_city)).paginate(page: params[:page], per_page: 8).geocoded
     # @consult_lang is defined in before_action :language_params, only: [:lang_loc]
     # @consult_city is defined in before_action :location_params, only: [:lang_loc]
     @consult_lang_loc_group.each do |consult|
@@ -204,7 +204,7 @@ class ConsultationsController < ApplicationController
     end
   end
   def lang_types
-    @consult_lang_group = Consultation.where(consult_language: @consult_lang)
+    @consult_lang_group = policy_scope(Consultation.where(consult_language: @consult_lang))
     @consult_type_links = []
     @consult_lang_group.each do |c|
       unless @consult_type_links.include? c.consult_type
@@ -214,7 +214,7 @@ class ConsultationsController < ApplicationController
     # raise
   end
   def lang_type
-    @consult_lang_type_group = Consultation.where(consult_language: @consult_lang, consult_type: @consult_type).paginate(page: params[:page], per_page: 8)
+    @consult_lang_type_group = policy_scope(Consultation.where(consult_language: @consult_lang, consult_type: @consult_type)).paginate(page: params[:page], per_page: 8)
     # raise
   end
 
@@ -228,7 +228,7 @@ class ConsultationsController < ApplicationController
     end
   end
   def lang_periods
-    @consult_lang_group = Consultation.where(consult_language: @consult_lang)
+    @consult_lang_group = policy_scope(Consultation.where(consult_language: @consult_lang))
     @consult_period_links = []
     @consult_lang_group.each do |c|
       unless @consult_period_links.include? c.consult_period
@@ -238,11 +238,11 @@ class ConsultationsController < ApplicationController
   # raise
   end
   def lang_period
-    @consult_period_group = Consultation.where(consult_language: @consult_lang, consult_period: @consult_period).paginate(page: params[:page], per_page: 8)
+    @consult_period_group = policy_scope(Consultation.where(consult_language: @consult_lang, consult_period: @consult_period)).paginate(page: params[:page], per_page: 8)
   end
 
   def langs_onlines
-    @consultations = Consultation.where(consult_env: "online - remote")
+    @consultations = policy_scope(Consultation.where(consult_env: "online - remote"))
     @consult_language_links = []
     @consultations.each do |c|
       unless @consult_language_links.include? c.consult_language
@@ -251,12 +251,12 @@ class ConsultationsController < ApplicationController
     end
   end
   def lang_online
-    @consult_lang_online_group = Consultation.where(consult_language: @consult_lang, consult_env: "online - remote").paginate(page: params[:page], per_page: 8)
+    @consult_lang_online_group = policy_scope(Consultation.where(consult_language: @consult_lang, consult_env: "online - remote")).paginate(page: params[:page], per_page: 8)
     # raise
   end
 
   def langs_hourlies
-    @consultations = Consultation.where(consult_period: "hourly")
+    @consultations = policy_scope(Consultation.where(consult_period: "hourly"))
     @consult_language_links = []
     @consultations.each do |c|
       unless @consult_language_links.include? c.consult_language
@@ -265,11 +265,11 @@ class ConsultationsController < ApplicationController
     end
   end
   def lang_hourly
-    @consult_lang_hourly_group = Consultation.where(consult_language: @consult_lang, consult_period:"hourly").paginate(page: params[:page], per_page: 8)
+    @consult_lang_hourly_group = policy_scope(Consultation.where(consult_language: @consult_lang, consult_period:"hourly")).paginate(page: params[:page], per_page: 8)
   end
 
   def langs_singles
-    @consultations = Consultation.where(consult_period: "single-session")
+    @consultations = policy_scope(Consultation.where(consult_period: "single-session"))
     @consult_language_links = []
     @consultations.each do |c|
       unless @consult_language_links.include? c.consult_language
@@ -278,11 +278,11 @@ class ConsultationsController < ApplicationController
     end
   end
   def lang_single
-    @consult_lang_single_group = Consultation.where(consult_language: @consult_lang, consult_period: "single-session").paginate(page: params[:page], per_page: 8)
+    @consult_lang_single_group = policy_scope(Consultation.where(consult_language: @consult_lang, consult_period: "single-session")).paginate(page: params[:page], per_page: 8)
   end
 
   def langs_edus
-    @consultations = Consultation.where(consult_type: "education")
+    @consultations = policy_scope(Consultation.where(consult_type: "education"))
     @consult_language_links = []
     @consultations.each do |c|
       unless @consult_language_links.include? c.consult_language
@@ -291,11 +291,11 @@ class ConsultationsController < ApplicationController
     end
   end
   def lang_edu
-    @consult_lang_edu_group = Consultation.where(consult_language: @consult_lang, consult_type: "education").paginate(page: params[:page], per_page: 8)
+    @consult_lang_edu_group = policy_scope(Consultation.where(consult_language: @consult_lang, consult_type: "education")).paginate(page: params[:page], per_page: 8)
   end
 
   def langs_acts
-    @consultations = Consultation.where(consult_type: "club")
+    @consultations = policy_scope(Consultation.where(consult_type: "club"))
     @consult_language_links = []
     @consultations.each do |c|
       unless @consult_language_links.include? c.consult_language
@@ -304,7 +304,7 @@ class ConsultationsController < ApplicationController
     end
   end
   def lang_act
-    @consult_lang_act_group = Consultation.where(consult_language: @consult_lang, consult_type: "club").paginate(page: params[:page], per_page: 8)
+    @consult_lang_act_group = policy_scope(Consultation.where(consult_language: @consult_lang, consult_type: "club")).paginate(page: params[:page], per_page: 8)
   end
 
   def locations
