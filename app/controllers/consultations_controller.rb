@@ -5,7 +5,7 @@ class ConsultationsController < ApplicationController
   before_action :consultation_params, only: [:create]
   # before_action :period_params, only: [:hourly]
   before_action :location_params, only: [:location, :lang_loc]
-  before_action :language_params, only: [:lang_locs, :lang_loc, :lang_types, :lang_type,:lang_period, :lang_periods, :lang_online, :lang_hourly,:lang_single, :lang_edu, :lang_act, :lang_top_rated, :location]
+  before_action :language_params, only: [:lang_locs, :lang_loc, :lang_types, :lang_type,:lang_period, :lang_periods, :langs_onlines, :lang_online, :lang_hourly,:lang_single, :lang_edus, :lang_edu, :lang_act, :lang_top_rated, :location]
   before_action :period_params, only: [:lang_period, :langs_periods]
   before_action :type_params, only: [:lang_type, :langs_types]
   skip_after_action :verify_authorized, only: [:langs_locs, :lang_locs, :lang_loc, :langs_types, :lang_types, :lang_type, :langs_periods, :lang_periods, :lang_period, :langs_onlines, :lang_online,
@@ -242,8 +242,8 @@ class ConsultationsController < ApplicationController
   end
 
   def langs_onlines
-    @consultations = policy_scope(Consultation).where(consult_env: "online - remote")
     @consult_language_links = []
+    @consultations = policy_scope(Consultation).where(consult_env: "online - remote")
     @consultations.each do |c|
       unless @consult_language_links.include? c.consult_language
         @consult_language_links << c.consult_language
