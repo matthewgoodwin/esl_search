@@ -5,8 +5,8 @@
       <div class="flex-center-center">
         <div class="padding">
           <div class="flex-space-between">
-            <div class="flex-50"><%= link_to "home", root_path %></div>
-            <div class="flex-50"><%= render "devise/shared/links" %></div>
+            <div class="flex-50"></div>
+            <div class="flex-50"></div>
           </div>
           <h2>Sign up</h2>
 
@@ -40,8 +40,8 @@
               <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
               <%= f.input :password_confirmation, required: true %>
             </div>
-            <div class="form-actions flex-space-between">
-              <%= f.button :submit, "Sign up" %>
+            <div class="form-actions flex-center-center">
+              <%= f.button :submit, "Sign up", :class => 'btn-primary' %>
           <% end %>
           </div>
           <hr>

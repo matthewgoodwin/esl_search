@@ -4,28 +4,27 @@
       <div class="flex-center-center">
         <div class="padding">
           <div class="flex-center-center">
-            <div class=""><%= link_to "home", root_path %></div>
           </div>
-<h2><%= t(".sign_in") %></h2>
+          <h2><%= t(".sign_in") %></h2>
+          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="form-inputs">
+              <%= f.input :email,
+                          required: false,
+                          autofocus: true,
+                          input_html: { autocomplete: "email" } %>
+              <%= f.input :password,
+                          required: false,
+                          input_html: { autocomplete: "current-password" } %>
+              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+            </div>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, t(".sign_in") %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+            <div class="form-actions">
+              <%= f.button :submit, t(".sign_in"), :class =>'btn btn-primary' %>
+            </div>
+          <% end %>
+          <div class="shared-link padding-5">
+            <%= render "devise/shared/links" %>
+          </div>
         </div>
       </div>
     </div>
