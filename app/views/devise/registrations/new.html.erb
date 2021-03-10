@@ -1,4 +1,4 @@
-<div class="center-div padding mw350">
+<div class="center-div padding mw600">
   <div class="shell-sign-in wrapper">
     <div class="inline-block">
 
@@ -8,46 +8,43 @@
             <div class="flex-50"></div>
             <div class="flex-50"></div>
           </div>
-          <h2>Sign up</h2>
-
-          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <%= f.error_notification %>
-
+          <h1>Sign up</h1>
             <div class="form-inputs">
-              <%= f.input :fname, error: 'first name is mandatory, please specify one', required: true, autofocus: true %>
-              <%= f.input :lname, error: 'last name is mandatory, please specify one', required: true, autofocus: true %>
-              <%= f.input :user_native_lang, collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"], error: 'your native language is required, please specify one', required: true, autofocus: true %>
-              <%= f.input :user_second_lang, collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"], error: 'your native language is required, please specify one', required: true, autofocus: true %>
-              <%= f.input :gender, collection: ["male","female"], error: 'your gender is mandatory, please specify one', required: true, autofocus: true %>
-              <%= f.input :email, error: 'an email address is mandatory, please specify one', required: true, autofocus: true %>
-              <%= f.input :address, autofocus: true %>
-              <%= f.input :city, label: 'city', error: 'your city name is mandatory, please specify one', required: true, autofocus: true %>
-              <%= f.input :town, label: 'town ( optional )', autofocus: true %>
-              <%= f.input :user_phone, label: 'mobile number', error: 'mobile number', autofocus: true %>
-              <%= f.input :user_kakao_id, label: 'kakao id', error: 'please enter kakao id', autofocus: true %>
-              <div class="instructor-registration">
-                <%= f.input :edu, autofocus: true  %>
-                <%= f.input :subjectmajor, autofocus: true %>
-                <%= f.input :edulevel, collection: ["associate's","bachelor's","master's","doctoral","professional"], error: 'please specify the highest education attained', autofocus: true %>
+              <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                <%= f.error_notification %>
+                <%= f.input :fname, error: 'first name is mandatory, please specify one', required: true, autofocus: true %>
+                <%= f.input :lname, error: 'last name is mandatory, please specify one', autofocus: true %>
+                <%= f.input :user_native_lang, collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"], error: 'your native language is required, please specify one', required: true, autofocus: true %>
+                <%= f.input :user_second_lang, collection: ["English", "Hangul", "Japanese", "Spanish", "French", "Chinese", "Vietnamese", "Russian"], error: 'your native language is required, please specify one', required: true, autofocus: true %>
+                <%= f.input :gender, collection: ["male","female"], error: 'your gender is mandatory, please specify one', required: true, autofocus: true %>
+                <%= f.input :email, error: 'an email address is mandatory, please specify one', required: true, autofocus: true %>
+                <%= f.input :address, autofocus: true %>
+                <%= f.input :city, label: 'city', error: 'your city name is mandatory, please specify one', required: true, autofocus: true %>
+                <%= f.input :town, label: 'town ( optional )', autofocus: true %>
+                <%= f.input :user_phone, label: 'mobile number', error: 'mobile number', autofocus: true %>
+                <%= f.input :user_kakao_id, label: 'kakao id', error: 'please enter kakao id', autofocus: true %>
+                <div class="instructor-registration">
+                  <%= f.input :edu, autofocus: true  %>
+                  <%= f.input :subjectmajor, autofocus: true %>
+                  <%= f.input :edulevel, collection: ["associate's","bachelor's","master's","doctoral","professional"], error: 'please specify the highest education attained', autofocus: true %>
+                </div>
+                <div class="aboutyou">
+                  <%= f.input :aboutme, placeholder: "tell us about yourself!", as: :text %>
+                </div>
+                <div class="shell-tab-header grey-shell-gradient">
+                  <%= f.input :photo, label: "Upload Avatar" %>
+                  <%= f.input :photo_cache, as: :hidden %>
+                </div>
+                <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+                <%= f.input :password_confirmation, required: true %>
               </div>
-              <div class="aboutyou">
-                <%= f.input :aboutme, placeholder: "tell us about yourself!", as: :text %>
-              </div>
-              <div class="shell-tab-header grey-shell-gradient">
-                <%= f.input :photo, label: "Upload Avatar" %>
-                <%= f.input :photo_cache, as: :hidden %>
-              </div>
-              <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-              <%= f.input :password_confirmation, required: true %>
-            </div>
-            <div class="form-actions flex-center-center">
-              <%= f.button :submit, "Sign up", :class => 'btn-primary' %>
-          <% end %>
-          </div>
-          <hr>
+
+              <%= f.button :submit, t(".sign_up"), :class => 'btn-primary' %>
+            <% end %>
+            <hr>
           <div class="">
             <%= link_to new_user_session_path do %>
-              <div class="btn btn-primary"><h6>already a member? sign in</h6></div>
+              <button type="button" class="btn btn-secondary"> <%= t("devise.shared.links.sign_in") %></button>
             <% end %>
           </div>
         </div>

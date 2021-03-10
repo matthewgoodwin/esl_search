@@ -1,0 +1,14 @@
+<div class="flex-50">
+<%- if controller_name != 'sessions' %>
+  <%= link_to new_session_path(resource_name) do %><br />
+    <button class=" btn btn-secondary"><%= t("devise.shared.links.sign_in") %></button>
+  <% end %>
+<% end %>
+</div>
+<div class="flex-50">
+  <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+    <%= link_to new_registration_path(resource_name) do %><br />
+      <button class="btn btn-secondary"><%= t ("devise.shared.links.sign_up") %></button>
+    <% end %>
+  <% end %>
+</div>

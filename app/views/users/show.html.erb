@@ -5,34 +5,38 @@
   <div class="element-ushow-panel shell-border-dark black-background white-text">
     <%= render "shared/menu_panel" %>
   </div><!--end of ushow-panel-->
-  <div class="element-ushow-shell user-page-shell">
+  <div class="element-ushow-shell user-page-shell padding-5">
     <div class="user-show-name-header center-text">
       <h1 class="center-text"><%= @user.fname %> <%= @user.lname %></h1>
     </div><!--end of user-show-name-div-->
     <hr>
-  <div class="flex-space-between">
+  <div class="flex">
 
-    <div class="flex-50 flex-column user-profile-image-div">
+    <div class="flex-50 user-profile-image-div">
       <div><h2 class="center-text"></h2></div>
       <% avatar_url = @user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
       <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
       <div class="user-large-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; height: 180px; width: 180px; border-radius: 5%; background-position: center;"></div>
-      <div><h5 class="center-text">since: <%= I18n.l(@user.created_at, format: :long) %></h5></div>
     </div><!--end of icon-div-->
 
-    <div class="flex-column flex-50 ">
-      <p class="padding-5"><%= @user.aboutme %></p>
-    </div>
+      <div class="flex-50">
+        <%= render "users/user_show_detail" %>
+      </div>
   </div><!-- end of flex-space-between-->
-  <div>
-    <%= render "users/user_show_detail" %>
-  </div>
-    <div class="flex-center-center">
-      <a href="" data-toggle="modal" data-target="#create-pm">
-        <div class="btn btn-primary round-div no-decor center-div">private message</div>
-      </a>
-    </div><!--end of privatemessage-show-form-div-->
-  </div>
+
+    <div class="flex-space-between padding-10">
+      <div class="flex-20"></div>
+      <div class="flex-60">
+      <p class=""><%= @user.aboutme %></p>
+      <div class="center-text center-div">
+        <a href="" data-toggle="modal" data-target="#create-pm">
+          <div class="btn btn-primary round-div no-decor center-div">private message</div>
+        </a>
+      </div><!--end of privatemessage-show-form-div-->
+      </div><!--end of 60-->
+      <div class="flex-20"></div>
+    </div><!--end of flex-center-->
+  </div><!-- end ushow-shell-->
   <div class="element-ushow-base">
     <%= render "shared/app_base" %>
   </div><!--end of index-base-->

@@ -63,8 +63,8 @@ en:
   simple_form:
     labels:
       user:
-        fname: "FIRST NAME"
-        lname: "LAST NAME"
+        fname: "NAME"
+        lname: "FAMILY NAME (optional)"
         user_native_lang: "NATIVE LANGUAGE"
         user_second_lang: "SECOND LANGUAGE"
         gender: "GENDER"

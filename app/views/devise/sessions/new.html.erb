@@ -1,4 +1,4 @@
-<div class="center-div padding mw350">
+<div class="center-div padding mw400">
   <div class="shell-sign-in wrapper">
     <div class="inline-block">
       <div class="flex-center-center">
@@ -22,8 +22,9 @@
               <%= f.button :submit, t(".sign_in"), :class =>'btn btn-primary' %>
             </div>
           <% end %>
-          <div class="shared-link padding-5">
-            <%= render "devise/shared/links" %>
+          <hr>
+          <div class="shared-link padding-5 flex-space-between">
+            <%= render "devise/shared/links_newsess" %>
           </div>
         </div>
       </div>
