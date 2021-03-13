@@ -167,6 +167,8 @@ en:
     single: ""
     t: ""
     f: ""
+    male: "male"
+    female: "female"
 
     menu:
       home: "HOMEPAGE"
