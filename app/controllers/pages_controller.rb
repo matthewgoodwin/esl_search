@@ -34,7 +34,9 @@ class PagesController < ApplicationController
         @my_messages_id_array << m.id
         @my_messages_array << m
       end
-
+      c.reviews.each do |r|
+        @my_reviews_array << r
+      end
       c.appointments.each do |a|
         # ^creates an object that counts all the consultations(only)
         # ^does not isolate the appointments
@@ -49,31 +51,27 @@ class PagesController < ApplicationController
           @my_clients_array << User.find(a.user_id) # adds the entire user to the client array ONLY ONCE!
           # @my_clients_array << User.find(a.user_id)
           # @my_clients_array << User.find(a.user_id)
-        #   # @my_consultation_appointment_clients_array << User.find(a.user_id).fname
-
+          # @my_consultation_appointment_clients_array << User.find(a.user_id).fname
         end
         # raise
         # ^takes each appointment id and adds it to an empty array
         # ^^array size is called on the dashboard page
       end
       # ^^ can probably delete the client method above.. below does not depend on appointments;
-
       @all_clients_array = []
-      @clients_array2 = []
-      @clients.each do |c|
-      if c.user_id == User.find(current_user.id)
-        @clients_array2 << c
-        unless @all_clients_array.include? User.find(c.client_id)
-          @all_clients_array << User.find(c.client_id)
+    # @clients = policy_scope(Client)
+      @clients = Client.where(user_id: current_user.id)
+    # @clients_array2 = []
+      @clients.each do |cl|
+        if cl.user_id == User.find(current_user.id).id
+          # @clients_array2 << c
+          unless @all_clients_array.include? User.find(cl.client_id)
+            @all_clients_array << User.find(cl.client_id)
+          end
+        else
         end
-      else
-      end
-    end #end of clients each
-      c.reviews.each do |r|
-        @my_reviews_array << r.id
-      end
+      end #end of clients each
     end # end of @consultations.each
-    # raise
   end
 
   def search

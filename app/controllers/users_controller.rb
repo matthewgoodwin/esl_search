@@ -35,14 +35,13 @@ class UsersController < ApplicationController
   end
   def user_clients
     @privatemessage = Privatemessage.new
-
-    @clients = Client.all
     @all_clients_array = []
-    @clients_array2 = []
+    # @clients = policy_scope(Client)
+    @clients = Client.where(user_id: current_user.id)
+    # @clients_array2 = []
     @clients.each do |c|
-      if c.user_id == User.find(current_user.id)
-
-        @clients_array2 << c
+      if c.user_id == User.find(@user.id).id
+        # @clients_array2 << c
         unless @all_clients_array.include? User.find(c.client_id)
           @all_clients_array << User.find(c.client_id)
         end
