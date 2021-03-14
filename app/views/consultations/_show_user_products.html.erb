@@ -5,18 +5,20 @@
   <div class="flex-25"><h5><%= truncate( element.consult_title, length: 45) %></h5></div>
   <div class="flex-25">
     <h5><%= truncate(element.consult_type) %></h5>
-    <h5><%= number_to_currency(element[:consult_fee], :unit => "₩")%></h5>
-    <h5><%= element.consult_period %></h5>
+    <p><%= number_to_currency(element[:consult_fee], :unit => "₩")%></p>
+    <p><%= element.consult_period %></p>
   </div>
   <div class="flex-25 center-text">
     <%= link_to consultation_path(element) do %>
       <i class="fas fa-lg fa-info-circle" aria-hidden="true"></i>
     <% end %>
   </div>
-  <div class="flex-25 center-text">
-    <%= link_to consultation_path(element), method: :delete do %>
-      <i class="fas fa-lg fa-trash-alt" aria-hidden="true"></i>
-    <% end %>
-  </div><!-- end of trash can-->
+  <% if policy(element).destroy? %>
+    <div class="flex-25 center-text">
+      <%= link_to consultation_path(element), method: :delete do %>
+        <i class="fas fa-lg fa-trash-alt" aria-hidden="true"></i>
+      <% end %>
+    </div><!-- end of trash can-->
+  <% end %>
 </div><!--end of flex-space-between dashboard-consults-product-items shell-border shell-tab-->
 

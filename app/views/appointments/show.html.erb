@@ -12,7 +12,9 @@
       <div class="user-profile-image-div">
         <% avatar_url = @appointment.consultation.user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
           <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
+        <%= link_to user_path(@appointment.consultation.user) do %>
         <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
+        <% end %>
       </div><!--end of user-profile-image-div-->
       <h4 class="center-text"><b><%= @appointment.consultation.user.fname %></b></h4>
       <h6 class="center-text">email:&nbsp;<%= @appointment.consultation.user.email %></h6>

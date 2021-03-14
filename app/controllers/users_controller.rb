@@ -40,7 +40,8 @@ class UsersController < ApplicationController
     @all_clients_array = []
     @clients_array2 = []
     @clients.each do |c|
-      if c.user_id == User.find(current_user).id
+      if c.user_id == User.find(current_user.id)
+
         @clients_array2 << c
         unless @all_clients_array.include? User.find(c.client_id)
           @all_clients_array << User.find(c.client_id)
