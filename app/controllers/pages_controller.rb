@@ -61,15 +61,16 @@ class PagesController < ApplicationController
       @all_clients_array = []
     # @clients = policy_scope(Client)
       @clients = Client.where(user_id: current_user.id)
+
     # @clients_array2 = []
       @clients.each do |cl|
-        if cl.user_id == User.find(current_user.id).id
+raise
+
           # @clients_array2 << c
           unless @all_clients_array.include? User.find(cl.client_id)
             @all_clients_array << User.find(cl.client_id)
           end
-        else
-        end
+raise
       end #end of clients each
     end # end of @consultations.each
   end

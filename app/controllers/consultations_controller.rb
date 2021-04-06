@@ -107,6 +107,10 @@ class ConsultationsController < ApplicationController
         @consult_language_links << c.consult_language
       end # end of unless
     end #end of consultations.all
+    # raise
+    if @consult_language_links.include? "English" && "영어"
+
+    end
   end
   def lang_top_rated
     @top_rated = []

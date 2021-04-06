@@ -14,7 +14,7 @@ class User < ApplicationRecord
          has_many :referrals, dependent: :destroy
          has_many :privatemessages, dependent: :destroy
 
-         validates :fname, :email, :city, :address, presence: true
+         validates :fname, :username, :email, :city, presence: true
          validates :fname, uniqueness: {scope: :email, message: "already a memeber? please log in!"}
   private
     # def anyeong

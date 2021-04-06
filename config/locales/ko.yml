@@ -196,6 +196,7 @@ ko:
     label:
       fname: "이름"
       lname: "FAMILY NAME"
+      username: "USERNAME"
       user_native_lang: "모국어"
       user_second_lang: "보조 언어"
       gender: "성별"

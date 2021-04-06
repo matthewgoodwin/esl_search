@@ -141,7 +141,13 @@
       <%= link_to user_clients_user_path(current_user.id) do %>
         <div class="flex-67"><h5 class="charcoal-text"><%= t('.clients') %></h5></div>
       <% end %>
-      <div class="flex-33 center-text"><h6><%= @all_clients_array.size %></h6></div>
+      <% if @all_clients_array != nil %> <!-- this is patch job '.size' throws errors-->
+        <div class="flex-33 center-text"><h6><%= @all_clients_array.size %> </h6></div>
+      <% else %>
+        <div class="flex-33 center-text"><h6>0</h6></div>
+      <% end %>
+
+
     </div><!--dashboard-client header-items-->
       <div class="dashboard-clients-div">
         <% if @all_clients_array != nil %>

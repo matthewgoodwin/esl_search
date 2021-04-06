@@ -181,6 +181,7 @@ en:
     label:
       fname: "FIRST NAME"
       lname: "LAST NAME"
+      username: "USERNAME"
       user_native_lang: "NATIVE LANGUAGE"
       user_second_lang: "SECOND LANGUAGE"
       gender: "GENDER"

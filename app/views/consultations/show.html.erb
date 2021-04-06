@@ -4,7 +4,8 @@
   </div>
   <div class="element-cshow-inst shell-border-dark black-background white-text">
     <div class="padding-3 center-text">
-      <h2><%= @consultation.user.fname %> <%= @consultation.user.lname %></h2>
+      <h2><%= @consultation.user.fname %></h2>
+      <h5><%= @consultation.user.username %></h5>
     </div>
     <div class="user-profile-image-div">
       <% avatar_url = @consultation.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>

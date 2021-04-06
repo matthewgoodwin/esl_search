@@ -7,7 +7,8 @@
   </div><!--end of ushow-panel-->
   <div class="element-ushow-shell user-page-shell padding-5">
     <div class="user-show-name-header center-text">
-      <h1 class="center-text"><%= @user.fname %> <%= @user.lname %></h1>
+      <h1 class="center-text"><%= @user.fname %></h1>
+      <h5 class="center-text"><%= @user.username %></h5>
     </div><!--end of user-show-name-div-->
     <hr>
   <div class="flex">
@@ -46,7 +47,7 @@
     <div class="modal-dialog" role="document"><!--aligns the modal document-->
       <div class="modal-content">
         <div class="modal-header modal-head-grad flex flex-center-center blue-shell-gradient-header">
-          <h3 class="create-privatemessage-modal-header">To: <%= @user.fname %> <%= @user.lname %> </h3>
+          <h3 class="create-privatemessage-modal-header">To:&nbsp;<%= @user.fname %></h3>
         </div><!--end of header-->
         <div class="modal-body flex flex-center-center">
           <%= render "privatemessages/new_privatemessage_form", user: @user, privatemessage: @privatemessage %>
