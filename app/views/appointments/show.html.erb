@@ -1,11 +1,21 @@
 <div class="content-grid appoint-show-area">
-  <div class="element-ashow-title flex-center-center center-text">
-    <h1><%= link_to @appointment.consultation.consult_title, consultation_path(@appointment.consultation.id) %></h1>
+  <div class="element-ashow-title flex-center-column center-text shell-tab-header">
+    <p class=""><%= @appointment.lesson.lesson_start.strftime('%B %d, %Y @ %I:%M%p') %></p>
+    <h3><%= link_to @appointment.consultation.consult_title, consultation_path(@appointment.consultation.id) %></h3>
+    <div class="flex">
+      <% avatar_url = @appointment.consultation.user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
+      <%= link_to user_path(@appointment.consultation.user) do %>
+        <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; height: 40px; width: 40px; border-radius: 50%; background-position: center;"></div>
+        <% end %>
+        <div class="">
+          <p>hosted by:<br><%= @appointment.consultation.user.fname %></p>
+        </div>
+    </div><!--end of embedded flex-->
     <!--empty-->
-  </div><!--end element-ashow-links-->
+  </div><!--end of element-ashow-title flex-center-column center-text-->
   <div class="element-ashow-links center-text">
-
-  </div><!--end of element-ashow-title center-text-->
+    <!-- add links-->
+  </div><!--end of element-ashow-links center-text-->
   <div class="element-ashow-inst_client shell-border flex grey-shell-gradient">
     <div class="flex-50">
       <h1 class="appoint-show-role-head center-text">Instructor</h1>
@@ -13,7 +23,7 @@
         <% avatar_url = @appointment.consultation.user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
           <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
         <%= link_to user_path(@appointment.consultation.user) do %>
-        <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
+        <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; height: 100px; width: 100px; border-radius: 50%; background-position: center;"></div>
         <% end %>
       </div><!--end of user-profile-image-div-->
       <h4 class="center-text"><b><%= @appointment.consultation.user.fname %></b></h4>
@@ -26,7 +36,7 @@
       <div class="user-profile-image-div">
         <% avatar_url = @appointment.user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
             <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-        <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
+        <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; height: 100px; width: 100px; border-radius: 50%; background-position: center;"></div>
       </div><!--end of user-profile-image-div find: _usericon.scss-->
       <h4 class="center-text"><b><%= @appointment.pupil %></b></h4>
       <h6 class="center-text">email:&nbsp;<%= @appointment.user.email %></h6>
@@ -34,12 +44,35 @@
       <h6 class="center-text">kakao:&nbsp;<%= @appointment.user.user_kakao_id %></h6>
     </div>
   </div><!--end element-ashow-inst_client-->
+  <div class="element-ashow-map shell-tab-header">
+    <div class="flex-space-between">
+      <p class="flex-50"><%= t('global.label.city') %></p>
+      <p class="flex-50"><%= @appointment.consultation.consult_city %></p>
+    </div>
+    <div class="flex-space-between">
+      <p class="flex-50"><%= t('global.label.address') %></p>
+      <p class="flex-50"><%= @appointment.consultation.address %> </p>
+    </div>
+        <div style="background-color: white;">
+      <!-- Dropdown appearing on all devices -->
+      <% if @markers !=nil %>
+      <div id="map"
+     style="width: 100%;
+     height: 300px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+     <% end %>
+    </div>
+  </div><!--end of map area-->
   <div class="element-ashow-epanel shell-border-dark black-background">
     <%= render "shared/menu_panel" %>
   </div>
   <div class="element-ashow-det shell-border grey-shell-gradient">
     <%= render "appointments/app_show_details" %>
   </div><!--end element-ashow-det-->
+  <div class="element-ashow-attend shell-border">
+    <h3 class="center-text">Attendee</h3>
+  </div>
   <div class="element-ashow-base">
     <hr>
     <%= render "shared/app_base" %>

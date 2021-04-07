@@ -13,6 +13,10 @@ class AppointmentsController < ApplicationController
 
   def show
     @appointment_dow = @appointment.lesson.lesson_dow
+    @markers = [lng: @appointment.consultation.longitude, lat: @appointment.consultation.latitude,
+      image_url: @appointment.consultation.user.photo.url || 'https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png']
+      # => [{:lng=>126.9782914, :lat=>37.5666791},{:lng=>129.8787114, :lat=>40.2632791}]
+      # raise
   end
 
   def create

@@ -35,8 +35,8 @@
     <hr>
     <div class="padding-5">
     <div class="flex-center-center">
-      <div class="flex-25"><b>student</b></div>
-      <div class="flex-25"><b>student</b></div>
+      <div class="flex-25"><b>roster</b></div>
+      <div class="flex-25"><b>attendee</b></div>
       <div class="flex-25"><b>contact info</b></div>
       <div class="flex-25"><b>enrollment date</b></div>
     </div>
@@ -48,9 +48,7 @@
          <%= num %>
         </div>
         <div class="flex-25">
-        <% avatar_url = a.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
-          <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-          <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
+
           <h6><%= a.pupil %></h6>
         </div><!--end of icon-div flex-25-->
         <div class="flex-25">

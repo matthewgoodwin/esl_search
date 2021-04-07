@@ -64,13 +64,13 @@ class PagesController < ApplicationController
 
     # @clients_array2 = []
       @clients.each do |cl|
-raise
+# raise
 
           # @clients_array2 << c
           unless @all_clients_array.include? User.find(cl.client_id)
             @all_clients_array << User.find(cl.client_id)
           end
-raise
+# raise
       end #end of clients each
     end # end of @consultations.each
   end

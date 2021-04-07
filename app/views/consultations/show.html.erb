@@ -110,7 +110,7 @@
       <div id="review-min">
         <% @consultation.reviews.each do |r| %>
           <%= link_to review_path(r) do %>
-            <div class="shell-tab-box">
+            <div class="shell-tab-header">
               <%= render 'reviews/show_ext_reviews', element: r %>
             </div>
           <% end %><!--end of link-->
