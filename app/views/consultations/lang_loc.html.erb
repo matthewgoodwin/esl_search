@@ -1,26 +1,26 @@
 <div class="content-grid element-index-area">
   <div class="element-index-header">
-    <%= render "shared/app_header" %>
+    <!-- render 'shared/app_header' -->
   </div><!--end of index-header-->
   <div class="element-index-panel shell-border-dark black-background white-text">
     <%= render "shared/menu_panel" %>
   </div><!--end of element-panel-->
   <div class="element-index-shell shell-border">
+    <div>
+      <%= render "shared/menu_panel_map"  %>
+    </div>
     <div style="background-color: white;">
       <!-- Dropdown appearing on all devices -->
       <% if @markers != nil %>
       <div id="map"
-     style="width: 100%;
-     height: 700px;"
+     style="max-width: 100%;
+     height: 600px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
      </div>
      <% end %>
     </div>
     <div style="background-color: white;">
-      <div class="navbar-esl-item shell-border-dark black-background white-text">
-        <%= render "shared/menu_panel" %>
-      </div>
       <%= render 'consultations/index_table_header' %>
       <% @consult_lang_loc_group.each do |clangloc_member| %>
         <% @clangloc_member = clangloc_member %>
