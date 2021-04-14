@@ -1,6 +1,12 @@
 <!--full size consultations-->
 <!--perhaps should alternate the columns (blue / white) for readability-->
 <div class="element-index-area content-grid padding-5">
+  <div class="element-index-header">
+    <%= render "shared/app_header" %>
+  </div>
+  <div class="element-index-panel shell-border-dark black-background">
+    <%= render "shared/menu_panel" %>
+  </div>
   <div class="element-index-shell shell-border">
     <div class="center-div center-text">
       <h1 class="center-text">APPOINTMENTS</h1>
@@ -51,4 +57,7 @@
       </div><!--flex-space-b-->
     <% end %><!--end of @user_appointments.each-->
   </div> <!--end of shell-border grey-shell-gradient-->
+  <div class="element-index-base">
+    <%= render "shared/app_base" %>
+  </div>
 </div><!--end of element-index-area content-grid-->
