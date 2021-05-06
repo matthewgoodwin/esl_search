@@ -150,6 +150,9 @@ class ConsultationsController < ApplicationController
       @consult_language_links << c.consult_language
      end
     end
+    # @consult_language_links.group_by{|clanga|
+    #   clanga.to_english
+    # }
   end
   def lang_locs
     @consult_lang_group = policy_scope(Consultation).where(consult_language: @consult_lang)

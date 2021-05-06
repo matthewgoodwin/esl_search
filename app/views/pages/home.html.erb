@@ -5,10 +5,10 @@
     <h2 class=""><%= t ('.sub_head_1') %></h2>
     <%= render "shared/app_header" %>
   </div>
-  <% image_city_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,h_500,q_59/v1587894460/city1.jpg" %>
+  <% image_tutor_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,h_500,q_59/v1620220688/2Stud.jpg" %>
   <div class="home-a card-home">
-    <%= link_to langs_locs_consultations_path do %>
-    <div class="card-bg-image" style="background-image: url('<%= image_path image_city_url %>');"></div>
+    <%= link_to langs_types_consultations_path do %>
+      <div class="card-bg-image" style="background-image: url('<%= image_path image_tutor_url %>');"></div>
       <div class="card-body black">
         <h5 class="card-title"><%= t('.card_1_title') %></h5>
         <p><%= t('.card_1_desc') %></p>
@@ -18,10 +18,10 @@
       </div>
     <% end %>
   </div>
-  <% image_cat_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,h_500,q_59/v1587752333/cat2.jpg" %>
+  <% image_test_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,h_500,q_59/v1620220277/essay_write.jpg" %>
   <div class="home-b card-home">
     <%= link_to langs_types_consultations_path do %>
-    <div class="card-bg-image" style="background-image: url('<%= image_path image_cat_url %>');"></div>
+      <div class="card-bg-image" style="background-image: url('<%= image_path image_test_url %>');"></div>
       <div class="card-body black">
         <h5 class="card-title"><%= t('.card_2_title') %></h5>
         <p><%= t('.card_2_desc') %></p>
@@ -31,10 +31,10 @@
       </div>
     <% end %>
   </div>
-  <% image_lang_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,h_500,q_59/v1587894481/edu.jpg" %>
+  <% image_grad_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,h_500,q_59/v1620290297/grad_close.jpg" %>
   <div class="home-c card-home">
-    <%= link_to langs_top_rated_consultations_path do %>
-    <div class="card-bg-image" style="background-image: url('<%= image_path image_lang_url %>');"></div>
+    <%= link_to langs_types_consultations_path do %>
+    <div class="card-bg-image" style="background-image: url('<%= image_path image_grad_url %>');"></div>
       <div class="card-body black">
         <h5 class="card-title"><%= t('.card_3_title') %></h5>
         <p><%= t('.card_3_desc') %></p>
@@ -52,7 +52,7 @@
     <h1 class="white-text"><%= t('.head_2') %></h1>
     <h2 class="white-text"><%= t('.sub_head_2') %></h2>
     </div>
-    <% image_online_url = "https://res.cloudinary.com/mattg/image/upload/v1587745845/online_zoom.jpg" %>
+    <% image_online_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,h_500,q_59/v1620220197/zoom_meet.jpg" %>
     <div class="home-d card-hm-drk brand-red-background">
       <%= link_to langs_onlines_consultations_path do %>
         <div class="card-bg-image" style="background-image: url('<%= image_path image_online_url %>');"></div>
@@ -65,7 +65,7 @@
         </div>
       <% end %>
     </div>
-    <% image_hour_url = "https://res.cloudinary.com/mattg/image/upload/v1587751715/hr1.jpg" %>
+    <% image_hour_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,h_500,q_59/v1587751715/hr1.jpg" %>
     <div class="home-e card-hm-drk brand-red-background">
       <%= link_to langs_hourlies_consultations_path do %>
         <div class="card-bg-image" style="background-image: url('<%= image_path image_hour_url %>');"></div>
@@ -78,10 +78,10 @@
         </div>
       <% end %>
     </div>
-    <% image_month_url = "https://res.cloudinary.com/mattg/image/upload/v1587745738/sgl1.jpg" %>
+    <% image_single_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,h_500,q_59/v1587925313/edutr2.jpg" %>
     <div class="home-f card-hm-drk brand-red-background">
       <%= link_to langs_singles_consultations_path do %>
-      <div class="card-bg-image" style="background-image: url('<%= image_path image_month_url %>');"></div>
+      <div class="card-bg-image" style="background-image: url('<%= image_path image_single_url %>');"></div>
       <div class="card-body white-text">
           <h5 class="card-title"><%= t('.card_6_title') %></h5>
           <p><%= t('.card_6_desc') %></p>
@@ -99,10 +99,10 @@
     <h1 class=""><%= t('.head_3') %></h1>
     <h2 class=""><%= t('.sub_head_3') %></h2>
   </div>
-  <% image_hobby_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,h_500,q_59/v1589365636/ex_1_rvlxcg.jpg" %>
+  <% image_loc_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,h_500,q_59/v1620313056/seoul_hanuk.jpg" %>
   <div class="home-g card-home">
-    <%= link_to langs_acts_consultations_path do %>
-      <div class="card-bg-image" style="background-image: url('<%= image_path image_hobby_url %>');"></div>
+    <%= link_to langs_locs_consultations_path do %>
+      <div class="card-bg-image" style="background-image: url('<%= image_path image_loc_url %>');"></div>
       <div class="card-body black">
           <h5 class="card-title"><%= t('.card_7_title') %></h5>
           <p><%= t('.card_7_desc') %></p>
@@ -126,16 +126,18 @@
       </div>
     <% end %>
   </div>
-  <% image_train_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,h_500,q_59/v1587925320/edutr2.jpg" %>
+  <% image_top_url = "https://res.cloudinary.com/mattg/image/upload/c_scale,h_500,q_59/v1620296760/girl_smile.jpg" %>
   <div class="home-i card-home">
-    <div class="card-bg-image" style="background-image: url('<%= image_path image_train_url %>');"></div>
-    <div class="card-body black">
-          <h5 class="card-title"><%= t('.card_9_title') %></h5>
-          <p><%= t('.card_9_desc') %></p>
-    </div>
-    <div class="card-footer">
-      <!-- <small class="text-muted padding-5">Last updated 3 mins ago</small> -->
-    </div>
+    <%= link_to langs_top_rated_consultations_path do %>
+      <div class="card-bg-image" style="background-image: url('<%= image_path image_top_url %>');"></div>
+      <div class="card-body black">
+            <h5 class="card-title"><%= t('.card_9_title') %></h5>
+            <p><%= t('.card_9_desc') %></p>
+      </div>
+      <div class="card-footer">
+        <!-- <small class="text-muted padding-5">Last updated 3 mins ago</small> -->
+      </div>
+    <% end %>
   </div>
   <div class="home-base">
     <div class="flex-center-center">

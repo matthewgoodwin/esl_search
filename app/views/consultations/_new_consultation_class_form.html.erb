@@ -20,15 +20,13 @@
     <h5><%= t('global.label.target_aud') %><span class="red-text">&#42;</span></h5>
     <%= f.input :consult_demo, label: false, default: [[t('global.everyone'), t('global.everyone')]], collection: [[t('global.everyone'), t('global.everyone')], [t('global.youth'), t('global.youth')], [t('global.hs'), t('global.hs')], [t('global.univ_student'), t('global.univ_student')], [t('global.adult'), t('global.adult')]] %>
     <h5><%= t('global.label.type') %><span class="red-text">&#42;</span></h5>
-    <%= f.input :consult_type, label: false, collection: [[t('global.lang_camp'), t('global.lang_camp')], [t('global.conv'), t('global.conv')], [t('global.edu'), t('global.edu')], [t('global.univ_study'), t('global.univ_study')], [t('global.tutor'), t('global.tutor')], [t('global.exam_prep'), t('global.exam_prep')], [t('global.club_hobby'), t('global.club_hobby')], [t('global.speech_interview'), t('global.speech_interview')], [t('global.industry'), t('global.industry')], [t('global.translation'), t('global.translation')], [t('global.other'), t('global.other')]], prompt: "-select type-" %>
+    <%= f.input :consult_type, label: false, collection: [[t('global.lang_camp'), t('global.lang_camp')], [t('global.conv'), t('global.conv')], [t('global.edu'), t('global.edu')], [t('global.univ_prep'), t('global.univ_prep')],[t('global.univ_study'), t('global.univ_study')], [t('global.tutor'), t('global.tutor')], [t('global.exam_prep'), t('global.exam_prep')], [t('global.club_hobby'), t('global.club_hobby')], [t('global.speech_interview'), t('global.speech_interview')], [t('global.industry'), t('global.industry')], [t('global.translation'), t('global.translation')], [t('global.other'), t('global.other')]], prompt: "-select type-" %>
     <h5><%= t('global.label.env') %><span class="red-text">&#42;</span></h5>
     <%= f.input :consult_env, label: false, collection: [[t('global.online'), t('global.online')], [t('global.face'), t('global.face')]], prompt: "-select environment-" %>
 
     <h5><%= t('global.label.ratio') %></h5>
     <%= f.input :consult_ratio, label: false, collection: [[t('global.one'), t('global.one')],[t('global.many'), t('global.many')]], prompt: "-group ratio-" %>
 
-    <h5><%= t('global.label.online_meeting_link') %></h5>
-    <%= f.input :consult_zoom_link, label: false, placeholder: "https://zoom.us/j/12345678" %>
     <h5><%= t('global.label.loc') %>:<span class="red-text">&#42;</span></h5>
     <%= f.input :consult_city, label: false, placeholder: "City" %>
     <%= f.input :address, label: false, placeholder: "Address ( e.g.; '마포구 와우산로 147-1' or '6, Buljeong-ro, Bundang-gu, Seongnam-si')" %>
