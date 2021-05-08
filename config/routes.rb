@@ -27,6 +27,9 @@ Rails.application.routes.draw do
       collection do
         # get 'hourly', to: 'consultations#hourly'
 
+        get :langs_tutors
+        get :lang_tutor
+
         get :langs_top_rated
         get :lang_top_rated
 

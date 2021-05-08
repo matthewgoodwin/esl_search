@@ -1,14 +1,14 @@
 class ConsultationsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show, :langs_locs, :lang_locs, :lang_loc,
+  skip_before_action :authenticate_user!, only: [:index, :show, :langs_tutors, :lang_tutor, :langs_locs, :lang_locs, :lang_loc,
   :langs_types, :lang_types, :lang_type, :langs_periods, :lang_periods, :lang_period, :langs_onlines, :lang_online, :langs_hourlies, :lang_hourly, :langs_singles, :lang_single, :langs_edus, :lang_edu, :langs_acts, :lang_act, :langs_top_rated, :lang_top_rated, :location, :locations]
   before_action :find_consultation, only: [:show, :edit, :update, :destroy]
   before_action :consultation_params, only: [:create]
   # before_action :period_params, only: [:hourly]
   before_action :location_params, only: [:location, :lang_loc]
-  before_action :language_params, only: [:lang_locs, :lang_loc, :lang_types, :lang_type,:lang_period, :lang_periods, :langs_onlines, :lang_online, :lang_hourly,:lang_single, :lang_edus, :lang_edu, :lang_act, :lang_top_rated, :location]
+  before_action :language_params, only: [:langs_tutors, :lang_tutor, :lang_locs, :lang_loc, :lang_types, :lang_type,:lang_period, :lang_periods, :langs_onlines, :lang_online, :lang_hourly,:lang_single, :lang_edus, :lang_edu, :lang_act, :lang_top_rated, :location]
   before_action :period_params, only: [:lang_period, :langs_periods]
   before_action :type_params, only: [:lang_type, :langs_types]
-  skip_after_action :verify_authorized, only: [:langs_locs, :lang_locs, :lang_loc, :langs_types, :lang_types, :lang_type, :langs_periods, :lang_periods, :lang_period, :langs_onlines, :lang_online,
+  skip_after_action :verify_authorized, only: [:langs_tutors, :lang_tutor, :langs_locs, :lang_locs, :lang_loc, :langs_types, :lang_types, :lang_type, :langs_periods, :lang_periods, :lang_period, :langs_onlines, :lang_online,
     :langs_hourlies, :lang_hourly, :langs_singles, :lang_single, :langs_edus, :lang_edu, :langs_acts, :lang_act, :langs_top_rated, :lang_top_rated, :locations, :location]
   def index
     #@consultations = Consultation.all
@@ -97,6 +97,20 @@ class ConsultationsController < ApplicationController
     # flash[:notice] = "Your meeting has been deleted!"
     flash[:notice] = t(:consultation_destroy)
     redirect_to dashboard_path
+  end
+
+  def langs_tutors
+    @consult_language_links = []
+    @consultations = policy_scope(Consultation).where(consult_type: "tutor")
+    @consultations.each do |c|
+      unless @consult_language_links.include? c.consult_language
+        @consult_language_links << c.consult_language
+      end
+    end
+  end
+
+  def lang_tutor
+    @consult_lang_tutor_group = policy_scope(Consultation).where(consult_language: @consult_lang, consult_type: "tutor").paginate(page: params[:page], per_page: 8)
   end
 
   def langs_top_rated

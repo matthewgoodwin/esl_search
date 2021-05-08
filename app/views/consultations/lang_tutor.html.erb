@@ -1,0 +1,25 @@
+<div class="content-grid element-index-area">
+  <div class="element-index-header">
+    <%= render "shared/app_header" %>
+  </div><!--end of index-header-->
+  <div class="element-index-panel shell-border-dark black-background white-text">
+    <%= render "shared/menu_panel" %>
+  </div><!--end of panel-menu-->
+  <div class="element-index-shell shell-border">
+    <div style="background-color: white;">
+      <%= render 'consultations/index_table_header' %>
+      <% @consult_lang_tutor_group.each.each do |clangtutor_member| %>
+        <% @clangtutor_member = clangtutor_member %>
+        <% @clangtutor_member_title = clangtutor_member.consult_title %>
+        <%= render 'consultations/index', element: clangtutor_member %>
+      <% end %><!--end of @consultations.each do-->
+    </div><!--background color: white-->
+    <div class="center-text center-div">
+      <div class="">
+        <!-- will_pagination (below) is a div w/ class called "pagination"
+          this is refernced in _paginate.scss, but can be overwritten-->
+        <h6><%= will_paginate @consult_lang_tutor_group %></h6>
+      </div>
+    </div>
+  </div>
+</div><!--end of content grid-->
