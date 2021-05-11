@@ -99,6 +99,14 @@ class ConsultationsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def langs_univ_admins
+    #university_admin_helpers
+  end
+
+  def lang_univ_admin
+    #university_admin help
+  end
+
   def langs_test_preps
     @consult_language_links = []
     @consultations = policy_scope(Consultation).where(consult_type: "exam-prep")
