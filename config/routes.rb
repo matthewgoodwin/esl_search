@@ -30,6 +30,9 @@ Rails.application.routes.draw do
         get :langs_tutors
         get :lang_tutor
 
+        get :langs_test_preps
+        get :lang_test_prep
+
         get :langs_top_rated
         get :lang_top_rated
 

@@ -1,0 +1,29 @@
+<div class="content-grid element-index-area">
+  <div class="element-index-header">
+    <%= render "shared/app_header" %>
+  </div><!--end of header-->
+  <div class="element-index-panel shell-border-dark black-background white-text">
+    <%= render "shared/menu_panel" %>
+  </div><!--end of index-panel-->
+  <div class="element-index-shell shell-border">
+    <div style="background-color: white;">
+      <div class="container-fluid">
+        <div class="row">
+          <% @consult_language_links.each do |clang_link|%>
+            <div class="col-md-6">
+              <%= link_to lang_test_prep_consultations_path(consult_language: clang_link) do %>
+                <div class="white-background card1 center-text">
+                  <h3><%= clang_link %></h3>
+                </div><!--end white card1 center-text-->
+              <% end %><!--end of link-->
+            </div><!--col-md-6-->
+          <% end %><!--end of clang_link-->
+        </div><!--row-->
+      </div><!--container-->
+    </div> <!--end of style-->
+  </div><!--end of element index shell-->
+  <div class="element-index-base">
+    <!--base here-->
+    <%= render "shared/app_base" %>
+  </div><!--end of base-->
+</div><!--end of context-grid-->
