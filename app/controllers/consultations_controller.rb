@@ -109,7 +109,7 @@ class ConsultationsController < ApplicationController
 
   def langs_test_preps
     @consult_language_links = []
-    @consultations = policy_scope(Consultation).where(consult_type: "exam-prep")
+    @consultations = policy_scope(Consultation).where(consult_type: "exam-prep - 시험 준비")
     @consultations.each do |c|
       unless @consult_language_links.include? c.consult_language
         @consult_language_links << c.consult_language
@@ -118,7 +118,7 @@ class ConsultationsController < ApplicationController
   end
 
   def lang_test_prep
-    @consult_lang_test_prep_group = policy_scope(Consultation).where(consult_language: @consult_lang, consult_type: "exam-prep").paginate(page: params[:page], per_page: 8)
+    @consult_lang_test_prep_group = policy_scope(Consultation).where(consult_language: @consult_lang, consult_type: "exam-prep - 시험 준비").paginate(page: params[:page], per_page: 8)
   end
 
   def langs_tutors
@@ -286,7 +286,7 @@ class ConsultationsController < ApplicationController
 
   def langs_onlines
     @consult_language_links = []
-    @consultations = policy_scope(Consultation).where(consult_env: "online / remote")
+    @consultations = policy_scope(Consultation).where(consult_env: "online & remote - 온라인")
     @consultations.each do |c|
       unless @consult_language_links.include? c.consult_language
         @consult_language_links << c.consult_language
@@ -294,7 +294,7 @@ class ConsultationsController < ApplicationController
     end
   end
   def lang_online
-    @consult_lang_online_group = policy_scope(Consultation).where(consult_language: @consult_lang, consult_env: "online / remote").paginate(page: params[:page], per_page: 8)
+    @consult_lang_online_group = policy_scope(Consultation).where(consult_language: @consult_lang, consult_env: "online & remote - 온라인").paginate(page: params[:page], per_page: 8)
     # raise
   end
 
@@ -325,7 +325,7 @@ class ConsultationsController < ApplicationController
   end
 
   def langs_edus
-    @consultations = policy_scope(Consultation).where(consult_type: "education")
+    @consultations = policy_scope(Consultation).where(consult_type: "education - 교육")
     @consult_language_links = []
     @consultations.each do |c|
       unless @consult_language_links.include? c.consult_language
@@ -334,11 +334,11 @@ class ConsultationsController < ApplicationController
     end
   end
   def lang_edu
-    @consult_lang_edu_group = policy_scope(Consultation).where(consult_language: @consult_lang, consult_type: "education").paginate(page: params[:page], per_page: 8)
+    @consult_lang_edu_group = policy_scope(Consultation).where(consult_language: @consult_lang, consult_type: "education - 교육").paginate(page: params[:page], per_page: 8)
   end
 
   def langs_acts
-    @consultations = policy_scope(Consultation).where(consult_type: "club")
+    @consultations = policy_scope(Consultation).where(consult_type: "language club - 동아리 & 취미")
     @consult_language_links = []
     @consultations.each do |c|
       unless @consult_language_links.include? c.consult_language
@@ -347,7 +347,7 @@ class ConsultationsController < ApplicationController
     end
   end
   def lang_act
-    @consult_lang_act_group = policy_scope(Consultation).where(consult_language: @consult_lang, consult_type: "club").paginate(page: params[:page], per_page: 8)
+    @consult_lang_act_group = policy_scope(Consultation).where(consult_language: @consult_lang, consult_type: "language club - 동아리 & 취미").paginate(page: params[:page], per_page: 8)
   end
 
   def locations
