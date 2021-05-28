@@ -12,20 +12,20 @@
             <div class="form-inputs">
               <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                 <%= f.error_notification %>
-                <p><%= t('global.label.fname') %></p>
+                <p><%= t('global.label.fname') %><span class="red-text">&#42;</span></p>
                 <%= f.input :fname, label: false, error: 'first name is mandatory, please specify one', required: true, autofocus: true %>
-                <p><%= t('global.label.username') %></p>
+                <p><%= t('global.label.username') %><span class="red-text">&#42;</span></p>
                 <%= f.input :username, label: false, autofocus: true %>
-                <p><%= t('global.label.user_native_lang') %></p>
+                <p><%= t('global.label.email') %><span class="red-text">&#42;</span></p>
+                <%= f.input :email, label: false, error: 'an email address is mandatory, please specify one', required: true, autofocus: true %>
+                <p><%= t('global.label.city') %><span class="red-text">&#42;</span></p>
+                <%= f.input :city, label: false, error: 'your city name is mandatory, please specify one', required: true, autofocus: true %>
+                <p><%= t('global.label.user_native_lang') %><span class="red-text">&#42;</span></p>
                 <%= f.input :user_native_lang, label: false, default: [[t('global.en'), t('global.en')]], collection: [[t('global.en'), t('global.en')], [t('global.kr'), t('global.kr')], [t('global.jp'), t('global.jp')],[t('global.sp'), t('global.sp')], [t('global.fr'), t('global.fr')], [t('global.ch'), t('global.ch')], [t('global.vt'), t('global.vt')], [t('global.rus'), t('global.rus')]], error: 'your native language is required, please specify one', required: true, autofocus: true %>
                 <p><%= t('global.label.user_second_lang') %></p>
                 <%= f.input :user_second_lang, label: false, default: [[t('global.en'), t('global.en')]], collection: [[t('global.en'), t('global.en')], [t('global.kr'), t('global.kr')], [t('global.jp'), t('global.jp')],[t('global.sp'), t('global.sp')], [t('global.fr'), t('global.fr')], [t('global.ch'), t('global.ch')], [t('global.vt'), t('global.vt')], [t('global.rus'), t('global.rus')]], error: 'your native language is required, please specify one', required: true, autofocus: true %>
                 <p><%= t('global.label.gender') %></p>
                 <%= f.input :gender, label: false, collection: [[t("global.male"),t("global.male")],[t("global.female"),t("global.female")]], error: 'your gender is mandatory, please specify one', required: true, autofocus: true %>
-                <p><%= t('global.label.email') %></p>
-                <%= f.input :email, label: false, error: 'an email address is mandatory, please specify one', required: true, autofocus: true %>
-                <p><%= t('global.label.city') %></p>
-                <%= f.input :city, label: false, error: 'your city name is mandatory, please specify one', required: true, autofocus: true %>
                 <p><%= t('global.label.address') %></p>
                 <%= f.input :address, label:false, autofocus: true %>
                 <p><%= t('global.label.user_phone') %></p>

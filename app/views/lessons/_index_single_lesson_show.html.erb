@@ -12,7 +12,7 @@
       </div>
     <% end %><!--end of policy-->
   </div><!--end of flex 25-->
-  <% if @consultation.consult_period == 'hourly' %>
+  <% if @consultation.consult_period == 'hourly - 시간당' %>
     <div class="flex-33">
       <h6 class=""><%= element.lesson_start.strftime('%A')%>&nbsp;<%= element.lesson_start.strftime('%m/%d')%></h6>
         <h6></h6>
@@ -28,9 +28,9 @@
     <% if element.appointments.size < element.lesson_capacity %>
     <!-- cant compare 0 : nil -->
         <a href="" data-toggle="modal" data-target="#lesson-form-<%= element.id %>">
-        <% unless @consultation.consult_period == 'hourly' %>
+        <% unless @consultation.consult_period == 'hourly - 시간당' %>
         <!-- ^executes unless condition is true-->
-          <!-- hides lesson capacity if hourly-->
+          <!-- hides lesson capacity if hourly - 시간당-->
           <h6 style="color: grey;"> seat(s) left: <%= element.lesson_capacity - element.appointments.size %></h6>
         <% end %>
         <h5 style="color: red;"><b>Sign Up!</b></h5>
@@ -40,7 +40,7 @@
     <% end %><!--end of lesson size vs capacity-->
       </div>
     </div><!-- end of lesson info -->
-  <% elsif  @consultation.consult_period == 'single-class'  %>
+  <% elsif  @consultation.consult_period == 'flat-rate'  %>
     <div class="flex-33">
       <h6 class="navy-text"><%= element.lesson_start.strftime('%I:%M %p')%></h6>
       <h6 class="red-text"><%= element.lesson_end.strftime('%I:%M %p')%></h6>

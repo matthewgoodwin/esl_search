@@ -57,8 +57,11 @@ Rails.application.routes.draw do
         get :langs_hourlies
         get :lang_hourly
 
-        get :langs_singles
-        get :lang_single
+        get :langs_flats
+        get :lang_flat
+
+        get :langs_free_services
+        get :lang_free_service
 
         get :langs_edus
         get :lang_edu

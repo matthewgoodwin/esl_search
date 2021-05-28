@@ -1,15 +1,15 @@
 class ConsultationsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :langs_admissions,:lang_admission, :langs_test_preps, :lang_test_prep, :langs_tutors, :lang_tutor, :langs_locs, :lang_locs, :lang_loc,
-  :langs_types, :lang_types, :lang_type, :langs_periods, :lang_periods, :lang_period, :langs_onlines, :lang_online, :langs_hourlies, :lang_hourly, :langs_singles, :lang_single, :langs_edus, :lang_edu, :langs_acts, :lang_act, :langs_top_rated, :lang_top_rated, :location, :locations]
+  :langs_types, :lang_types, :lang_type, :langs_periods, :lang_periods, :lang_period, :langs_onlines, :lang_online, :langs_hourlies, :lang_hourly, :langs_flats, :lang_flat,:langs_free_services, :lang_free_service, :langs_edus, :lang_edu, :langs_acts, :lang_act, :langs_top_rated, :lang_top_rated, :location, :locations]
   before_action :find_consultation, only: [:show, :edit, :update, :destroy]
   before_action :consultation_params, only: [:create]
   # before_action :period_params, only: [:hourly]
   before_action :location_params, only: [:location, :lang_loc]
-  before_action :language_params, only: [:langs_admissions, :lang_admission, :langs_test_preps, :lang_test_prep, :langs_tutors, :lang_tutor, :lang_locs, :lang_loc, :lang_types, :lang_type,:lang_period, :lang_periods, :langs_onlines, :lang_online, :lang_hourly,:lang_single, :lang_edus, :lang_edu, :lang_act, :lang_top_rated, :location]
+  before_action :language_params, only: [:langs_admissions, :lang_admission, :langs_test_preps, :lang_test_prep, :langs_tutors, :lang_tutor, :lang_locs, :lang_loc, :lang_types, :lang_type,:lang_period, :lang_periods, :langs_onlines, :lang_online, :lang_hourly,:lang_flat, :lang_free_service, :lang_edus, :lang_edu, :lang_act, :lang_top_rated, :location]
   before_action :period_params, only: [:lang_period, :langs_periods]
   before_action :type_params, only: [:lang_type, :langs_types]
   skip_after_action :verify_authorized, only: [:langs_admissions, :lang_admission,:langs_test_preps, :lang_test_prep, :langs_tutors, :lang_tutor, :langs_locs, :lang_locs, :lang_loc, :langs_types, :lang_types, :lang_type, :langs_periods, :lang_periods, :lang_period, :langs_onlines, :lang_online,
-    :langs_hourlies, :lang_hourly, :langs_singles, :lang_single, :langs_edus, :lang_edu, :langs_acts, :lang_act, :langs_top_rated, :lang_top_rated, :locations, :location]
+    :langs_hourlies, :lang_hourly, :langs_flats, :lang_flat,:langs_free_services, :lang_free_service, :langs_edus, :lang_edu, :langs_acts, :lang_act, :langs_top_rated, :lang_top_rated, :locations, :location]
   def index
     #@consultations = Consultation.all
     if params[:query].present?
@@ -101,16 +101,16 @@ class ConsultationsController < ApplicationController
 
   def langs_admissions
     @consult_language_links = []
-    @consultations = policy_scope(Consultation).where(consult_type: "university admissions")
+    @consultations = policy_scope(Consultation).where(consult_type: "university admissions - 대학교 입학")
     @consultations.each do |c|
-      unless consult_language_links.include? c.consult_language
+      unless @consult_language_links.include? c.consult_language
         @consult_language_links << c.consult_language
       end
     end
   end
 
   def lang_admission
-    @consult_lang_admission_group = policy_scope(Consultation).where(consult_language: @consult_lang, consult_type: "university admissions").paginate(page: params[:page], per_page: 8)
+    @consult_lang_admission_group = policy_scope(Consultation).where(consult_language: @consult_lang, consult_type: "university admissions - 대학교 입학").paginate(page: params[:page], per_page: 8)
   end
 
   def langs_test_preps
@@ -129,7 +129,7 @@ class ConsultationsController < ApplicationController
 
   def langs_tutors
     @consult_language_links = []
-    @consultations = policy_scope(Consultation).where(consult_type: "tutor")
+    @consultations = policy_scope(Consultation).where(consult_type: "tutor - 과외")
     @consultations.each do |c|
       unless @consult_language_links.include? c.consult_language
         @consult_language_links << c.consult_language
@@ -138,7 +138,7 @@ class ConsultationsController < ApplicationController
   end
 
   def lang_tutor
-    @consult_lang_tutor_group = policy_scope(Consultation).where(consult_language: @consult_lang, consult_type: "tutor").paginate(page: params[:page], per_page: 8)
+    @consult_lang_tutor_group = policy_scope(Consultation).where(consult_language: @consult_lang, consult_type: "tutor - 과외").paginate(page: params[:page], per_page: 8)
   end
 
   def langs_top_rated
@@ -303,7 +303,7 @@ class ConsultationsController < ApplicationController
   end
 
   def langs_hourlies
-    @consultations = policy_scope(Consultation).where(consult_period: "hourly")
+    @consultations = policy_scope(Consultation).where(consult_period: "hourly - 시간당")
     @consult_language_links = []
     @consultations.each do |c|
       unless @consult_language_links.include? c.consult_language
@@ -312,11 +312,11 @@ class ConsultationsController < ApplicationController
     end
   end
   def lang_hourly
-    @consult_lang_hourly_group = policy_scope(Consultation).where(consult_language: @consult_lang, consult_period:"hourly").paginate(page: params[:page], per_page: 8)
+    @consult_lang_hourly_group = policy_scope(Consultation).where(consult_language: @consult_lang, consult_period:"hourly - 시간당").paginate(page: params[:page], per_page: 8)
   end
 
-  def langs_singles
-    @consultations = policy_scope(Consultation).where(consult_period: "single-session")
+  def langs_flats
+    @consultations = policy_scope(Consultation).where(consult_period: "flat-rate(k)")
     @consult_language_links = []
     @consultations.each do |c|
       unless @consult_language_links.include? c.consult_language
@@ -324,8 +324,22 @@ class ConsultationsController < ApplicationController
       end
     end
   end
-  def lang_single
-    @consult_lang_single_group = policy_scope(Consultation).where(consult_language: @consult_lang, consult_period: "single-session").paginate(page: params[:page], per_page: 8)
+  def lang_flat
+    @consult_lang_flat_group = policy_scope(Consultation).where(consult_language: @consult_lang, consult_period: "flat-rate(k)").paginate(page: params[:page], per_page: 8)
+  end
+
+  def langs_free_services
+    @consultations = policy_scope(Consultation).where(consult_period: "free service - (k)")
+    @consult_language_links = []
+    @consultations.each do |c|
+      unless @consult_language_links.include? c.consult_language
+          @consult_language_links << c.consult_language
+        end
+    end
+  end
+
+  def lang_free_service
+    @consult_free_service_group = policy_scope(Consultation).where(consult_language: @consult_lang, consult_period: "free service - (k)").paginate(page: params[:page], per_page: 8)
   end
 
   def langs_edus
