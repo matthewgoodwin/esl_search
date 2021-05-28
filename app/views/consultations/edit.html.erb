@@ -1,5 +1,5 @@
 
-<% if @consultation.consult_period == 'hourly' %>
+<% if @consultation.consult_period == 'hourly - 시간당' %>
   <!--this should be in a partial-->
 
   <%= simple_form_for(@consultation) do |f| %>
@@ -23,7 +23,7 @@
     <%= f.input :consult_city, label: false, placeholder: "City" %>
     <%= f.input :address, label: false, placeholder: "Address ( e.g.; '마포구 와우산로 147-1' or '6, Buljeong-ro, Bundang-gu, Seongnam-si')" %>
     <h5><%= t('global.label.term') %><span class="red-text">&#42;</span></h5>
-    <%= f.input :consult_period, label: false, default: ["hourly"], collection: ["hourly"] %>
+    <%= f.input :consult_period, label: false, default: [t('global.hourly'), t('global.hourly')], collection: [[t('global.hourly'), t('global.hourly')], [t('global.flat'), t('global.flat')], [t('global.free'), t('global.free')]] %>
     <div>
       <h5><%= t('global.label.rate') %><span class="red-text">&#42;</span></h5>
       <div class="flex">
@@ -72,7 +72,7 @@
     <%= f.input :consult_city, label: false, placeholder: "City" %>
     <%= f.input :address, label: false, placeholder: "Address ( e.g.; '마포구 와우산로 147-1' or '6, Buljeong-ro, Bundang-gu, Seongnam-si')" %>
     <h5><%= t('global.label.term') %><span class="red-text">&#42;</span></h5>
-    <%= f.input :consult_period, label: false, default: ["hourly"], collection: ["single-session"] %>
+    <%= f.input :consult_period, label: false, default: [t('global.hourly'), t('global.hourly')], collection: [[t('global.hourly'), t('global.hourly')], [t('global.flat'), t('global.flat')]] %>
     <div>
       <h5><%= t('global.label.rate') %><span class="red-text">&#42;</span></h5>
       <div class="flex">

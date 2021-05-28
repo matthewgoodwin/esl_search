@@ -1,32 +1,25 @@
 <div class="content-grid element-index-area">
   <div class="element-index-header">
     <%= render "shared/app_header" %>
-  </div><!--end of index-header-->
+  </div><!--end of index header-->
   <div class="element-index-panel shell-border-dark black-background white-text">
     <%= render "shared/menu_panel" %>
-  </div><!--end of element-panel-->
+  </div><!--end of index-panel-->
   <div class="element-index-shell shell-border">
     <div style="background-color: white;">
       <%= render 'consultations/index_table_header' %>
-      <% @consult_lang_single_group.each.each do |clangsingle_member| %>
-        <% @clangsingle_member = clangsingle_member %>
-        <% @clangsingle_member_title = clangsingle_member.consult_title %>
-        <%= render 'consultations/index', element: clangsingle_member %>
+      <% @consult_free_service_group.each do |clangfree_member| %>
+        <% @clangfree_member = clangfree_member %>
+        <% @clangfree_member_title = clangfree_member.consult_title %>
+        <%= render 'consultations/index', element: clangfree_member %>
       <% end %><!--end of @consultations.each do-->
     </div><!--background color: white-->
     <div class="center-text center-div">
       <div class="">
         <!-- will_pagination (below) is a div w/ class called "pagination"
           this is refernced in _paginate.scss, but can be overwritten-->
-        <h6><%= will_paginate @consult_lang_single_group %></h6>
+        <%= will_paginate @consult_free_service_group %>
       </div>
     </div>
-  </div><!-- end of consultations-index-shell-->
-  <div class="element-index-base">
-    <div class="flex-center-center">
-      <!--PAGE SPECIFIC BASE INFO-->
-    </div>
-    <hr>
-    <%= render "shared/app_base" %>
-  </div><!--end of index-base-->
-</div><!--end of consult-index-area-->
+  </div><!--end of index-shell-->
+</div><!--end of content-grid-->

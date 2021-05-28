@@ -31,7 +31,7 @@
     <%= f.input :consult_city, label: false, placeholder: "City" %>
     <%= f.input :address, label: false, placeholder: "Address ( e.g.; '마포구 와우산로 147-1' or '6, Buljeong-ro, Bundang-gu, Seongnam-si')" %>
     <h5><%= t('global.label.term') %><span class="red-text">&#42;</span></h5>
-    <%= f.input :consult_period, label: false, default: ["hourly"], collection: ["hourly", "single-session"] %>
+    <%= f.input :consult_period, label: false, default: [t('global.hourly'), t('global.hourly')], collection: [[t('global.hourly'), t('global.hourly')], [t('global.flat'), t('global.flat')], [t('global.free'), t('global.free')]] %>
     <div>
       <h5><%= t('global.label.rate') %><span class="red-text">&#42;</span></h5>
       <div class="flex">
@@ -40,7 +40,7 @@
       </div>
     </div>
     <h5><%= t('global.label.mat_incl') %><span class="red-text">&#42;</span></h5>
-    <%= f.input :consult_mat, label: false, as: :radio_buttons, collection:[["yes","yes"], ["no","no"]], label_method: :second, value_method: :first, checked: ["no","no"]%>
+    <%= f.input :consult_mat, label: false, as: :radio_buttons, collection:[[t('global.t'), t('global.t')], [t('global.f'), t('global.f')]], label_method: :second, value_method: :first, checked: [t('global.f'), t('global.f')]%>
     <h5><%= t('global.label.specific_focus') %> (optional)&nbsp;:</h5>
     <h5><span class="red-text"><%= t('global.label.specific_focus2') %></span></h5>
     <%= f.input :consult_focus, label: false, placeholder: "e.g. grammar" %>

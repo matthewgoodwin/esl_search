@@ -1,7 +1,7 @@
 <div class="padding-5">
   <h2 class="appoint-show-role-head center-text black"><%= @appointment.consultation.consult_title %></h2>
   <!--start-->
-  <% if @appointment.consultation.consult_period == 'hourly'%>
+  <% if @appointment.consultation.consult_period == 'hourly - 시간당'%>
     <div class="flex-center-center">
       <h4 class="flex"><%= @appointment.lesson.lesson_start.strftime('%B %d, %Y @ %I:%M%p') %></h4>
     </div>

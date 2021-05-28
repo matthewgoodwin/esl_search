@@ -15,7 +15,7 @@
       <h6>maximum time <span class="red-text">&#42;</span></h6>
       <%= f.input :lesson_capacity, label: false, as: :hidden, input_html: {value: 1} %>
       <%= f.input :lesson_max_dur, class: 'flex-center-center', label: false, prompt: "time limit", collection: [[0, 'no limit'],[60, '1 hour'], [120, '2 hours'], [180, '3 hours']], label_method: :second, value_method: :first %>
-    <% elsif consultation.consult_period == 'single-session' %>
+    <% elsif consultation.consult_period == 'flat-rate' %>
       <div class="lesson-start-time">
         <h6>maximum student enrollment <span class="red-text">&#42;</span></h6>
         <%= f.input :lesson_capacity, label: false %>
