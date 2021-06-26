@@ -8,7 +8,11 @@
   <div class="element-index-shell shell-border">
     <div class="center-div center-text">
       <h1 class="center-text">MESSAGES</h1>
-      <h6 class="center-text"><%= link_to 'dashboard', dashboard_path %></h6>
+        <%= link_to dashboard_path, class: "black-text" do %>
+        <div class="">
+          <h5 class="navbar-esl-link"><%= t('global.menu.dash') %>&nbsp;<span><i class="fas fa-lg fa-chart-pie" aria-hidden="true"></i></span></h5>
+        </div>
+      <% end %>
     </div>
     <div class="flex-space-between flex-wrap grey-shell-gradient padding-5">
       <div class="flex-33"><h6><b>SENDER</b></h6></div>

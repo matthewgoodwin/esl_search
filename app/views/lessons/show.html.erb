@@ -1,32 +1,36 @@
 <div class="content-grid element-index-area padding-5">
+  <div class="element-index-panel black-background shell-border-dark">
+    <%= render 'shared/menu_panel' %>
+  </div>
   <div class="element-index-shell shell-border-no-pad">
     <div class="center-text center-div">
-      <h1>Class Roster:</h1>
+      <h1>Class Roster</h1>
     </div>
-    <div style="background-color: #3C3C3C; color: white;" class="padding-5">
+    <hr>
+    <div class="black-text padding-5">
       <div class="flex-space-between">
-        <h5 class="flex-50">Class:</h5>
+        <h5 class="flex-50">Class</h5>
         <h5 class="flex-50"><%= @lesson.consultation.consult_title %> </h5>
       </div>
       <div class="flex-space-between">
-        <h5 class="flex-50">City:</h5>
+        <h5 class="flex-50">City</h5>
         <h5 class="flex-50"><%= @lesson.consultation.consult_city %> </h5>
       </div>
       <div class="flex-space-between">
-        <h5 class="flex-50">Address:</h5>
+        <h5 class="flex-50">Address</h5>
         <h5 class="flex-50"><%= @lesson.consultation.address %> </h5>
       </div>
       <div class="flex-space-between">
-        <h5 class="flex-50">Class&nbsp;Time:&nbsp;</h5>
+        <h5 class="flex-50">Class&nbsp;Time&nbsp;</h5>
         <h5 class="flex-50" style="color: red;"><%= @lesson.lesson_start%> <%=@lesson.lesson_dow.shift%></h5>
       </div>
       <!-- ^ 'shift' drops the first default black space in lessons_dow array-->
       <div class="flex-space-between">
-        <h5 class="flex-50">Online Link:</h5>
+        <h5 class="flex-50">Online Link</h5>
         <h5 class="flex-50"><%= @lesson.remote_link %> </h5>
       </div>
       <div class="flex">
-        <h5 class="">Day(s):</h5>
+        <h5 class="">Day(s)</h5>
         <% @lesson.lesson_dow.each do |d| %>
         <h5 class="">&nbsp;<%= d %>&nbsp;</h5>
       <% end %><!--end lesson_dow.each-->
@@ -53,8 +57,8 @@
         </div><!--end of icon-div flex-25-->
         <div class="flex-25">
           <% if policy(@lesson).destroy? %>
-            <h6>email:&nbsp;<%= a.user.email %></h6>
-            <h6>mobile:&nbsp;<%= a.user.user_phone %></h6>
+            <h6>E:&nbsp;<%= a.user.email %></h6>
+            <h6>M:&nbsp;<%= a.user.user_phone %></h6>
             <h6>kakoa id:&nbsp;<%= a.user.user_kakao_id %></h6>
           <% else %>
             <h6>Instructors Only</h6>

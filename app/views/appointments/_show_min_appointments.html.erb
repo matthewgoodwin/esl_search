@@ -8,7 +8,7 @@
      <%= link_to user_path(element.consultation.user) do %>
      <% avatar_url = element.consultation.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
         <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-      <div class="user-sm-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
+      <div class="user-sm-profile-image-img icon-shell center-text center-div" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
       <% end %>
     </div><!--end of NESTED icon flex item div-->
       <div class="flex-33"><!--can grow-->
@@ -20,7 +20,7 @@
             <h6 class="red-text"><%= element.lesson.lesson_start.strftime('@ %I:%M %p') %></h6>
             <h6 class="red-text"><%= element.lesson.lesson_max_dur %>&nbsp;minutes max</h6>
             <!-- hourly schedules are set by the appointment -->
-          <% elsif element.consultation.consult_period == 'flat-rate' %>
+          <% elsif element.consultation.consult_period == 'flat-rate(k)' %>
             <h6 class="charcoal-text"><%= element.lesson.lesson_start.strftime('%m/%d') %></h6>
             <h6 class="navy-text"><%= element.lesson.lesson_start.strftime('%I:%M %p') %></h6>
             <h6 class="red-text"><%= element.lesson.lesson_end.strftime('%I:%M %p') %></h6>

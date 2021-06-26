@@ -240,6 +240,7 @@ ko:
       review: "후기"
       start: "시작"
       end: "종료"
+      message: "쪽지"
   pages:
     home:
       head_1: "Hangul header 1"

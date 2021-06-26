@@ -5,11 +5,11 @@
   <%= simple_form_for([consultation, lesson], remote: true) do |f| %>
     <h6>choose a skill level <span class="red-text">&#42;</span></h6>
     <%= f.input :lesson_level, label: false, prompt:"-select-" ,collection: ["everyone","beginner","intermediate","advanced"] %>
-    <% if consultation.consult_env == "online / remote" || "온라인" %>
+    <% if consultation.consult_env == "online & remote - 온라인" %>
       <h5><%= t('global.label.remote_link') %></h5>
     <%= f.input :remote_link, label: false, placeholder: "https://zoom.us/j/12345678" %>
     <% end %>
-    <% if consultation.consult_period == 'hourly'%>
+    <% if consultation.consult_period == 'hourly - 시간당'%>
       <!-- :lesson_start, as: :time, label: "start" -->
       <%= f.input :lesson_start, as: :date_time_picker %>
       <h6>maximum time <span class="red-text">&#42;</span></h6>

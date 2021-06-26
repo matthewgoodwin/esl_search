@@ -2,8 +2,13 @@
 
 // For example:
 $brand-primary-color: #B22E25;
+$brand-purple: #34023c;
+$brand-orchid: #8b42b3;
+$brand-cornflower: #7699d4;
+$brand-maximum: #63b4d1;
+$brand-electric: #90fcf9;
+
 $brand-green: #16db93;
-$brand-purple: #250753;
 $brand-gray: #AFAFAF;
 $brand-blue: #2B8DDF;
 $brand-red: #B22E25;
@@ -77,15 +82,18 @@ $red: #B22E25;
 .charcoal-text{
   color: $charcoal;
 }
-.brand-red-background{
-  background-color: $brand-red;
-}
-.brand-red-text{
-  color: $brand-red;
-}
-.red-text{
-  color: $brand-red;
-}
+//brand red
+// .brand-red-background{
+//   background-color: $brand-red;
+// }
+// .brand-red-text{
+//   color: $brand-red;
+// }
+// .red-text{
+//   color: $brand-red;
+// }
+
+
 .blue-text{
   color: $blue-45;
 }
@@ -98,6 +106,63 @@ $red: #B22E25;
 .grey-text{
   color: $gray;
 }
+
+
+//brand purple
+.brand-purple-background{
+  background-color: $brand-purple;
+}
+.brand-purple-text{
+  color: $brand-purple;
+}
+.purple-text{
+  color: $brand-purple;
+}
+
+//brand orchid
+.brand-orchid-background{
+  background-color: $brand-orchid;
+}
+.brand-orchid-text{
+  color: $brand-orchid;
+}
+.orchid-text{
+  color: $brand-orchid;
+}
+
+//brand cornflower blue
+.brand-cornflower-background{
+  background-color: $brand-cornflower;
+}
+.brand-cornflower-text{
+  color: $brand-cornflower;
+}
+.cornflower-text{
+  color: $brand-cornflower;
+}
+
+//brand maximum blue
+.brand-maximum-background{
+  background-color: $brand-maximum;
+}
+.brand-maximum-text{
+  color: $brand-maximum;
+}
+.maximum-text{
+  color: $brand-maximum;
+}
+
+//brand electric blue
+.brand-electric-background{
+  background-color: $brand-electric;
+}
+.brand-electric-text{
+  color: $brand-electric;
+}
+.electric-text{
+  color: $brand-electric;
+}
+
 .grey-tab-gradient{
   background-image: -webkit-linear-gradient(275deg, rgba(248,248,248,0.05), rgba(0,0,0,0));
   background-image: -o-linear-gradient(275deg, rgba(248,248,248,0.05), rgba(0,0,0,0));

@@ -7,7 +7,7 @@
       <h6 class=""><%= current_user.email %></h6>
       <h6 class="">Kakao:&nbsp;<%= current_user.user_kakao_id %></h6>
       <div>
-        <%= link_to edit_user_registration_path(current_user), class: "white-text" do %>
+        <%= link_to edit_user_registration_path, class: "white-text" do %>
           <i class="fas fa-edit" aria-hidden="true"></i>
         <% end %>
       </div>
@@ -43,7 +43,7 @@
           <% end %>
         </li>
         <li class="shell-tab-header-dark charcoal-background">
-          <%= link_to edit_user_registration_path(current_user.id), class: "white-text" do %>
+          <%= link_to edit_user_registration_path, class: "white-text" do %>
             <h5 class=""><%= t('.edit_profile') %></h5>
             <!-- change to 'edit profile' -->
           <% end %>
