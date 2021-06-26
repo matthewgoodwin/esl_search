@@ -8,6 +8,9 @@
   <div class="element-index-shell shell-border">
     <div class="center-div center-text">
       <h1 class="center-text">USER REVIEWS</h1>
+      <%= link_to dashboard_path, class: "black-text" do %>
+      <h5><%= t('global.menu.dash') %>&nbsp;<span><i class="fas fa-lg fa-chart-pie"></i></span></h5>
+      <% end %>
     </div>
     <hr>
     <% @user_consultations.each do |c| %>

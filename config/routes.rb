@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get 'clients/destroy'
 
     devise_for :users
-    resources :users, only:[:index, :show], shallow: true do
+    resources :users, only:[:index, :show, :edit, :update, :destroy], shallow: true do
       member do # member => User id in URL
         # ^ creates routes outside the seven routes created by default
         get 'user_consultations', to: 'users#user_consultations'

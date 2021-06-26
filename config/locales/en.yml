@@ -225,6 +225,7 @@ en:
       review: "Reviews"
       start: "START"
       end: "FINISH"
+      message: "MESSAGE"
   pages:
     home:
       head_1: "ENGLISH header 1"

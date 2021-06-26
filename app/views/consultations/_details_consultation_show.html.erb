@@ -1,4 +1,4 @@
-<div class="navy-background padding">
+<div class="brand-maximum-background padding">
   <div class="flex-center-center center-div">
     <h1 class="white-text center-text"><%= @consultation.consult_title %></h1>
   </div>
@@ -40,6 +40,18 @@
     <p><%= @consultation.consult_demo %></p>
   </div>
 </div><!--end of flex 2-->
+<div class="flex-space-between flex-row padding-5 center-text 2.5">
+  <div class="flex-50">
+    <h6><b><%= t('global.label.env') %>:</b></h6>
+    <p><%= @consultation.consult_env %></p>
+  </div>
+  <div class="flex-50">
+  <!-- <p> @consultation.consult_fee </p> -->
+    <h6><b><%= t('global.label.ratio') %>:</b></h6>
+    <p><%= @consultation.consult_ratio %></p>
+  </div>
+  <!-- :unit is built into the number_to_currency-->
+</div><!-- end of flex 2.5-->
 <div class="flex-space-between flex-row padding-5 center-text 3">
   <div class="flex-50">
     <h6><b><%= t('global.label.term') %>:</b></h6>
