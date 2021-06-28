@@ -37,7 +37,7 @@
                   <p><%= t('global.label.subjectmajor') %></p>
                   <%= f.input :subjectmajor, label: false, autofocus: true %>
                   <p><%= t('global.label.edulevel') %></p>
-                  <%= f.input :edulevel, label: false, collection: ["associate's","bachelor's","master's","doctoral","professional"], error: 'please specify the highest education attained', autofocus: true %>
+                  <%= f.input :edulevel, label: false, collection: [[t('global.assoc'), t('global.assoc')],[t('global.bach'), t('global.bach')],[t('global.master'), t('global.master')],[t('global.doc'), t('global.doc')]], error: 'please specify the highest education attained', autofocus: true %>
                 </div>
                 <div class="aboutyou">
                   <p><%= t('global.label.aboutme') %></p>

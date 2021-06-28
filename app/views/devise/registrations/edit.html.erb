@@ -1,4 +1,4 @@
-<div class="center-div padding mw400">
+<div class="center-div padding mw600">
   <div class="shell-sign-in wrapper">
     <div class="inline-block">
       <div class="flex-center-center">
@@ -10,7 +10,40 @@
 
           <div class="form-inputs">
             <%= f.input :email, required: true, autofocus: true %>
-
+            <p><%= t('global.label.fname') %><span class="red-text">&#42;</span></p>
+            <%= f.input :fname, label: false, error: 'first name is mandatory, please specify one', required: true, autofocus: true %>
+            <p><%= t('global.label.username') %><span class="red-text">&#42;</span></p>
+            <%= f.input :username, label: false, autofocus: true %>
+            <p><%= t('global.label.city') %><span class="red-text">&#42;</span></p>
+            <%= f.input :city, label: false, error: 'your city name is mandatory, please specify one', required: true, autofocus: true %>
+            <p><%= t('global.label.user_native_lang') %><span class="red-text">&#42;</span></p>
+            <%= f.input :user_native_lang, label: false, collection: [[t('global.en'), t('global.en')], [t('global.kr'), t('global.kr')], [t('global.jp'), t('global.jp')],[t('global.sp'), t('global.sp')], [t('global.fr'), t('global.fr')], [t('global.ch'), t('global.ch')], [t('global.vt'), t('global.vt')], [t('global.rus'), t('global.rus')]], error: 'your native language is required, please specify one', required: true, autofocus: true %>
+            <p><%= t('global.label.user_second_lang') %></p>
+            <%= f.input :user_second_lang, label: false, collection: [[t('global.en'), t('global.en')], [t('global.kr'), t('global.kr')], [t('global.jp'), t('global.jp')],[t('global.sp'), t('global.sp')], [t('global.fr'), t('global.fr')], [t('global.ch'), t('global.ch')], [t('global.vt'), t('global.vt')], [t('global.rus'), t('global.rus')]], error: 'your native language is required, please specify one', required: true, autofocus: true %>
+            <p><%= t('global.label.gender') %></p>
+            <%= f.input :gender, label: false, collection: [[t("global.male"),t("global.male")],[t("global.female"),t("global.female")]], error: 'your gender is mandatory, please specify one', required: true, autofocus: true %>
+            <p><%= t('global.label.address') %></p>
+            <%= f.input :address, label:false, autofocus: true %>
+            <p><%= t('global.label.user_phone') %></p>
+            <%= f.input :user_phone, label: false, error: 'mobile number', autofocus: true %>
+            <p><%= t('global.label.user_kakao_id') %></p>
+            <%= f.input :user_kakao_id, label: false, error: 'please enter kakao id', autofocus: true %>
+            <div class="instructor-registration">
+              <p><%= t('global.label.edu') %></p>
+              <%= f.input :edu, label: false, autofocus: true  %>
+              <p><%= t('global.label.subjectmajor') %></p>
+              <%= f.input :subjectmajor, label: false, autofocus: true %>
+              <p><%= t('global.label.edulevel') %></p>
+              <%= f.input :edulevel, label: false, collection: [[t('global.assoc'), t('global.assoc')],[t('global.bach'), t('global.bach')],[t('global.master'), t('global.master')],[t('global.doc'), t('global.doc')]], error: 'please specify the highest education attained', autofocus: true %>
+            </div>
+            <div class="aboutyou">
+              <p><%= t('global.label.aboutme') %></p>
+              <%= f.input :aboutme, label: false, placeholder: "tell us about yourself!", as: :text %>
+            </div>
+            <div class="shell-tab-header grey-shell-gradient">
+              <%= f.input :photo, label: "Upload Avatar" %>
+              <%= f.input :photo_cache, as: :hidden %>
+            </div>
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <p><%= t(".currently_waiting_confirmation_for_email", email: resource.unconfirmed_email) %></p>
             <% end %>
