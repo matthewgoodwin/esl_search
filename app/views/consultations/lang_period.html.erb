@@ -12,7 +12,7 @@
       <% @consult_period_group.each do |clangperiod_member| %>
         <% @clangperiod_member = clangperiod_member %>
         <% @clangperiod_member_title = clangperiod_member.consult_title %>
-        <%= render 'consultations/index', element: clangperiod_member %>
+        <%= render 'consultations/index_data', element: clangperiod_member %>
       <% end %><!--end of @consultations.each do-->
     </div><!--background color: white-->
     <div class="center-text center-div">

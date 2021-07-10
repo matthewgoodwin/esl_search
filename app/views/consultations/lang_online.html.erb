@@ -11,7 +11,7 @@
       <% @consult_lang_online_group.each.each do |clangonline_member| %>
         <% @clangonline_member = clangonline_member %>
         <% @clangonline_member_title = clangonline_member.consult_title %>
-        <%= render 'consultations/index', element: clangonline_member %>
+        <%= render 'consultations/index_data', element: clangonline_member %>
       <% end %><!--end of @consultations.each do-->
     </div><!--background color: white-->
     <div class="center-text center-div">

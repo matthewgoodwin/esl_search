@@ -11,7 +11,7 @@
       <% @consult_lang_type_group.each.each do |clangtype_member| %>
         <% @clangtype_member = clangtype_member %>
         <% @clangtype_member_title = clangtype_member.consult_title %>
-        <%= render 'consultations/index', element: clangtype_member %>
+        <%= render 'consultations/index_data', element: clangtype_member %>
       <% end %><!--end of @consultations.each do-->
     </div><!--background color: white-->
     <div class="center-text center-div">

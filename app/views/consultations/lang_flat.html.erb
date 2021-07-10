@@ -11,7 +11,7 @@
       <% @consult_lang_flat_group.each.each do |clangflat_member| %>
         <% @clangflat_member = clangflat_member %>
         <% @clangflat_member_title = clangflat_member.consult_title %>
-        <%= render 'consultations/index', element: clangflat_member %>
+        <%= render 'consultations/index_data', element: clangflat_member %>
       <% end %><!--end of @consultations.each do-->
     </div><!--background color: white-->
     <div class="center-text center-div">

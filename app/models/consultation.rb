@@ -61,6 +61,10 @@ class Consultation < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
 
+  def first_in(element) #element if @consultations instance from _index.html
+    element.user.fname.slice(0)
+  end
+
   private
   def proper_format
     # self.consult_title.downcase!

@@ -11,7 +11,7 @@
       <% @consult_lang_hourly_group.each do |clanghourly_member| %>
         <% @clanghourly_member = clanghourly_member %>
         <% @clanghourly_member_title = clanghourly_member.consult_title %>
-        <%= render 'consultations/index', element: clanghourly_member %>
+        <%= render 'consultations/index_data', element: clanghourly_member %>
       <% end %><!--end of @consultations.each do-->
     </div><!--background color: white-->
     <div class="center-text center-div">
