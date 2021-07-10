@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  before_create :set_color
   # after_create :anyeong
   # ^ sends welcome letter after creation
 
@@ -20,4 +21,7 @@ class User < ApplicationRecord
     # def anyeong
     #   UserMailer.welcome(self).deliver_now
     # end
+    def set_color
+      self.color = ["#7ad8e5","#63b4d1","#7699d4","#816ec4","#8658bc","#8b42b3","#602278"].sample
+    end
 end
