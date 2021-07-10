@@ -11,7 +11,7 @@
       <% @consult_lang_test_prep_group.each do |clangtestprep_member| %>
         <% @clangtestprep_member = clangtestprep_member %>
         <% @clangtestprep_member_title = clangtestprep_member.consult_title %>
-        <%= render 'consultations/index', element: clangtestprep_member %>
+        <%= render 'consultations/index_data', element: clangtestprep_member %>
       <% end %><!--end of @consultations.each do-->
     </div><!--background color: white-->
     <div class="center-text center-div">

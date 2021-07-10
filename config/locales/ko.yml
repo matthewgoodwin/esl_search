@@ -156,6 +156,12 @@ ko:
     vt: "Vietnamese - 베트남어"
     rus: "Russian - 러시아어"
     none: "None"
+
+    assoc: "associate(k)"
+    bach: "bachelor's(k)"
+    master: "master's(k)"
+    doc: "doctoral(k)"
+
     everyone: "everyone - 연령구분 없음"
     youth: "school aged - 초등 & 중학교"
     hs: "high-school - 고등학교"

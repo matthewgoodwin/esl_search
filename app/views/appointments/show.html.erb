@@ -27,8 +27,8 @@
         <% end %>
       </div><!--end of user-profile-image-div-->
       <h4 class="center-text"><b><%= @appointment.consultation.user.fname %></b></h4>
-      <h6 class="center-text">email:&nbsp;<%= @appointment.consultation.user.email %></h6>
-      <h6 class="center-text">mobile:&nbsp;<%= @appointment.consultation.user.user_phone %></h6>
+      <h6 class="center-text">E:&nbsp;<%= @appointment.consultation.user.email %></h6>
+      <h6 class="center-text">M:&nbsp;<%= @appointment.consultation.user.user_phone %></h6>
       <h6 class="center-text">kakao:&nbsp;<%= @appointment.consultation.user.user_kakao_id %></h6>
     </div>
     <div class="flex-50">
@@ -39,8 +39,8 @@
         <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; height: 100px; width: 100px; border-radius: 50%; background-position: center;"></div>
       </div><!--end of user-profile-image-div find: _usericon.scss-->
       <h4 class="center-text"><b><%= @appointment.pupil %></b></h4>
-      <h6 class="center-text">email:&nbsp;<%= @appointment.user.email %></h6>
-      <h6 class="center-text">mobile:&nbsp;<%= @appointment.user.user_phone %></h6>
+      <h6 class="center-text">E:&nbsp;<%= @appointment.user.email %></h6>
+      <h6 class="center-text">M:&nbsp;<%= @appointment.user.user_phone %></h6>
       <h6 class="center-text">kakao:&nbsp;<%= @appointment.user.user_kakao_id %></h6>
     </div>
   </div><!--end element-ashow-inst_client-->
@@ -58,7 +58,7 @@
       <% if @markers !=nil %>
       <div id="map"
      style="width: 100%;
-     height: 300px;"
+     height: 300px; border: 2px solid #F4F4F4;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
      <% end %>

@@ -15,34 +15,34 @@
     <div class="padding-3">
       <% if user_signed_in? %>
       <div class="flex-space-between">
-        <h6><%= t('global.label.email') %>:</h6>
-        <h6><%= @consultation.user.email %></h6>
+        <p><%= t('global.label.email') %>:</p>
+        <p><%= @consultation.user.email %></p>
       </div>
       <div class="flex-space-between">
-        <h6><%= t('global.label.user_phone') %>:</h6>
-        <h6><%= @consultation.user.user_phone %></h6>
+        <p><%= t('global.label.user_phone') %>:</p>
+        <p><%= @consultation.user.user_phone %></p>
       </div>
       <div class="flex-space-between">
-        <h6><%= t('global.label.user_kakao_id') %>:</h6>
-        <h6><%= @consultation.user.user_kakao_id %></h6>
+        <p><%= t('global.label.user_kakao_id') %>:</p>
+        <p><%= @consultation.user.user_kakao_id %></p>
       </div>
       <div class="flex-space-between">
-        <h6><%= t('global.label.gender') %>:</h6>
-        <h6><%= @consultation.user.gender %></h6>
+        <p><%= t('global.label.gender') %>:</p>
+        <p><%= @consultation.user.gender %></p>
       </div>
       <div class="flex-space-between">
-        <h6><%= t('global.label.edulevel') %>:</h6>
-        <h6><%= @consultation.user.edulevel %></h6>
+        <p><%= t('global.label.edulevel') %>:</p>
+        <p><%= @consultation.user.edulevel %></p>
       </div>
       <div class="flex-space-between">
-        <h6><%= t('global.label.subjectmajor') %>:</h6>
-        <h6><%= @consultation.user.subjectmajor %></h6>
+        <p><%= t('global.label.subjectmajor') %>:</p>
+        <p><%= @consultation.user.subjectmajor %></p>
       </div>
       <% else %>
-      <div><h6 class="red-text center-text">sign in for contact details!</h6></div>
+      <div><p class="red-text center-text">sign in for contact details!</p></div>
       <% end %>
       <div class="flex-column">
-        <h6 class="center-text"><%= t('global.label.aboutme') %>:</h6>
+        <p class="center-text"><%= t('global.label.aboutme') %>:</p>
         <p class=""><%= @consultation.user.aboutme %></p>
       </div>
     </div><!--end of padding div-->
