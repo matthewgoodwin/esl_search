@@ -22,6 +22,6 @@ class User < ApplicationRecord
     #   UserMailer.welcome(self).deliver_now
     # end
     def set_color
-      self.color = ["#7ad8e5","#63b4d1","#7699d4","#816ec4","#8658bc","#8b42b3","#602278"].sample
+      self.color = ["#63b4d1","6da7d3", "#7699d4","#816ec4","#8658bc","#8b42b3","#602278"].sample
     end
 end
