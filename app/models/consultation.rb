@@ -61,8 +61,24 @@ class Consultation < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
 
-  def first_in(element) #element if @consultations instance from _index.html
-    element.user.fname.slice(0)
+  # moved to the User Model
+  # def first_in(element) #element if @consultations instance from _index.html
+  #   element.user.fname.slice(0)
+  # end
+
+# instance method for review average star not working
+  def avg_star(element)
+    @consultation_review_star = element.reviews.all.map{|x| [x.star]}
+    unless @consultation_review_star == []
+      @review_stars = @consultation_review_star.sum
+      # ^ @total_review_stars produces single array ex: [4,1] not sure why
+      @total_review_stars = @review_stars.sum
+      # ^ SAME as above: @total_review_stars = @review_stars.inject(0){|sum,x| sum + x }
+      # ^^ sum of all stars ex[4 + 1] = 5
+      @total_reviews = @consultation_review_star.size
+      # ^ total number of reviews with stars ex: 2
+      @avg_star = (@total_review_stars / @total_reviews)
+    end
   end
 
   private

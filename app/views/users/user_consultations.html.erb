@@ -26,8 +26,12 @@
           <div class="flex-33">
             <% avatar_url = a.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
             <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-            <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
-            <h6><b><%= a.user.fname %></b></h6>
+            <% if a.user.photo.present? %>
+              <div class="user-sm-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 60px; width: 60px; border-radius: 50%; background-position: center;"></div>
+            <% else %>
+              <div class="user-sm-profile-image-img icon-shell user-profile-initial" style="background-color: <%= a.user.color %>;background-size: cover;  height: 60px; width: 60px; border-radius: 50%; background-position: center;"><p class="white-text user-initial-size-60 center-text"><%= a.user.first_in(a.user)%></p></div>
+            <% end %>
+            <h6><%= a.user.fname %></h6>
           </div><!--end of icon-->
           <div class="flex-33">
             <h6><b><%= truncate(a.consultation.consult_title, length: 40) %></b></h6>

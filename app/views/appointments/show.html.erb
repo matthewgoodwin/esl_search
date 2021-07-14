@@ -5,8 +5,12 @@
     <div class="flex">
       <% avatar_url = @appointment.consultation.user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
       <%= link_to user_path(@appointment.consultation.user) do %>
-        <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; height: 40px; width: 40px; border-radius: 50%; background-position: center;"></div>
+        <% if @appointment.consultation.user.photo.present? %>
+          <div class="user-sm-profile-image-img icon-shell shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
+        <% else %>
+          <div class="user-sm-profile-image-img icon-shell shell-tab-borderless user-profile-initial" style="background-color: <%= @appointment.consultation.user.color %>;background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"><p class="white-text user-initial-size-40 center-text"><%= @appointment.consultation.user.first_in(@appointment.consultation.user)%></p></div>
         <% end %>
+      <% end %>
         <div class="">
           <p>hosted by:<br><%= @appointment.consultation.user.fname %></p>
         </div>
@@ -23,7 +27,11 @@
         <% avatar_url = @appointment.consultation.user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
           <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
         <%= link_to user_path(@appointment.consultation.user) do %>
-        <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; height: 100px; width: 100px; border-radius: 50%; background-position: center;"></div>
+          <% if @appointment.consultation.user.photo.present? %>
+            <div class="user-md-profile-image-img icon-shell shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 100px; width: 100px; border-radius: 50%; background-position: center;"></div>
+          <% else %>
+            <div class="user-md-profile-image-img icon-shell shell-tab-borderless user-profile-initial" style="background-color: <%= @appointment.consultation.user.color %>;background-size: cover;  height: 100px; width: 100px; border-radius: 50%; background-position: center;"><p class="white-text user-initial-size-100 center-text"><%= @appointment.consultation.user.first_in(@appointment.consultation.user)%></p></div>
+          <% end %>
         <% end %>
       </div><!--end of user-profile-image-div-->
       <h4 class="center-text"><b><%= @appointment.consultation.user.fname %></b></h4>
@@ -36,7 +44,11 @@
       <div class="user-profile-image-div">
         <% avatar_url = @appointment.user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
             <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-        <div class="user-large-profile-image-img shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; height: 100px; width: 100px; border-radius: 50%; background-position: center;"></div>
+          <% if @appointment.user.photo.present? %>
+            <div class="user-md-profile-image-img icon-shell shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 100px; width: 100px; border-radius: 50%; background-position: center;"></div>
+          <% else %>
+            <div class="user-md-profile-image-img icon-shell shell-tab-borderless user-profile-initial" style="background-color: <%= @appointment.user.color %>;background-size: cover;  height: 100px; width: 100px; border-radius: 50%; background-position: center;"><p class="white-text user-initial-size-100 center-text"><%= @appointment.user.first_in(@appointment.user)%></p></div>
+          <% end %>
       </div><!--end of user-profile-image-div find: _usericon.scss-->
       <h4 class="center-text"><b><%= @appointment.pupil %></b></h4>
       <h6 class="center-text">E:&nbsp;<%= @appointment.user.email %></h6>

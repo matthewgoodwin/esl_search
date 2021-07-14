@@ -4,7 +4,11 @@
     <%= link_to user_path(element.user.id) do %>
       <% avatar_url = element.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
       <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-      <div class="user-sm-profile-image-img icon-shell icon-shell center-div center-text" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
+      <% if element.user.photo.present? %>
+        <div class="user-sm-profile-image-img icon-shell center-div center-text" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
+      <% else %>
+        <div class="user-sm-profile-image-img icon-shell center-div center-text user-profile-initial" style="background-color: <%= element.user.color %>;background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"><p class="white-text user-initial-size-40 center-text"><%= element.user.first_in(element.user)%></p></div>
+      <% end %>
     </div><!--end of icon-div-->
   <% end %><!--end of userlink-->
   <div class="flex-67">
@@ -15,15 +19,10 @@
         <h6 class="charcoal-text"><%= element.lesson.lesson_start.strftime('%m/%d') %></h6>
         <h6 class="brand-red-text"><%= element.lesson.lesson_start.strftime('@ %I:%M %p') %></h6>
         <h6 class="charcoal-text"><%= element.lesson.lesson_max_dur %>&nbsp;minute max</h6>
-      <% elsif element.consultation.consult_period == 'flat-rate(k)' %>
+      <% else %>
         <h6 class="charcoal-text"><%= element.lesson.lesson_start.strftime('%m/%d') %></h6>
         <h6 class="brand-red-text"><%= element.lesson.lesson_start.strftime('%I:%M %p') %></h6>
         <h6 class="charcoal-text"><%= element.lesson.lesson_end.strftime('%I:%M %p') %></h6>
-      <% else %>
-      <!-- devalued -->
-        <h6 class="red-text">series</h6>
-        <h6 class="navy-text"><%= element.lesson.lesson_start.strftime('start: %I:%M %p') %></h6>
-        <h6 class="red-text"><%= element.lesson.lesson_end.strftime('end: %I:%M %p') %></h6>
       <% end %><!---end of if statement-->
     <% end %><!--end link_to appointments-->
   </div><!--end of flex-item-grow-only-auto-->

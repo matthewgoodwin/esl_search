@@ -10,7 +10,11 @@
     <div class="user-profile-image-div">
       <% avatar_url = @consultation.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
           <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-      <div class="user-large-profile-image-img icon-shell-dark" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
+      <% if @consultation.user.photo.present? %>
+        <div class="user-large-profile-image-img icon-shell-dark center-div center-text" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
+      <% else %>
+        <div class="user-large-profile-image-img icon-shell-dark center-div center-text user-profile-initial" style="background-color: <%= @consultation.user.color %>;background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"><p class="white-text user-initial-size-180 center-text"><%= @consultation.user.first_in(@consultation.user)%></p></div>
+      <% end %>
     </div><!--end of user-profile-image-div-->
     <div class="padding-3">
       <% if user_signed_in? %>
@@ -104,7 +108,7 @@
   <!--end of consult parital-->
   <div class="element-cshow-revs">
     <div class="shell-tab">
-      <div class="flex-center-center center-div brand-maximum-background">
+      <div class="flex-center-center center-div brand-ice-background">
         <h1 class="white-text"><%= t('global.label.review') %></h1>
       </div><!--end of flex-center-center center-div-->
       <div id="review-min">

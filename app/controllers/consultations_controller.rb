@@ -32,6 +32,7 @@ class ConsultationsController < ApplicationController
     @lesson_dow_array = @consultation.lessons.all.map{|x| [x.lesson_dow]}
     @consultation_review_star = @consultation.reviews.all.map{|x| [x.star]}
     # ^ creates and array of review stars ex: [[4],[1]]
+    # @consultation.avg_star()
     unless @consultation_review_star == []
       @review_stars = @consultation_review_star.sum
       # ^ @total_review_stars produces single array ex: [4,1] not sure why

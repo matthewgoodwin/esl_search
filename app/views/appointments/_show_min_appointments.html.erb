@@ -6,9 +6,13 @@
     <!-- ^ this div can grow-->
     <div class="flex-33"><!--icon-cant grow or shrink-->
      <%= link_to user_path(element.consultation.user) do %>
-     <% avatar_url = element.consultation.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
-        <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-      <div class="user-sm-profile-image-img icon-shell center-text center-div" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
+      <% avatar_url = element.consultation.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
+      <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
+        <% if element.consultation.user.photo.present? %>
+          <div class="user-sm-profile-image-img icon-shell icon-shell center-text center-div" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
+        <% else %>
+          <div class="user-sm-profile-image-img icon-shell center-text center-div user-profile-initial" style="background-color: <%= element.consultation.user.color %>;background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"><p class="white-text user-initial-size-40 center-text"><%= element.consultation.user.first_in(element.consultation.user)%></p></div>
+        <% end %>
       <% end %>
     </div><!--end of NESTED icon flex item div-->
       <div class="flex-33"><!--can grow-->

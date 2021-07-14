@@ -25,10 +25,16 @@
         <div class="flex-space-between padding-3">
           <div class="flex-33">
             <!--image goes here-->
-            <% avatar_url = User.find(pm.sender_id).photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
+            <% pm.find_user(pm) %>
+            <!-- ^ above calls privatemessage Model instance method to find PM sender with sender_id-->
+            <% avatar_url = pm.find_user(pm).photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
               <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-              <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 45px; width: 45px; border-radius: 50%; background-position: center;"></div>
-            <h5 class=""><b> <%= User.find(pm.sender_id).fname %></b></h5>
+          <% if pm.find_user(pm).photo.present? %>
+            <div class="user-sm-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 60px; width: 60px; border-radius: 50%; background-position: center;"></div>
+          <% else %>
+            <div class="user-sm-profile-image-img icon-shell user-profile-initial" style="background-color: <%= pm.find_user(pm).color %>;background-size: cover;  height: 60px; width: 60px; border-radius: 50%; background-position: center;"><p class="white-text user-initial-size-60 center-text"><%= pm.find_user(pm).first_in(pm.find_user(pm))%></p></div>
+          <% end %>
+            <h5 class=""><b> <%= pm.find_user(pm).fname %></b></h5>
           </div>
           <div class="flex-33">
             <h5><b><%= truncate(pm.subject, length: 25) %></b></h5>

@@ -6,6 +6,8 @@ $brand-purple: #34023c;
 $brand-orchid: #8b42b3;
 $brand-cornflower: #7699d4;
 $brand-maximum: #63b4d1;
+$brand-ice: #6da7d3;
+$brand-sky: #7ad8e5;
 $brand-electric: #90fcf9;
 
 $brand-green: #16db93;
@@ -141,6 +143,19 @@ $red: #B22E25;
   color: $brand-cornflower;
 }
 
+
+//brand ice blue
+.brand-ice-background{
+  background-color: $brand-ice;
+}
+.brand-ice-text{
+  color: $brand-ice;
+}
+.ice-text{
+  color: $brand-ice;
+}
+
+
 //brand maximum blue
 .brand-maximum-background{
   background-color: $brand-maximum;
@@ -151,6 +166,18 @@ $red: #B22E25;
 .maximum-text{
   color: $brand-maximum;
 }
+
+//brand sky blue
+.brand-sky-background{
+  background-color: $brand-sky;
+}
+.brand-sky-text{
+  color: $brand-sky;
+}
+.sky-text{
+  color: $brand-sky;
+}
+
 
 //brand electric blue
 .brand-electric-background{
