@@ -1,11 +1,16 @@
 <%= link_to consultation_path(element) do %>
   <div class="flex-space-between flex-wrap padding-3">
     <div class="flex-33 flex-center-column">
-      <% element.first_in(element)%>
+      <% element.user.first_in(element.user)%>
       <% avatar_url = element.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
       <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-      <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 50px; width: 50px; border-radius: 50%; background-position: center;"></div>
-      <div><h6 class="charcoal-text"><b><%= element.user.fname %></b></h6></div>
+      <% if element.user.photo.present? %>
+        <div class="user-sm-profile-image-img icon-shell icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 60px; width: 60px; border-radius: 50%; background-position: center;"></div>
+        <div><h6 class="charcoal-text"><b><%= element.user.fname %></b></h6></div>
+      <% else %>
+        <div class="user-sm-profile-image-img icon-shell user-profile-initial" style="background-color: <%= element.user.color %>;background-size: cover;  height: 60px; width: 60px; border-radius: 50%; background-position: center;"><p class="white-text user-initial-size-60 center-text"><%= element.user.first_in(element.user)%></p></div>
+        <div><h6 class="charcoal-text"><b><%= element.user.fname %></b></h6></div>
+      <% end %>
     </div>
     <div class="flex-33"><!--shell-->
       <h4 class="navy-text"><%= truncate(element.consult_title) %></h4>

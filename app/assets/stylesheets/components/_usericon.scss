@@ -9,6 +9,18 @@
   border-radius: 50%;
 }//icon on dashboard
 
+.user-profile-initial{
+  // text-align: center;
+  // vertical-align: middle;
+  // line-height: 60px;
+  // display flex does not work properly
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // height: 100%;
+  // width: 100%;
+}
+
 .user-md-profile-image-img{
   height: 100px;
   width: 100px;
@@ -20,6 +32,25 @@
   border-radius: 50%;
 }
 
+.user-initial-size-180{
+  font-size: 60px;
+  margin: auto;
+}
+
+.user-initial-size-100{
+  font-size: 55px;
+  margin: auto;
+}
+
+.user-initial-size-60{
+  font-size: 35px;
+  margin: auto;
+}
+
+.user-initial-size-40{
+  font-size: 20px;
+  margin: auto;
+}
 //moved to shell page:
 // .icon-shell{
 //   box-shadow: 1px 1px 10px #808080;

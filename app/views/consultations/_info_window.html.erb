@@ -2,7 +2,11 @@
 <% avatar_url = element.user.photo || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
 <div class="flex-space-between">
   <div class="flex-33">
-    <div class="" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover; height: 40px; width: 40px; border-radius: 50%; background-position: center;"></div>
+    <% if element.user.photo.present? %>
+      <div class="user-sm-profile-image-img icon-shell shell-tab" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 40px; width: 40px; border-radius: 50%; background-position: center;"></div>
+    <% else %>
+      <div class="user-sm-profile-image-img icon-shell shell-tab-borderless user-profile-initial" style="background-color: <%= element.user.color %>;background-size: cover;  height: 40px; width: 40px; border-radius: 50%; background-position: center;"><p class="white-text user-initial-size-40 center-text"><%= element.user.first_in(element.user)%></p></div>
+    <% end %>
     <h5><%= element.user.fname %> </h5>
   </div>
   <div class="flex-67">

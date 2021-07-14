@@ -18,7 +18,11 @@
       <div class="icon-div">
         <% avatar_url = @current_user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
         <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
+      <% if current_user.photo.present? %>
         <div class="user-large-profile-image-img icon-shell-dark" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
+      <% else %>
+        <div class="user-large-profile-image-img icon-shell-dark user-profile-initial" style="background-color: <%= current_user.color %>;background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"><p class="white-text user-initial-size-180 center-text"><%= current_user.first_in(current_user)%></p></div>
+      <% end %>
       </div><!--end of icon-div-->
       <!--added -->
     </div><!--end of user-profile-image-div find: _usericon.scss-->

@@ -34,6 +34,15 @@
   background-color: #FEFEFE;
 }
 
+.shell-tab-borderless{
+  border-radius: 5px;
+  padding: 4px;
+  margin: 4px;
+  // box-shadow: 2px 2px 9px #a8a8a8;
+  box-shadow: 1px 1px 6px #a8a8a8;
+  background-color: #FEFEFE;
+}
+
 .shell-tab-header{
   border: 1px solid white;
   padding: 3px;
@@ -99,7 +108,7 @@
 
 .icon-shell{
   box-shadow: 1px 1px 6px #808080;
-  background-color: #F5F5F5;
+  // background-color: #F5F5F5;
 }
 
 .icon-shell-dark{

@@ -27,7 +27,11 @@
         <div class="flex-33">
         <% avatar_url = ca.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
         <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-        <div class="user-large-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 50px; width: 50px; border-radius: 50%; background-position: center;"></div>
+      <% if ca.photo.present? %>
+        <div class="user-sm-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 60px; width: 60px; border-radius: 50%; background-position: center;"></div>
+      <% else %>
+        <div class="user-sm-profile-image-img icon-shell user-profile-initial" style="background-color: <%= ca.color %>;background-size: cover;  height: 60px; width: 60px; border-radius: 50%; background-position: center;"><p class="white-text user-initial-size-60 center-text"><%= ca.first_in(ca)%></p></div>
+      <% end %>
         </div>
         <div class="flex-33">
           <h6><%= ca.email %></h6>
