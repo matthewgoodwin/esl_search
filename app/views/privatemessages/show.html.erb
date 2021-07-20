@@ -1,37 +1,48 @@
-<h1 class="center-text">Private Message</h1>
-<p><%= link_to "dashboard", dashboard_path %></p>
-<!-- <div class="content-grid message-show-area"> -->
-<div class="mw800 center-div message-show-sender-div center-div">
-  <!-- </div> -->
-  <div class="message-show-subject-div shell-border padding blue-shell-gradient">
-    <div class="icon-div center-div">
-      <% avatar_url = @sender.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
-          <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
-      <% if @sender.photo.present? %>
-        <div class="user-large-profile-image-img icon-shell center-div center-text" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
-      <% else %>
-        <div class="user-large-profile-image-img icon-shell center-div center-text user-profile-initial" style="background-color: <%= @sender.color %>;background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"><p class="white-text user-initial-size-180 center-text"><%= @sender.first_in(@sender)%></p></div>
-      <% end %>
-    </div><!--end of icon-div-->
-    <div class="center-text">
-      <div>
-        <h6 style="color: red;" class=""><%= @privatemessage.created_at.strftime("%B %d %Y") %></h6>
-        <h6 style="color: red;" class=""><%= @privatemessage.created_at.strftime("%I:%M %P") %></h6>
+<div class="content-grid element-index-area">
+  <div class="element-index-header center-div center-text">
+    <h1 class="center-text">Private Message</h1>
+    <%= link_to dashboard_path, class: "" do %>
         <div class="flex-center-center">
-          <h5 class="padding-5"><b>subject:</b></h5>
-          <h5 class="padding-5"><b>"<%= @privatemessage.subject %>"</b></h5>
-        </div><!--end of flex-space-around-->
+          <i class="fas fa-lg fa-chart-pie" aria-hidden="true"></i>
+          <h5 class="navbar-esl-link"><%= t('global.menu.dash') %></h5>
+        </div>
+      <% end %>
+  </div>
+  <div class="element-index-panel shell-border-dark black-background">
+    <%= render "shared/menu_panel" %>
+  </div>
+  <div class="element-index-shell">
+    <!-- <div class="content-grid message-show-area"> -->
+    <div class="message-show-sender-div shell-border-no-pad blue-shell-gradient">
+      <!-- </div> -->
+      <div class="flex-space-between">
+        <div class="flex-33 icon-div center-div padding">
+          <% avatar_url = @sender.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
+              <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
+          <% if @sender.photo.present? %>
+            <div class="user-large-profile-image-img icon-shell center-div center-text" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 60px; width: 60px; border-radius: 50%; background-position: center;"></div>
+          <% else %>
+            <div class="user-large-profile-image-img icon-shell center-div center-text user-profile-initial" style="background-color: <%= @sender.color %>;background-size: cover;  height: 60px; width: 60px; border-radius: 50%; background-position: center;"><p class="white-text user-initial-size-60 center-text"><%= @sender.first_in(@sender)%></p></div>
+          <% end %>
+        </div><!--end of icon-div-->
+        <div class="flex-33">
+          <h5 class="padding-5"><%= @privatemessage.subject %></h5>
+          <h6 style="color: red;" class=""><%= @privatemessage.created_at.strftime("%B %d %Y") %></h6>
+          <h6 style="color: red;" class=""><%= @privatemessage.created_at.strftime("%I:%M %P") %></h6>
+        </div>
+          <div class="flex-33 message-show-action-div padding center-text center-div"><%= link_to privatemessage_path(@privatemessage), method: :delete do %>
+            <i class="fas fa-trash-alt" aria-hidden="true"></i><% end %>
+          </div>
+      </div><!--end of message-show-subject-div-->
+      <div class="message-show-textmess-div flex-column padding" style="background-color: white;">
+        <h5 class=""><%= t('global.label.message') %></h5>
+        <p><%= @privatemessage.pm %></p>
       </div>
-    </div>
-    <div class="message-show-textmess-div padding turcoise-shell-gradient">
-      <div class="center-text">
-        <h5 class=""><b>message:</b></h5>
-        <p>"<%= @privatemessage.pm %>"</p>
-      </div>
-      <div class="message-show-action-div padding center-text center-div"><%= link_to privatemessage_path(@privatemessage), method: :delete do %>
-        <i class="fas fa-trash-alt" aria-hidden="true"></i><% end %>
-      </div>
-    </div><!--message-show-textmess-div-->
-  </div><!--end of message-show-subject-div-->
-  <!-- form here-->
-</div><!--end of message-area-->
+      <!-- form here-->
+    </div><!--end of message-area-->
+  </div> <!--end of element-index-shell-->
+  <div class="element-index-base">
+
+  </div><!--end of element-base-->
+</div>
+
