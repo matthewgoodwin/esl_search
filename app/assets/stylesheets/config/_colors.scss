@@ -1,10 +1,10 @@
 // Define variables for your color scheme
 
 // For example:
-$brand-primary-color: #B22E25;
+$brand-primary-color: #B22E25; // devalued old brand red
 $brand-purple: #34023c;
 $brand-orchid: #8b42b3;
-$brand-cornflower: #7699d4;
+$brand-cornflower: #7699d4; // devalued check for use
 $brand-maximum: #63b4d1;
 $brand-ice: #6da7d3;
 $brand-sky: #7ad8e5;
@@ -230,8 +230,18 @@ $red: #B22E25;
   background-image: -o-linear-gradient(rgba(22,219,147,0.5), rgba(22,219,147,0.2));
   background-image: linear-gradient(rgba(22,219,147,0.5), rgba(22,219,147,0.2));
 }
+.purple-shell-gradient-header{
+  background-image: -webkit-linear-gradient(rgba(52,2,60,0.6), rgba(52,2,60,0.3));
+  background-image: -o-linear-gradient(rgba(52,2,60,0.6), rgba(52,2,60,0.3));
+  background-image: linear-gradient(rgba(52,2,60,0.6), rgba(52,2,60,0.3));
+}
 .blue-shell-gradient-header{
   background-image: -webkit-linear-gradient(rgba(132,175,255,0.6), rgba(132,175,255,0.3));
   background-image: -o-linear-gradient(rgba(132,175,255,0.6), rgba(132,175,255,0.3));
   background-image: linear-gradient(rgba(132,175,255,0.6), rgba(132,175,255,0.3));
+}
+.ice-shell-gradient-header{
+  background-image: -webkit-linear-gradient(rgba(109,167,211,0.6), rgba(109,167,211,0.3));
+  background-image: -o-linear-gradient(rgba(109,167,211,0.6), rgba(109,167,211,0.3));
+  background-image: linear-gradient(rgba(109,167,211,0.6), rgba(109,167,211,0.3));
 }

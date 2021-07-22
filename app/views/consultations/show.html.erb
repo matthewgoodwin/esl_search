@@ -7,7 +7,7 @@
       <h2><%= @consultation.user.fname %></h2>
       <h5><%= @consultation.user.username %></h5>
     </div>
-    <div class="user-profile-image-div">
+    <div class="user-profile-image-div padding">
       <% avatar_url = @consultation.user.photo.url(:bright_face) || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
           <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
       <% if @consultation.user.photo.present? %>
@@ -146,7 +146,7 @@
   <div class="modal-dialog" role="document"><!--aligns the modal document-->
     <div class="modal-content">
       <div class="modal-header modal-head-grad flex flex-center-center grey-shell-gradient">
-        <h3 class="create-edit-modal-header">edit consultation</h3>
+        <h3 class="create-edit-modal-header">edit consultation(k)</h3>
       </div><!--end of header-->
       <div class="modal-body">
         <%= render template: "consultations/edit", consultation: @consultation %>
@@ -159,8 +159,8 @@
 <div class="modal fade review-mod-style" id="create-review">
   <div class="modal-dialog" role="document"><!--aligns the modal document-->
     <div class="modal-content">
-      <div class="modal-header modal-head-grad flex flex-center-center grey-shell-gradient">
-        <h3 class="create-review-modal-header">write review</h3>
+      <div class="modal-header modal-head-grad flex flex-center-center ice-shell-gradient-header">
+        <h3 class="create-review-modal-header">write review(k)</h3>
       </div><!--end of header-->
       <div class="modal-body flex flex-center-center">
         <%= render "reviews/new_review_form", consultation: @consultation, review: @review %>
@@ -173,8 +173,8 @@
 <div class="modal fade message-mod-style" id="create-message">
   <div class="modal-dialog" role="document"><!--aligns the modal document-->
     <div class="modal-content">
-      <div class="modal-header modal-head-grad flex flex-center-center grey-shell-gradient">
-        <h3 class="create-message-modal-header">create inquiry</h3>
+      <div class="modal-header modal-head-grad flex flex-center-center ice-shell-gradient-header">
+        <h3 class="create-message-modal-header">create inquiry(k)</h3>
       </div><!--end of header-->
       <div class="modal-body flex flex-center-center">
         <%= render "messages/new_message_form", consultation: @consultation, message: @message %>
@@ -187,8 +187,8 @@
 <div class="modal fade lesson-mod-style" id="create-lesson">
   <div class="modal-dialog" role="document"><!--aligns the modal document-->
     <div class="modal-content">
-      <div class="modal-header modal-head-grad flex flex-center-center grey-shell-gradient">
-        <h3 class="create-lesson-modal-header">create lesson</h3>
+      <div class="modal-header modal-head-grad flex flex-center-center ice-shell-gradient-header">
+        <h3 class="create-lesson-modal-header">create lesson(k)</h3>
       </div><!--end of header-->
       <div class="modal-body flex flex-center-center">
         <%= render "lessons/new_lesson_form", consultation: @consultation, lesson: @lesson %>

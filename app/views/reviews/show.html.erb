@@ -1,17 +1,22 @@
 <div class="content-grid element-index-area padding">
+  <div class="element-index-panel shell-border-dark black-background white-text">
+    <%= render "shared/menu_panel" %>
+  </div>
+  <div class="element-index-header">
+    <%= render "shared/app_header" %>
+  </div>
   <div class="element-index-shell shell-border grey-shell-gradient">
-    <h6><%= link_to 'dashboard', dashboard_path %></h6>
-    <hr>
-    <div class="user-profile-image-div center-text">
+<div class="flex-center-column padding">
+    <div class="flex-20 user-profile-image-div center-text">
       <% avatar_url = @review.user.photo.url || avatar_url = "https://res.cloudinary.com/mattg/image/upload/v1494130069/user-icon.png" %>
       <!-- ^ added `.url(:brightface)` from the `photo_uploader` class-->
       <% if @review.user.photo.present? %>
-        <div class="user-large-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"></div>
+        <div class="user-large-profile-image-img icon-shell" style="background-image: url('<%= image_path avatar_url %>'); background-size: cover;  height: 60px; width: 60px; border-radius: 50%; background-position: center;"></div>
       <% else %>
-        <div class="user-large-profile-image-img icon-shell user-profile-initial" style="background-color: <%= @review.user.color %>; background-size: cover;  height: 180px; width: 180px; border-radius: 50%; background-position: center;"><p class="white-text user-initial-size-180 center-text"><%= @review.user.first_in(@review.user)%></p></div>
+        <div class="user-large-profile-image-img icon-shell user-profile-initial" style="background-color: <%= @review.user.color %>; background-size: cover;  height: 60px; width: 60px; border-radius: 50%; background-position: center;"><p class="white-text user-initial-size-60 center-text"><%= @review.user.first_in(@review.user)%></p></div>
       <% end %>
     </div><!--end of icon-div-->
-    <div class="center-div center-text mw400">
+    <div class="flex-80 center-div center-text">
       <div><h4><b><%= @review.consultation.consult_title %></b></h4></div>
       <div class=""><h6><b>published&nbsp;by&nbsp;<%= @review.user.fname %></b></h6></div>
       <div class= "">
@@ -23,8 +28,16 @@
         <% end %><!--end of 5-review.star-->
       </div><!--end of ""-->
       <div><h6 style="color: red;"><%= @review.created_at.strftime("%m/%d/%Y @ %I:%M %p") %></h6></div>
-      <div><p>"&nbsp;<%= @review.comment %><!--limit size-->&nbsp;"</p></div>
+</div><!--end of flex-->
       <hr>
     </div>
+    <div class="flex-space-between">
+      <p class="flex-10"></p>
+      <p class="flex-80"><%= @review.comment %><!--limit size--></p>
+      <p class="flex-10"></p>
+    </div>
   </div><!--end of user shell-tab-->
+  <div class="element-index-base">
+    <%= render "shared/app_base" %>
+  </div>
 </div><!-- end of element-index-shell shell-border grey-shell-gradient-->
