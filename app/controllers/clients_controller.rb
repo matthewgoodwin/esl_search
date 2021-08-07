@@ -6,5 +6,7 @@ class ClientsController < ApplicationController
   end
 
   def destroy
+    @client.destroy
+    # flash[:notice] = "your message was deleted!"
   end
 end

@@ -26,9 +26,13 @@ class AppointmentsController < ApplicationController
     @appointment.lesson_id = @lesson.id
     @appointment.invoice_number = Appointment.invoice_number #calls the appointment model
     # save the client to contact list
-    @client = Client.new
-    @client.user_id = @lesson.consultation.user_id
-    @client.client_id = current_user.id
+
+      # this needs to be updated.... when user deletes account,
+      # clients_id presists in Client Model...
+
+      # @client = Client.new
+      # @client.user_id = @lesson.consultation.user_id
+      # @client.client_id = current_user.id
 
     @receipt = Receipt.new
     @receipt.consultation_id = @lesson.consultation.id
@@ -38,7 +42,7 @@ class AppointmentsController < ApplicationController
     authorize @appointment # authorize before saving
     if @appointment.valid?
       @appointment.save
-      @client.save
+      # @client.save
       @receipt.save
       # AppointmentMailer.confirmation(@appointment).deliver_now
       # AppointmentMailer.confirmationx(@appointment).deliver_now

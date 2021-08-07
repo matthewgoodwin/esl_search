@@ -14,6 +14,7 @@ class User < ApplicationRecord
          has_many :messages, dependent: :destroy
          has_many :referrals, dependent: :destroy
          has_many :privatemessages, dependent: :destroy
+         has_many :clients, dependent: :destroy
 
          validates :fname, :username, :user_native_lang, :email, :city, presence: true
          validates :fname, uniqueness: {scope: :email, message: "already a memeber? please log in!"}
@@ -23,6 +24,8 @@ class User < ApplicationRecord
   end
   def set_degree(element) #from _index_data.html.erb
     case element.degree
+    when 1
+      degree = "fas fa-graduation-cap"
     when 2
       degree = "fas fa-university"
     when 3
@@ -45,7 +48,6 @@ class User < ApplicationRecord
     when 5
       expert = "fas fa-chess-queen"
     end
-
   end
 
   private
