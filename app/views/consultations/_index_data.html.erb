@@ -51,6 +51,13 @@
     <div class="flex-33 center-text">
       <div><h6 class="charcoal-text"><%= element.consult_period %></h6></div>
       <p class="charcoal-text"><%= number_to_currency(element[:consult_fee], :unit => "₩")%></p>
+      <div>
+        <% degree = element.user.set_degree(element.user) %>
+        <i class="<%= degree %>" style="color: <%= element.user.color %>"></i>
+        <% expert = element.user.set_expert(element.user) %>
+        <i class="<%= expert %>" style="color: <%= element.user.color %>"></i>
+      </div>
+
     </div>
   </div><!--end of index-element-items-->
 <% end %>

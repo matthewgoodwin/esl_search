@@ -76,6 +76,7 @@ ko:
         edu: "학교(선택사항)"
         subjectmajor: "전공 (선택사항)"
         edulevel: "교육 수준 (선택사항)"
+        degree: "교육 수준 (선택사항)"
         aboutme: "자기소개"
         photo: "사진"
         submit: "제출"
@@ -160,7 +161,7 @@ ko:
     assoc: "associate(k)"
     bach: "bachelor's(k)"
     master: "master's(k)"
-    doc: "doctoral(k)"
+    doc: "doctoral Ph.D(k)"
 
     everyone: "everyone - 연령구분 없음"
     youth: "school aged - 초등 & 중학교"
@@ -191,6 +192,7 @@ ko:
     f: "no - 아니"
     male: "male - 남"
     female: "female - 여"
+    nosay: "rather not say"
 
     menu:
       home: "홈페이지"
@@ -215,10 +217,13 @@ ko:
       user_kakao_id: "카카오 아이디"
       edu: "학교(선택사항)"
       subjectmajor: "전공 (선택사항)"
+      expert: "EXPERIENCE (k)"
       edulevel: "교육 수준 (선택사항)"
+      degree: "교육 수준 (선택사항)"
       aboutme: "자기소개"
       instructor: "강사"
       information: "정보"
+      meeting_list: "모임 리스트"
 
       create_meeting: "모임 만들기"
       create_lesson: "레슨 생성"
@@ -247,9 +252,10 @@ ko:
       start: "시작"
       end: "종료"
       message: "쪽지"
+      recforhost: "recommended for hosts(k)"
   pages:
     home:
-      head_1: "Hangul header 1"
+      head_1: "Hangul Welcome to LINGOS!"
       sub_head_1: "Korean 웹 페이지의 샘플 텍스트입니다."
       card_1_title: "과외"
       card_1_desc: "Korean 웹 페이지의 샘플 텍스트입니다."

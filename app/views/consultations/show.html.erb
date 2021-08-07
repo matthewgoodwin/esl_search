@@ -35,8 +35,9 @@
         <p><%= @consultation.user.gender %></p>
       </div>
       <div class="flex-space-between">
-        <p><%= t('global.label.edulevel') %>:</p>
-        <p><%= @consultation.user.edulevel %></p>
+        <p><%= t('global.label.degree') %>:</p>
+        <% degree = @consultation.user.set_degree(@consultation.user) %>
+        <p><%= @consultation.user.degree %>&nbsp;<i class="<%= degree %>" style="color:<%= @consultation.user.color %>"></i></p>
       </div>
       <div class="flex-space-between">
         <p><%= t('global.label.subjectmajor') %>:</p>

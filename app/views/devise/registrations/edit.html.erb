@@ -21,7 +21,7 @@
             <p><%= t('global.label.user_second_lang') %></p>
             <%= f.input :user_second_lang, label: false, collection: [[t('global.en'), t('global.en')], [t('global.kr'), t('global.kr')], [t('global.jp'), t('global.jp')],[t('global.sp'), t('global.sp')], [t('global.fr'), t('global.fr')], [t('global.ch'), t('global.ch')], [t('global.vt'), t('global.vt')], [t('global.rus'), t('global.rus')]], error: 'your native language is required, please specify one', required: true, autofocus: true %>
             <p><%= t('global.label.gender') %></p>
-            <%= f.input :gender, label: false, collection: [[t("global.male"),t("global.male")],[t("global.female"),t("global.female")]], error: 'your gender is mandatory, please specify one', required: true, autofocus: true %>
+            <%= f.input :gender, label: false, collection: [[t("global.male"),t("global.male")],[t("global.female"),t("global.female")],[t('global.nosay'),t('global.nosay')]], error: 'your gender is mandatory, please specify one', required: true, autofocus: true %>
             <p><%= t('global.label.address') %></p>
             <%= f.input :address, label:false, autofocus: true %>
             <p><%= t('global.label.user_phone') %></p>
@@ -33,8 +33,10 @@
               <%= f.input :edu, label: false, autofocus: true  %>
               <p><%= t('global.label.subjectmajor') %></p>
               <%= f.input :subjectmajor, label: false, autofocus: true %>
-              <p><%= t('global.label.edulevel') %></p>
-              <%= f.input :edulevel, label: false, collection: [[t('global.assoc'), t('global.assoc')],[t('global.bach'), t('global.bach')],[t('global.master'), t('global.master')],[t('global.doc'), t('global.doc')]], error: 'please specify the highest education attained', autofocus: true %>
+              <p><%= t('global.label.degree') %></p>
+              <%= f.input :degree, label: false, collection: [[t('global.assoc'), 1],[t('global.bach'), 2],[t('global.master'), 3],[t('global.doc'), 4]], error: 'please specify the highest education attained', autofocus: true %>
+              <p><%= t('global.label.expert') %></p>
+              <%= f.input :expert, label: false, collection:[[t('global.half'), 1], [t('global.onethree'), 2], [t('global.threefive'), 3], [t('global.fiveten'), 4], [t('global.ten'), 5]] %>
             </div>
             <div class="aboutyou">
               <p><%= t('global.label.aboutme') %></p>

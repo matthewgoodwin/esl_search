@@ -21,6 +21,33 @@ class User < ApplicationRecord
   def first_in(element) #element if @consultations instance from _index.html
     element.fname.slice(0)
   end
+  def set_degree(element) #from _index_data.html.erb
+    case element.degree
+    when 2
+      degree = "fas fa-university"
+    when 3
+      degree = "fas fa-university"
+    when 4
+      degree = "fas fa-university"
+    end
+  end
+
+  def set_expert(element)
+    case element.expert
+    when 1
+      expert = "fas fa-chess-pawn"
+    when 2
+      expert = "fas fa-chess-knight"
+    when 3
+      expert = "fas fa-chess-bishop"
+    when 4
+      expert = "fas fa-chess-rook"
+    when 5
+      expert = "fas fa-chess-queen"
+    end
+
+  end
+
   private
     # def anyeong
     #   UserMailer.welcome(self).deliver_now
