@@ -120,7 +120,7 @@ ko:
           ch: "Chinese / 중국어"
           vt: "Vietnamese / 베트남어"
           rus: "Russian / 러시아어"
-          none: "None(k)"
+          none: "None- 없음"
         consult_demo:
           everyone: "연령구분 없음"
           youth: "초등학교 / 중학교"
@@ -158,10 +158,16 @@ ko:
     rus: "Russian - 러시아어"
     none: "None"
 
-    assoc: "associate(k)"
-    bach: "bachelor's(k)"
-    master: "master's(k)"
-    doc: "doctoral Ph.D(k)"
+    assoc: "associate"
+    bach: "bachelor's - 학사"
+    master: "master's - 석사"
+    doc: "doctoral Ph.D - 박사"
+
+    half: "< 1 year(년)"
+    onethree: "1 - 3 years(년)"
+    threefive: "3 - 5 years(년)"
+    fiveten: "5 - 10 years(년)"
+    ten: "10+ years(년)"
 
     everyone: "everyone - 연령구분 없음"
     youth: "school aged - 초등 & 중학교"
