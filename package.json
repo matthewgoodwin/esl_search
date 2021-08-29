@@ -1,4 +1,6 @@
 {
+  "name": "esl_search",
+  "private": true,
   "dependencies": {
     "@rails/webpacker": "4.2.2",
     "bootstrap": "^4.4.1",

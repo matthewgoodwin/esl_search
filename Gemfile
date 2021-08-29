@@ -1,3 +1,5 @@
+ruby '3.0.1'
+
 source 'https://rubygems.org'
 
 source 'https://rails-assets.org' do
@@ -32,11 +34,10 @@ gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 # https://github.com/TrevorS/bootstrap3-datetimepicker-rails
 
-ruby '2.6.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0'
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.18'
+gem 'pg'
 # Use Puma as the app server
 gem 'pg_search'
 gem 'puma', '~> 3.12'
