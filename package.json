@@ -10,7 +10,7 @@
     "license": "UNLICENSED"
   },
   "engines": {
-    "node": "14.15.x"
+    "node": "15.4.x"
   },
   "devDependencies": {
     "webpack-dev-server": "^4.0.0"
