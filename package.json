@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@rails/webpacker": "5.1.1",
+    "@rails/webpacker": "4.2.2",
     "bootstrap": "^4.4.1",
     "jquery": "^3.6.0",
     "mapbox-gl": "^1.8.1",
