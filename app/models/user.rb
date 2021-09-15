@@ -8,13 +8,16 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-         has_many :consultations, dependent: :destroy
          has_many :appointments, dependent: :destroy
-         has_many :reviews, dependent: :destroy
-         has_many :messages, dependent: :destroy
-         has_many :referrals, dependent: :destroy
-         has_many :privatemessages, dependent: :destroy
          has_many :clients, dependent: :destroy
+         has_many :consultations, dependent: :destroy
+         has_many :job_posts, dependent: :destroy
+         has_many :messages, dependent: :destroy
+         has_many :privatemessages, dependent: :destroy
+         has_many :reviews, dependent: :destroy
+         has_many :referrals, dependent: :destroy
+
+
 
          validates :fname, :username, :user_native_lang, :email, :city, presence: true
          validates :fname, uniqueness: {scope: :email, message: "already a memeber? please log in!"}

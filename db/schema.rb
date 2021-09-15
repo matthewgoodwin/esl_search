@@ -2,15 +2,15 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# This file is the source Rails uses to define your schema when running `rails
-# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_05_062005) do
+ActiveRecord::Schema.define(version: 2021_09_15_100329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,22 @@ ActiveRecord::Schema.define(version: 2021_08_05_062005) do
     t.string "consult_zoom_link"
     t.string "consult_ratio"
     t.index ["user_id"], name: "index_consultations_on_user_id"
+  end
+
+  create_table "job_posts", force: :cascade do |t|
+    t.string "job_lang"
+    t.string "job_type"
+    t.string "job_demo"
+    t.string "job_period"
+    t.string "job_env"
+    t.integer "job_expert"
+    t.text "job_desc"
+    t.decimal "job_fee_low", precision: 19, scale: 2
+    t.decimal "job_fee_high", precision: 19, scale: 2
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_job_posts_on_user_id"
   end
 
   create_table "lessons", id: :serial, force: :cascade do |t|
@@ -181,6 +197,7 @@ ActiveRecord::Schema.define(version: 2021_08_05_062005) do
   add_foreign_key "appointments", "users"
   add_foreign_key "clients", "users"
   add_foreign_key "consultations", "users"
+  add_foreign_key "job_posts", "users"
   add_foreign_key "lessons", "consultations"
   add_foreign_key "messages", "consultations"
   add_foreign_key "messages", "users"
