@@ -30,6 +30,8 @@ Rails.application.routes.draw do
       end
       resources :privatemessages, only: [:show, :create, :edit, :update, :destroy]
     end
+    resources :job_posts
+    # ^ declared outside the user scope, but still requires user_id reference
     resources :consultations, shallow: true do
       collection do
         # get 'hourly', to: 'consultations#hourly'
