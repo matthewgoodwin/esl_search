@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  # get 'job_posts/index'
+  # get 'job_posts/show'
+  # get 'job_posts/new'
+  # get 'job_posts/create'
+  # get 'job_posts/edit'
+  # get 'job_posts/update'
+  # get 'job_posts/destroy'
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     get 'clients/index'
 
