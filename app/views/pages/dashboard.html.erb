@@ -47,6 +47,11 @@
           <% end %>
         </li>
         <li class="shell-tab-header-dark charcoal-background">
+          <%= link_to new_job_post_path, class: "white-text" do %>
+            <h5 class="">new job post</h5>
+          <% end %>
+        </li>
+        <li class="shell-tab-header-dark charcoal-background">
           <%= link_to edit_user_registration_path, class: "white-text" do %>
             <h5 class=""><%= t('.edit_profile') %></h5>
             <!-- change to 'edit profile' -->

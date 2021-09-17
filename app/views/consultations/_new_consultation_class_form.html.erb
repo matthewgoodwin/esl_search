@@ -43,14 +43,14 @@
     <%= f.input :consult_mat, label: false, as: :radio_buttons, collection:[[t('global.t'), t('global.t')], [t('global.f'), t('global.f')]], label_method: :second, value_method: :first, checked: [t('global.f'), t('global.f')]%>
     <h5><%= t('global.label.specific_focus') %> (optional)&nbsp;:</h5>
     <h5><span class="red-text"><%= t('global.label.specific_focus2') %></span></h5>
-    <%= f.input :consult_focus, label: false, placeholder: "e.g. grammar" %>
+    <%= f.input :consult_focus, label: false, placeholder: "e.g. grammar(k)" %>
     <div>
       <h5><%= t('global.label.description') %>&nbsp;:</h5>
       <h5><span class="red-text"><%= t('global.label.desc2') %>&#42;</span></h5>
-      <%= f.input :consult_desc, label: false, placeholder: "descriptions, prerequisites and recommendations", as: :text %>
+      <%= f.input :consult_desc, label: false, placeholder: "descriptions, prerequisites and recommendations(k)", as: :text %>
       <span id="errorBlock" class="error-block"></span>
       <div class="consultation-button-div flex flex-center">
-        <%= f.button :submit, "create class", class: "btn btn-primary no-decor btn-grad-light light-shadow center-div center-text" %>
+        <%= f.button :submit, "create class(k)", class: "btn btn-primary no-decor btn-grad-light light-shadow center-div center-text" %>
       </div><!-- end of consultation-button-div -->
       <!-- display the errors here-->
     </div><!--end of consultaiton-form-div-->

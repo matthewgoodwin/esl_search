@@ -1,2 +1,34 @@
 <h1>JobPosts#new</h1>
 <p>Find me in app/views/job_posts/new.html.erb</p>
+<div class="container">
+<%= simple_form_for(@job_post) do |f| %>
+  <h5><%= t('global.label.primary_lang') %><span class="red-text">&#42;</span></h5>
+  <%= f.input :job_lang, label: false, default: [[t('global.en'), t('global.en')]], collection: [[t('global.en'), t('global.en')], [t('global.kr'), t('global.kr')], [t('global.jp'), t('global.jp')],[t('global.sp'), t('global.sp')], [t('global.fr'), t('global.fr')], [t('global.ch'), t('global.ch')], [t('global.vt'), t('global.vt')], [t('global.rus'), t('global.rus')]]%>
+  <h5><%= t('global.label.target_aud') %> Who is this service for(k)<span class="red-text">&#42;</span></h5>
+  <%= f.input :job_demo, label: false, default: [[t('global.everyone'), t('global.everyone')]], collection: [[t('global.everyone'), t('global.everyone')], [t('global.youth'), t('global.youth')], [t('global.hs'), t('global.hs')], [t('global.univ_student'), t('global.univ_student')], [t('global.adult'), t('global.adult')]] %>
+   <h5><%= t('global.label.type') %><span class="red-text">&#42;</span></h5>
+  <%= f.input :job_type, label: false, collection: [[t('global.lang_camp'), t('global.lang_camp')], [t('global.conv'), t('global.conv')], [t('global.edu'), t('global.edu')], [t('global.univ_prep'), t('global.univ_prep')],[t('global.univ_study'), t('global.univ_study')], [t('global.tutor'), t('global.tutor')], [t('global.exam_prep'), t('global.exam_prep')], [t('global.club_hobby'), t('global.club_hobby')], [t('global.speech_interview'), t('global.speech_interview')], [t('global.industry'), t('global.industry')], [t('global.translation'), t('global.translation')], [t('global.other'), t('global.other')]], prompt: "-select type-" %>
+  <h5><%= t('global.label.env') %><span class="red-text">&#42;</span></h5>
+  <%= f.input :job_env, label: false, collection: [[t('global.online'), t('global.online')], [t('global.face'), t('global.face')]], prompt: "-select environment-" %>
+  <h5><%= t('global.label.expert') %></h5>
+  <%= f.input :job_expert, label: false, collection:[[t('global.half'), 1], [t('global.onethree'), 2], [t('global.threefive'), 3], [t('global.fiveten'), 4], [t('global.ten'), 5]] %>
+  <h5><%= t('global.label.term') %><span class="red-text">&#42;</span></h5>
+    <%= f.input :job_period, label: false, default: [t('global.hourly'), t('global.hourly')], collection: [[t('global.hourly'), t('global.hourly')], [t('global.flat'), t('global.flat')], [t('global.free'), t('global.free')]] %>
+  <h5><%= t('global.label.rate') %>&nbsp;low(k)<span class="red-text">&#42;</span></h5>
+  <div class="flex">
+    <h5>&#8361; &nbsp; </h5>
+    <%= f.input :job_fee_low, label: false, placeholder: "ex: 0" %>
+  </div>
+  <h5><%= t('global.label.rate') %>&nbsp;high(k)<span class="red-text">&#42;</span></h5>
+  <div class="flex">
+    <h5>&#8361; &nbsp; </h5>
+    <%= f.input :job_fee_high, label: false, placeholder: "ex: 30000" %>
+  </div>
+  <h5><%= t('global.label.description') %>&nbsp;:</h5>
+    <h5><span class="red-text"><%= t('global.label.desc2') %>&#42;</span></h5>
+    <%= f.input :job_desc, label: false, placeholder: "describe your job needs(K)", as: :text %>
+  <div class="consultation-button-div flex flex-center">
+    <%= f.button :submit, "create job(k)", class: "btn btn-primary no-decor btn-grad-light light-shadow center-div center-text" %>
+  </div><!-- end of job-post-button-div -->
+<% end -%>
+</div>
