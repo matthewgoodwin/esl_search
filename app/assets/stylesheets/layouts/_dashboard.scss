@@ -42,7 +42,8 @@
     grid-template-areas:
     ". panel messages messages messages messages messages messages messages messages ."
     ". panel myconsults myconsults myconsults myconsults appoint appoint appoint appoint ."
-    ". panel consult consult consult consult review review client client ."
+    ". panel consult consult consult consult job job job job ."
+    ". panel review review review review client client client client ."
     ;
   //   /* same as below:
   //   display: grid;
@@ -69,6 +70,9 @@
 }
 .dashboard-consults-product-shell{
   grid-area: consult;
+}
+.dashboard-job-post-shell{
+  grid-area: job;
 }
 .dashboard-consults-product-items{
 }

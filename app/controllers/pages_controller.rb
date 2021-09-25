@@ -16,6 +16,7 @@ class PagesController < ApplicationController
     @consultation = Consultation.new
     @appointments = current_user.appointments
     @consultations = current_user.consultations
+    @job_posts = current_user.job_posts
     @privatemessages = current_user.privatemessages
      # raise
     @my_cons_appointments_array = [] #ids of consultation appointments(for count)

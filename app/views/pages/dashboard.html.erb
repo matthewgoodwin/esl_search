@@ -132,6 +132,21 @@
       </div><!-- end of dashboard-consults-product-div -->
     </div>
   </div><!--end of dashboard-consults-product-shell-->
+  <div class="dashboard-job-post-shell shell-border grey-shell-gradient">
+    <div class="flex-center-center">
+      <%= link_to job_posts_path do %>
+        <div class="flex-67"><h5 class="charcoal-text">JOB POSTS</h5></div>
+      <% end %>
+      <div class="flex-33 center-text"><h6><%= @job_posts.size %></h6></div>
+    </div><!--end of dashboard-job header-items-->
+    <div>
+      <div id="jobs" class="dashboard-consults-job-div">
+        <% @job_posts.limit(3).each do |job| %>
+          <%= render 'job_posts/show_min_jobs', element: job %> <!--c(generic local used in partial) : |consultation|-->
+        <% end %><!-- end of current_user.consultations.each do-->
+      </div><!-- end of dashboard-consults-product-div -->
+    </div>
+  </div><!--end of dashboard-consults-product-shell-->
   <div class="dashboard-consults-reviews-shell shell-border grey-shell-gradient">
     <div class="flex-center-center">
       <%= link_to user_reviews_user_path(current_user.id) do %>
