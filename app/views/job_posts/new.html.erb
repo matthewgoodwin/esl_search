@@ -10,6 +10,8 @@
       <h2 class="center-text">CREATE A JOB POST</h2>
       <div class="">
         <%= simple_form_for(@job_post) do |f| %>
+          <h5>JOB TITLE(K)<span class="red-text">&#42;</span></h5>
+          <%= f.input :job_title, label: false %>
           <h5><%= t('global.label.primary_lang') %><span class="red-text">&#42;</span></h5>
           <%= f.input :job_lang, label: false, default: [[t('global.en'), t('global.en')]], collection: [[t('global.en'), t('global.en')], [t('global.kr'), t('global.kr')], [t('global.jp'), t('global.jp')],[t('global.sp'), t('global.sp')], [t('global.fr'), t('global.fr')], [t('global.ch'), t('global.ch')], [t('global.vt'), t('global.vt')], [t('global.rus'), t('global.rus')]]%>
           <h5><%= t('global.label.target_aud') %> Who is this service for(k)<span class="red-text">&#42;</span></h5>

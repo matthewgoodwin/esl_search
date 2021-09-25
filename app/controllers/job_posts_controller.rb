@@ -37,7 +37,7 @@ class JobPostsController < ApplicationController
   end
   private
   def job_post_params
-    params.require(:job_post).permit(:job_lang, :job_type, :job_demo, :job_period, :job_env, :job_expert, :job_desc, :job_fee_low, :job_fee_high)
+    params.require(:job_post).permit(:job_title, :job_lang, :job_type, :job_demo, :job_period, :job_env, :job_expert, :job_desc, :job_fee_low, :job_fee_high)
   end
   def find_job
     @job_post = JobPost.find(params[:id])
