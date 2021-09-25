@@ -12,6 +12,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @job_post = JobPost.new
     @consultation = Consultation.new
     @appointments = current_user.appointments
     @consultations = current_user.consultations
