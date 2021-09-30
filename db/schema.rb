@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_25_072827) do
+ActiveRecord::Schema.define(version: 2021_09_30_144731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -151,6 +151,14 @@ ActiveRecord::Schema.define(version: 2021_09_25_072827) do
     t.integer "user_id"
     t.string "review_title"
     t.bigint "consultation_id"
+    t.integer "punct"
+    t.integer "prep"
+    t.integer "org"
+    t.integer "know"
+    t.integer "comm"
+    t.integer "adapt"
+    t.integer "respond"
+    t.integer "succ"
     t.index ["consultation_id"], name: "index_reviews_on_consultation_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end

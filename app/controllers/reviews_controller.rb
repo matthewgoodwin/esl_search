@@ -63,7 +63,7 @@ class ReviewsController < ApplicationController
     authorize @consultation
   end
   def review_params
-    params.require(:review).permit(:comment, :star, :review_title)
+    params.require(:review).permit(:comment, :star, :review_title, :punct, :prep, :org, :know, :comm, :adapt, :respond, :succ)
     # add appointment reservation number above
   end
 end
