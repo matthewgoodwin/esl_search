@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   before_action :find_review, only: [:show, :edit, :update, :destroy]
   before_action :find_consultation, only: [:new, :create, :update, :destroy]
   before_action :review_params, only: [:new, :create]
+  before_action :rating_params, only: [:new, :create]
   def index
 
   end
@@ -16,6 +17,8 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     @review.consultation = @consultation
+    @review.star = Review.ravg_star(rating_params) # calls Model -> sends ratings
+    # raise
     authorize @review
     if @review.save
       # flash[:notice] = "Your review has been added!"
@@ -32,7 +35,7 @@ class ReviewsController < ApplicationController
         format.js
     end
     # raise
-    end
+    end #end of if review.save
   end
 
   def edit
@@ -63,7 +66,11 @@ class ReviewsController < ApplicationController
     authorize @consultation
   end
   def review_params
-    params.require(:review).permit(:comment, :star, :review_title, :punct, :prep, :org, :know, :comm, :adapt, :respond, :succ)
+    params.require(:review).permit(:comment, :review_title, :punct, :prep, :org, :know, :comm, :adapt, :respond, :succ)
+    # add appointment reservation number above
+  end
+    def rating_params
+    params.require(:review).permit(:punct, :prep, :org, :know, :comm, :adapt, :respond, :succ)
     # add appointment reservation number above
   end
 end
