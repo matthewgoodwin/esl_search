@@ -30,18 +30,11 @@ class ConsultationsController < ApplicationController
     authorize @lesson
     @lesson_op = @consultation.lessons.all.map{|x| [x.lesson_section]}
     @lesson_dow_array = @consultation.lessons.all.map{|x| [x.lesson_dow]}
-    @consultation_review_star = @consultation.reviews.all.map{|x| [x.star]}
+    @c_r_star = @consultation.reviews.all.map{|x| [x.star]}
     # ^ creates and array of review stars ex: [[4],[1]]
     # @consultation.avg_star()
-    unless @consultation_review_star == []
-      @review_stars = @consultation_review_star.sum
-      # ^ @total_review_stars produces single array ex: [4,1] not sure why
-      @total_review_stars = @review_stars.sum
-      # ^ SAME as above: @total_review_stars = @review_stars.inject(0){|sum,x| sum + x }
-      # ^^ sum of all stars ex[4 + 1] = 5
-      @total_reviews = @consultation_review_star.size
-      # ^ total number of reviews with stars ex: 2
-      @avg_star = (@total_review_stars / @total_reviews)
+    unless @c_r_star == []
+      @avg_star = @consultation.avg_star(@consultation)
     end
     # raise
     # authorize @appointment
