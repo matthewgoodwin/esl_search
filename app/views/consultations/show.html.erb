@@ -35,6 +35,12 @@
         <p><%= @consultation.user.gender %></p>
       </div>
       <div class="flex-space-between">
+        <p><%= t('global.label.edu') %>:</p>
+        <% expert = @consultation.user.set_expert(@consultation.user) %>
+        <p><%= @consultation.user.expert %>&nbsp;<i class="<%= expert %>" style="color:<%= @consultation.user.color %>"></i></p>
+        <!-- expert icon is set by the user instance method called-->
+      </div>
+      <div class="flex-space-between">
         <p><%= t('global.label.degree') %>:</p>
         <% degree = @consultation.user.set_degree(@consultation.user) %>
         <p><%= @consultation.user.degree %>&nbsp;<i class="<%= degree %>" style="color:<%= @consultation.user.color %>"></i></p>
@@ -109,7 +115,7 @@
   <!--end of consult parital-->
   <div class="element-cshow-revs">
     <div class="shell-tab">
-      <div class="flex-center-center center-div brand-ice-background">
+      <div class="flex-center-center center-div brand-twitter-background">
         <h1 class="white-text"><%= t('global.label.review') %></h1>
       </div><!--end of flex-center-center center-div-->
       <div id="review-min">
