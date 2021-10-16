@@ -3,12 +3,25 @@
     <h1 class="white-text center-text"><%= @consultation.consult_title %></h1>
   </div>
   <div class= "flex-center-center center-div">
+    <% if @consultation.reviews.all.map{|x| [x.ravg]} == [] %>
+      <% 5.times do %>
+        <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+      <% end -%><!-- 5.times bank stars-->
+    <% else %><!--if/else/end @consultation.reviews.all.map-->
     <% @avg_star.to_i.times do %>
-      <i class="fa fa-star yellow-star"></i><!--reference 'components/_reviewstars.scss'-->
+      <i class="fas fa-star yellow-star"></i><!--reference 'components/_reviewstars.scss'-->
     <% end %><!--end of r.star-->
-      <% (5 - @avg_star.to_i).times do %>
-      <i class="fa fa-star white-star"></i><!--reference 'components/_reviewstars.scss'-->
-    <% end %><!--end of 5-r.star-->
+      <% if @avg_star >= (@avg_star.floor + 0.5) && (@avg_star < @avg_star.floor + 1) && @avg_star.to_i != 5 %>
+        <i class="fas fa-star-half-alt half-star"></i>
+        <% (4 - @avg_star.to_i).times do %>
+          <i class="fas fa-star white-star"></i><!--reference 'components/_reviewstars.scss'-->
+        <% end %><!--end of 4-r.star-->
+      <% else %>
+        <% (5 - @avg_star.to_i).times do %>
+        <i class="fa fa-star white-star"></i><!--reference 'components/_reviewstars.scss'-->
+        <% end %><!--end of 5-r.star-->
+      <% end-%><!--end of floor if/then-->
+    <% end %><!--if/else/end @consultation.reviews.all.map-->
   </div><!--end of review-item-->
 </div>
 <div class="center-div center-text">

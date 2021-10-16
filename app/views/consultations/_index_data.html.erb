@@ -19,20 +19,27 @@
       <h6 class="charcoal-text"><%= element.consult_type %></h6>
       <h6 class="charcoal-text"><%= element.consult_env %></h6>
       <div>
-        <% if element.reviews.all.map{|x| [x.star]} == [] %>
-          <% 5.to_i.times do %>
+      <% if element.reviews.all.map{|x| [x.ravg]} == []%>
+        <% 5.times do %>
+          <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+        <% end -%><!-- 5.times bank stars-->
+      <% else %><!--if element.reviews.all.map-->
+        <% @avg_star = element.avg_star(element) %>
+        <% @avg_star.to_i.times do %> <!-- @avg_star is from the controller (incorrect this calls the model)-->
+          <i class="fa fa-star yellow-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+          <% end %><!--@avg_star.to_i.times do-->
+        <% if @avg_star >= (@avg_star.floor + 0.5) && (@avg_star < @avg_star.floor + 1) && @avg_star.to_i != 5 %>
+            <i class="fas fa-star-half-alt half-star"></i>
+            <% (4 - @avg_star.to_i).times do %>
             <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
-          <% end %>
-        <% else %>
-          <% @avg_star = element.avg_star(element) %>
-          <% @avg_star.to_i.times do %> <!-- @avg_star is from the controller -->
-            <i class="fa fa-star yellow-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
-          <% end %><!--end of r.star-->
-            <% (5 - @avg_star.to_i).times do %>
+           <% end %><!--end of 4-r.star-->
+        <% else %><!--if @avg_star >= -->
+          <% (5 - @avg_star.to_i).times do %>
             <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
           <% end %><!--end of 5-r.star-->
-          <h6><%= element.reviews.size %>&nbsp;<%= t('global.label.review') %></h6>
-        <% end %><!--end of element.reviews.all.map -->
+        <% end %><!--if @avg_star >= -->
+      <% end %><!--if/else/end element.reviews.all.map-->
+      <h6><%= element.reviews.size %>&nbsp;<%= t('global.label.review') %></h6>
       </div>
     </div><!--shell-->
     <!-- :unit is built into the number_to_currency-->

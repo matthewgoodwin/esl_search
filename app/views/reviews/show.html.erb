@@ -20,10 +20,10 @@
       <div><h4><b><%= @review.consultation.consult_title %></b></h4></div>
       <div class=""><h6><b>published&nbsp;by&nbsp;<%= @review.user.fname %></b></h6></div>
       <div class= "">
-        <% @review.star.to_i.times do %>
+        <% @review.ravg.to_i.times do %>
           <i class="fa fa-star yellow-star"></i><!--reference 'components/_reviewstars.scss'-->
         <% end %><!--end of review.star-->
-        <% (5 - @review.star.to_i).times do %>
+        <% (5 - @review.ravg.to_i).times do %>
           <i class="fa fa-star grey-star"></i><!--reference 'components/_reviewstars.scss'-->
         <% end %><!--end of 5-review.star-->
       </div><!--end of ""-->

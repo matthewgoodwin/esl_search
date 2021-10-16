@@ -17,8 +17,9 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     @review.consultation = @consultation
-    @review.star = Review.ravg_star(rating_params) # calls Model -> sends ratings
-    # raise
+    @review.ravg = Review.ravg_star(rating_params) # calls Model -> sends ratings
+    @review.ravg > 3.5? @review.succ = 1 : @review.succ = 0
+# raise
     authorize @review
     if @review.save
       # flash[:notice] = "Your review has been added!"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_30_144731) do
+ActiveRecord::Schema.define(version: 2021_10_12_190551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -159,6 +159,8 @@ ActiveRecord::Schema.define(version: 2021_09_30_144731) do
     t.integer "adapt"
     t.integer "respond"
     t.integer "succ"
+    t.decimal "avg", precision: 9, scale: 4
+    t.float "ravg"
     t.index ["consultation_id"], name: "index_reviews_on_consultation_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end

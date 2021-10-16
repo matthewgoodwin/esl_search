@@ -1,8 +1,8 @@
 <div class= "flex-50 padding-3">
-  <% element.star.to_i.times do %>
+  <% element.ravg.to_i.times do %>
     <i class="fa fa-star yellow-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
     <% end %><!--end of r.star-->
-  <% (5 - element.star.to_i).times do %>
+  <% (5 - element.ravg.to_i).times do %>
     <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
  <% end %><!--end of 5-r.star-->
 </div><!--end of review-item-->

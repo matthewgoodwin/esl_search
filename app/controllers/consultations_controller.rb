@@ -30,11 +30,12 @@ class ConsultationsController < ApplicationController
     authorize @lesson
     @lesson_op = @consultation.lessons.all.map{|x| [x.lesson_section]}
     @lesson_dow_array = @consultation.lessons.all.map{|x| [x.lesson_dow]}
-    @c_r_star = @consultation.reviews.all.map{|x| [x.star]}
+    @c_r_star = @consultation.reviews.all.map{|x| [x.ravg]}
     # ^ creates and array of review stars ex: [[4],[1]]
     # @consultation.avg_star()
     unless @c_r_star == []
       @avg_star = @consultation.avg_star(@consultation)
+      # raise
     end
     # raise
     # authorize @appointment

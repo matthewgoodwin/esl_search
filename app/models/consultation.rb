@@ -68,7 +68,8 @@ class Consultation < ApplicationRecord
 
 # instance method for review average star not working
   def avg_star(element)
-    @c_r_star = element.reviews.all.map{|x| [x.star]}
+    # instance method called for total review avg
+    @c_r_star = element.reviews.all.map{|x| [x.ravg]}
     unless @c_r_star == []
       @r_stars = @c_r_star.sum
       # ^ @total_r_s produces single array ex: [4,1] not sure why
@@ -78,6 +79,7 @@ class Consultation < ApplicationRecord
       @total_r = @c_r_star.size
       # ^ total number of reviews with stars ex: 2
       @avg_star = (@total_r_s / @total_r)
+      # raise
       return @avg_star
     end
   end

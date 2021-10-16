@@ -9,6 +9,7 @@ $brand-maximum: #63b4d1;
 $brand-ice: #6da7d3;
 $brand-sky: #7ad8e5;
 $brand-electric: #90fcf9;
+$twitter-blue: #1DA1F2;
 
 $brand-credential-mint: #A5E6BA;
 $brand-credential-ice-mint: #9AC6C5;
@@ -68,6 +69,12 @@ $red: #B22E25;
 }
 .dark-navy-background{
   background-color: $dark-navy;
+}
+.twitter{
+  color: $twitter-blue;
+}
+.twitter-background{
+  background-color: $twitter-blue;
 }
 .dark-purple-text{
   color: $dark-purple;
