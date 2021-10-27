@@ -1,4 +1,69 @@
-<h1>JobPosts#show</h1>
-<p>Find me in app/views/job_posts/show.html.erb</p>
-<p><%= @job_post.job_title %></p>
-<p><%= @job_post.job_fee_high %></p>
+<div class="content-grid job-post-area">
+  <div class="element jobpost-header">
+    <%= render "shared/app_header" %>
+  </div>
+  <div class="element-jobpost-panel shell-border-dark black-background">
+    <div class="">
+      <%= render "shared/menu_panel" %>
+    </div>
+  </div>
+  <div class="element-jobpost-job shell-border center-text">
+    <h1>JobPosts#show</h1>
+    <p>Find me in app/views/job_posts/show.html.erb</p>
+    <h1><%= @job_post.job_title %></h1>
+    <div class="flex-space-between text-center padding-3">
+      <h6 class="flex-50">Title</h6>
+      <p class="flex-50"><%= @job_post.job_title %></p>
+    </div>
+    <div class="flex-space-between text-center padding-3">
+      <h6 class="flex-50">Language</h6>
+      <p class="flex-50"><%= @job_post.job_lang %></p>
+    </div>
+    <div class="flex-space-between text-center padding-3">
+      <h6 class="flex-50">type</h6>
+      <p class="flex-50"><%= @job_post.job_type %></p>
+    </div>
+    <div class="flex-space-between text-center padding-3">
+      <h6 class="flex-50">demo</h6>
+      <p class="flex-50"><%= @job_post.job_demo %></p>
+    </div>
+    <div class="flex-space-between text-center padding-3">
+      <h6 class="flex-50">period</h6>
+      <p class="flex-50"><%= @job_post.job_period %></p>
+    </div>
+    <div class="flex-space-between text-center padding-3">
+      <h6 class="flex-50">expert</h6>
+      <% job_expert = @job_post.set_job_expert(@job_post) %>
+      <p class="flex-50">
+        <i class="<%= job_expert %>" style="color: <%= @job_post.user.color %>;"></i>
+      </p>
+    </div>
+    <div class="flex-space-between text-center padding-3">
+      <h6 class="flex-50">environment</h6>
+      <p class="flex-50"><%= @job_post.job_env %></p>
+    </div>
+    <div class="flex-space-between text-center padding-3">
+      <h6 class="flex-50">payment</h6>
+      <p class="flex-50"><%= @job_post.job_fee_low %></p>
+    </div>
+    <div class="flex-space-between text-center padding-3">
+      <h6 class="flex-50">payment</h6>
+      <p class="flex-50"><%= @job_post.job_fee_high %></p>
+    </div>
+
+  </div>
+  <div class="element-jobpost-top">
+    <div class="shell-border">
+      <!-- top related consultations-->
+    </div>
+  </div>
+  <div class="element-jobpost-bottom">
+    <div class="shell-border">
+      <!-- related posts -->
+    </div>
+  </div>
+  <div class="element-jobpost-base">
+    <hr>
+    <%= render "shared/app_base" %>
+  </div>
+</div>

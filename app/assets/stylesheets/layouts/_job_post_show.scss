@@ -1,0 +1,63 @@
+.job-post-area{
+  grid-gap: 2px;
+  grid-template-areas:
+  "jhead"
+  "jpanel"
+  "job"
+  "jtop"
+  "jbottom"
+  "jbase"
+  ;
+}
+
+@media (min-width: 768px) {
+  .job-post-area:{
+    grid-gap: 5px;
+    grid-template-areas:
+    "jhead jhead"
+    "jpanel jpanel"
+    "job job"
+    "jtop jtop"
+    "jbottom jbottom"
+    "jbase jbase"
+    ;
+  }
+}
+
+@media (min-width: 950px){
+  .job-post-area{
+      grid-template: [row-start] repeat(auto, 1fr) [row-end] / [col-start] 1% repeat(4, 1fr) 1% [col-end]; //rows set to automatic; now fits
+      grid-gap: 2px 2px; //row columns
+      grid-template-areas:
+    ". jhead jhead jhead jhead ."
+    ". jpanel job job job ."
+    ". jpanel jtop jtop jtop ."
+    ". jpanel jbottom jbottom jbottom ."
+    ". jbase jbase jbase jbase ."
+    ;
+  }
+}
+
+.element-jobpost-header{
+  grid-area: jhead;
+}
+
+.element-jobpost-panel{
+  grid-area: jpanel;
+}
+
+.element-jobpost-job{
+  grid-area: job;
+}
+
+.element-jobpost-top{
+  grid-area: jtop;
+}
+
+.element-jobpost-bottom{
+  grid-area: jbottom;
+}
+
+.element-jobpost-base{
+  grid-area: jbase;
+}

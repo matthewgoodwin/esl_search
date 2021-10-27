@@ -8,7 +8,8 @@
 @import "consultationshow"; //references 'consultatioshow.scss' -> application.scss
 @import "consultationindex"; //references 'consultationindex.scss' -> application.scss
 @import "appointmentshow"; //references '_appointmentshow.scss'
-@import "messageshow"; //refereces '_messagesshow.scss'
+@import "messageshow";
+@import "job_post_show"; //refereces '_messagesshow.scss'
 @import "user_message_index";
 @import "pages_home";
 @import "indexlayout"; //generic layout for index pages
