@@ -35,15 +35,24 @@
         <p><%= @consultation.user.gender %></p>
       </div>
       <div class="flex-space-between">
-        <p><%= t('global.label.edu') %>:</p>
-        <% expert = @consultation.user.set_expert(@consultation.user) %>
-        <p><%= @consultation.user.expert %>&nbsp;<i class="<%= expert %>" style="color:<%= @consultation.user.color %>"></i></p>
+        <p><%= t('global.label.expert') %>:</p>
+        <% if @consultation.user.expert.present? %>
+          <% expert = @consultation.user.set_expert(@consultation.user) %>
+          <p><span><%= expert[1] %></span>&nbsp;
+            <i class="<%= expert[0] %>" style="color:<%= @consultation.user.color %>"></i>
+          </p>
         <!-- expert icon is set by the user instance method called-->
+        <% end -%>
       </div>
       <div class="flex-space-between">
         <p><%= t('global.label.degree') %>:</p>
-        <% degree = @consultation.user.set_degree(@consultation.user) %>
-        <p><%= @consultation.user.degree %>&nbsp;<i class="<%= degree %>" style="color:<%= @consultation.user.color %>"></i></p>
+        <% if @consultation.user.degree.present? %>
+          <% degree = @consultation.user.set_degree(@consultation.user) %>
+          <p><span><%= degree[1] %></span>&nbsp;
+            <i class="<%= degree[0] %>" style="color:<%= @consultation.user.color %>"></i>
+          </p>
+       <!-- degree icon is set by the user instance method called-->
+        <% end %>
       </div>
       <div class="flex-space-between">
         <p><%= t('global.label.subjectmajor') %>:</p>

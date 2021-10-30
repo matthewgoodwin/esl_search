@@ -23,9 +23,16 @@
         <% @review.ravg.to_i.times do %>
           <i class="fa fa-star yellow-star"></i><!--reference 'components/_reviewstars.scss'-->
         <% end %><!--end of review.star-->
-        <% (5 - @review.ravg.to_i).times do %>
-          <i class="fa fa-star grey-star"></i><!--reference 'components/_reviewstars.scss'-->
-        <% end %><!--end of 5-review.star-->
+        <% if @review.ravg >= (@review.ravg.floor + 0.5) && (@review.ravg < @review.ravg.floor + 1) && @review.ravg.to_i != 5 %>
+            <i class="fas fa-star-half-alt half-star"></i>
+            <% (4 - @review.ravg.to_i).times do %>
+            <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+           <% end %><!--end of 4-r.star-->
+        <% else %><!--if @review.ravg >= -->
+          <% (5 - @review.ravg.to_i).times do %>
+            <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+          <% end %><!--end of 5-r.star-->
+        <% end %><!--if @review.ravg >= -->
       </div><!--end of ""-->
       <div><h6 style="color: red;"><%= @review.created_at.strftime("%m/%d/%Y @ %I:%M %p") %></h6></div>
 </div><!--end of flex-->

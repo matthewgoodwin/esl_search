@@ -6,10 +6,12 @@
   <h5 class="flex-50"><%= t('global.label.user_native_lang') %></h5>
   <p class="flex-50"><%= @user.user_native_lang %></p>
 </div><!--end of prim_lang-->
-<div class="flex-space-between">
+<% if @user.user_second_lang.present? %>
+ <div class="flex-space-between">
   <h5 class="flex-50"><%= t('global.label.user_second_lang') %></h5>
   <p class="flex-50"><%= @user.user_second_lang %></p>
 </div><!--end of sec_lang-->
+<% end %>
 <div class="flex-center-center">
   <h5 class="flex-50"><%= t('global.label.city') %></h5>
   <p class="flex-50"><%= @user.city %></p>
@@ -19,8 +21,18 @@
   <p class="flex-50"><%= @user.subjectmajor %></p>
 </div><!--end of major-div-->
 <div class="flex-space-between">
+  <h5 class="flex-50"><%= t('global.label.expert') %></h5>
+  <% if @user.expert.present? %>
+  <% expert = @user.set_expert(@user) %>
+      <p class="flex-50"><%= expert[1] %></p>
+  <% end %>
+</div><!--end of Edu-div-->
+<div class="flex-space-between">
   <h5 class="flex-50"><%= t('global.label.degree') %></h5>
-  <p class="flex-50"><%= @user.degree %></p>
+  <% if @user.degree.present? %>
+  <% degree = @user.set_degree(@user) %>
+      <p class="flex-50"><%= degree[1] %></p>
+  <% end %>
 </div><!--end of Edu-div-->
 <div class="flex-space-between">
   <h5 class="flex-50"><%= t('global.label.gender') %></h5>

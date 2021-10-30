@@ -33,9 +33,10 @@
     </div>
     <div class="flex-space-between text-center padding-3">
       <h6 class="flex-50">expert</h6>
-      <% job_expert = @job_post.set_job_expert(@job_post) %>
+      <% job_expert = @job_post.set_job_expert(@job_post) %><!-- calls the method in JobPost model-->
       <p class="flex-50">
-        <i class="<%= job_expert %>" style="color: <%= @job_post.user.color %>;"></i>
+        <span><%= job_expert[1] %></span>
+        <i class="<%= job_expert[0] %>" style="color: <%= @job_post.user.color %>;"></i>
       </p>
     </div>
     <div class="flex-space-between text-center padding-3">

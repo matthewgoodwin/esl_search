@@ -1,10 +1,17 @@
 <div class= "flex-50 padding-3">
   <% element.ravg.to_i.times do %>
     <i class="fa fa-star yellow-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
-    <% end %><!--end of r.star-->
-  <% (5 - element.ravg.to_i).times do %>
-    <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
- <% end %><!--end of 5-r.star-->
+    <% end %><!--end of review.ravg-->
+  <% if element.ravg >= (element.ravg.floor + 0.5) && (element.ravg < element.ravg.floor + 1) && element.ravg.to_i != 5 %>
+      <i class="fas fa-star-half-alt half-star"></i>
+      <% (4 - element.ravg.to_i).times do %>
+      <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+     <% end %><!--end of 4-review.ravg-->
+  <% else %><!--if element.ravg >= -->
+    <% (5 - element.ravg.to_i).times do %>
+      <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+    <% end %><!--end of 5-review.ravg-->
+  <% end %><!--if element.ravg >= -->
 </div><!--end of review-item-->
 <div class="flex-50 padding-3">
   <p class="charcoal-text">&nbsp;<%= element.user.fname %></p>

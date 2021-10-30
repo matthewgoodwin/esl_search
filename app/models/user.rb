@@ -28,28 +28,28 @@ class User < ApplicationRecord
   def set_degree(element) #from _index_data.html.erb
     case element.degree
     when 1
-      degree = "fas fa-graduation-cap"
+      degree = ["fas fa-graduation-cap", "associate"]
     when 2
-      degree = "fas fa-university"
+      degree = ["fas fa-university", "bachelor's - 학사"]
     when 3
-      degree = "fas fa-university"
+      degree = ["fas fa-university", "master's - 석사"]
     when 4
-      degree = "fas fa-university"
+      degree = ["fas fa-university", "doctoral Ph.D - 박사"]
     end
   end
 
   def set_expert(element)
     case element.expert
     when 1
-      expert = "fas fa-chess-pawn"
+      expert = ["fas fa-chess-pawn", "< 1 year(년)"]
     when 2
-      expert = "fas fa-chess-knight"
+      expert = ["fas fa-chess-knight", "1 - 3 years(년)"]
     when 3
-      expert = "fas fa-chess-bishop"
+      expert = ["fas fa-chess-bishop", "3 - 5 years(년)"]
     when 4
-      expert = "fas fa-chess-rook"
+      expert = ["fas fa-chess-rook", "5 - 10 years(년)"]
     when 5
-      expert = "fas fa-chess-queen"
+      expert = ["fas fa-chess-queen", "10+ years(년)"]
     end
   end
 
