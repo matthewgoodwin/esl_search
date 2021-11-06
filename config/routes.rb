@@ -21,6 +21,7 @@ Rails.application.routes.draw do
         get 'user_appointments', to: 'users#user_appointments'
         get 'user_messages', to: 'users#user_messages'
         get 'user_products', to: 'users#user_products'
+        get 'user_job_posts', to: 'users#user_job_posts'
         get 'user_clients', to: 'users#user_clients'
         get 'user_reviews', to: 'users#user_reviews'
         get 'user_privatemessages', to: 'users#user_privatemessages'

@@ -1,0 +1,102 @@
+      <!-- data for the review show page-->
+
+        <div class="flex-center-center">
+          <div class="flex-50 center-text">
+            <h5><%= t('global.label.punct') %></h5>
+          </div>
+          <div class="flex-50 center-text">
+            <% element.punct.to_i.times do %>
+              <i class="fa fa-star yellow-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+            <% end %><!--end of @review.xx-->
+            <% (5 - element.punct.to_i).times do %>
+              <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+            <% end %>
+          </div>
+        </div>
+
+        <div class="flex-center-center">
+          <div class="flex-50 center-text">
+            <h5><%= t('global.label.prep') %></h5>
+          </div>
+          <div class="flex-50 center-text">
+            <% element.prep.to_i.times do %>
+              <i class="fa fa-star yellow-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+            <% end %><!--end of @review.xx-->
+            <% (5 - element.prep.to_i).times do %>
+              <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+            <% end %>
+          </div>
+        </div>
+
+
+        <div class="flex-center-center">
+          <div class="flex-50 center-text">
+            <h5><%= t('global.label.org') %></h5>
+          </div>
+          <div class="flex-50 center-text">
+            <% element.org.to_i.times do %>
+              <i class="fa fa-star yellow-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+            <% end %><!--end of @review.xx-->
+            <% (5 - element.org.to_i).times do %>
+              <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+            <% end %>
+          </div>
+          </div>
+
+        <div class="flex-center-center">
+          <div class="flex-50 center-text">
+            <h5><%= t('global.label.know') %></h5>
+          </div>
+          <div class="flex-50 center-text">
+            <% element.know.to_i.times do %>
+              <i class="fa fa-star yellow-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+            <% end %><!--end of @review.xx-->
+            <% (5 - element.know.to_i).times do %>
+              <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+            <% end %>
+          </div>
+          </div>
+
+        <div class="flex-center-center">
+          <div class="flex-50 center-text">
+            <h5><%= t('global.label.comm') %></h5>
+          </div>
+          <div class="flex-50 center-text">
+            <% element.comm.to_i.times do %>
+              <i class="fa fa-star yellow-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+            <% end %><!--end of @review.xx-->
+            <% (5 - element.comm.to_i).times do %>
+              <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+            <% end %>
+          </div>
+          </div>
+
+        <div class="flex-center-center">
+          <div class="flex-50 center-text">
+            <h5><%= t('global.label.adapt') %></h5>
+          </div>
+          <div class="flex-50 center-text">
+            <% element.adapt.to_i.times do %>
+              <i class="fa fa-star yellow-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+            <% end %><!--end of @review.xx-->
+            <% (5 - element.adapt.to_i).times do %>
+              <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+            <% end %>
+          </div>
+          </div>
+
+        <div class="flex-center-center">
+          <div class="flex-50 center-text">
+            <h5><%= t('global.label.respond') %></h5>
+          </div>
+          <div class="flex-50 center-text">
+            <% element.respond.to_i.times do %>
+              <i class="fa fa-star yellow-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+            <% end %><!--end of @review.xx-->
+            <% (5 - element.respond.to_i).times do %>
+              <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
+            <% end %>
+          </div>
+          </div>
+
+

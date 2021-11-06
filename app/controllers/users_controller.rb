@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show, :edit, :update, :user_consultations, :user_appointments, :user_messages, :user_products, :user_clients, :user_reviews, :user_privatemessages]
+  before_action :find_user, only: [:show, :edit, :update, :user_consultations, :user_appointments, :user_messages, :user_products, :user_job_posts, :user_clients, :user_reviews, :user_privatemessages]
   before_action :find_sender
   def index
     # @users = User.all
@@ -32,6 +32,9 @@ class UsersController < ApplicationController
   end
   def user_products
     @user_products = @user.consultations
+  end
+  def user_job_posts
+    @user_job_posts = @user.job_posts
   end
   def user_clients
     @privatemessage = Privatemessage.new

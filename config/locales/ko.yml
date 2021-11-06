@@ -264,6 +264,17 @@ ko:
       publish: "리뷰 남기기"
       sign_for_det: "연락처 등록"
 
+      punct: "punctuality(k)"
+      prep: "preparation(k)"
+      org: "organization(k)"
+      know: "knowledge(k)"
+      comm: "communication(k)"
+      adapt: "flexibility(k)"
+      respond: "responsiveness(k)"
+      ravg: "review average(k)"
+      succ: "successful(k)"
+      comment: "comment(k)"
+
   pages:
     home:
       head_1: "링고스에 오신 것을 환영합니다!"

@@ -249,6 +249,17 @@ en:
       publish: "publish review"
       sign_for_det: "sign in for details"
 
+      punct: "punctuality(k)"
+      prep: "preparation(k)"
+      org: "organization(k)"
+      know: "knowledge(k)"
+      comm: "communication(k)"
+      adapt: "flexibility(k)"
+      respond: "responsiveness(k)"
+      ravg: "review average(k)"
+      succ: "successful(k)"
+      comment: "comment(k)"
+
   pages:
     home:
       head_1: "WELCOME TO LINGOS!"

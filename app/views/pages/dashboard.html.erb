@@ -134,7 +134,7 @@
   </div><!--end of dashboard-consults-product-shell-->
   <div class="dashboard-job-post-shell shell-border grey-shell-gradient">
     <div class="flex-center-center">
-      <%= link_to job_posts_path do %>
+      <%= link_to user_job_posts_user_path(current_user.id) do %>
         <div class="flex-67"><h5 class="charcoal-text">JOB POSTS</h5></div>
       <% end %>
       <div class="flex-33 center-text"><h6><%= @job_posts.size %></h6></div>

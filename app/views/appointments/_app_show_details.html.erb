@@ -25,38 +25,31 @@
     <% end %><!--end of edit-->
   </div>
   <div class="flex-space-between">
-    <span class="flex-item-shrink-only-10"></span>
-    <h5 class="flex-40"><%= t('global.label.primary_lang') %></h5>
-    <h5 class="flex-50"><%= @appointment.consultation.consult_language %></h5>
+    <p class="flex-50"><%= t('global.label.primary_lang') %></p>
+    <p class="flex-50"><%= @appointment.consultation.consult_language %></p>
   </div>
   <div class="flex-space-between">
-    <span class="flex-item-shrink-only-10"></span>
-    <h5 class="flex-40"><%= t('global.label.sec_lang') %></h5>
-    <h5 class="flex-50"><%= @appointment.consultation.consult_sec_lang %></h5>
+    <p class="flex-50"><%= t('global.label.sec_lang') %></p>
+    <p class="flex-50"><%= @appointment.consultation.consult_sec_lang %></p>
   </div>
   <div class="flex-space-between">
-    <span class="flex-item-shrink-only-10"></span>
-    <h5 class="flex-40"><%= t('global.label.env') %></h5>
-    <h6 class="flex-50"><%= @appointment.consultation.consult_env %> </h6>
+    <p class="flex-50"><%= t('global.label.env') %></p>
+    <p class="flex-50"><%= @appointment.consultation.consult_env %> </p>
   </div>
   <div class="flex-space-between">
-    <span class="flex-item-shrink-only-10"></span>
-    <h5 class="flex-40"><%= t('global.label.remote_link') %></h5>
-    <h6 class="flex-50"><%= link_to @appointment.lesson.remote_link, "http://#{@appointment.lesson.remote_link}", target: "_blank", rel: "nofollow" %></a></h6>
+    <p class="flex-50"><%= t('global.label.remote_link') %></p>
+    <p class="flex-50"><%= link_to @appointment.lesson.remote_link, "http://#{@appointment.lesson.remote_link}", target: "_blank", rel: "nofollow" %></a></p>
   </div>
   <div class="flex-space-between">
-    <span class="flex-item-shrink-only-10"></span>
-    <h5 class="flex-40"><%= t('global.label.type') %></h5>
-    <h6 class="flex-50"><%= @appointment.consultation.consult_type %></h6>
+    <p class="flex-50"><%= t('global.label.type') %></p>
+    <p class="flex-50"><%= @appointment.consultation.consult_type %></p>
   </div>
   <div class="flex-space-between">
-    <span class="flex-item-shrink-only-10"></span>
-    <h5 class="flex-40"><%= t('global.label.term') %></h5>
-    <h6 class="flex-50"><%= @appointment.consultation.consult_period %> </h6>
+    <p class="flex-50"><%= t('global.label.term') %></p>
+    <p class="flex-50"><%= @appointment.consultation.consult_period %> </p>
   </div>
   <div class="flex-space-between">
-    <span class="flex-item-shrink-only-10"></span>
-    <h5 class="flex-40"><%= t('global.label.rate') %></h5>
-    <h6 class="flex-50"><%= number_to_currency(@appointment.consultation.consult_fee, :unit => "₩") %></h6>
+    <p class="flex-50"><%= t('global.label.rate') %></p>
+    <p class="flex-50"><%= number_to_currency(@appointment.consultation.consult_fee, :unit => "₩") %></p>
   </div>
 </div><!--end of padding-->

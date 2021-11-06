@@ -24,23 +24,20 @@
       <% end %>
     </div><!--end of icon-div-->
 
-      <div class="flex-50">
-        <%= render "users/user_show_detail" %>
-      </div>
+    <div class="flex-50">
+      <%= render "users/user_show_detail" %>
+    </div>
   </div><!-- end of flex-space-between-->
 
-    <div class="flex-space-between padding-10">
-      <div class="flex-20"></div>
-      <div class="flex-60">
-      <p class=""><%= @user.aboutme %></p>
-      <div class="center-text center-div">
-        <a href="" data-toggle="modal" data-target="#create-pm">
-          <div class="btn btn-primary round-div no-decor center-div">private message</div>
-        </a>
-      </div><!--end of privatemessage-show-form-div-->
-      </div><!--end of 60-->
-      <div class="flex-20"></div>
-    </div><!--end of flex-center-->
+  <div class="mw800 center-div padding-5">
+    <p class=""><%= @user.aboutme %></p>
+    <div class="center-text center-div">
+      <a href="" data-toggle="modal" data-target="#create-pm">
+        <div class="btn btn-primary round-div no-decor center-div">private message</div>
+      </a>
+    </div><!--end of privatemessage-show-form-div-->
+  </div><!--end mw800 center-div padding-5 -->
+
   </div><!-- end ushow-shell-->
   <div class="element-ushow-base">
     <%= render "shared/app_base" %>

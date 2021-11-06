@@ -1,3 +1,6 @@
+.align-center{
+  align-item: center;
+}
 .flex{
   display: flex;
 }
@@ -50,6 +53,11 @@
   justify-content: space-around;
   align-items: center;
 }
+.flex-space-even{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
 .header-items{
   display: flex;
   justify-content: center;
@@ -87,6 +95,9 @@
 }
 .flex-item-shrink-only-10{
   flex: 0 1 10%;
+}
+.flex-item-shrink-only-20{
+  flex: 0 1 20%;
 }
 .flex-item-no-grow-shrink-5{
   flex: 0 0 5%;

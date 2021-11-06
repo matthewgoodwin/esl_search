@@ -16,6 +16,8 @@ class UserPolicy < ApplicationPolicy
     end
     def user_appointments?
       return true
+      # ^perhaps only the owner should see this?
+      # owner?
     end
     def user_messages?
       owner?
@@ -24,6 +26,9 @@ class UserPolicy < ApplicationPolicy
       owner?
     end
     def user_products?
+      return true
+    end
+    def user_job_posts?
       return true
     end
     def user_clients?
