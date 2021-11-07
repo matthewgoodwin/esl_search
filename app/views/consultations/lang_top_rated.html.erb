@@ -10,23 +10,16 @@
       <%= render 'consultations/index_table_header' %>
       <% @consult_lang_group.each do |c| %>
       <% @top_rated = [] %>
-      <% if c.reviews.all.map{|x| [x.star]} == [] %>
+      <% if c.reviews.all.map{|x| [x.ravg]} == [] %>
       <% else %>
-        <% @cons_rstars = c.reviews.all.map{|x| [x.star]} %>
+        <% @cons_rstars = c.reviews.all.map{|x| [x.ravg]} %>
         <!-- creates and array of review stars ex: [[4],[1]] -->
         <% unless @cons_rstars == [] %>
-          <% @r_stars = @cons_rstars.sum %>
-          <!--# ^ produces single array ex: [4,1] not sure why-->
-          <% @total_rstars = @r_stars.sum %>
-          <!-- # ^ SAME as above: @total_rstars = @r_stars.inject(0){|sum,x| sum + x }
-          # ^^ sum of all stars ex[4 + 1] = 5 -->
-          <% @total_reviews = @cons_rstars.size %>
-          <!-- # total number of reviews -->
-          <% @avg_star = (@total_rstars / @total_reviews) %>
-
-          <% unless @top_rated.include?(c) || @avg_star < 2 %>
+        <% @avg_star = c.avg_star(c) %>
+        <% @total_reviews = c.reviews.all.size  %>
+          <% unless @top_rated.include?(c) || @avg_star <= 3.5 %>
             <% @top_rated << c %>
-            <% @weight = @avg_star * (@total_reviews * 0.0001) %>
+
             <% @top_rated.each do |element| %>
               <%= link_to consultation_path(element) do %>
                 <div class="flex-space-between">
@@ -48,11 +41,22 @@
                   <% @avg_star.to_i.times do %> <!-- @avg_star is from the controller -->
                     <i class="fa fa-star yellow-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
                   <% end %><!--end of r.star-->
-                  <% (5 - @avg_star.to_i).times do %>
-                    <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
-                  <% end %><!--end of 5-r.star-->
-                  <h6><%= @total_reviews %>&nbsp;review</h6>
-                  <h6><%= @weight %></h6>
+                  <% if @avg_star >= (@avg_star.floor + 0.5) && (@avg_star < @avg_star.floor + 1) && @avg_star.to_i != 5 %>
+                    <i class="fas fa-star-half-alt half-star"></i>
+                    <% (4 - @avg_star.to_i).times do %>
+                      <i class="fas fa-star grey-star"></i><!--reference 'components/_reviewstars.scss'-->
+
+                    <% end %><!--end of 4-r.star-->
+                    &nbsp;<span class="charcoal-text">(<%= @avg_star.truncate(2) %>)</span>
+                  <% else %>
+                    <% (5 - @avg_star.to_i).times do %>
+                    <i class="fas fa-star grey-star"></i><!--reference 'components/_reviewstars.scss'-->
+
+                    <% end %><!--end of 5-r.star-->
+                    &nbsp;<span class="charcoal-text">(<%= @avg_star.truncate(2) %>)</span>
+                  <% end-%><!--end of floor if/then-->
+                  <h6><%= @total_reviews %>&nbsp;reviews</h6>
+
                 </div><!-- details-->
                 <div class="flex-33 center-text">
                   <div><h6 class="charcoal-text"><%= element.consult_period %></h6></div>

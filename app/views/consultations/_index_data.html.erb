@@ -33,10 +33,12 @@
             <% (4 - @avg_star.to_i).times do %>
             <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
            <% end %><!--end of 4-r.star-->
+           &nbsp;<span class="charcoal-text">(<%= @avg_star.truncate(2) %>)</span>
         <% else %><!--if @avg_star >= -->
           <% (5 - @avg_star.to_i).times do %>
             <i class="fa fa-star grey-star sm-star"></i><!--reference 'components/_reviewstars.scss'-->
           <% end %><!--end of 5-r.star-->
+          &nbsp;<span class="charcoal-text">(<%= @avg_star.truncate(2) %>)</span>
         <% end %><!--if @avg_star >= -->
       <% end %><!--if/else/end element.reviews.all.map-->
       <h6><%= element.reviews.size %>&nbsp;<%= t('global.label.review') %></h6>

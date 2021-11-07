@@ -151,7 +151,7 @@ class ConsultationsController < ApplicationController
     @top_rated = []
     @consult_lang_group = policy_scope(Consultation).where(consult_language: @consult_lang)
     @consult_lang_group.each do |consult|
-      @cons_rstars = consult.reviews.all.map{|x| x.star}
+      @cons_rstars = consult.reviews.all.map{|x| x.ravg}
       unless @cons_rstars == []
         @sorted_rstars = @cons_rstars.group_by{|x| x}.values
         # loop through nested arrays
