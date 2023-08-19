@@ -158,7 +158,7 @@ GEM
     momentjs-rails (2.20.1)
       railties (>= 3.1)
     netrc (0.11.0)
-    nio4r (2.5.8)
+    nio4r (2.5.9)
     nokogiri (1.13.10)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
@@ -168,7 +168,7 @@ GEM
       activerecord (>= 5.2)
       activesupport (>= 5.2)
     public_suffix (4.0.6)
-    puma (4.3.12)
+    puma (5.6.7)
       nio4r (~> 2.0)
     pundit (2.1.1)
       activesupport (>= 3.0.0)
@@ -302,7 +302,7 @@ DEPENDENCIES
   momentjs-rails (>= 2.9.0)
   pg (~> 1.1)
   pg_search
-  puma (~> 4.3)
+  puma (~> 5.6)
   pundit
   rails (~> 6.0)
   rails-assets-plugin!
